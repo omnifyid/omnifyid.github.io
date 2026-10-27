@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f5f6f3;color:#0f1410;-webkit-font-smoothing:antialiased}
+a{color:#0f1410;text-decoration:none}a:hover{color:oklch(0.5 0.15 140)}
+html{scroll-behavior:smooth}
+@view-transition{navigation:auto}
+::view-transition-group(nav-pill){animation-duration:.5s;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+::view-transition-old(root){animation:.22s ease both vt-out}
+::view-transition-new(root){animation:.5s cubic-bezier(.16,1,.3,1) both vt-in}
+@keyframes vt-out{to{opacity:0;transform:translateY(-10px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(14px)}}
+</style>
+<link rel="prefetch" href="../FnB/">
+<link rel="prefetch" href="../Marketplace/">
+<link rel="prefetch" href="../Lainnya/">
+</helmet>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<div style="min-height:100vh;background:#d9ddd5;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box">
+  <iframe src="{{ frameSrc }}" title="Mobile view" style="width:390px;height:844px;max-width:100%;border:none;border-radius:36px;background:#f5f6f3;box-shadow:0 0 0 10px #0f1410,0 30px 60px rgba(0,0,0,.25)"></iframe>
+</div>
+</sc-if>
+<sc-if value="{{ isWeb }}" hint-placeholder-val="{{ true }}">
+<div data-screen-label="FnB Portfolio" style="min-height:100vh;background:#f5f6f3;color:#0f1410;font-family:'IBM Plex Sans',sans-serif">
+
+  <header style="view-transition-name:site-header;position:sticky;top:0;z-index:10;background:rgba(245,246,243,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e1e4dc">
+    <div style="max-width:1280px;margin:0 auto;padding:14px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px">
+      <a href="#top" style="font-family:'IBM Plex Sans',sans-serif;font-weight:800;font-size:22px;line-height:1;letter-spacing:-.06em;display:flex;align-items:center;gap:.12em;color:#0f1410"><span style="color:oklch(0.55 0.16 140)">&gt;</span><span>omnify</span><span style="width:.5em;height:.82em;background:oklch(0.62 0.17 140)"></span></a>
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;margin-left:auto"><div role="group" aria-label="Language" style="display:flex;gap:2px;padding:3px;background:#fff;border:1px solid #e1e4dc;border-radius:999px"><button onClick="{{ setID }}" aria-pressed="{{ isID }}" title="Bahasa Indonesia" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:30px;padding:0 10px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;background:{{ setIDBg }};color:{{ setIDFg }}"><img src="https://flagcdn.com/id.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">ID</button><button onClick="{{ setEN }}" aria-pressed="{{ isEN }}" title="English" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:30px;padding:0 10px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;background:{{ setENBg }};color:{{ setENFg }}"><img src="https://flagcdn.com/gb.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">EN</button></div><nav style="display:flex;gap:4px;font-size:14px;font-weight:500;overflow-x:auto">
+        <a href="#top" style="view-transition-name:nav-pill;background:#0f1410;color:#eef4ea;padding:9px 16px;border-radius:8px;white-space:nowrap">FnB</a>
+        <a href="../Marketplace/" style="padding:9px 16px;border-radius:8px;color:#5d6459;white-space:nowrap">Marketplace</a>
+        <a href="../Lainnya/" style="padding:9px 16px;border-radius:8px;color:#5d6459;white-space:nowrap">{{ t.k16 }}</a>
+      </nav>
+      <a href="#estimate" style="background:oklch(0.62 0.17 140);color:#fff;padding:11px 18px;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap">{{ t.k17 }}</a></div></sc-if>
+    </div>
+  </header>
+
+  <section id="top" style="position:relative;overflow:hidden;background:#0f1410;color:#eef4ea">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 90% 80% at 30% 40%,#000 30%,transparent 85%);mask-image:radial-gradient(ellipse 90% 80% at 30% 40%,#000 30%,transparent 85%)"></div>
+    <div style="position:absolute;width:620px;height:620px;left:-160px;top:-220px;border-radius:50%;background:oklch(0.62 0.17 140);opacity:.16;filter:blur(120px)"></div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(20px,5vw,64px) clamp(40px,6vw,72px);display:flex;flex-direction:column;gap:clamp(40px,6vw,72px);box-sizing:border-box">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(40px,5vw,72px)">
+        <div data-reveal-stagger="1" style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:24px">
+          <h1 style="margin:0;font-size:clamp(42px,6.4vw,88px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance;color:#f2f6ef">{{ t.k0 }}<span style="color:oklch(0.8 0.17 140)">{{ t.k1 }}</span></h1>
+          <p style="margin:0;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:#c3ccc0;max-width:540px;text-wrap:pretty">{{ t.k2 }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:6px">
+            <a href="#estimate" style="background:oklch(0.62 0.17 140);color:#fff;padding:15px 24px;border-radius:8px;font-size:15px;font-weight:600" style-hover="background:oklch(0.56 0.17 140);color:#fff">{{ t.k18 }}</a>
+            <a href="#fnb-01" style="border:1px solid rgba(255,255,255,.22);color:#eef4ea;padding:15px 24px;border-radius:8px;font-size:15px;font-weight:600" style-hover="border-color:rgba(255,255,255,.5);color:#fff">{{ t.k19 }}</a>
+          </div>
+        </div>
+        <div data-reveal="1" data-reveal-delay="250" style="flex:1 1 440px;min-width:0;position:relative;display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:200px 200px;gap:12px;padding:24px 0">
+          <div style="grid-row:1 / 3;border-radius:12px;background:#1c241e url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&amp;fit=crop&amp;w=900&amp;q=80') center/cover"></div>
+          <div style="border-radius:12px;background:#1c241e url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&amp;fit=crop&amp;w=900&amp;q=80') center/cover"></div>
+          <div style="border-radius:12px;background:#1c241e url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&amp;fit=crop&amp;w=900&amp;q=80') center/cover"></div>
+          <div style="position:absolute;top:0;left:-16px;z-index:2;background:rgba(15,20,16,.86);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.35)"><span style="width:8px;height:8px;border-radius:50%;background:oklch(0.8 0.17 140);flex:none"></span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600;color:#f2f6ef;white-space:nowrap">{{ t.k3 }}</span><span style="font-size:12px;color:#a9b5a6;white-space:nowrap">{{ t.k4 }}</span></div></div>
+          <div style="position:absolute;top:46%;right:-12px;z-index:2;background:rgba(15,20,16,.86);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.35)"><span style="width:8px;height:8px;border-radius:50%;background:oklch(0.8 0.15 80);flex:none"></span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600;color:#f2f6ef;white-space:nowrap">{{ t.k5 }}</span><span style="font-size:12px;color:#a9b5a6;white-space:nowrap">{{ t.k6 }}</span></div></div>
+          <div style="position:absolute;bottom:0;left:22%;z-index:2;background:rgba(15,20,16,.86);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.35)"><span style="width:8px;height:8px;border-radius:50%;background:oklch(0.75 0.14 220);flex:none"></span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600;color:#f2f6ef;white-space:nowrap">{{ t.k7 }}</span><span style="font-size:12px;color:#a9b5a6;white-space:nowrap">{{ t.k8 }}</span></div></div>
+        </div>
+      </div>
+      <div data-reveal-stagger="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+          <a href="{{ p.href }}" style="background:#141a15;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;color:#eef4ea" style-hover="background:#1b241d;color:#fff">
+            <div style="display:flex;justify-content:flex-end;font-size:12px"><span style="color:#7f8c80">↓</span></div>
+            <span style="font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.25">{{ p.title }}</span>
+            <span style="font-size:13px;color:#a9b5a6">{{ p.eta }} · {{ p.price }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid #e1e4dc">
+    <div style="max-width:1280px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,64px) 0;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px" data-reveal="1">
+      <h2 style="margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.05">{{ t.k20 }}</h2>
+      <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#6d7469">{{ t.k9 }}</span>
+    </div>
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+      <article id="{{ p.id }}" style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,64px);border-bottom:1px solid #e1e4dc;display:flex;flex-wrap:wrap;flex-direction:{{ p.dir }};gap:clamp(24px,5vw,64px);align-items:flex-start;box-sizing:border-box">
+        <sc-if value="{{ p.hasVideo }}" hint-placeholder-val="{{ false }}">
+        <div data-reveal="1" data-vframe="1" style="flex:1 1 520px;min-width:0;aspect-ratio:{{ p.vAr }};max-height:{{ p.vMaxH }};width:100%;background:#0f1410;border-radius:8px;overflow:hidden;display:grid;grid-template-columns:{{ p.vCols }};gap:12px;padding:12px;box-sizing:border-box">
+          <sc-for list="{{ p.videos }}" as="v" hint-placeholder-count="1">
+            <button onClick="{{ v.open }}" aria-label="{{ v.label }}" style="grid-column:{{ v.col }};aspect-ratio:{{ v.ar }};min-width:0;min-height:0;position:relative;border:none;padding:0;background:#000;cursor:pointer;border-radius:6px;overflow:hidden;display:block" style-hover="box-shadow:0 0 0 2px oklch(0.8 0.17 140)">
+              <video src="{{ v.src }}" data-autoplay="1" loop="" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;pointer-events:none"></video>
+              <span style="position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:8px;background:rgba(15,20,16,.82);backdrop-filter:blur(6px);color:#eef4ea;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 12px 7px 9px;font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;white-space:nowrap"><span style="width:18px;height:18px;border-radius:50%;background:oklch(0.8 0.17 140);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;border-left:6px solid #0f1410;border-top:4px solid transparent;border-bottom:4px solid transparent;margin-left:2px"></span></span><sc-if value="{{ v.showLabel }}" hint-placeholder-val="{{ true }}"><span>{{ v.label }}</span></sc-if></span>
+            </button>
+          </sc-for>
+        </div>
+        </sc-if>
+        <sc-if value="{{ p.noVideo }}" hint-placeholder-val="{{ true }}">
+        <div data-reveal="1" style="flex:1 1 520px;min-width:0;aspect-ratio:4/3;max-height:520px;width:100%;background:repeating-linear-gradient(135deg,#e8ebe4 0 1px,#f0f2ed 1px 10px);border:1px solid #dfe2db;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative">
+          <div style="position:absolute;top:14px;left:14px;background:#fff;border:1px solid #dfe2db;border-radius:6px;padding:5px 9px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#4b5247">DEMO · 0:45</div>
+          <div style="width:64px;height:64px;border-radius:50%;background:#0f1410;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:16px solid oklch(0.8 0.17 140);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px"></div></div>
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#6d7469;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:0 16px">{{ p.media }}</div>
+        </div>
+        </sc-if>
+        <div data-reveal-stagger="1" data-reveal-delay="120" style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:26px">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <h3 style="margin:0;font-size:clamp(30px,3.6vw,46px);line-height:1.05;font-weight:600;letter-spacing:-.035em">{{ p.title }}</h3>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#4b5247;text-wrap:pretty">{{ p.desc }}</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:16px 0;border-top:1px solid #0f1410;border-bottom:1px solid #dfe2db">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px">
+              <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#6d7469">{{ t.k21 }}</span><span style="font-size:19px;font-weight:600">{{ p.eta }}</span></div>
+              <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#6d7469">{{ t.k22 }}</span><span style="font-size:19px;font-weight:600;color:oklch(0.45 0.13 140)">{{ p.price }}</span></div>
+            </div>
+            <span style="font-size:14px;line-height:1.5;color:#4b5247;text-wrap:pretty">{{ p.note }}</span>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="height:6px;background:#e4e7df;border-radius:3px;position:relative"><div style="position:absolute;top:0;bottom:0;left:{{ p.barL }};width:{{ p.barW }};min-width:6px;border-radius:3px;background:oklch(0.62 0.17 140)"></div></div>
+              <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Sans',sans-serif;font-size:10px;color:#8a9186"><span>{{ t.k23 }}</span><span>{{ t.k24 }}</span><span>{{ t.k25 }}</span><span>{{ t.k26 }}</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;letter-spacing:.06em;color:#6d7469">{{ t.k27 }}</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));column-gap:24px">
+              <sc-for list="{{ p.specs }}" as="s" hint-placeholder-count="6"><div style="display:flex;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px solid #e4e7df;font-size:14px;line-height:1.4"><span style="color:oklch(0.55 0.16 140);font-family:'IBM Plex Sans',sans-serif;flex:none">✓</span>{{ s }}</div></sc-for>
+            </div>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+  </section>
+
+<section id="bundle15" style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,5vw,64px) 0;box-sizing:border-box">
+    <div data-reveal="1" style="position:relative;overflow:hidden;border-radius:8px;background:#0f1410 url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&amp;fit=crop&amp;w=1800&amp;q=80') center/cover;color:#fff">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,9,.92) 0%,rgba(8,12,9,.82) 55%,rgba(8,12,9,.6) 100%)"></div>
+      <div style="position:relative;padding:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px 48px">
+        <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:16px;max-width:640px">
+          <span style="align-self:flex-start;background:oklch(0.8 0.17 140);color:#0f1410;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px">{{ b15.tag }}</span>
+          <h2 style="margin:0;font-size:clamp(30px,4vw,52px);font-weight:600;letter-spacing:-.035em;line-height:1.05;text-wrap:balance">{{ b15.title }}</h2>
+          <p style="margin:0;font-size:clamp(16px,1.4vw,18px);line-height:1.55;color:#e4ebe2;text-wrap:pretty">{{ b15.body }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:14px;font-weight:600">
+            <span style="border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px">{{ b15.a }}</span>
+            <span style="align-self:center;color:oklch(0.8 0.17 140);font-size:18px">+</span>
+            <span style="border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px">{{ b15.b }}</span>
+          </div>
+        </div>
+        <a href="#estimate" style="background:oklch(0.62 0.17 140);color:#fff;padding:16px 26px;border-radius:8px;font-size:16px;font-weight:700" style-hover="background:oklch(0.56 0.17 140);color:#fff">{{ b15.cta }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,5vw,64px) 0;box-sizing:border-box">
+    <div style="position:relative;border-radius:8px;overflow:hidden;background:#0f1410 url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=1920&amp;q=80') center/cover no-repeat">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,14,11,.92) 0%,rgba(10,14,11,.78) 55%,rgba(10,14,11,.6) 100%)"></div>
+      <div style="position:relative;padding:clamp(32px,6vw,72px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px 48px">
+        <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+          <div style="font-size:13px;font-weight:500;color:oklch(0.8 0.17 140)">{{ t.k10 }}</div>
+          <h2 style="margin:0;font-size:clamp(30px,4vw,52px);font-weight:600;letter-spacing:-.035em;line-height:1.05;color:#f2f6ef;text-wrap:balance">{{ t.k11 }}</h2>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#d3dbd0;text-wrap:pretty">{{ t.k12 }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+          <div style="display:flex;align-items:baseline;gap:8px;color:#f2f6ef"><span style="font-size:clamp(36px,4.6vw,56px);font-weight:600;letter-spacing:-.035em;line-height:1">Rp 400rb</span><span style="font-size:16px;color:#d3dbd0">{{ t.k13 }}</span></div>
+          <span style="font-size:14px;color:#d3dbd0">{{ t.k14 }}</span>
+          <a href="{{ bundleWa }}" target="_blank" rel="noopener" style="background:oklch(0.8 0.17 140);color:#0f1410;padding:14px 22px;border-radius:8px;font-size:15px;font-weight:600" style-hover="background:oklch(0.86 0.15 140);color:#0f1410">{{ t.k15 }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:clamp(28px,4vw,44px);box-sizing:border-box">
+    <div data-reveal="1" style="display:flex;flex-direction:column;gap:10px">
+      <h2 style="margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.05">{{ t.k28 }}</h2>
+    </div>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <div style="overflow-x:auto;margin:0 calc(-1 * clamp(20px,5vw,64px));padding:24px clamp(20px,5vw,64px) 8px">
+      <div data-reveal-stagger="1" style="position:relative;min-width:980px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))">
+        <svg viewBox="0 0 1000 120" preserveAspectRatio="none" style="position:absolute;left:0;top:0;width:100%;height:120px;overflow:visible;pointer-events:none"><path d="M0 20 C50 20 50 20 100 20 C200 20 200 100 300 100 C400 100 400 20 500 20 C600 20 600 100 700 100 C800 100 800 20 900 20 C950 20 950 20 1000 20" fill="none" stroke="#dfe2db" stroke-width="10" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M0 20 C50 20 50 20 100 20 C200 20 200 100 300 100 C400 100 400 20 500 20 C600 20 600 100 700 100 C800 100 800 20 900 20" fill="none" stroke="oklch(0.62 0.17 140)" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px">
+          <div style="height:140px;width:100%;position:relative"><div style="position:absolute;left:50%;top:20px;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #0f1410;box-shadow:0 0 0 8px #f5f6f3;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#0f1410;box-sizing:border-box">01</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:-56px">
+            <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k29 }}</span>
+            <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k34 }}</span>
+            <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k35 }}</span>
+          </div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px">
+          <div style="height:140px;width:100%;position:relative"><div style="position:absolute;left:50%;top:100px;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #0f1410;box-shadow:0 0 0 8px #f5f6f3;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#0f1410;box-sizing:border-box">02</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:0px">
+            <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k30 }}</span>
+            <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k36 }}</span>
+            <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k37 }}</span>
+          </div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px">
+          <div style="height:140px;width:100%;position:relative"><div style="position:absolute;left:50%;top:20px;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #0f1410;box-shadow:0 0 0 8px #f5f6f3;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#0f1410;box-sizing:border-box">03</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:-56px">
+            <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k31 }}</span>
+            <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k38 }}</span>
+            <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k39 }}</span>
+          </div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px">
+          <div style="height:140px;width:100%;position:relative"><div style="position:absolute;left:50%;top:100px;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #0f1410;box-shadow:0 0 0 8px #f5f6f3;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#0f1410;box-sizing:border-box">04</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:0px">
+            <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k32 }}</span>
+            <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k40 }}</span>
+            <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k41 }}</span>
+          </div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px">
+          <div style="height:140px;width:100%;position:relative"><div style="position:absolute;left:50%;top:20px;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:oklch(0.62 0.17 140);border:2px solid oklch(0.62 0.17 140);box-shadow:0 0 0 8px #f5f6f3,0 0 0 14px oklch(0.62 0.17 140 / .18);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;box-sizing:border-box">05</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:-56px">
+            <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k33 }}</span>
+            <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k42 }}</span>
+            <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k43 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+    <div style="position:relative;display:flex;flex-direction:column;gap:32px;padding-top:4px">
+      <div style="position:absolute;left:22px;top:22px;bottom:40px;width:10px;margin-left:-5px;border-radius:5px;background:#dfe2db;display:flex;justify-content:center"><div style="width:3px;height:100%;background-image:repeating-linear-gradient(to bottom,oklch(0.62 0.17 140) 0 3px,transparent 3px 10px)"></div></div>
+      <div data-reveal-stagger="1" style="display:flex;flex-direction:column;gap:32px">
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;align-items:start">
+        <div style="position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #0f1410;box-shadow:0 0 0 6px #f5f6f3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0f1410;box-sizing:border-box">01</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:6px">
+          <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k29 }}</span>
+          <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k34 }}</span>
+          <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k35 }}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;align-items:start">
+        <div style="position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #0f1410;box-shadow:0 0 0 6px #f5f6f3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0f1410;box-sizing:border-box">02</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:6px">
+          <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k30 }}</span>
+          <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k36 }}</span>
+          <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k37 }}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;align-items:start">
+        <div style="position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #0f1410;box-shadow:0 0 0 6px #f5f6f3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0f1410;box-sizing:border-box">03</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:6px">
+          <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k31 }}</span>
+          <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k38 }}</span>
+          <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k39 }}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;align-items:start">
+        <div style="position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #0f1410;box-shadow:0 0 0 6px #f5f6f3;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0f1410;box-sizing:border-box">04</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:6px">
+          <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k32 }}</span>
+          <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k40 }}</span>
+          <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k41 }}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;align-items:start">
+        <div style="position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:oklch(0.62 0.17 140);border:2px solid oklch(0.62 0.17 140);box-shadow:0 0 0 6px #f5f6f3,0 0 0 11px oklch(0.62 0.17 140 / .18);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;box-sizing:border-box">05</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:6px">
+          <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k33 }}</span>
+          <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k42 }}</span>
+          <span style="font-size:15px;line-height:1.55;color:#4b5247;text-wrap:pretty">{{ t.k43 }}</span>
+        </div>
+      </div>
+      </div>
+    </div>
+    </sc-if>
+  </section>
+
+  <section id="estimate" style="background:#fff;border-top:1px solid #e1e4dc">
+    <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:clamp(24px,3.5vw,36px);box-sizing:border-box">
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:720px" data-reveal="1">
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.05">{{ t.k44 }}</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#4b5247">{{ t.k45 }}</p>
+      </div>
+      <div data-reveal="1" style="background:#0f1410;color:#eef4ea;border-radius:8px;padding:clamp(18px,2.4vw,24px) clamp(18px,2.6vw,28px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+        <span style="background:oklch(0.62 0.17 140);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">{{ promo.tag }}</span>
+        <div style="display:flex;flex-direction:column;gap:4px;flex:1 1 320px;min-width:0">
+          <span style="font-size:clamp(17px,1.7vw,20px);font-weight:600;letter-spacing:-.015em;line-height:1.3">{{ promo.title }}</span>
+          <span style="font-size:14px;line-height:1.55;color:#c3ccc0;text-wrap:pretty">{{ promo.body }}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:10px" data-reveal-stagger="1">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+          <sc-if value="{{ p.on }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ p.toggle }}" style="cursor:pointer;background:#f0f7ec;border:1.5px solid oklch(0.55 0.16 140);border-radius:8px;padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;box-sizing:border-box">
+              <div style="display:flex;justify-content:flex-end;align-items:center"><span style="width:22px;height:22px;border-radius:6px;background:oklch(0.55 0.16 140);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center">✓</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:clamp(16px,1.6vw,19px);font-weight:600;line-height:1.3;letter-spacing:-.01em">{{ p.goal }}</span><span style="font-size:13px;color:#4b5247">{{ p.short }}</span></div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ p.off }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ p.toggle }}" style="cursor:pointer;background:#f5f6f3;border:1.5px solid #e1e4dc;border-radius:8px;padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;box-sizing:border-box" style-hover="border-color:#9aa396">
+              <div style="display:flex;justify-content:flex-end;align-items:center"><span style="width:22px;height:22px;border-radius:6px;border:1.5px solid #c4c9bf;box-sizing:border-box"></span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:clamp(16px,1.6vw,19px);font-weight:600;line-height:1.3;letter-spacing:-.01em">{{ p.goal }}</span><span style="font-size:13px;color:#6d7469">{{ p.short }}</span></div>
+            </div>
+          </sc-if>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+        <sc-if value="{{ canEstimate }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ waHref }}" target="_blank" rel="noopener" style="background:#0f1410;color:#eef4ea;padding:16px 26px;border-radius:8px;font-size:16px;font-weight:600" style-hover="background:#24302a;color:#eef4ea">{{ t.k46 }}</a>
+        </sc-if>
+        <sc-if value="{{ cantEstimate }}" hint-placeholder-val="{{ true }}">
+          <button style="font-family:'IBM Plex Sans',sans-serif;border:none;background:#e1e4dc;color:#6d7469;padding:16px 26px;border-radius:8px;font-size:16px;font-weight:600;cursor:not-allowed">{{ t.k46 }}</button>
+        </sc-if>
+        <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#6d7469">{{ selLabel }}</span>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid #e1e4dc">
+    <div style="max-width:1280px;margin:0 auto;padding:28px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:#6d7469;box-sizing:border-box">
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:800;font-size:18px;line-height:1;letter-spacing:-.06em;display:flex;align-items:center;gap:.12em;color:#0f1410"><span style="color:oklch(0.55 0.16 140)">&gt;</span><span>omnify</span><span style="width:.5em;height:.82em;background:oklch(0.62 0.17 140)"></span></div>
+      <span>© 2026 Omnify</span>
+    </div>
+  </footer>
+  <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:40;background:rgba(15,20,16,.4)"></div>
+      <nav style="position:fixed;right:16px;bottom:88px;z-index:41;width:min(280px,calc(100vw - 32px));background:#fff;border:2px solid #0f1410;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.22);padding:8px;display:flex;flex-direction:column;gap:2px;box-sizing:border-box;font-family:'IBM Plex Sans',sans-serif">
+        <a href="#top" onClick="{{ closeMenu }}" style="padding:14px 16px;border-radius:10px;font-size:16px;font-weight:600;background:#eef1ea;color:#0f1410;display:flex;justify-content:space-between;align-items:center">FnB<span style="width:8px;height:8px;border-radius:50%;background:oklch(0.62 0.17 140)"></span></a>
+        <a href="../Marketplace/" onClick="{{ closeMenu }}" style="padding:14px 16px;border-radius:10px;font-size:16px;font-weight:500;color:#0f1410;display:flex;align-items:center" style-hover="background:#f5f6f3">Marketplace</a>
+        <a href="../Lainnya/" onClick="{{ closeMenu }}" style="padding:14px 16px;border-radius:10px;font-size:16px;font-weight:500;color:#0f1410;display:flex;align-items:center" style-hover="background:#f5f6f3">{{ t.k16 }}</a>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 4px 4px 16px;margin-top:4px;border-top:1px solid #eef1ea"><span style="font-size:14px;color:#6d7469">{{ t.lang }}</span><div role="group" aria-label="Language" style="display:flex;gap:2px;padding:3px;background:#fff;border:1px solid #e1e4dc;border-radius:999px"><button onClick="{{ setID }}" aria-pressed="{{ isID }}" title="Bahasa Indonesia" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:40px;padding:0 14px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;background:{{ setIDBg }};color:{{ setIDFg }}"><img src="https://flagcdn.com/id.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">ID</button><button onClick="{{ setEN }}" aria-pressed="{{ isEN }}" title="English" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:40px;padding:0 14px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;background:{{ setENBg }};color:{{ setENFg }}"><img src="https://flagcdn.com/gb.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">EN</button></div></div><a href="#estimate" onClick="{{ closeMenu }}" style="margin-top:6px;background:oklch(0.62 0.17 140);color:#fff;padding:15px 16px;border-radius:10px;font-size:16px;font-weight:600;text-align:center">{{ t.k17 }}</a>
+      </nav>
+    </sc-if>
+    <button onClick="{{ toggleMenu }}" aria-label="Open menu" aria-expanded="{{ menuOpen }}" style="position:fixed;right:16px;bottom:16px;z-index:42;height:56px;min-width:56px;padding:0 22px 0 18px;border-radius:999px;border:2px solid #0f1410;background:oklch(0.8 0.17 140);color:#0f1410;box-shadow:0 0 0 3px #fff,0 12px 32px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em" style-focus="outline:3px solid #0f1410;outline-offset:4px" style-active="transform:scale(.96)">
+      <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}"><span style="font-size:20px;line-height:1">✕</span><span>{{ t.k47 }}</span></sc-if>
+      <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}"><span style="display:flex;flex-direction:column;gap:4px"><span style="width:20px;height:2.5px;border-radius:2px;background:#0f1410"></span><span style="width:20px;height:2.5px;border-radius:2px;background:#0f1410"></span><span style="width:20px;height:2.5px;border-radius:2px;background:#0f1410"></span></span><span>Menu</span></sc-if>
+    </button>
+  </sc-if>
+  <sc-if value="{{ popOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closePop }}" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:60;background:rgba(10,14,11,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:clamp(56px,6vw,72px) clamp(12px,4vw,48px);box-sizing:border-box">
+      <video data-pop-video="1" src="{{ popSrc }}" controls="" onClick="{{ stopProp }}" style="max-width:100%;max-height:100%;border-radius:8px;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.5)"></video>
+      <button onClick="{{ closePop }}" aria-label="Close" style="position:fixed;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#eef4ea;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.18)">✕</button>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;view&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Web&quot;,&quot;Mobile&quot;],&quot;default&quot;:&quot;Web&quot;,&quot;tsType&quot;:&quot;'Web' | 'Mobile'&quot;,&quot;section&quot;:&quot;Preview&quot;}}">
+class Component extends DCLogic {
+  state = { goals: [], narrow: false, menuOpen: false, lang: (() => { try { return localStorage.getItem('omnify-lang') || 'id'; } catch (e) { return 'id'; } })() };
+  data = [
+    { n: '01', videos: ['../uploads/Film%20-%20Rumah%20Senja.mp4'], title: 'FnB Landing Page', short: 'Landing page', goal: 'Get found online and take more bookings', problem: "Customers can't find us online", desc: 'A fast, mobile-first website that turns visitors into reservations and orders. Menu highlights, location and WhatsApp booking in one scroll.', eta: '3–7 days', price: 'Rp 2–10 jt', note: 'Includes hosting and domain. CMS or other platforms like WordPress, Shopify or Webflow available on request (subscription fee excluded).', days: [3, 7], media: 'Video demo · landing page walkthrough', specs: ['Responsive, mobile-first layout', 'Menu highlights & promo banner', 'Reservation / WhatsApp CTA', 'Google Maps & opening hours', 'Basic SEO & analytics', 'Hosting & domain included'] },
+    { n: '02', videos: ['../uploads/Omnify%20Film%20-%20Self%20Order.mp4', '../uploads/Reel%20-%20Dapur%20Awan%20Checkout.mp4'], title: 'Food Catalogue Menu', short: 'Catalogue menu', goal: 'Stop reprinting menus when prices change', problem: 'We reprint menus every time prices change', desc: 'A QR digital menu your staff can update in seconds. Photos, variants and prices always current across every table and outlet.', eta: '3–5 days', price: 'Rp 1–4 jt', note: 'Includes hosting and domain.', days: [3, 5], media: 'Video demo · QR menu on mobile', specs: ['QR code per table / outlet', 'Categories, variants & add-ons', 'Sold-out toggle in real time', 'Admin panel for price & photos', 'Order via WhatsApp option', 'Hosting & domain included'] },
+    { n: '03', videos: ['../uploads/Reel%20-%20Rumah%20Senja%20Booking%20(1).mp4'], title: 'Table Reservation & Booking', short: 'Reservation', goal: 'Take reservations without back-and-forth chats', problem: 'Reservations by chat waste hours', desc: 'Guests pick a date, time and party size, then confirm with a deposit. Your floor team sees every booking on one schedule.', eta: '14–21 days', price: 'Rp 200rb / month', note: 'One-time purchase available, price on discussion.', days: [14, 21], media: 'Video demo · reservation flow', specs: ['Date, time & party-size picker', 'Table / area selection', 'Online deposit via QRIS', 'Automatic WhatsApp reminders', 'Reschedule & no-show rules', 'Daily booking schedule for staff'] },
+    { n: '04', videos: ['../uploads/Omnify%20Film%20-%20Kasir%20(1).mp4'], title: 'Order Management System (POS)', short: 'POS', goal: 'Shorter queues and clean cashier reports', problem: 'Long queues and messy cashier reports', desc: 'A cashier system built for busy service. Take orders, split bills and close shifts with reports that make sense to owners.', eta: '14–30 days', price: 'Rp 250rb / month', note: 'One-time purchase available, price on discussion.', days: [14, 30], media: 'Video demo · cashier & order flow', specs: ['Dine-in, takeaway & delivery orders', 'Split bill, discounts & taxes', 'QRIS, card & cash payments', 'Receipt & kitchen printer support', 'Shift close & sales reports', 'Multi-outlet, role-based access'] },
+    { n: '05', videos: ['../uploads/Omnify%20Film%20-%20Dapur%20-%20Inventaris%20(1).mp4'], title: 'Inventory & Kitchen Management (IKM)', short: 'IKM', goal: 'Never run out of ingredients mid-service', problem: 'Ingredients run out mid-service', desc: 'Kitchen display and stock control in one place. Every order deducts ingredients by recipe, so you see costs and shortages before they happen.', eta: '4–6 weeks', price: 'Rp 300rb / month', note: 'Monthly subscription.', days: [28, 42], media: 'Video demo · kitchen display & stock', specs: ['Kitchen display system (KDS)', 'Recipe-based stock deduction', 'Low-stock alerts', 'Supplier & purchase orders', 'Waste & stock opname tracking', 'Food cost & margin reports'] }
+  ];
+  dataId = [{"title":"Landing Page FnB","short":"Landing page","goal":"Mudah ditemukan online dan dapat lebih banyak reservasi","desc":"Website cepat dan mobile-first yang mengubah pengunjung jadi reservasi dan pesanan. Menu unggulan, lokasi, dan booking WhatsApp dalam satu halaman.","eta":"3–7 hari","price":"Rp 2–10 jt","note":"Sudah termasuk hosting dan domain. CMS atau platform lain seperti WordPress, Shopify, atau Webflow tersedia atas permintaan (belum termasuk biaya langganan).","media":"Video demo · walkthrough landing page","specs":["Layout responsif, mobile-first","Menu unggulan & banner promo","CTA reservasi / WhatsApp","Google Maps & jam buka","SEO dasar & analytics","Termasuk hosting & domain"]},{"title":"Menu Katalog Makanan","short":"Menu katalog","goal":"Tidak perlu cetak ulang menu tiap harga berubah","desc":"Menu digital QR yang bisa diperbarui staf dalam hitungan detik. Foto, varian, dan harga selalu terbaru di setiap meja dan outlet.","eta":"3–5 hari","price":"Rp 1–4 jt","note":"Sudah termasuk hosting dan domain.","media":"Video demo · menu QR di ponsel","specs":["QR code per meja / outlet","Kategori, varian & add-on","Status habis secara real time","Panel admin untuk harga & foto","Opsi pesan via WhatsApp","Termasuk hosting & domain"]},{"title":"Reservasi & Booking Meja","short":"Reservasi","goal":"Terima reservasi tanpa bolak-balik chat","desc":"Tamu memilih tanggal, jam, dan jumlah orang, lalu konfirmasi dengan DP. Tim Anda melihat semua booking dalam satu jadwal.","eta":"14–21 hari","price":"Rp 200rb / bulan","note":"Tersedia opsi beli putus, harga bisa didiskusikan.","media":"Video demo · alur reservasi","specs":["Pilihan tanggal, jam & jumlah orang","Pilihan meja / area","DP online via QRIS","Pengingat otomatis via WhatsApp","Aturan reschedule & no-show","Jadwal booking harian untuk staf"]},{"title":"Sistem Manajemen Pesanan (POS)","short":"POS","goal":"Antrean lebih singkat dan laporan kasir yang rapi","desc":"Sistem kasir untuk layanan yang sibuk. Terima pesanan, split bill, dan tutup shift dengan laporan yang mudah dipahami pemilik.","eta":"14–30 hari","price":"Rp 250rb / bulan","note":"Tersedia opsi beli putus, harga bisa didiskusikan.","media":"Video demo · alur kasir & pesanan","specs":["Pesanan dine-in, takeaway & delivery","Split bill, diskon & pajak","Pembayaran QRIS, kartu & tunai","Dukungan printer struk & dapur","Tutup shift & laporan penjualan","Multi-outlet, akses berbasis peran"]},{"title":"Manajemen Inventori & Dapur (IKM)","short":"IKM","goal":"Bahan baku tidak pernah habis di tengah servis","desc":"Tampilan dapur dan kontrol stok di satu tempat. Setiap pesanan memotong bahan sesuai resep, jadi biaya dan kekurangan terlihat sebelum terjadi.","eta":"4–6 minggu","price":"Rp 300rb / bulan","note":"Langganan bulanan.","media":"Video demo · tampilan dapur & stok","specs":["Kitchen display system (KDS)","Potong stok berdasarkan resep","Notifikasi stok menipis","Supplier & purchase order","Pencatatan waste & stock opname","Laporan food cost & margin"]}];
+  I18N = { en: {"k0":"Fewer problems on the floor. ","k1":"More plates out.","k2":"Websites and systems for restaurants, cafés and cloud kitchens. Shipped fast, built to last, simple for your team to run.","k3":"Order #128 · Paid","k4":"Table 6 · QRIS","k5":"Low stock: Arabica","k6":"2.1 kg left · reorder","k7":"Menu updated","k8":"Iced latte · Rp 32rb","k9":"5 products · FnB","k10":"Bundle · 03 + 04","k11":"POS + Inventory & Kitchen Management","k12":"Orders, payments, kitchen display and stock in one system. Every sale deducts ingredients automatically.","k13":"/ month","k14":"Instead of Rp 550rb / month separately","k15":"Ask about the bundle →","k16":"Others","k17":"Get an estimate","k18":"Start a project →","k19":"See the work","k20":"Portfolio","k21":"ETA","k22":"PRICE RANGE","k23":"Day 1","k24":"15 days","k25":"30 days","k26":"45 days","k27":"SPECIFICATION","k28":"How a project runs","k29":"DAY 0","k30":"WITHIN 2 DAYS","k31":"NEXT 2–3 DAYS","k32":"EVERY WEEK","k33":"LAUNCH","k34":"Free consultation","k35":"A 30-minute call to understand your outlet, team and current tools.","k36":"Fixed scope & quote","k37":"A written scope with timeline and price. No surprises later.","k38":"Demo builds","k39":"You test a working demo on your own phone and give feedback early.","k40":"Iteration & implementation report","k41":"A weekly report on what changed, what shipped and what comes next.","k42":"Go live & train staff","k43":"We launch, train your team and hand over everything you own.","k44":"What do you want to fix first?","k45":"Select one or more goals, then chat with us on WhatsApp.","k46":"Chat on WhatsApp →","k47":"Close","lang":"Language"}, id: {"k0":"Operasional lebih lancar. ","k1":"Lebih banyak pesanan tersaji.","k2":"Website dan sistem untuk restoran, kafe, dan cloud kitchen. Cepat jadi, tahan lama, dan mudah dijalankan tim Anda.","k3":"Pesanan #128 · Lunas","k4":"Meja 6 · QRIS","k5":"Stok menipis: Arabika","k6":"Sisa 2,1 kg · pesan ulang","k7":"Menu diperbarui","k8":"Es latte · Rp 32rb","k9":"5 produk · FnB","k10":"Paket · 03 + 04","k11":"POS + Manajemen Inventori & Dapur","k12":"Pesanan, pembayaran, tampilan dapur, dan stok dalam satu sistem. Setiap penjualan otomatis memotong stok bahan.","k13":"/ bulan","k14":"Dibanding Rp 550rb / bulan jika terpisah","k15":"Tanya soal paket ini →","k16":"Lainnya","k17":"Minta estimasi","k18":"Mulai proyek →","k19":"Lihat portofolio","k20":"Portofolio","k21":"ESTIMASI","k22":"KISARAN HARGA","k23":"Hari 1","k24":"15 hari","k25":"30 hari","k26":"45 hari","k27":"SPESIFIKASI","k28":"Alur pengerjaan proyek","k29":"HARI 0","k30":"DALAM 2 HARI","k31":"2–3 HARI BERIKUTNYA","k32":"SETIAP MINGGU","k33":"PELUNCURAN","k34":"Konsultasi gratis","k35":"Sesi 30 menit untuk memahami outlet, tim, dan tools yang Anda pakai saat ini.","k36":"Ruang lingkup & penawaran harga","k37":"Ruang lingkup tertulis lengkap dengan timeline dan harga. Tanpa biaya kejutan.","k38":"Pembuatan demo","k39":"Anda mencoba demo langsung di ponsel sendiri dan memberi masukan sejak awal.","k40":"Iterasi & laporan implementasi","k41":"Laporan mingguan tentang apa yang berubah, apa yang sudah rilis, dan langkah berikutnya.","k42":"Go-live & pelatihan staf","k43":"Kami meluncurkan sistem, melatih tim Anda, dan menyerahkan semua aset milik Anda.","k44":"Apa yang ingin Anda benahi lebih dulu?","k45":"Pilih satu atau lebih tujuan, lalu chat dengan kami di WhatsApp.","k46":"Chat via WhatsApp →","k47":"Tutup","lang":"Bahasa"} };
+  setLang(l) { try { localStorage.setItem('omnify-lang', l); } catch (e) {} document.documentElement.lang = l; this.setState({ lang: l }); }
+  componentDidMount() {
+    document.documentElement.lang = this.state.lang;
+    this._rs = () => { const n = window.innerWidth < 640; if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    window.addEventListener('resize', this._rs); this._rs(); this.setupReveal(); this.setupVideos(); this._esc = e => { if (e.key === 'Escape' && this.state.pop) this.closePop(); }; window.addEventListener('keydown', this._esc);
+  }
+  componentDidUpdate() { this.setupReveal(); this.setupVideos(); }
+  componentWillUnmount() { window.removeEventListener('resize', this._rs); window.removeEventListener('keydown', this._esc); this._vio && this._vio.disconnect(); this._io && this._io.disconnect(); }
+  revealItems(el) { return el.hasAttribute('data-reveal-stagger') ? [...el.children] : [el]; }
+  setupReveal() {
+    if (!window.IntersectionObserver || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!this._io) this._io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { this._io.unobserve(e.target); this.playReveal(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    document.querySelectorAll('[data-reveal],[data-reveal-stagger]').forEach(el => {
+      if (el.dataset.rv) return; el.dataset.rv = '1';
+      this.revealItems(el).forEach(i => { i.style.opacity = '0'; });
+      this._io.observe(el);
+    });
+  }
+  playReveal(el) {
+    const d = +(el.dataset.revealDelay || 0);
+    this.revealItems(el).forEach((i, k) => {
+      i.style.opacity = '';
+      i.animate([{ opacity: 0, transform: 'translateY(28px)' }, { opacity: 1, transform: 'none' }], { duration: 850, delay: d + k * 90, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+    });
+  }
+  setupVideos() {
+    if (!window.IntersectionObserver) return;
+    if (!this._vio) this._vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target; v._vis = e.isIntersecting; if (e.isIntersecting && !this.state.pop) v.play().catch(() => {}); else v.pause(); }), { threshold: 0.35 });
+    document.querySelectorAll('video[data-autoplay]').forEach(v => { if (v.dataset.vo) return; v.dataset.vo = '1'; v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); this._vio.observe(v); const fit = () => this.fitFrame(v); v.readyState >= 1 ? fit() : v.addEventListener('loadedmetadata', fit, { once: true }); });
+  }
+  fitFrame(v) {
+    const f = v.closest('[data-vframe]'); if (!f || f.querySelectorAll('video').length !== 1 || !v.videoWidth) return;
+    const ar = v.videoWidth / v.videoHeight;
+    Object.assign(f.style, { aspectRatio: String(ar), padding: '0', gap: '0', background: 'transparent' });
+    if (ar < 1) Object.assign(f.style, { flex: '0 0 auto', width: 'auto', height: 'min(560px, 75vh)', maxHeight: 'none', maxWidth: '100%' });
+    else Object.assign(f.style, { maxHeight: 'none' });
+    const btn = v.closest('button'); if (btn) btn.style.borderRadius = '8px';
+  }
+  openPop(src) {
+    document.querySelectorAll('video[data-autoplay]').forEach(v => v.pause());
+    this.setState({ pop: src }, () => { const v = document.querySelector('video[data-pop-video]'); if (v) { v.currentTime = 0; v.play().catch(() => {}); } });
+  }
+  closePop() {
+    this.setState({ pop: null }, () => document.querySelectorAll('video[data-autoplay]').forEach(v => { if (v._vis && v.isConnected) v.play().catch(() => {}); }));
+  }
+  renderVals() {
+    const g = this.state.goals;
+    const lang = this.state.lang, isID = lang === 'id', t = this.I18N[lang];
+    const data = this.data.map((p, i) => isID ? { ...p, ...this.dataId[i] } : p);
+    const sel = data.filter((_, i) => g.includes(i));
+    const msg = (isID ? 'Halo Omnify, saya tertarik dengan: ' : "Hi Omnify, I'm interested in: ") + sel.map(p => p.title).join(', ');
+    const inFrame = window.self !== window.top && /[?&]frame=1/.test(location.search);
+    const mobile = !inFrame && this.props.view === 'Mobile';
+    return {
+      isMobile: mobile, isWeb: !mobile, narrow: this.state.narrow, wide: !this.state.narrow, menuOpen: this.state.menuOpen, menuClosed: !this.state.menuOpen, toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })), closeMenu: () => this.setState({ menuOpen: false }),
+      frameSrc: location.pathname.split('/').pop() + '?frame=1',
+      projects: data.map((p, i) => ({
+        ...p, hasVideo: !!(p.videos && p.videos.length), noVideo: !(p.videos && p.videos.length), vCols: (p.videos || []).length > 1 ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)', vAr: (p.videos || []).length === 3 ? 'auto' : (p.videos || []).length === 2 ? '9/8' : '4/3', vMaxH: (p.videos || []).length === 3 ? 'none' : '520px', videos: (p.videos || []).map((src, k, a) => ({ src, col: a.length === 3 && k === 0 ? '1 / -1' : 'auto', ar: a.length === 3 ? '16/9' : 'auto', showLabel: !(this.state.narrow && a.length > 1 && !(a.length === 3 && k === 0)), open: () => this.openPop(src), label: isID ? 'Lihat demo' : 'Watch demo' })), total: String(data.length).padStart(2, '0'), id: `fnb-${p.n}`, href: `#fnb-${p.n}`, dir: i % 2 ? 'row-reverse' : 'row',
+        barL: `${(p.days[0] / 45) * 100}%`, barW: `${((p.days[1] - p.days[0]) / 45) * 100}%`,
+        on: g.includes(i), off: !g.includes(i),
+        toggle: () => this.setState(s => ({ goals: s.goals.includes(i) ? s.goals.filter(x => x !== i) : [...s.goals, i].sort() }))
+      })),
+      b15: isID ? { tag: 'Penawaran paket', title: 'Diskon 15% untuk landing page Anda', body: 'Pesan Landing Page FnB bersama Sistem Manajemen Pesanan (POS), dan landing page jadi 15% lebih murah.', a: 'Landing Page FnB', b: 'Sistem Manajemen Pesanan (POS)', cta: 'Ambil paket ini' } : { tag: 'Bundle offer', title: 'Get 15% off your landing page', body: 'Order a FnB Landing Page together with an Order Management System (POS), and the landing page is 15% cheaper.', a: 'FnB Landing Page', b: 'Order Management System (POS)', cta: 'Claim the bundle' },
+      promo: isID ? { tag: 'Diskon multi-bisnis', title: 'Punya lebih dari satu bisnis?', body: 'Langganan sistem manajemen kami untuk 2 bisnis atau lebih dan dapatkan diskon.' } : { tag: 'Multi-business discount', title: 'Running more than one business?', body: 'Subscribe to our management system for 2 or more of your businesses and get a discount.' },
+      canEstimate: sel.length > 0, cantEstimate: sel.length === 0,
+      selLabel: isID ? (sel.length ? `${sel.length} tujuan dipilih` : 'Pilih minimal satu tujuan') : (sel.length ? `${sel.length} goal${sel.length > 1 ? 's' : ''} selected` : 'Select at least one goal'),
+      popOpen: !!this.state.pop, popSrc: this.state.pop || '', closePop: () => this.closePop(), stopProp: e => e.stopPropagation(), t, isID, isEN: !isID, setID: () => this.setLang('id'), setEN: () => this.setLang('en'),
+      setIDBg: isID ? '#0f1410' : 'transparent', setIDFg: isID ? '#eef4ea' : '#5d6459', setENBg: isID ? 'transparent' : '#0f1410', setENFg: isID ? '#5d6459' : '#eef4ea',
+      bundleWa: 'https://wa.me/628977887994?text=' + encodeURIComponent(isID ? 'Halo Omnify, saya tertarik dengan paket POS + IKM' : "Hi Omnify, I'm interested in the POS + IKM bundle"),
+      waHref: `https://wa.me/628977887994?text=${encodeURIComponent(msg)}`
+    };
+  }
+}
+</script>
+</body>
+</html>
