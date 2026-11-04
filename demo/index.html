@@ -163,7 +163,7 @@ input,select,textarea{font-size:16px}
 
 <sc-if value="{{ unlocked }}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{ showSide }}" hint-placeholder-val="{{ true }}">
-<div style="width:{{ sideW }};flex-shrink:0;position:relative;z-index:40">
+<div style="width:{{ sideW }};flex-shrink:0;position:relative;z-index:47">
 <aside data-om-side="1" onClick="{{ sideTap }}" style="scrollbar-width:none;-ms-overflow-style:none;position:absolute;top:0;left:0;bottom:0;width:{{ asideW }};background:#FBFAF7;border-right:1px solid #E7E5DF;box-shadow:{{ asideSh }};display:flex;flex-direction:column;padding:20px 12px;overflow-x:hidden;overflow-y:auto;transition:{{ asideTr }}">
   <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
     <div style="display:flex;align-items:center;gap:8px;padding:4px 10px 20px;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:24px;letter-spacing:-0.03em">
@@ -3617,7 +3617,7 @@ const rvLive = r => r.status === 'booked' || r.status === 'arrived';
 const rvLate = (r, now) => r.status === 'booked' && now - rvAt(r) > 15 * 60000;
 const DONUT = ['#45A02E', '#1F4A8F', '#E0A526', '#9E1B2F', '#6A4400', '#A9B3A5'];
 window.bDash = function (c, OM) {
-  const s = c.state, OS = window.OS, md = c.effMods(), now = s.now, t0 = OS.sod(now), all = s.outlet === 'all', DAY = 86400000, W = s.w, fit = W >= 1000, mid = W >= 768 && W < 1000;
+  const s = c.state, OS = window.OS, md = c.effMods(), now = s.now, t0 = OS.sod(now), all = s.outlet === 'all', DAY = 86400000, W = s.w, fit = W >= 1280, mid = W >= 768 && W < 1280;
   const today = s.orders.filter(o => o.createdAt >= t0), sales = today.filter(OS.validSale);
   const sum = daySum(today, t0), ySum = daySum(s.orders.filter(o => o.createdAt >= t0 - DAY && o.createdAt <= now - DAY), t0 - DAY);
   const ch = (a, b) => { if (!b) return { noteS: 'Belum ada data kemarin', fg: '#4A4E47' }; const p = Math.round((a - b) / b * 100); return { noteS: `${p >= 0 ? 'Naik' : 'Turun'} ${Math.abs(p)}% vs kemarin`, fg: p >= 0 ? '#1F5C12' : '#8E1A14' }; };
@@ -3654,7 +3654,7 @@ window.bDash = function (c, OM) {
   return {
     kpis, kpiCols: fit ? `repeat(${kpis.length},minmax(0,1fr))` : mid ? 'repeat(3,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))',
     dashPad: fit ? '16px 24px 20px' : W < 768 ? '16px 16px 28px' : '20px 24px 32px', dashCols: fit ? 'repeat(3,minmax(0,1fr))' : mid ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)',
-    dashRows: fit ? 'auto minmax(auto,1fr) minmax(auto,1fr)' : 'auto', dashSpan: fit ? 'span 2' : mid ? '1 / -1' : 'auto', cardMinH: fit ? '0' : '250px', donutSize: W < 768 ? '128px' : '148px',
+    dashRows: fit ? 'auto minmax(auto,1fr) minmax(auto,1fr)' : 'auto', dashSpan: fit ? 'span 2' : mid ? '1 / -1' : 'auto', cardMinH: fit ? 'auto' : '250px', donutSize: W < 768 ? '128px' : '148px',
     hourly, peakStr: pkV > 0 ? `Tersibuk ${HL[pk]}:00 · ${fmt(pkV)}` : 'Belum ada penjualan',
     payEmpty: !PR.length, payHas: PR.length > 0, payTotN: String(pTot.n), payTotShort: pTot.amt >= 1e6 ? 'Rp ' + jt(pTot.amt) + ' jt' : fmt(pTot.amt),
     donutBg: stops.length ? `conic-gradient(${stops.join(',')})` : '#EDECE7', donutAria: 'Metode pembayaran: ' + lg.map(l => `${l.label} ${Math.round(l.amt / (pTot.amt || 1) * 100)}%`).join(', '),
