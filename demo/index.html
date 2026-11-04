@@ -1899,7 +1899,7 @@ input,select,textarea{font-size:16px}
               <span style="font-weight:600">Kertas & teks</span>
               <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#3B3F38;font-weight:500">Lebar kertas</span><div style="display:flex;padding:4px;background:#EDECE7;border-radius:11px;align-self:flex-start"><sc-for list="{{ rcPapers }}" as="p" hint-placeholder-count="2"><button onClick="{{ p.pick }}" style="height:{{ tap }};padding:0 16px;border:none;border-radius:8px;background:{{ p.bg }};box-shadow:{{ p.shadow }};font-weight:600;color:{{ p.fg }};cursor:pointer">{{ p.label }}</button></sc-for></div></div>
               <label style="display:flex;flex-direction:column;gap:5px;min-width:0"><span style="font-size:12px;color:#3B3F38;font-weight:500">Header nota · {{ rcOutletName }}</span><input value="{{ rcHead }}" onChange="{{ onRcHead }}" maxlength="40" placeholder="Mis. Kopi enak, harga teman" style="height:{{ tap }};padding:0 12px;border:1px solid #D7D5CE;border-radius:10px;font-size:16px;outline:none;color:#10140F;background:#fff;min-width:0;font-family:inherit"></label>
-              <label style="display:flex;flex-direction:column;gap:5px;min-width:0"><span style="font-size:12px;color:#3B3F38;font-weight:500">Footer nota · {{ rcOutletName }}</span><input value="{{ rcFoot }}" onChange="{{ onRcFoot }}" maxlength="60" placeholder="Mis. Terima kasih! Wi-Fi: kopisenja" style="height:{{ tap }};padding:0 12px;border:1px solid #D7D5CE;border-radius:10px;font-size:16px;outline:none;color:#10140F;background:#fff;min-width:0;font-family:inherit"></label>
+              <label style="display:flex;flex-direction:column;gap:5px;min-width:0"><span style="font-size:12px;color:#3B3F38;font-weight:500">Footer nota · {{ rcOutletName }}</span><textarea value="{{ rcFoot }}" onChange="{{ onRcFoot }}" rows="3" maxlength="200" placeholder="Mis. Terima kasih!&#10;Wi-Fi: kopisenja" style="min-height:88px;padding:10px 12px;border:1px solid #D7D5CE;border-radius:10px;font-size:16px;line-height:1.4;outline:none;color:#10140F;background:#fff;min-width:0;font-family:inherit;resize:vertical"></textarea></label>
               <label style="display:flex;flex-direction:column;gap:5px;min-width:0"><span style="font-size:12px;color:#3B3F38;font-weight:500">Judul tiket dapur</span><input value="{{ rcKTitle }}" onChange="{{ onRcKTitle }}" maxlength="24" placeholder="Pesanan Baru" style="height:{{ tap }};padding:0 12px;border:1px solid #D7D5CE;border-radius:10px;font-size:16px;outline:none;color:#10140F;background:#fff;min-width:0;font-family:inherit"></label>
             </div>
             <div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:8px 18px">
@@ -2735,7 +2735,7 @@ const rcRows = (s, o, kind) => {
     if (R.showTax && o.svc) add('Layanan', '', fmt(o.svc)); if (R.showTax && o.tax) add('PB1', '', fmt(o.tax));
     add('Grand Total', '', fmt(o.total), { b: 1 });
     if (R.showPay) { if (o.paidAt) { add(((OM.PB[o.method] || {}).label || o.method || '').toUpperCase(), '', fmt(o.cashIn || o.total)); if (o.method === 'cash' && o.cashIn > o.total) add('Kembalian', '', fmt(o.cashIn - o.total)); } else add('BELUM DIBAYAR', '', '', { b: 1 }); }
-    rule(); if (ol.rcFoot) add('', ol.rcFoot, '');
+    rule(); if (ol.rcFoot && ol.rcFoot.trim()) ol.rcFoot.trim().split(/\r?\n/).forEach(t => add('', t.trim() || '\u00a0', ''));
   }
   return rows;
 };
