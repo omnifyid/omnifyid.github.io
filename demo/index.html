@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#0f1410">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -1672,8 +1674,200 @@ input,select,textarea{font-size:16px}
           </sc-for>
         </div></div>
       </sc-if>
+      <sc-if value="{{ isSchedMgr }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <button onClick="{{ schPrev }}" aria-label="Minggu sebelumnya" style="width:{{ tap }};height:{{ tap }};border-radius:10px;border:1px solid #E7E5DF;background:#fff;cursor:pointer;color:#10140F;display:flex;align-items:center;justify-content:center"><om-icon name="chevron-left" size="20"></om-icon></button>
+          <button onClick="{{ schNow }}" style="height:{{ tap }};padding:0 14px;border-radius:10px;border:1px solid #E7E5DF;background:{{ schNowBg }};font-weight:600;cursor:pointer;color:#10140F">Minggu ini</button>
+          <button onClick="{{ schNext }}" aria-label="Minggu berikutnya" style="width:{{ tap }};height:{{ tap }};border-radius:10px;border:1px solid #E7E5DF;background:#fff;cursor:pointer;color:#10140F;display:flex;align-items:center;justify-content:center"><om-icon name="chevron-right" size="20"></om-icon></button>
+          <span style="font-weight:700;font-variant-numeric:tabular-nums;padding:0 4px">{{ schRange }}</span>
+          <div style="flex:1"></div>
+          <button onClick="{{ schCopy }}" style="height:{{ tap }};padding:0 14px;border-radius:10px;border:1px solid #E7E5DF;background:#fff;font-weight:600;cursor:pointer;color:#10140F;display:flex;align-items:center;gap:6px"><om-icon name="copy" size="20"></om-icon>Salin minggu lalu</button>
+          <button onClick="{{ schManage }}" style="height:{{ tap }};padding:0 14px;border-radius:10px;border:none;background:#1F5C12;color:#fff;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px"><om-icon name="clock" size="20" style="color:#7ED76A"></om-icon>Kelola shift</button>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><sc-for list="{{ schDefs }}" as="z" hint-placeholder-count="2"><div style="background:#fff;border:1px solid #E7E5DF;border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-weight:600">{{ z.label }}</span><span style="font-size:12px;color:#4A4E47;font-variant-numeric:tabular-nums">{{ z.sub }}</span></div></sc-for></div>
+        <div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;overflow:auto"><div style="min-width:860px">
+          <div style="display:grid;grid-template-columns:minmax(150px,1.4fr) repeat(7,minmax(0,1fr));gap:8px;padding:12px 16px;border-bottom:1px solid #E7E5DF;background:#FBFAF7;align-items:center">
+            <span style="font-size:12px;font-weight:600;color:#4A4E47">Anggota</span>
+            <sc-for list="{{ schDays }}" as="d" hint-placeholder-count="7"><div style="display:flex;flex-direction:column;align-items:center;font-size:12px;font-weight:600;color:{{ d.fg }};font-variant-numeric:tabular-nums"><span>{{ d.label }}</span><span>{{ d.date }}</span></div></sc-for>
+          </div>
+          <sc-for list="{{ schRows }}" as="r" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:minmax(150px,1.4fr) repeat(7,minmax(0,1fr));gap:8px;padding:10px 16px;border-bottom:1px solid #F0EEE9;align-items:center">
+              <div style="display:flex;flex-direction:column;min-width:0"><span style="font-weight:600">{{ r.name }}</span><span style="font-size:12px;color:#4A4E47">{{ r.role }}</span></div>
+              <sc-for list="{{ r.cells }}" as="ce" hint-placeholder-count="7">
+                <sc-if value="{{ ce.notLeave }}" hint-placeholder-val="{{ true }}"><div style="position:relative;height:44px;border:1px solid {{ ce.bd }};border-radius:10px;background:{{ ce.bg }}"><select value="{{ ce.val }}" onChange="{{ ce.onPick }}" aria-label="Shift" style="appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;width:100%;height:100%;padding:0 26px 0 10px;font-size:14px;font-weight:600;font-family:inherit;color:#10140F;cursor:pointer"><sc-for list="{{ ce.opts }}" as="o" hint-placeholder-count="3"><option value="{{ o.id }}" selected="{{ o.sel }}">{{ o.label }}</option></sc-for></select><om-icon name="chevron-down" size="16" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);pointer-events:none;color:#4A4E47"></om-icon></div></sc-if>
+                <sc-if value="{{ ce.isLeave }}" hint-placeholder-val="{{ false }}"><div title="Izin/cuti disetujui" style="height:44px;border-radius:10px;background:#EAF0FB;color:#1F4A8F;font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center">{{ ce.leaveLabel }}</div></sc-if>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div></div>
+        <span style="font-size:12px;color:#4A4E47">Izin, cuti, dan sakit yang disetujui otomatis tampil di jadwal dan rekap.</span>
+      </sc-if>
+      <sc-if value="{{ isSchedMe }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <button onClick="{{ schPrev }}" aria-label="Minggu sebelumnya" style="width:{{ tap }};height:{{ tap }};border-radius:10px;border:1px solid #E7E5DF;background:#fff;cursor:pointer;color:#10140F;display:flex;align-items:center;justify-content:center"><om-icon name="chevron-left" size="20"></om-icon></button>
+          <button onClick="{{ schNow }}" style="height:{{ tap }};padding:0 14px;border-radius:10px;border:1px solid #E7E5DF;background:{{ schNowBg }};font-weight:600;cursor:pointer;color:#10140F">Minggu ini</button>
+          <button onClick="{{ schNext }}" aria-label="Minggu berikutnya" style="width:{{ tap }};height:{{ tap }};border-radius:10px;border:1px solid #E7E5DF;background:#fff;cursor:pointer;color:#10140F;display:flex;align-items:center;justify-content:center"><om-icon name="chevron-right" size="20"></om-icon></button>
+          <span style="font-weight:700;font-variant-numeric:tabular-nums;padding:0 4px">{{ schRange }}</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><sc-for list="{{ schDefs }}" as="z" hint-placeholder-count="2"><div style="background:#fff;border:1px solid #E7E5DF;border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-weight:600">{{ z.label }}</span><span style="font-size:12px;color:#4A4E47;font-variant-numeric:tabular-nums">{{ z.sub }}</span></div></sc-for></div>
+        <sc-if value="{{ myWeekEmpty }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:18px;color:#4A4E47">Kamu belum punya jadwal shift. Minta manajer menambahkan jadwalmu.</div></sc-if>
+        <div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;overflow:hidden;display:{{ myWeekDisp }}">
+          <sc-for list="{{ myWeek }}" as="w" hint-placeholder-count="7"><div style="display:grid;grid-template-columns:90px 90px minmax(0,1fr);gap:8px;align-items:center;padding:14px 18px;border-bottom:1px solid #F0EEE9;background:{{ w.bg }}"><span style="font-weight:700">{{ w.day }}</span><span style="font-weight:{{ w.fw }};color:{{ w.fg }}">{{ w.shift }}</span><span style="font-variant-numeric:tabular-nums">{{ w.time }}</span></div></sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isLeave }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ lvFilters }}" as="f" hint-placeholder-count="5"><button onClick="{{ f.pick }}" style="min-height:36px;padding:4px 14px;border-radius:20px;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.fg }};font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px">{{ f.label }}<span style="font-size:12px;color:#4A4E47;font-variant-numeric:tabular-nums">{{ f.count }}</span></button></sc-for>
+          <div style="flex:1"></div>
+          <sc-if value="{{ lvCanAsk }}" hint-placeholder-val="{{ false }}"><button onClick="{{ lvAsk }}" style="height:{{ tap }};padding:0 16px;border-radius:10px;border:none;background:#1F5C12;color:#fff;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px"><om-icon name="calendar-check" size="20" style="color:#7ED76A"></om-icon>Ajukan izin/cuti</button></sc-if>
+        </div>
+        <sc-if value="{{ lvShowKpis }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax({{ kpiMin }},1fr));gap:12px"><sc-for list="{{ lvKpis }}" as="k" hint-placeholder-count="4"><div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px"><span style="color:#4A4E47;font-size:12px">{{ k.label }}</span><span style="font-variant-numeric:tabular-nums;font-size:26px;font-weight:700">{{ k.value }}</span></div></sc-for></div></sc-if>
+        <sc-if value="{{ lvEmpty }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:22px;color:#4A4E47;text-align:center">Belum ada pengajuan di filter ini.</div></sc-if>
+        <div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;overflow:hidden">
+          <sc-for list="{{ lvRows }}" as="l" hint-placeholder-count="5">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:14px 18px;border-bottom:1px solid #F0EEE9">
+              <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:4px">
+                <div style="display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap"><sc-if value="{{ lvShowName }}" hint-placeholder-val="{{ true }}"><span style="font-weight:700;min-width:140px">{{ l.name }}</span></sc-if><span style="padding:2px 10px;border-radius:20px;background:#EDECE7;font-size:12px;font-weight:600">{{ l.type }}</span><span style="font-variant-numeric:tabular-nums">{{ l.range }}</span><span style="color:#3B3F38">{{ l.reason }}</span></div>
+                <sc-if value="{{ l.hasNote }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;color:#4A4E47">Catatan: {{ l.note }}</span></sc-if>
+              </div>
+              <span style="padding:3px 10px;border-radius:20px;background:{{ l.stBg }};color:{{ l.stFg }};font-size:12px;font-weight:600">{{ l.stLabel }}</span>
+              <sc-if value="{{ l.canDecide }}" hint-placeholder-val="{{ false }}"><button onClick="{{ l.decide }}" style="height:{{ tap }};padding:0 16px;border-radius:10px;border:1px solid #E7E5DF;background:#fff;font-weight:600;cursor:pointer;color:#10140F">Putuskan</button></sc-if>
+              <sc-if value="{{ l.canCancel }}" hint-placeholder-val="{{ false }}"><button onClick="{{ l.cancel }}" style="height:{{ tap }};padding:0 12px;border-radius:10px;border:none;background:transparent;font-weight:600;cursor:pointer;color:#8E1A14">Batalkan</button></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isReview }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><sc-for list="{{ revFilters }}" as="f" hint-placeholder-count="2"><button onClick="{{ f.pick }}" style="min-height:36px;padding:4px 14px;border-radius:20px;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.fg }};font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px">{{ f.label }}<span style="font-size:12px;color:#4A4E47;font-variant-numeric:tabular-nums">{{ f.count }}</span></button></sc-for></div>
+        <span style="color:#4A4E47;font-size:14px;line-height:1.5">Absen dengan wajah kurang cocok, kamera bermasalah, input manual, atau di luar radius outlet masuk ke sini. Sahkan, tandai tidak sah, atau koreksi jamnya.</span>
+        <sc-if value="{{ revEmpty }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:22px;color:#4A4E47;text-align:center">{{ revEmptyMsg }}</div></sc-if>
+        <div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;overflow:hidden">
+          <sc-for list="{{ revRows }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:14px 18px;border-bottom:1px solid #F0EEE9">
+              <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:6px">
+                <div style="display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap"><span style="font-weight:700;min-width:120px">{{ r.name }}</span><span style="font-variant-numeric:tabular-nums">{{ r.date }}</span><span style="font-variant-numeric:tabular-nums">{{ r.time }}</span></div>
+                <span style="font-size:12px;color:#3B3F38;white-space:pre-wrap">{{ r.meta }}</span>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ r.flags }}" as="fl" hint-placeholder-count="1"><span style="padding:3px 10px;border-radius:20px;background:{{ fl.bg }};color:{{ fl.fg }};font-size:12px;font-weight:600">{{ fl.label }}</span></sc-for><sc-if value="{{ r.hasSt }}" hint-placeholder-val="{{ false }}"><span style="padding:3px 10px;border-radius:20px;background:{{ r.stBg }};color:{{ r.stFg }};font-size:12px;font-weight:600">{{ r.stLabel }}</span></sc-if></div>
+              <div style="display:flex;gap:8px">
+                <sc-if value="{{ r.canReview }}" hint-placeholder-val="{{ true }}"><button onClick="{{ r.review }}" style="height:{{ tap }};padding:0 16px;border-radius:10px;border:none;background:#1F5C12;color:#fff;font-weight:600;cursor:pointer">Tinjau</button></sc-if>
+                <button onClick="{{ r.correct }}" style="height:{{ tap }};padding:0 16px;border-radius:10px;border:1px solid #E7E5DF;background:#fff;font-weight:600;cursor:pointer;color:#10140F">Koreksi</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isAttSet }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:18px;max-width:820px">
+          <div style="display:flex;flex-direction:column;gap:8px"><span style="font-weight:600">Lokasi outlet · {{ acOutlet }}</span>
+            <div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px">
+                <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Lintang outlet</span><input value="{{ acLat }}" onChange="{{ onAcLat }}" inputmode="decimal" style="height:48px;padding:0 14px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;outline:none;min-width:0;font-variant-numeric:tabular-nums" style-focus="border-color:#10140F"></label>
+                <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Bujur outlet</span><input value="{{ acLng }}" onChange="{{ onAcLng }}" inputmode="decimal" style="height:48px;padding:0 14px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;outline:none;min-width:0;font-variant-numeric:tabular-nums" style-focus="border-color:#10140F"></label>
+                <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Radius (m)</span><input value="{{ acR }}" onChange="{{ onAcR }}" inputmode="numeric" style="height:48px;padding:0 14px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;outline:none;min-width:0;font-variant-numeric:tabular-nums" style-focus="border-color:#10140F"></label>
+              </div>
+              <div><button onClick="{{ acLocate }}" style="height:{{ tap }};padding:0 14px;border-radius:10px;border:1px solid #E7E5DF;background:#fff;font-weight:600;cursor:pointer;color:#10140F;display:inline-flex;align-items:center;gap:8px"><om-icon name="locate-fixed" size="20"></om-icon>Pakai lokasi saya</button></div>
+              <span style="font-size:12px;color:#4A4E47;line-height:1.5">Clock in hanya diterima di dalam radius ini. Buka halaman ini dari perangkat di outlet, lalu pakai lokasi saya.</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px"><span style="font-weight:600">Aturan</span>
+            <div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">
+              <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Jatah cuti per tahun (hari)</span><input value="{{ acQuota }}" onChange="{{ onAcQuota }}" inputmode="numeric" style="height:48px;padding:0 14px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;outline:none;min-width:0" style-focus="border-color:#10140F"></label>
+              <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Batas absen manual per bulan</span><input value="{{ acManual }}" onChange="{{ onAcManual }}" inputmode="numeric" style="height:48px;padding:0 14px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;outline:none;min-width:0" style-focus="border-color:#10140F"></label>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px"><span style="font-weight:600">Cocokkan wajah saat absen</span>
+            <div onClick="{{ acToggleFace }}" role="switch" style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:18px;display:flex;align-items:center;gap:16px;cursor:pointer">
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600">Cocokkan wajah saat absen</span><span style="font-size:12px;color:#4A4E47;line-height:1.5">Karyawan memotret wajah saat clock in dan out. Skor rendah masuk Tinjauan manajer.</span></div>
+              <div style="width:48px;height:28px;border-radius:14px;background:{{ acFaceBg }};display:flex;justify-content:{{ acFaceJ }};align-items:center;padding:3px;flex-shrink:0"><div style="width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)"></div></div>
+            </div>
+          </div>
+          <div><button onClick="{{ acSave }}" style="height:50px;padding:0 22px;border-radius:12px;border:none;background:{{ acSaveBg }};color:{{ acSaveFg }};font-weight:600;cursor:pointer">Simpan perubahan</button></div>
+        </div>
+      </sc-if>
     </div>
   </div>
+  <sc-if value="{{ lfOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;background:rgba(16,20,15,.45);display:flex;align-items:{{ sheetAlign }};justify-content:center;z-index:75;padding:{{ sheetPad }}">
+    <div role="dialog" aria-modal="true" aria-label="Ajukan izin/cuti" style="width:100%;max-width:520px;max-height:100%;background:#fff;border-radius:{{ sheetRadius }};display:flex;flex-direction:column;animation:omUp .25s ease;box-shadow:0 20px 60px rgba(16,20,15,.25)">
+      <div style="padding:18px 22px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #F0EEE9"><span style="font-weight:600;font-size:20px">Ajukan izin/cuti</span><button onClick="{{ lfClose }}" aria-label="Tutup" style="border:1px solid #E7E5DF;background:#fff;cursor:pointer;color:#10140F;border-radius:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center"><om-icon name="x" size="20"></om-icon></button></div>
+      <div style="flex:1;overflow:auto;padding:16px 22px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ lfTypes }}" as="t" hint-placeholder-count="3"><button onClick="{{ t.pick }}" style="min-height:40px;padding:4px 16px;border-radius:20px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};font-weight:500;cursor:pointer">{{ t.label }}</button></sc-for></div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+          <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Dari</span><input type="date" value="{{ lfFrom }}" min="{{ lfMin }}" onChange="{{ onLfFrom }}" style="height:48px;padding:0 12px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;font-family:inherit;outline:none;min-width:0;width:100%"></label>
+          <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Sampai</span><input type="date" value="{{ lfTo }}" min="{{ lfFrom }}" onChange="{{ onLfTo }}" style="height:48px;padding:0 12px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;font-family:inherit;outline:none;min-width:0;width:100%"></label>
+        </div>
+        <span style="font-size:12px;color:#4A4E47">{{ lfDays }}</span>
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:600;color:#3B3F38">Alasan</span><textarea value="{{ lfReason }}" onChange="{{ onLfReason }}" rows="3" style="padding:12px 14px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;font-family:inherit;outline:none;resize:vertical" style-focus="border-color:#10140F"></textarea></label>
+        <sc-if value="{{ lfErrOn }}" hint-placeholder-val="{{ false }}"><div role="alert" style="padding:10px 12px;border-radius:10px;background:#FCE9E6;color:#8E1A14;font-size:14px;font-weight:500">{{ lfErr }}</div></sc-if>
+      </div>
+      <div style="padding:14px 22px {{ sheetPb }};border-top:1px solid #F0EEE9;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap"><button onClick="{{ lfClose }}" style="height:50px;padding:0 20px;border-radius:12px;border:1px solid #E7E5DF;background:#fff;font-weight:600;cursor:pointer;color:#10140F">Batal</button><button onClick="{{ lfSave }}" style="height:50px;padding:0 22px;border-radius:12px;border:none;background:#1F5C12;color:#fff;font-weight:600;cursor:pointer">Kirim pengajuan</button></div>
+    </div>
+  </div>
+  </sc-if>
+  <sc-if value="{{ ldOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;background:rgba(16,20,15,.45);display:flex;align-items:{{ sheetAlign }};justify-content:center;z-index:75;padding:{{ sheetPad }}">
+    <div role="dialog" aria-modal="true" aria-label="{{ ldTitle }}" style="width:100%;max-width:480px;max-height:100%;background:#fff;border-radius:{{ sheetRadius }};display:flex;flex-direction:column;animation:omUp .25s ease;box-shadow:0 20px 60px rgba(16,20,15,.25)">
+      <div style="padding:20px 22px 14px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><span style="font-weight:700;font-size:20px">{{ ldTitle }}</span><button onClick="{{ ldClose }}" aria-label="Tutup" style="border:none;background:transparent;cursor:pointer;color:#4A4E47;border-radius:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin:-8px -10px 0 0"><om-icon name="x" size="22"></om-icon></button></div>
+        <span style="font-variant-numeric:tabular-nums">{{ ldRange }}</span>
+        <span style="color:#3B3F38">{{ ldReason }}</span>
+        <span style="font-size:12px;color:#4A4E47;line-height:1.5;padding:10px 12px;border-radius:10px;background:#F6F5F1">{{ ldInfo }}</span>
+        <textarea value="{{ ldNote }}" onChange="{{ onLdNote }}" rows="3" placeholder="Catatan (opsional)" style="padding:12px 14px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;font-family:inherit;outline:none;resize:vertical" style-focus="border-color:#10140F"></textarea>
+      </div>
+      <div style="padding:14px 22px {{ sheetPb }};border-top:1px solid #F0EEE9;display:flex;gap:10px"><button onClick="{{ ldReject }}" style="flex:1;height:50px;border-radius:12px;border:1px solid #F4CFC9;background:#FCE9E6;font-weight:600;cursor:pointer;color:#8E1A14">Tolak</button><button onClick="{{ ldApprove }}" style="flex:1;height:50px;border-radius:12px;border:none;background:#1F5C12;color:#fff;font-weight:600;cursor:pointer">Setujui</button></div>
+    </div>
+  </div>
+  </sc-if>
+  <sc-if value="{{ rvOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;background:rgba(16,20,15,.45);display:flex;align-items:{{ sheetAlign }};justify-content:center;z-index:75;padding:{{ sheetPad }}">
+    <div role="dialog" aria-modal="true" aria-label="{{ rvTitle }}" style="width:100%;max-width:520px;max-height:100%;background:#fff;border-radius:{{ sheetRadius }};display:flex;flex-direction:column;animation:omUp .25s ease;box-shadow:0 20px 60px rgba(16,20,15,.25)">
+      <div style="padding:18px 22px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid #F0EEE9"><div style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-weight:600;font-size:20px">Tinjau absen · {{ rvTitle }}</span><span style="color:#4A4E47;font-size:14px;font-variant-numeric:tabular-nums">{{ rvTime }}</span></div><button onClick="{{ rvClose }}" aria-label="Tutup" style="border:none;background:transparent;cursor:pointer;color:#4A4E47;border-radius:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><om-icon name="x" size="22"></om-icon></button></div>
+      <div style="flex:1;overflow:auto;padding:16px 22px;display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ rvFlags }}" as="f" hint-placeholder-count="1"><div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:10px;background:{{ f.bg }};color:{{ f.fg }}"><om-icon name="triangle-alert" size="20" style="flex-shrink:0"></om-icon><div style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600">{{ f.label }}</span><span style="font-size:12px;line-height:1.45">{{ f.desc }}</span></div></div></sc-for>
+        <div style="border:1px solid #E7E5DF;border-radius:12px;overflow:hidden"><sc-for list="{{ rvFacts }}" as="x" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid #F0EEE9;font-size:14px"><span style="color:#4A4E47">{{ x.k }}</span><span style="font-weight:500;text-align:right">{{ x.v }}</span></div></sc-for></div>
+      </div>
+      <div style="padding:14px 22px {{ sheetPb }};border-top:1px solid #F0EEE9;display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{ rvInvalid }}" style="flex:1 1 120px;height:50px;border-radius:12px;border:1px solid #F4CFC9;background:#FCE9E6;font-weight:600;cursor:pointer;color:#8E1A14">Tidak sah</button><button onClick="{{ rvCorrect }}" style="flex:1 1 120px;height:50px;border-radius:12px;border:1px solid #E7E5DF;background:#fff;font-weight:600;cursor:pointer;color:#10140F">Koreksi jam</button><button onClick="{{ rvOk }}" style="flex:2 1 160px;height:50px;border-radius:12px;border:none;background:#1F5C12;color:#fff;font-weight:600;cursor:pointer">Sahkan absen</button></div>
+    </div>
+  </div>
+  </sc-if>
+  <sc-if value="{{ cfOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;background:rgba(16,20,15,.45);display:flex;align-items:{{ sheetAlign }};justify-content:center;z-index:76;padding:{{ sheetPad }}">
+    <div role="dialog" aria-modal="true" aria-label="{{ cfTitle }}" style="width:100%;max-width:460px;max-height:100%;background:#fff;border-radius:{{ sheetRadius }};display:flex;flex-direction:column;animation:omUp .25s ease;box-shadow:0 20px 60px rgba(16,20,15,.25)">
+      <div style="padding:18px 22px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid #F0EEE9"><div style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-weight:600;font-size:20px">{{ cfTitle }}</span><span style="color:#4A4E47;font-size:14px;font-variant-numeric:tabular-nums">{{ cfSub }}</span></div><button onClick="{{ cfClose }}" aria-label="Tutup" style="border:none;background:transparent;cursor:pointer;color:#4A4E47;border-radius:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><om-icon name="x" size="22"></om-icon></button></div>
+      <div style="padding:16px 22px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+          <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Jam masuk</span><input type="time" value="{{ cfIn }}" onChange="{{ onCfIn }}" style="height:48px;padding:0 12px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;font-family:inherit;outline:none;min-width:0;width:100%"></label>
+          <label style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:600;color:#3B3F38">Jam pulang</span><input type="time" value="{{ cfOut }}" onChange="{{ onCfOut }}" style="height:48px;padding:0 12px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;font-family:inherit;outline:none;min-width:0;width:100%"></label>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:600;color:#3B3F38">Alasan koreksi</span><textarea value="{{ cfReason }}" onChange="{{ onCfReason }}" rows="2" placeholder="mis. Lupa clock out, dikonfirmasi manajer" style="padding:12px 14px;border:1px solid #D7D5CE;border-radius:11px;font-size:16px;font-family:inherit;outline:none;resize:vertical" style-focus="border-color:#10140F"></textarea></label>
+        <sc-if value="{{ cfErrOn }}" hint-placeholder-val="{{ false }}"><div role="alert" style="padding:10px 12px;border-radius:10px;background:#FCE9E6;color:#8E1A14;font-size:14px;font-weight:500">{{ cfErr }}</div></sc-if>
+      </div>
+      <div style="padding:14px 22px {{ sheetPb }};border-top:1px solid #F0EEE9;display:flex;gap:8px"><button onClick="{{ cfClose }}" style="flex:1;height:50px;border-radius:12px;border:1px solid #E7E5DF;background:#fff;font-weight:600;cursor:pointer;color:#10140F">Batal</button><button onClick="{{ cfSave }}" style="flex:2;height:50px;border-radius:12px;border:none;background:#1F5C12;color:#fff;font-weight:600;cursor:pointer">Simpan koreksi</button></div>
+    </div>
+  </div>
+  </sc-if>
+  <sc-if value="{{ shOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;background:rgba(16,20,15,.45);display:flex;align-items:{{ sheetAlign }};justify-content:center;z-index:75;padding:{{ sheetPad }}">
+    <div role="dialog" aria-modal="true" aria-label="Kelola shift" style="width:100%;max-width:700px;max-height:100%;background:#fff;border-radius:{{ sheetRadius }};display:flex;flex-direction:column;animation:omUp .25s ease;box-shadow:0 20px 60px rgba(16,20,15,.25)">
+      <div style="padding:18px 22px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid #F0EEE9"><div style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-weight:600;font-size:20px">Kelola shift</span><span style="color:#4A4E47;font-size:14px;line-height:1.45">Toleransi adalah menit keterlambatan sebelum absen ditandai terlambat.</span></div><button onClick="{{ shClose }}" aria-label="Tutup" style="border:none;background:transparent;cursor:pointer;color:#4A4E47;border-radius:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><om-icon name="x" size="22"></om-icon></button></div>
+      <div style="flex:1;overflow:auto;padding:16px 22px;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ shRows }}" as="r" hint-placeholder-count="2">
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:8px;align-items:end;padding-bottom:10px;border-bottom:1px solid #F0EEE9"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:8px;min-width:0">
+            <label style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-size:12px;color:#3B3F38">Nama</span><input value="{{ r.label }}" onChange="{{ r.onLabel }}" placeholder="mis. Malam" style="height:44px;width:100%;padding:0 10px;border:1px solid #D7D5CE;border-radius:10px;font-size:16px;outline:none;min-width:0"></label>
+            <label style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-size:12px;color:#3B3F38">Mulai</span><input type="time" value="{{ r.start }}" onChange="{{ r.onStart }}" style="height:44px;width:100%;padding:0 8px;border:1px solid #D7D5CE;border-radius:10px;font-size:16px;font-family:inherit;outline:none;min-width:0"></label>
+            <label style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-size:12px;color:#3B3F38">Selesai</span><input type="time" value="{{ r.end }}" onChange="{{ r.onEnd }}" style="height:44px;width:100%;padding:0 8px;border:1px solid #D7D5CE;border-radius:10px;font-size:16px;font-family:inherit;outline:none;min-width:0"></label>
+            <label style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-size:12px;color:#3B3F38">Tol. (m)</span><input value="{{ r.tol }}" onChange="{{ r.onTol }}" inputmode="numeric" style="height:44px;width:100%;padding:0 10px;border:1px solid #D7D5CE;border-radius:10px;font-size:16px;outline:none;min-width:0"></label>
+            </div><sc-if value="{{ r.canDel }}" hint-placeholder-val="{{ true }}"><button onClick="{{ r.del }}" aria-label="Hapus shift" style="width:44px;height:44px;border-radius:10px;border:1px solid #E7E5DF;background:#fff;cursor:pointer;color:#8E1A14;display:flex;align-items:center;justify-content:center"><om-icon name="trash-2" size="20"></om-icon></button></sc-if>
+          </div>
+        </sc-for>
+        <div><button onClick="{{ shAdd }}" style="height:{{ tap }};padding:0 14px;border-radius:10px;border:1px dashed #C9C7C0;background:#fff;font-weight:600;cursor:pointer;color:#10140F;display:inline-flex;align-items:center;gap:6px"><om-icon name="plus" size="20"></om-icon>Tambah shift</button></div>
+        <sc-if value="{{ shErrOn }}" hint-placeholder-val="{{ false }}"><div role="alert" style="padding:10px 12px;border-radius:10px;background:#FCE9E6;color:#8E1A14;font-size:14px;font-weight:500">{{ shErr }}</div></sc-if>
+      </div>
+      <div style="padding:14px 22px {{ sheetPb }};border-top:1px solid #F0EEE9;display:flex;gap:8px"><button onClick="{{ shClose }}" style="flex:1;height:50px;border-radius:12px;border:1px solid #E7E5DF;background:#fff;font-weight:600;cursor:pointer;color:#10140F">Batal</button><button onClick="{{ shSave }}" style="flex:2;height:50px;border-radius:12px;border:none;background:#1F5C12;color:#fff;font-weight:600;cursor:pointer">Simpan shift</button></div>
+    </div>
+  </div>
+  </sc-if>
 </sc-if>
 
 <sc-if value="{{ isReports }}" hint-placeholder-val="{{ false }}">
@@ -2120,7 +2314,7 @@ input,select,textarea{font-size:16px}
   <div style="display:flex;flex-direction:column;gap:12px;max-width:260px;color:#fff">
     <span style="font-variant-numeric:tabular-nums;font-size:12px;color:#7ED76A">Pratinjau pelanggan</span>
     <span style="font-size:24px;font-weight:600;line-height:1.25">Tampilan setelah pelanggan memindai QR {{ cvTable }}</span>
-    <span style="color:#C7CFC3;line-height:1.5;font-size:12px">Pesanan yang dikirim masuk ke tab Perlu verifikasi di Pesanan. Kasir memverifikasi dan menerima pembayaran sebelum tiket diteruskan ke dapur.</span>
+    <span style="color:#C7CFC3;line-height:1.5;font-size:12px">{{ cvInfo }}</span>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button onClick="{{ cvGoVerify }}" style="height:{{ tap }};padding:0 14px;border-radius:10px;border:none;background:#7ED76A;color:#10140F;font-weight:600;cursor:pointer">Lihat di kasir</button>
       <button onClick="{{ cvClose }}" style="height:{{ tap }};padding:0 14px;border-radius:10px;border:1px solid #3B3F38;background:transparent;color:#fff;font-weight:600;cursor:pointer">Tutup</button>
@@ -2259,12 +2453,13 @@ input,select,textarea{font-size:16px}
           <div style="width:68px;height:68px;border-radius:50%;background:#E6F4DF;display:flex;align-items:center;justify-content:center"><om-icon name="receipt-text" size="36" style="color:#1F5C12"></om-icon></div>
           <span style="font-variant-numeric:tabular-nums;font-size:12px;color:#4A4E47">PESANAN #{{ cvOrderNo }}</span>
           <span style="font-weight:700;font-size:20px">{{ cvStatusTitle }}</span>
-          <span style="color:#4A4E47;font-size:12px;line-height:1.5">Status di halaman ini diperbarui otomatis.</span>
+          <span style="color:#4A4E47;font-size:12px;line-height:1.5">{{ cvStatusSub }}</span>
         </div>
         <sc-if value="{{ cvPaidRow }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;background:#EEF7EA;color:#1F5C12;font-size:12px;font-weight:500"><om-icon name="badge-check" size="20"></om-icon><span style="flex:1">Dibayar dengan {{ cvPaidMethod }}</span><span style="font-variant-numeric:tabular-nums;font-weight:700">{{ cvPaidTotal }}</span></div></sc-if>
+        <sc-if value="{{ cvUnpaidRow }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;background:#FBF1DC;color:#6A4400;font-size:12px;font-weight:500"><om-icon name="store" size="20"></om-icon><span style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-weight:600">{{ cvUnpaidLabel }}</span><span>{{ cvUnpaidMethod }}</span></span><span style="font-variant-numeric:tabular-nums;font-weight:700">{{ cvPaidTotal }}</span></div></sc-if>
         <sc-if value="{{ cvNotRejected }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;padding:16px;border:1px solid #E7E5DF;border-radius:14px">
-          <sc-for list="{{ cvSteps }}" as="st" hint-placeholder-count="4">
+          <sc-for list="{{ cvSteps }}" as="st" hint-placeholder-count="5">
             <div style="display:flex;gap:12px">
               <div style="display:flex;flex-direction:column;align-items:center"><div style="width:22px;height:22px;border-radius:50%;border:2px solid {{ st.dotBorder }};background:{{ st.dotBg }};display:flex;align-items:center;justify-content:center;color:#fff"><om-icon name="{{ st.icon }}" size="16"></om-icon></div><sc-if value="{{ st.notLast }}" hint-placeholder-val="{{ true }}"><div style="width:2px;height:26px;background:{{ st.lineBg }}"></div></sc-if></div>
               <span style="font-weight:500;color:{{ st.fg }};padding-top:2px">{{ st.label }}</span>
@@ -2747,6 +2942,21 @@ const uEmail = x => (x.email || (x.name.trim().toLowerCase().split(/\s+/)[0].rep
 const pad2 = n => String(n).padStart(2, '0');
 const SHIFTS = [{ id: 'pagi', label: 'Pagi', start: 7, end: 15 }, { id: 'siang', label: 'Siang', start: 15, end: 22 }];
 const roster = s => [...EMP, ...s.users.filter(x => x.shiftId && !EMP.some(e => e.name.toLowerCase() === x.name.toLowerCase())).map(x => { const z = SHIFTS.find(q => q.id === x.shiftId) || SHIFTS[0]; return { name: x.name, role: window.OS.ROLES[x.role].label, shift: z.label, start: z.start, end: z.end, phone: x.phone, pin: true }; })];
+const SHDEF = [{ id: 'pagi', label: 'Pagi', start: '07:00', end: '15:00', tol: 10 }, { id: 'siang', label: 'Siang', start: '15:00', end: '22:00', tol: 10 }];
+const seedStaff = t => {
+  const D = 86400000, d0 = new Date(t); d0.setHours(0, 0, 0, 0); const b = d0.getTime(), at = (day, h, m) => b + day * D + (h * 60 + m) * 60000;
+  const L = (id, name, type, f, to, reason, status, note) => ({ id, name, type, from: b + f * D, to: b + to * D, reason, status, note: note || '', createdAt: b + Math.min(f, 0) * D - D });
+  const leaves = [L('LV1', 'Putri', 'cuti', 7, 9, 'Pulang kampung', 'pending'), L('LV2', 'Rina', 'izin', 4, 5, 'Keluar kota', 'pending'), L('LV3', 'Bayu', 'izin', 0, 0, 'Mengurus perpanjangan KTP', 'pending'),
+    L('LV4', 'Putri', 'sakit', -5, -4, 'Demam dan flu', 'approved'), L('LV5', 'Bayu', 'cuti', -12, -11, 'Acara keluarga di luar kota', 'approved', 'Selamat berlibur'), L('LV6', 'Putri', 'cuti', -15, -15, 'Ada urusan pribadi', 'rejected', 'Sedang banyak pesanan, coba hari lain')];
+  const recs = [];
+  [['Rina', 7], ['Dewi', 7], ['Bayu', 15], ['Putri', 15], ['Fajar', 15]].forEach(([n, h], ei) => { for (let d = -6; d <= -1; d++) { if ((ei + d + 7) % 6 === 0) continue; const r = rnd(ei * 31 - d * 7), inM = Math.round(-12 + r * 20), outM = Math.round(r * 25); recs.push({ id: `AR-${n}-${-d}`, name: n, day: b + d * D, in: at(d, h, 0) + inM * 60000, out: at(d, h + 7 + (h === 7 ? 1 : 0), 0) + outM * 60000, flags: [], score: .78 + r * .2, dist: Math.round(4 + r * 40), note: '', status: 'ok' }); } });
+  const fl = (id, patch) => { const x = recs.find(z => z.id === id); if (x) Object.assign(x, patch); };
+  fl('AR-Bayu-5', { flags: ['face'], score: .21, dist: 26, status: 'open', in: at(-5, 14, 59), out: at(-5, 21, 15) });
+  fl('AR-Rina-5', { flags: ['cam', 'manual'], score: null, dist: 45, status: 'open', note: 'Kamera tablet rusak, absen manual', in: at(-5, 6, 55), out: at(-5, 15, 10) });
+  fl('AR-Fajar-2', { flags: ['geo'], dist: 340, status: 'open', note: 'Clock in dari luar radius outlet', in: at(-2, 15, 21), out: at(-2, 22, 4) });
+  return { shiftDefs: SHDEF.map(x => ({ ...x })), schedOv: {}, schedWk: 0, leaves, lvFilter: 'all', lvForm: null, lvDecide: null, attRecs: recs.sort((a, z) => z.in - a.in), revFilter: 'open', revOpen: null, corrForm: null, shForm: null,
+    attCfg: { quota: 12, manualMax: 3, face: false, loc: { kmg: { lat: '-6.2615', lng: '106.8135', r: '100' }, snp: { lat: '-6.2297', lng: '106.8090', r: '100' }, bsd: { lat: '-6.3018', lng: '106.6520', r: '150' } } }, attCfgD: null };
+};
 const seedAtt = t => { const d0 = new Date(t); d0.setHours(0, 0, 0, 0); const b = d0.getTime(), H = 3600000, M = 60000, dt = new Date(t), hr = dt.getHours() + dt.getMinutes() / 60, late = { Rina: 2, Bayu: 6, Dewi: 14 }, o = {};
   EMP.forEach(e => { const lt = late[e.name]; if (lt == null || hr < e.start) { o[e.name] = { in: null, out: null }; return; } const inT = Math.min(t, b + e.start * H + lt * M); o[e.name] = hr >= e.end ? { in: inT, out: b + e.end * H + 4 * M } : { in: inT, out: null }; }); return o; };
 const storeSt = (ol, now) => {
@@ -3035,7 +3245,7 @@ class Component extends DCLogic {
       poTab: 'po', selPo: null, reportRange: '7d', settingsTab: 'modules', cv: null, payFor: null,
       discCode: '', discModal: false, discForm: { name: '', code: '', value: '10' },
       prodTab: 'products', prodSearch: '', prodCat: 'Semua', selProd: null, prodForm: null, empTab: 'att',
-      att: seedAtt(t),
+      att: seedAtt(t), ...seedStaff(t),
       opname: {}, payOpen: false, payMethod: 'cash', cash: 0, payDone: false, lastPaid: null,
       restockId: null, restockQty: '', bellOpen: false, toast: '', toastTone: 'ok',
       finTab: 'shift', fPeriod: '7d', fOutlet: 'all', fCat: 'all', fSrc: 'all', fStatus: 'all', selShift: null, reviewNote: '', selPay: null, setlCh: 'gofood',
@@ -3225,6 +3435,13 @@ class Component extends DCLogic {
       const so = this.stockOp(real, oid, OS.usage(this.omFor(oid), o.items), -1, `Terjual · pesanan #${o.no}`, now);
       return { ...so, tablesBy: md.tables && o.table ? { ...real.tablesBy, [oid]: this.occupyT(real.tablesBy[oid], o.table, o.no) } : real.tablesBy, orders: real.orders.map(x => x.id === o.id ? { ...x, status: md.kitchen ? 'new' : 'served', method: s.payMethod, bank: s.payMethod === 'edc' ? (s.payBank && (s.edcBanks || []).includes(s.payBank) ? s.payBank : (s.edcBanks || [])[0] || null) : null, cashIn: s.payMethod === 'cash' ? s.cash : null, paid: x.total, paidAt: now, createdAt: now, shiftId: sh ? sh.id : null, userId: u.id, verifiedBy: u.name } : x), payDone: true, lastPaid: { no: o.no, method: s.payMethod, bank: s.payMethod === 'edc' ? (s.payBank && (s.edcBanks || []).includes(s.payBank) ? s.payBank : (s.edcBanks || [])[0] || null) : null, change: s.payMethod === 'cash' ? s.cash - o.total : 0 } };
     });
+  }
+  verifyOpenBill(o) {
+    const OS = window.OS, md = this.effMods(), oid = o.outletId, u = this.me();
+    this.commit(real => {
+      const now = Date.now(), so = this.stockOp(real, oid, OS.usage(this.omFor(oid), o.items), -1, `Terjual · open bill #${o.no}`, now);
+      return { ...so, tablesBy: md.tables && o.table ? { ...real.tablesBy, [oid]: this.occupyT(real.tablesBy[oid], o.table, o.no) } : real.tablesBy, orders: real.orders.map(x => x.id === o.id ? { ...x, openBill: true, status: md.kitchen ? 'new' : 'served', createdAt: now, userId: u.id, verifiedBy: u.name } : x) };
+    }, () => { this.showToast(`Pesanan #${o.no} diverifikasi · ${md.kitchen ? 'dikirim ke dapur' : 'disimpan'} · bayar di kasir nanti`); this.soldOutCheck(o.items); });
   }
   sendSelfOrder() {
     const s = this.sv(), cv = s.cv; if (!cv || !cv.cart.length) return;
@@ -3540,7 +3757,7 @@ window.bShell = function (c, OM) {
     products: ['Produk', 'Menu pusat, harga per kanal, dan ketersediaan per outlet'], discounts: ['Diskon', 'Kode promo dan potongan harga'],
     inventory: ['Inventaris', 'Stok per outlet, berkurang otomatis dari setiap penjualan'], purchasing: ['Pembelian', 'Pesanan pembelian, penerimaan, dan termin bayar'],
     finance: ['Keuangan', 'Shift & kas, pengeluaran, hutang, dan pencairan platform'], audit: ['Log aktivitas', 'Jejak audit yang tidak bisa diubah atau dihapus'],
-    staff: ['Karyawan', 'Absensi, pengguna, peran, dan izin'], reports: ['Laporan', 'Harian, bulanan, shift & kas, persediaan, dan laba rugi'], settings: ['Pengaturan', 'Modul, outlet, kanal, kebijakan, dan akun'],
+    staff: ['Karyawan', 'Absensi, jadwal shift, izin, rekap, dan pengguna beserta aksesnya.'], reports: ['Laporan', 'Harian, bulanan, shift & kas, persediaan, dan laba rugi'], settings: ['Pengaturan', 'Modul, outlet, kanal, kebijakan, dan akun'],
   };
   const alerts = lowList.slice(0, 30).map(({ i, ol: o2, on }) => { const crit = on < i.par * .5; return { name: (o2 ? o2.name + ' · ' : '') + i.name, onHand: fq(on, i.unit), par: fq(i.par, i.unit), icon: crit ? 'circle-alert' : 'triangle-alert', fg: crit ? '#8E1A14' : '#6A4400', actLabel: o2 ? 'Buka' : md.purchasing ? 'Buat PO' : 'Terima stok', act: () => { if (o2) { c.setOutlet(o2.id); c.go('inventory', { invFilter: 'low' }); return; } if (md.purchasing) { const no = c.createPos([i.id]); c.go('purchasing', { poTab: 'po', selPo: no || s.selPo }); } else c.openRestock(i.id); } }; });
   const pg = s.page, mob = s.w < 768, needOut = all && !!NEED_OUTLET[pg];
@@ -3898,7 +4115,7 @@ window.bOrders = function (c, OM) {
     const askVoid = () => c.ask({ kind: 'void', outletId: so.outletId, title: 'Void item', desc: `Pesanan #${so.no} sudah dikirim ke dapur. ${on ? 'Piutang ' + OS.CHB[so.channel].label + ' disesuaikan.' : 'Selisih dikembalikan ke ' + c.methLabel(so.method) + '.'} Butuh PIN manajer.`, reasons: OS.REASONS.void, order: so, lineOpts, f: { li: lineOpts[0] ? lineOpts[0].li : 0, qty: 1, made: so.status !== 'new' }, validate: f => { const lo = lineOpts.find(x => x.li === f.li); if (!lo) return 'Pilih item.'; if (f.qty < 1 || f.qty > lo.max) return 'Jumlah tidak valid.'; if (lineOpts.length === 1 && f.qty === lo.max) return 'Semua item akan di-void. Pakai Batalkan pesanan.'; return on ? '' : cashGuard(so.method); }, ok: (f, ap, r) => c.voidItem(so, f.li, f.qty, f.made, r, ap) });
     const shOpen = !md.finance ? so.createdAt >= t0 : !!sh && (so.shiftId ? so.shiftId === sh.id : so.createdAt >= sh.openedAt);
     const acts = [];
-    if (so.status === 'pending') { acts.push({ label: 'Tolak', icon: 'ban', kind: 'danger', act: () => c.setState({ confirm: { title: `Tolak pesanan #${so.no}?`, desc: 'Pelanggan akan melihat pesanan tidak dapat diproses.', okLabel: 'Tolak pesanan', danger: true, ok: () => { c.commit(real => ({ orders: real.orders.map(x => x.id === so.id ? { ...x, status: 'rejected' } : x) })); c.showToast(`Pesanan #${so.no} ditolak`); } } }) }); acts.push({ label: 'Verifikasi & bayar', icon: 'circle-check-big', kind: 'primary', act: () => { if (c.needShiftFor(so.outletId)) return c.showToast('Buka shift di Kasir dulu untuk menerima pembayaran', 'warn'); const first = OM.PAY.find(p => s.payEnabled[p.id]); c.setState({ payOpen: true, payFor: so.id, payDone: false, payMethod: first ? first.id : 'cash', cash: so.total }); } }); }
+    if (so.status === 'pending') { acts.push({ label: 'Tolak', icon: 'ban', kind: 'danger', act: () => c.setState({ confirm: { title: `Tolak pesanan #${so.no}?`, desc: 'Pelanggan akan melihat pesanan tidak dapat diproses.', okLabel: 'Tolak pesanan', danger: true, ok: () => { c.commit(real => ({ orders: real.orders.map(x => x.id === so.id ? { ...x, status: 'rejected' } : x) })); c.showToast(`Pesanan #${so.no} ditolak`); } } }) }); if (so.type === 'dine') acts.push({ label: md.kitchen ? 'Kirim ke dapur · bayar nanti' : 'Verifikasi · bayar nanti', icon: 'send', kind: 'sec', act: () => c.verifyOpenBill(so) }); acts.push({ label: 'Verifikasi & bayar', icon: 'circle-check-big', kind: 'primary', act: () => { if (c.needShiftFor(so.outletId)) return c.showToast('Buka shift di Kasir dulu untuk menerima pembayaran', 'warn'); const first = OM.PAY.find(p => s.payEnabled[p.id]); c.setState({ payOpen: true, payFor: so.id, payDone: false, payMethod: first ? first.id : 'cash', cash: so.total }); } }); }
     if (on && ['new', 'cooking', 'ready', 'picked'].includes(so.status)) {
       acts.push({ label: 'Dibatalkan platform', icon: 'circle-x', kind: 'danger', act: () => c.ask({ kind: 'pcancel', noPin: true, outletId: so.outletId, title: `Dibatalkan ${OS.CHB[so.channel].label}`, desc: `${so.channelOrderId} dibatalkan dari aplikasi. Piutang ${fmt(so.expectedPayout || 0)} dihapus.`, reasons: OS.REASONS.pcancel, f: { made: so.status !== 'new' }, ok: (f, ap, r) => c.onlineCancel(so, f.made, r) }) });
       if (so.status !== 'picked' && shOpen) acts.push({ label: 'Void item', icon: 'shopping-cart', kind: 'sec', act: askVoid });
@@ -3927,7 +4144,7 @@ window.bOrders = function (c, OM) {
       no: so.no, where: where(so), time: dtm(so.createdAt), customer: so.customer, sub: fmt(so.sub), svc: fmt(so.svc), tax: fmt(so.tax), total: fmt(so.total), disc: fmt(so.disc || 0), hasDisc: !!so.disc, discLabel: so.discLabel || 'Diskon',
       stLabel: st.label, stBg: st.bg, stFg: st.fg, obUnpaidChip: so.openBill && !so.paidAt && !['cancelled', 'rejected'].includes(so.status) && st !== SS.unpaid, ...chB(so), outletTag: all ? oname(s, so.outletId) : '', hasOutletTag: all,
       hasResv: !!so.resv, resvRef: so.resv ? so.resv.ref : '', resvSrc: so.resv ? so.resv.source : '', resvFee: so.resv ? fmt(so.resv.fee || 0) : '', resvAt: so.resv && so.resv.at ? dtm(so.resv.at) : '', resvName: so.resv && so.resv.name ? so.resv.name : '', hasResvName: !!(so.resv && so.resv.name),
-      isQr: so.source === 'qr', custNote: so.custNote, hasCustNote: !!so.custNote, isPaid: paidDirect, payLine: paidDirect ? `Dibayar ${fmt(so.paid || so.total)} dengan ${c.methLabel(so.method)}${so.bank ? ' ' + so.bank : ''}${so.userId ? ' · kasir ' + uname(s, so.userId) : ''}` : '',
+      isQr: so.source === 'qr', custNote: so.custNote, hasCustNote: !!so.custNote, isPaid: paidDirect, payLine: paidDirect ? `Dibayar ${fmt(so.paid || so.total)} dengan ${c.methLabel(so.method)}${so.bank ? ' ' + so.bank : ''}${so.source === 'qr' && !so.verifiedBy ? ' · dari HP pelanggan' : so.userId ? ' · kasir ' + uname(s, so.userId) : ''}` : '',
       verifiedBy: so.verifiedBy || '', hasVerified: !!so.verifiedBy, isOn: on,
       onPid: on ? so.channelOrderId : '', onDriver: so.driver || '—', onNote: so.appNote || '', hasOnNote: !!so.appNote, onComm: on ? `−${fmt(so.commissionAmount || 0)}` : '', onCommPct: on ? `Komisi ${cs.comm}%` : '', onPayout: on ? fmt(so.expectedPayout || 0) : '',
       onPayDate: on ? (setl ? `Sudah cair · ${setl.id} · ${dstr(setl.receivedAt)}` : so.status === 'pcancel' ? 'Tidak ada pencairan' : `Estimasi cair ${dstr(so.expectedPayoutDate)}`) : '', onPayFg: setl ? '#1F5C12' : '#4A4E47',
@@ -3936,7 +4153,7 @@ window.bOrders = function (c, OM) {
       refunds: refs.map(r => ({ label: { void: 'Void item', partial: 'Refund sebagian', full: 'Refund penuh', cancel: 'Pembatalan', reopen: 'Buka ulang' }[r.type], meta: `${dtm(r.t)} · ${c.methLabel(r.method)} · disetujui ${uname(s, r.approverId)}`, reason: r.reason, amount: '−' + fmt(r.amount) })), hasRefunds: refs.length > 0,
       net: fmt(rem), hasNet: (so.refunded || 0) > 0,
       shLocked: !shOpen && (paidDirect || on) && !['cancelled', 'rejected', 'pcancel', 'reopened'].includes(so.status), shLockMsg: md.finance ? 'Shift pesanan ini sudah ditutup dan laporannya sudah keluar. Void, refund, dan batal tidak bisa dilakukan lagi.' : 'Laporan harian pesanan ini sudah keluar. Void, refund, dan batal tidak bisa dilakukan lagi.',
-      steps: on ? ['Diterima', 'Disiapkan', 'Siap', 'Diambil', 'Selesai'].map((l, i) => { const ok2 = so.status !== 'pcancel' && flowOn.indexOf(so.status) >= i; return { label: l, bg: ok2 ? '#45A02E' : '#E7E5DF', fg: ok2 ? '#10140F' : '#4A4E47' }; }) : so.openBill ? ['Dibuat', 'Diproses', 'Siap', 'Belum bayar', 'Selesai'].map((l, i) => { const idx = ['new', 'cooking', 'ready', 'served'].indexOf(so.status), lv = so.paidAt && so.status === 'served' ? 4 : idx; const ok2 = !['cancelled', 'rejected'].includes(so.status) && lv >= i; return { label: l, bg: ok2 ? (i === 3 && !so.paidAt ? '#E0A526' : '#45A02E') : '#E7E5DF', fg: ok2 ? '#10140F' : '#4A4E47' }; }) : (so.source === 'qr' ? ['Dikirim', 'Diverifikasi', 'Diproses', 'Siap', 'Selesai'] : ['', 'Dibuat', 'Diproses', 'Siap', 'Selesai']).map((l, i) => ({ l, i })).filter(x => x.l).map(({ l, i }) => { const ok2 = flow.includes(so.status) && flow.indexOf(so.status) >= i; return { label: l, bg: ok2 ? '#45A02E' : '#E7E5DF', fg: ok2 ? '#10140F' : '#4A4E47' }; }),
+      steps: on ? ['Diterima', 'Disiapkan', 'Siap', 'Diambil', 'Selesai'].map((l, i) => { const ok2 = so.status !== 'pcancel' && flowOn.indexOf(so.status) >= i; return { label: l, bg: ok2 ? '#45A02E' : '#E7E5DF', fg: ok2 ? '#10140F' : '#4A4E47' }; }) : so.openBill ? ['Dibuat', 'Diproses', 'Siap', 'Belum bayar', 'Selesai'].map((l, i) => { const idx = ['new', 'cooking', 'ready', 'served'].indexOf(so.status), lv = so.paidAt && so.status === 'served' ? 4 : idx; const ok2 = !['cancelled', 'rejected'].includes(so.status) && lv >= i; return { label: l, bg: ok2 ? (i === 3 && !so.paidAt ? '#E0A526' : '#45A02E') : '#E7E5DF', fg: ok2 ? '#10140F' : '#4A4E47' }; }) : (so.source === 'qr' ? ['Dikirim', so.paidAt && !so.verifiedBy ? 'Dibayar online' : 'Diverifikasi', 'Diproses', 'Siap', 'Selesai'] : ['', 'Dibuat', 'Diproses', 'Siap', 'Selesai']).map((l, i) => ({ l, i })).filter(x => x.l).map(({ l, i }) => { const ok2 = flow.includes(so.status) && flow.indexOf(so.status) >= i; return { label: l, bg: ok2 ? '#45A02E' : '#E7E5DF', fg: ok2 ? '#10140F' : '#4A4E47' }; }),
       acts: acts.map(a => ({ ...a, bg: a.kind === 'primary' ? '#1F5C12' : '#fff', fg: a.kind === 'primary' ? '#fff' : a.kind === 'danger' ? '#8E1A14' : '#10140F', border: a.kind === 'primary' ? '#1F5C12' : '#E7E5DF', flex: a.kind === 'primary' ? '2 1 180px' : '1 1 120px' })), hasActs: true, printR: () => c.setState({ rcPrev: { id: so.id, kind: 'cust' } }), printK: () => c.setState({ rcPrev: { id: so.id, kind: 'kit' } }),
     };
   }
@@ -3959,7 +4176,7 @@ window.bSelf = function (c, OM) {
   const qrOrders = s.orders.filter(o => o.source === 'qr');
   return {
     soOn: on, soBannerBg: on ? '#EEF7EA' : '#FBF1DC', soBannerBorder: on ? '#CFE7C4' : '#F0DDB0', soTitle: on ? 'Self Order Aktif' : 'Self Order Dijeda', soTitleFg: on ? '#1F5C12' : '#6A4400',
-    soDesc: on ? 'Pelanggan dapat memesan lewat QR di meja. Setiap pesanan masuk ke antrean verifikasi kasir sebelum diteruskan ke dapur.' : 'Pelanggan yang memindai QR akan melihat pesan bahwa pemesanan sedang tidak tersedia.',
+    soDesc: on ? 'Pelanggan memesan lewat QR di meja. Bayar e-wallet langsung masuk ke dapur; Bayar di kasir menunggu verifikasi kasir dulu.' : 'Pelanggan yang memindai QR akan melihat pesan bahwa pemesanan sedang tidak tersedia.',
     soBtn: on ? 'Jeda self order' : 'Aktifkan lagi', toggleSo: () => { c.setState({ selfOrderOn: !on }); c.showToast(on ? 'Self order dijeda' : 'Self order aktif'); },
     soPrefix: s.soPrefix, onSoPrefix: e => c.setState({ soPrefix: e.target.value }), soCount: OM.TABLES.length,
     soStats: [
@@ -3979,8 +4196,17 @@ window.bCust = function (c, OM) {
   const mi = cv.modItem ? OM.MB[cv.modItem] : null;
   const count = cv.cart.reduce((a, l) => a + l.qty, 0), tot = c.tot(cv.cart, 'dine', 'direct', 0);
   const ord = cv.orderNo ? s.orders.find(o => o.no === cv.orderNo) : null;
-  const flow = ['pending', 'new', 'cooking', 'ready', 'served'];
-  const idx = ord ? (ord.status === 'rejected' ? -1 : flow.indexOf(ord.status)) : 0;
+  const md = c.effMods(), lv = ord ? ['pending', 'new', 'cooking', 'ready', 'served'].indexOf(ord.status) : 0;
+  const dead = !!ord && (lv < 0 || (ord.refunded || 0) >= ord.total && ord.refunded > 0);
+  const paidOnline = !!ord && !!ord.paidAt && !ord.verifiedBy, unpaid = !!ord && !ord.paidAt && !dead;
+  const kasirSub = `Tunai${s.payEnabled.edc ? ' atau kartu' : ''} di meja kasir`;
+  const steps = !ord ? [] : [
+    [paidOnline ? 'Pembayaran diterima' : 'Pesanan dikirim', true],
+    ...(paidOnline ? [] : [[ord.paidAt && !ord.openBill ? 'Diverifikasi & dibayar di kasir' : 'Diverifikasi kasir', lv >= 1]]),
+    ...(md.kitchen ? [[paidOnline ? 'Masuk antrean dapur' : '', lv >= 1], ['Sedang disiapkan', lv >= 2], ['Siap diantar ke meja', lv >= 3]] : []),
+    ...(ord.openBill ? [['Bayar di kasir', !!ord.paidAt]] : []),
+    ['Selesai', lv >= 4 && !!ord.paidAt],
+  ].filter(x => x[0]);
   const addC = (id, mods, qty) => { const key = id + JSON.stringify(mods || {}); const ex = cv.cart.find(x => x.key === key); set({ modItem: null, qty: 1, cart: ex ? cv.cart.map(x => x.key === key ? { ...x, qty: x.qty + qty } : x) : [...cv.cart, { key, id, qty, mods, note: modsStr(OM, id, mods), price: c.lp(id, mods, 'direct') }] }); };
   return {
     cvOpen: true, cvClose: () => c.setState({ cv: null }), cvTable: `${s.soPrefix || 'Meja'} ${parseInt(cv.table.slice(1), 10)}`, cvPaused: !s.selfOrderOn,
@@ -3995,20 +4221,25 @@ window.bCust = function (c, OM) {
     cvNote: cv.note, onCvNote: e => set({ note: e.target.value }), cvName: cv.name, onCvName: e => set({ name: e.target.value }),
     cvSend: () => c.sendSelfOrder(), cvGoPay: () => { if (count) set({ step: 'pay', payM: cv.payM || c.cvDef() }); }, cvBackCart: () => set({ step: 'cart' }), cvBackPay: () => set({ step: 'pay' }),
     cvPay: s.selfOrderOn && cv.step === 'pay', cvPaying: s.selfOrderOn && cv.step === 'paying',
-    cvPayOpts: [...OM.PAY.filter(p => p.id !== 'cash' && p.id !== 'edc' && s.payEnabled[p.id]), { id: 'kasir', label: 'Bayar di kasir', icon: 'store', logos: [] }].map(p => { const a = (cv.payM || c.cvDef()) === p.id; return { ...p, hasIcon: !!p.icon, logoH: p.h || '20px', sub: p.id === 'kasir' ? 'Tunai atau kartu, setelah diverifikasi kasir' : p.id === 'qris' ? 'Semua e-wallet dan m-banking' : 'Bayar langsung dari aplikasi', border: a ? '#10140F' : '#E7E5DF', bg: a ? '#F6F5F1' : '#fff', ring: a ? '6px solid #10140F' : '1.5px solid #D7D5CE', pick: () => set({ payM: p.id }) }; }),
+    cvPayOpts: [...OM.PAY.filter(p => p.id !== 'cash' && p.id !== 'edc' && s.payEnabled[p.id]), { id: 'kasir', label: 'Bayar di kasir', icon: 'store', logos: [] }].map(p => { const a = (cv.payM || c.cvDef()) === p.id; return { ...p, hasIcon: !!p.icon, logoH: p.h || '20px', sub: p.id === 'kasir' ? kasirSub : p.id === 'qris' ? 'Semua e-wallet dan m-banking' : 'Bayar langsung dari aplikasi', border: a ? '#10140F' : '#E7E5DF', bg: a ? '#F6F5F1' : '#fff', ring: a ? '6px solid #10140F' : '1.5px solid #D7D5CE', pick: () => set({ payM: p.id }) }; }),
     cvPayBtn: (cv.payM || c.cvDef()) === 'kasir' ? 'Kirim pesanan' : 'Bayar ' + fmt(tot.total),
     cvPayGo: () => { if ((cv.payM || c.cvDef()) === 'kasir') c.sendSelfOrder(); else set({ step: 'paying' }); },
     cvMethodLabel: (OM.PB[cv.payM] || {}).label || '', cvMethodIsQr: cv.payM === 'qris', cvMethodIsApp: cv.payM !== 'qris', cvMethodLogos: (OM.PB[cv.payM] || { logos: [] }).logos,
     cvPayingHint: cv.payM === 'qris' ? 'Simpan atau pindai QR ini dari aplikasi e-wallet atau m-banking kamu.' : `Selesaikan pembayaran di aplikasi ${(OM.PB[cv.payM] || {}).label || ''}. Halaman ini akan diperbarui otomatis.`,
     cvPayingBtn: cv.payM === 'qris' ? 'Saya sudah bayar' : 'Buka ' + ((OM.PB[cv.payM] || {}).label || ''),
     cvConfirmPaid: () => c.paySelfOrder(),
-    cvPaidRow: !!(ord && ord.method && ord.method !== 'none'), cvPaidMethod: ord ? (OM.PB[ord.method] || {}).label || '' : '', cvPaidTotal: ord ? fmt(ord.total) : '',
+    cvPaidRow: !!ord && !!ord.paidAt && !dead, cvPaidMethod: ord ? c.methLabel(ord.method) + (paidOnline ? '' : ' di kasir') : '', cvPaidTotal: ord ? fmt(ord.total) : '',
+    cvUnpaidRow: unpaid, cvUnpaidLabel: ord && ord.openBill ? 'Belum dibayar · bayar di kasir' : 'Bayar di kasir', cvUnpaidMethod: kasirSub,
     cvSendBg: count ? '#1F5C12' : '#D7D5CE',
-    cvOrderNo: cv.orderNo, cvRejected: !!(ord && ord.status === 'rejected'), cvNotRejected: !(ord && ord.status === 'rejected'),
-    cvStatusTitle: !ord ? '' : ord.status === 'pending' ? 'Menunggu konfirmasi kasir' : ord.status === 'new' ? 'Pesanan diterima' : ord.status === 'rejected' ? 'Pesanan tidak dapat diproses' : ord.status === 'ready' ? 'Pesananmu siap!' : ord.status === 'served' ? 'Selamat menikmati' : 'Sedang disiapkan barista',
-    cvSteps: ['Pesanan dikirim', ord && ord.method && ord.method !== 'none' && !ord.verifiedBy ? 'Pembayaran diterima' : 'Diverifikasi kasir', 'Sedang disiapkan', 'Siap diantar'].map((l, i) => { const done = idx >= i + (i === 0 ? 0 : 1) || (i === 0 && idx >= 0); const on = i === 0 ? idx >= 0 : idx >= i; return { label: l, dotBg: on ? '#45A02E' : '#fff', dotBorder: on ? '#45A02E' : '#D7D5CE', fg: on ? '#10140F' : '#4A4E47', icon: on ? 'check' : '', lineBg: idx > i ? '#45A02E' : '#E7E5DF', notLast: i < 3, _: done }; }),
+    cvOrderNo: cv.orderNo, cvRejected: dead, cvNotRejected: !dead,
+    cvStatusTitle: !ord ? '' : ord.status === 'rejected' ? 'Pesanan tidak dapat diproses' : dead ? 'Pesanan dibatalkan' : { pending: 'Menunggu konfirmasi kasir', new: 'Pesanan masuk ke dapur', cooking: 'Sedang disiapkan barista', ready: 'Pesananmu siap!' }[ord.status] || (unpaid ? 'Silakan bayar di kasir' : 'Selamat menikmati'),
+    cvStatusSub: !ord ? '' : ord.status === 'rejected' ? 'Hubungi kasir untuk info lebih lanjut.' : dead ? (ord.refunded > 0 ? `Dana ${fmt(ord.refunded)} dikembalikan ke ${c.methLabel(ord.method)}.` : 'Hubungi kasir untuk info lebih lanjut.') : ord.status === 'pending' ? `Sebutkan nomor pesanan #${ord.no} di kasir. Bayar ${fmt(ord.total)} tunai${s.payEnabled.edc ? ' atau kartu' : ''} saat kasir mengonfirmasi.` : unpaid ? `Pesanan sudah dikonfirmasi. Bayar ${fmt(ord.total)} di kasir sebelum pulang dengan menyebut nomor #${ord.no}.` : 'Status di halaman ini diperbarui otomatis.',
+    cvSteps: steps.map(([l, on], i) => ({ label: l, dotBg: on ? '#45A02E' : '#fff', dotBorder: on ? '#45A02E' : '#D7D5CE', fg: on ? '#10140F' : '#4A4E47', icon: on ? 'check' : '', lineBg: on && steps[i + 1] && steps[i + 1][1] ? '#45A02E' : '#E7E5DF', notLast: i < steps.length - 1 })),
+    cvInfo: (cv.step === 'pay' || cv.step === 'paying') && (cv.payM || c.cvDef()) !== 'kasir' || (cv.step === 'done' && paidOnline)
+      ? `Pembayaran e-wallet terkonfirmasi otomatis. Pesanan langsung ${md.kitchen ? 'masuk ke Dapur & Bar' : 'tercatat'} dan lunas di Pesanan, tanpa verifikasi kasir.`
+      : `Pesanan Bayar di kasir masuk ke tab Perlu verifikasi. Kasir menerima tunai${s.payEnabled.edc ? ' atau kartu' : ''} sebelum ${md.kitchen ? 'tiket diteruskan ke dapur' : 'pesanan diproses'}, atau ${md.kitchen ? 'mengirim ke dapur' : 'memverifikasi'} sebagai open bill dan menagih setelah makan.`,
     cvAgain: () => set({ step: 'menu', orderNo: null }),
-    cvGoVerify: () => { c.setState({ cv: null, page: 'orders', orderFilter: 'pending', selId: ord ? ord.id : null }); },
+    cvGoVerify: () => { const f = !ord ? 'pending' : ord.status === 'pending' ? 'pending' : dead ? 'void' : unpaid && ord.status === 'served' ? 'unpaid' : { new: 'kitchen', cooking: 'kitchen', ready: 'ready' }[ord.status] || 'served'; c.setState({ cv: null, page: 'orders', orderFilter: f, selId: ord ? ord.id : null }); },
     ...(() => { if (s.w < 768) return { cvPhoneScale: 1, cvPhoneW: '100%', cvPhoneH: '100%', cvInW: '100%', cvInH: '100%', cvR: '0', cvR2: '0', cvBz: '0', cvSh: 'none', cvPad: '0' }; const sc = Math.max(0.6, Math.min(1, ((c.state.vh || (typeof window !== 'undefined' ? window.innerHeight : 900)) - 40) / 780)); return { cvPhoneScale: sc, cvPhoneW: Math.round(375 * sc) + 'px', cvPhoneH: Math.round(780 * sc) + 'px', cvInW: '375px', cvInH: '780px', cvR: '44px', cvR2: '36px', cvBz: '10px', cvSh: '0 30px 80px rgba(0,0,0,.5),0 0 0 1px #3B3F38', cvPad: '20px' }; })(),
   };
 };
@@ -4491,12 +4722,147 @@ const EMP = [
   { name: 'Fajar', role: 'Kitchen', shift: 'Siang', start: 15, end: 22, phone: '0821-7765-0091', pin: false },
 ];
 const rnd = i => { const x = Math.sin(i * 12.9898) * 43758.5453; return x - Math.floor(x); };
+const staffLv = (s, n, d) => s.leaves.find(l => l.name === n && l.status === 'approved' && d >= l.from && d <= l.to);
+const LVT = { izin: 'Izin', cuti: 'Cuti', sakit: 'Sakit' };
+const LVS = { pending: ['Menunggu', '#FBF1DC', '#6A4400'], approved: ['Disetujui', '#E6F4DF', '#1F5C12'], rejected: ['Ditolak', '#FCE9E6', '#8E1A14'], cancelled: ['Dibatalkan', '#F1F0EC', '#4A4E47'] };
+const ARF = { face: ['Wajah kurang cocok', '#EAF0FB', '#1F4A8F', 'Skor kecocokan wajah di bawah ambang. Cek foto masuk dan pulang.'], cam: ['Kamera bermasalah', '#EAF0FB', '#1F4A8F', 'Foto tidak terekam karena kamera perangkat bermasalah.'], manual: ['Manual', '#EDECE7', '#10140F', 'Jam diisi manual, bukan dari foto dan GPS.'], geo: ['Di luar radius', '#FBF1DC', '#6A4400', 'Lokasi clock in berada di luar radius outlet.'] };
+const dLong = t => new Date(t).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+const dIso = t => { const d = new Date(t); return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); };
+const isoToT = v => { const [y, m, d] = String(v || '').split('-').map(Number); return y ? new Date(y, m - 1, d).getTime() : NaN; };
+const nDays = (a, b) => Math.round((b - a) / 86400000) + 1;
+const durS = ms => { const m = Math.max(0, Math.floor(ms / 60000)); return `${Math.floor(m / 60)}j ${m % 60}m`; };
+const staffX = (c, R) => {
+  const s = c.state, OS = window.OS, D = 86400000, now = s.now, me = c.me(), mgr = c.isMgr(), owner = me.role === 'owner';
+  const t0 = OS.sod(now), set = p => c.setState(p), defs = s.shiftDefs, yr = new Date(now).getFullYear();
+  const out = {};
+  // ── Jadwal
+  const ws = t0 - ((new Date(now).getDay() + 6) % 7) * D + (s.schedWk || 0) * 7 * D;
+  const days = Array.from({ length: 7 }, (_, i) => ws + i * D);
+  const onLeave = (n, d) => s.leaves.find(l => l.name === n && l.status === 'approved' && d >= l.from && d <= l.to);
+  const defId = e => { const z = defs.find(q => q.label === e.shift); return z ? z.id : defs[0].id; };
+  const asg = (e, ei, d) => { const k = e.name + '|' + d; if (k in s.schedOv) return s.schedOv[k]; return (new Date(d).getDay() + 6) % 7 === (ei * 2 + 3) % 7 ? '' : defId(e); };
+  const DN = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+  const shStr = z => `${z.start} – ${z.end}`;
+  Object.assign(out, {
+    schRange: `${dstr(ws)} – ${dLong(ws + 6 * D)}`, schPrev: () => set({ schedWk: (s.schedWk || 0) - 1 }), schNext: () => set({ schedWk: (s.schedWk || 0) + 1 }), schNow: () => set({ schedWk: 0 }),
+    schNowBg: s.schedWk ? '#fff' : '#F1F0EC',
+    schDefs: defs.map(z => ({ label: z.label, sub: `${shStr(z)} · Toleransi ${z.tol}m` })),
+    schDays: days.map((d, i) => ({ label: DN[i], date: new Date(d).getDate(), fg: d === t0 ? '#1F5C12' : '#10140F' })),
+    schRows: R.map((e, ei) => ({ name: e.name, role: e.role, cells: days.map(d => { const lv = onLeave(e.name, d), v = asg(e, ei, d);
+      return { isLeave: !!lv, notLeave: !lv, leaveLabel: lv ? LVT[lv.type] : '', val: v, bg: v ? '#EEF7EA' : '#fff', bd: v ? '#CFE7C4' : '#E7E5DF',
+        opts: [{ id: '', label: '—' }, ...defs.map(z => ({ id: z.id, label: z.label }))].map(o => ({ ...o, sel: o.id === v })),
+        onPick: ev => { const nv = ev.target.value; c.setState(st => ({ schedOv: { ...st.schedOv, [e.name + '|' + d]: nv } })); } }; }) })),
+    schCopy: () => { const ov = { ...s.schedOv }; R.forEach((e, ei) => days.forEach(d => { ov[e.name + '|' + d] = asg(e, ei, d - 7 * D); })); set({ schedOv: ov }); c.showToast(`Jadwal ${dstr(ws - 7 * D)} – ${dstr(ws - D)} disalin ke minggu ini`); },
+    schManage: () => set({ shForm: { rows: defs.map(z => ({ ...z, tol: String(z.tol) })), err: '' } }),
+  });
+  const meE = R.find(e => e.name === me.name), meI = R.indexOf(meE);
+  out.myWeek = !meE ? [] : days.map((d, i) => { const lv = onLeave(me.name, d), v = meE ? asg(meE, meI, d) : '', z = defs.find(q => q.id === v);
+    return { day: `${DN[i]} ${new Date(d).getDate()}`, shift: lv ? LVT[lv.type] : z ? z.label : 'Libur', time: lv ? 'Disetujui' : z ? shStr(z) : '', fw: z || lv ? 700 : 400, fg: z || lv ? '#10140F' : '#4A4E47', bg: d === t0 ? '#EEF7EA' : '#fff' }; });
+  out.myWeekEmpty = !meE; out.myWeekDisp = meE ? 'block' : 'none';
+  const sf = s.shForm;
+  if (sf) { const upd = (i, p) => c.setState(st => ({ shForm: { ...st.shForm, err: '', rows: st.shForm.rows.map((r, j) => j === i ? { ...r, ...p } : r) } }));
+    Object.assign(out, { shOpen: true, shClose: () => set({ shForm: null }), shErr: sf.err, shErrOn: !!sf.err,
+      shRows: sf.rows.map((r, i) => ({ ...r, onLabel: e => upd(i, { label: e.target.value }), onStart: e => upd(i, { start: e.target.value }), onEnd: e => upd(i, { end: e.target.value }), onTol: e => upd(i, { tol: e.target.value.replace(/\D/g, '').slice(0, 3) }),
+        canDel: sf.rows.length > 1, del: () => c.setState(st => ({ shForm: { ...st.shForm, rows: st.shForm.rows.filter((_, j) => j !== i) } })) })),
+      shAdd: () => c.setState(st => ({ shForm: { ...st.shForm, rows: [...st.shForm.rows, { id: 'sh' + Date.now().toString(36), label: '', start: '10:00', end: '18:00', tol: '10' }] } })),
+      shSave: () => { const rows = sf.rows.map(r => ({ ...r, label: r.label.trim() })); const err = m => c.setState(st => ({ shForm: { ...st.shForm, err: m } }));
+        if (rows.some(r => !r.label)) return err('Isi nama setiap shift.');
+        if (new Set(rows.map(r => r.label.toLowerCase())).size < rows.length) return err('Nama shift tidak boleh sama.');
+        if (rows.some(r => !/^\d\d:\d\d$/.test(r.start) || !/^\d\d:\d\d$/.test(r.end) || r.start === r.end)) return err('Jam mulai dan selesai wajib diisi dan tidak boleh sama.');
+        const ids = rows.map(r => r.id), ov = Object.fromEntries(Object.entries(s.schedOv).map(([k, v]) => [k, ids.includes(v) ? v : '']));
+        set({ shiftDefs: rows.map(r => ({ ...r, tol: parseInt(r.tol, 10) || 0 })), schedOv: ov, shForm: null }); c.showToast('Shift diperbarui'); } }); }
+  else out.shOpen = false;
+  // ── Izin & cuti
+  const cutiUsed = (n, st) => s.leaves.filter(l => l.name === n && l.type === 'cuti' && l.status === st && new Date(l.from).getFullYear() === yr).reduce((a, l) => a + nDays(l.from, l.to), 0);
+  const quota = s.attCfg.quota, used = cutiUsed(me.name, 'approved'), pend = cutiUsed(me.name, 'pending');
+  const LF = [['all', 'Semua'], ['pending', 'Menunggu'], ['approved', 'Disetujui'], ['rejected', 'Ditolak'], ['cancelled', 'Dibatalkan']];
+  const mine = l => l.name === me.name, pool = s.leaves.filter(l => mgr || mine(l));
+  const lvList = pool.filter(l => s.lvFilter === 'all' || l.status === s.lvFilter).sort((a, b) => (a.status === 'pending' ? 0 : 1) - (b.status === 'pending' ? 0 : 1) || b.from - a.from);
+  const patchLv = (id, p) => c.setState(st => ({ leaves: st.leaves.map(l => l.id === id ? { ...l, ...p } : l) }));
+  Object.assign(out, {
+    lvFilters: LF.map(([id, label]) => ({ label, count: id === 'all' ? pool.length : pool.filter(l => l.status === id).length, pick: () => set({ lvFilter: id }), ...chip(s.lvFilter === id) })),
+    lvKpis: [['Jatah cuti ' + yr, quota], ['Terpakai ' + yr, used], ['Menunggu ' + yr, pend], ['Sisa ' + yr, Math.max(0, quota - used)]].map(([label, v]) => ({ label, value: String(v) })),
+    lvShowKpis: !mgr, lvCanAsk: !mgr, lvEmpty: !lvList.length, lvShowName: mgr,
+    lvRows: lvList.map(l => { const st = LVS[l.status], n = nDays(l.from, l.to);
+      return { name: l.name, type: LVT[l.type], range: (n > 1 ? `${dLong(l.from)} – ${dLong(l.to)}` : dLong(l.from)) + ` · ${n} hari`, reason: l.reason, note: l.note, hasNote: !!l.note, stLabel: st[0], stBg: st[1], stFg: st[2],
+        canDecide: mgr && l.status === 'pending', decide: () => set({ lvDecide: { id: l.id, note: '' } }),
+        canCancel: !mgr && mine(l) && l.status === 'pending' && l.to >= t0, cancel: () => { patchLv(l.id, { status: 'cancelled' }); c.showToast('Pengajuan dibatalkan'); } }; }),
+    lvAsk: () => set({ lvForm: { type: 'izin', from: dIso(t0), to: dIso(t0), reason: '', err: '' } }),
+  });
+  const lf = s.lvForm;
+  if (lf) { const up = p => c.setState(st => ({ lvForm: { ...st.lvForm, err: '', ...p } })), a = isoToT(lf.from), b2 = isoToT(lf.to), n = a && b2 && b2 >= a ? nDays(a, b2) : 0;
+    Object.assign(out, { lfOpen: true, lfClose: () => set({ lvForm: null }), lfTypes: Object.entries(LVT).map(([id, label]) => ({ label, pick: () => up({ type: id }), ...chip(lf.type === id) })),
+      lfFrom: lf.from, lfTo: lf.to, lfMin: lf.type === 'sakit' ? '' : dIso(t0), onLfFrom: e => up({ from: e.target.value, to: lf.to < e.target.value ? e.target.value : lf.to }), onLfTo: e => up({ to: e.target.value }),
+      lfDays: n ? `${n} hari${lf.type === 'cuti' ? ` · sisa jatah ${Math.max(0, quota - used - pend)} hari` : ''}` : 'Tanggal sampai harus sama atau setelah tanggal dari',
+      lfReason: lf.reason, onLfReason: e => up({ reason: e.target.value }), lfErr: lf.err, lfErrOn: !!lf.err,
+      lfSave: () => { const err = m => up({ err: m });
+        if (!n) return err('Periksa tanggal izin/cuti.');
+        if (lf.type !== 'sakit' && a < t0) return err('Izin dan cuti tidak bisa diajukan untuk tanggal yang sudah lewat.');
+        if (lf.type === 'cuti' && n > quota - used - pend) return err(`Sisa jatah cuti tidak cukup (${Math.max(0, quota - used - pend)} hari).`);
+        if (s.leaves.some(l => l.name === me.name && ['pending', 'approved'].includes(l.status) && a <= l.to && b2 >= l.from)) return err('Tanggal ini bertabrakan dengan pengajuan lain.');
+        if (lf.reason.trim().length < 3) return err('Tulis alasan singkat.');
+        c.setState(st => ({ lvForm: null, lvFilter: 'all', leaves: [{ id: 'LV' + Date.now().toString(36), name: me.name, type: lf.type, from: a, to: b2, reason: lf.reason.trim(), status: 'pending', note: '', createdAt: Date.now() }, ...st.leaves] }));
+        c.showToast('Pengajuan dikirim · menunggu persetujuan manajer'); } }); }
+  else out.lfOpen = false;
+  const ld = s.lvDecide, dl = ld && s.leaves.find(l => l.id === ld.id);
+  if (dl) { const n = nDays(dl.from, dl.to), fin = st => { patchLv(dl.id, { status: st, note: ld.note.trim(), decidedBy: me.name }); set({ lvDecide: null }); c.showToast(`${LVT[dl.type]} ${dl.name} ${st === 'approved' ? 'disetujui' : 'ditolak'}`); };
+    const used2 = cutiUsed(dl.name, 'approved');
+    Object.assign(out, { ldOpen: true, ldClose: () => set({ lvDecide: null }), ldTitle: `${dl.name} · ${LVT[dl.type]}`, ldRange: (n > 1 ? `${dLong(dl.from)} – ${dLong(dl.to)}` : dLong(dl.from)) + ` · ${n} hari`, ldReason: dl.reason,
+      ldInfo: dl.type === 'cuti' ? `Jatah cuti ${dl.name}: terpakai ${used2} dari ${quota} hari. Setelah disetujui sisa ${Math.max(0, quota - used2 - n)} hari.` : 'Hari yang disetujui ditandai di Jadwal.',
+      ldNote: ld.note, onLdNote: e => c.setState(st => ({ lvDecide: { ...st.lvDecide, note: e.target.value } })), ldReject: () => fin('rejected'), ldApprove: () => fin('approved') }); }
+  else out.ldOpen = false;
+  // ── Tinjauan
+  const radius = oid => parseInt((s.attCfg.loc[oid] || {}).r, 10) || 100;
+  const recs = s.attRecs.filter(r => s.revFilter === 'all' || r.status === 'open');
+  const nOpen = s.attRecs.filter(r => r.status === 'open').length;
+  const RST = { open: null, ok: ['Sah', '#E6F4DF', '#1F5C12'], corrected: ['Dikoreksi', '#EAF0FB', '#1F4A8F'], invalid: ['Tidak sah', '#FCE9E6', '#8E1A14'] };
+  Object.assign(out, {
+    revFilters: [['open', 'Perlu tinjauan', nOpen], ['all', 'Semua absen', s.attRecs.length]].map(([id, label, n]) => ({ label, count: n, pick: () => set({ revFilter: id }), ...chip(s.revFilter === id) })),
+    revEmpty: !recs.length, revEmptyMsg: s.revFilter === 'open' ? 'Tidak ada absen yang perlu ditinjau.' : 'Belum ada catatan absen.',
+    revRows: recs.slice(0, 60).map(r => { const st = RST[r.status];
+      return { name: r.name, date: dLong(r.day), time: `${hm(r.in)} – ${r.out ? hm(r.out) : '—'} · ${r.out ? durS(r.out - r.in) : 'belum pulang'}`,
+        meta: [r.score != null && r.flags.includes('face') ? 'Skor wajah ' + r.score.toFixed(2) : '', r.dist != null ? r.dist + ' m' : '', r.note].filter(Boolean).join('   '),
+        flags: r.flags.map(f => ({ label: ARF[f][0], bg: ARF[f][1], fg: ARF[f][2] })), hasSt: !!st, stLabel: st ? st[0] : '', stBg: st ? st[1] : '', stFg: st ? st[2] : '',
+        canReview: r.status === 'open', review: () => set({ revOpen: r.id }), correct: () => set({ corrForm: { id: r.id, in: hm(r.in), out: r.out ? hm(r.out) : '', reason: '', err: '' } }) }; }),
+  });
+  const rv = s.revOpen && s.attRecs.find(r => r.id === s.revOpen);
+  const patchRec = (id, p) => c.setState(st => ({ attRecs: st.attRecs.map(r => r.id === id ? { ...r, ...p, by: me.name } : r) }));
+  if (rv) { const mo = new Date(rv.day).getMonth(), manN = s.attRecs.filter(r => r.name === rv.name && r.flags.includes('manual') && new Date(r.day).getMonth() === mo).length;
+    Object.assign(out, { rvOpen: true, rvClose: () => set({ revOpen: null }), rvTitle: `${rv.name} · ${dLong(rv.day)}`, rvTime: `Masuk ${hm(rv.in)} · Pulang ${rv.out ? hm(rv.out) : '—'} · ${rv.out ? durS(rv.out - rv.in) : ''}`,
+      rvFlags: rv.flags.map(f => ({ label: ARF[f][0], bg: ARF[f][1], fg: ARF[f][2], desc: ARF[f][3] })),
+      rvFacts: [['Skor wajah', rv.score != null ? rv.score.toFixed(2) + (rv.score < .5 ? ' · di bawah ambang 0.50' : '') : 'Tidak ada foto'], ['Jarak dari outlet', rv.dist != null ? `${rv.dist} m · radius ${radius(s.outlet === 'all' ? 'kmg' : s.outlet)} m` : '—'], ['Absen manual bulan ini', `${manN} dari ${s.attCfg.manualMax}`], ['Catatan karyawan', rv.note || '—']].map(([k, v]) => ({ k, v })),
+      rvInvalid: () => { patchRec(rv.id, { status: 'invalid' }); set({ revOpen: null }); c.showToast(`Absen ${rv.name} ditandai tidak sah`); },
+      rvOk: () => { patchRec(rv.id, { status: 'ok' }); set({ revOpen: null }); c.showToast(`Absen ${rv.name} disahkan`); },
+      rvCorrect: () => set({ revOpen: null, corrForm: { id: rv.id, in: hm(rv.in), out: rv.out ? hm(rv.out) : '', reason: '', err: '' } }) }); }
+  else out.rvOpen = false;
+  const cf = s.corrForm, cr = cf && s.attRecs.find(r => r.id === cf.id);
+  if (cr) { const up = p => c.setState(st => ({ corrForm: { ...st.corrForm, err: '', ...p } }));
+    Object.assign(out, { cfOpen: true, cfClose: () => set({ corrForm: null }), cfTitle: `Koreksi absen · ${cr.name}`, cfSub: `${dLong(cr.day)} · tercatat ${hm(cr.in)} – ${cr.out ? hm(cr.out) : '—'}`,
+      cfIn: cf.in, cfOut: cf.out, onCfIn: e => up({ in: e.target.value }), onCfOut: e => up({ out: e.target.value }), cfReason: cf.reason, onCfReason: e => up({ reason: e.target.value }), cfErr: cf.err, cfErrOn: !!cf.err,
+      cfSave: () => { const tm = v => { const [h, m] = String(v).split(':').map(Number); return isNaN(h) ? NaN : cr.day + (h * 60 + m) * 60000; }, i2 = tm(cf.in), o2 = cf.out ? tm(cf.out) : null;
+        if (isNaN(i2)) return up({ err: 'Isi jam masuk.' }); if (o2 != null && (isNaN(o2) || o2 <= i2)) return up({ err: 'Jam pulang harus setelah jam masuk.' }); if (cf.reason.trim().length < 3) return up({ err: 'Tulis alasan koreksi.' });
+        patchRec(cr.id, { in: i2, out: o2, status: 'corrected', note: cf.reason.trim() }); set({ corrForm: null }); c.showToast(`Absen ${cr.name} dikoreksi`); } }); }
+  else out.cfOpen = false;
+  // ── Pengaturan absensi
+  const oid = s.outlet === 'all' ? s.outlets[0].id : s.outlet, cfg = s.attCfgD || { quota: String(s.attCfg.quota), manualMax: String(s.attCfg.manualMax), face: s.attCfg.face, ...(s.attCfg.loc[oid] || { lat: '', lng: '', r: '100' }) };
+  const upC = p => c.setState({ attCfgD: { ...cfg, ...p } });
+  Object.assign(out, { acOutlet: oname(s, oid), acLat: cfg.lat, acLng: cfg.lng, acR: cfg.r, acQuota: cfg.quota, acManual: cfg.manualMax, ...(() => { const t = tog(cfg.face); return { acFaceBg: t.trackBg, acFaceJ: t.justify }; })(),
+    onAcLat: e => upC({ lat: e.target.value.replace(/[^\d.\-]/g, '') }), onAcLng: e => upC({ lng: e.target.value.replace(/[^\d.\-]/g, '') }), onAcR: e => upC({ r: e.target.value.replace(/\D/g, '').slice(0, 4) }),
+    onAcQuota: e => upC({ quota: e.target.value.replace(/\D/g, '').slice(0, 2) }), onAcManual: e => upC({ manualMax: e.target.value.replace(/\D/g, '').slice(0, 2) }), acToggleFace: () => upC({ face: !cfg.face }),
+    acDirty: !!s.attCfgD, acSaveBg: s.attCfgD ? '#1F5C12' : '#D7D5CE', acSaveFg: s.attCfgD ? '#fff' : '#3B3F38',
+    acLocate: () => { if (!navigator.geolocation) return c.showToast('Perangkat tidak mendukung lokasi', 'warn'); c.showToast('Mengambil lokasi…'); navigator.geolocation.getCurrentPosition(p => { c.setState(st => ({ attCfgD: { ...(st.attCfgD || cfg), lat: p.coords.latitude.toFixed(4), lng: p.coords.longitude.toFixed(4) } })); c.showToast('Lokasi perangkat dipakai'); }, () => c.showToast('Akses lokasi ditolak browser', 'warn'), { enableHighAccuracy: true, timeout: 8000 }); },
+    acSave: () => { if (!s.attCfgD) return; const la = parseFloat(cfg.lat), lo = parseFloat(cfg.lng), r = parseInt(cfg.r, 10), q = parseInt(cfg.quota, 10), mm = parseInt(cfg.manualMax, 10);
+      if (!(la >= -90 && la <= 90) || !(lo >= -180 && lo <= 180)) return c.showToast('Lintang/bujur tidak valid', 'warn'); if (!(r >= 10)) return c.showToast('Radius minimal 10 m', 'warn'); if (isNaN(q) || isNaN(mm)) return c.showToast('Isi jatah cuti dan batas absen manual', 'warn');
+      c.setState(st => ({ attCfgD: null, attCfg: { ...st.attCfg, quota: q, manualMax: mm, face: cfg.face, loc: { ...st.attCfg.loc, [oid]: { lat: cfg.lat, lng: cfg.lng, r: String(r) } } } })); c.showToast('Pengaturan absensi disimpan'); } });
+  out.revCount = nOpen; out.onLeaveFn = onLeave;
+  return out;
+};
 window.bStaff = function (c, OM) {
   const s = c.state, OS = window.OS, now = s.now, me = c.me(), owner = me.role === 'owner', boPov = ['owner', 'manajer'].includes(me.role);
   const dur = ms => { const m = Math.floor(ms / 60000); return `${Math.floor(m / 60)}j ${m % 60}m`; };
   const R = roster(s); const att = R.map(e => {
     const a = s.att[e.name] || {}, inT = a.in, outT = a.out;
-    const late = inT ? (new Date(inT).getHours() * 60 + new Date(inT).getMinutes()) > e.start * 60 + 10 && new Date(inT).getHours() >= e.start : false;
+    const late = inT ? (new Date(inT).getHours() * 60 + new Date(inT).getMinutes()) > e.start * 60 + ((s.shiftDefs.find(z => z.label === e.shift) || { tol: 10 }).tol) && new Date(inT).getHours() >= e.start : false;
     const status = !inT ? 'Belum masuk' : outT ? 'Sudah pulang' : late ? 'Terlambat' : 'Hadir';
     const pal = { 'Belum masuk': ['#F1F0EC', '#4A4E47'], 'Sudah pulang': ['#EDECE7', '#3B3F38'], Terlambat: ['#FBF1DC', '#6A4400'], Hadir: ['#E6F4DF', '#1F5C12'] }[status];
     return { ...e, initial: e.name[0], shiftStr: `${e.shift} · ${String(e.start).padStart(2, '0')}:00–${e.end}:00`, status, stBg: pal[0], stFg: pal[1], inStr: inT ? hm(inT) : '—', outStr: outT ? hm(outT) : '—', durStr: inT ? dur((outT || now) - inT) : '—',
@@ -4506,14 +4872,16 @@ window.bStaff = function (c, OM) {
   });
   const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(now - (6 - i) * 86400000); return { label: d.toLocaleDateString('id-ID', { weekday: 'short' }), date: d.getDate(), today: i === 6 }; });
   const MARK = { H: ['#E6F4DF', '#1F5C12', 'Hadir'], T: ['#FBF1DC', '#6A4400', 'Terlambat'], I: ['#EAF0FB', '#1F4A8F', 'Izin'], L: ['#F1F0EC', '#4A4E47', 'Libur'], A: ['#FCE9E6', '#8E1A14', 'Alpa'], '-': ['#fff', '#4A4E47', 'Belum'] };
-  const week = R.map((e, ei) => ({ name: e.name, role: e.role, cells: days.map((d, di) => { let k; if (d.today) { const a = att[ei]; k = a.status === 'Belum masuk' ? '-' : a.status === 'Terlambat' ? 'T' : 'H'; } else { const r = rnd(ei * 10 + di); k = (ei + di) % 6 === 0 ? 'L' : r < .12 ? 'T' : r < .17 ? 'I' : r < .2 ? 'A' : 'H'; } return { k, bg: MARK[k][0], fg: MARK[k][1] }; }) }));
+  const week = R.map((e, ei) => ({ name: e.name, role: e.role, cells: days.map((d, di) => { let k; const dd = OS.sod(now) - (6 - di) * 86400000; if (staffLv(s, e.name, dd)) k = 'I'; else if (d.today) { const a = att[ei]; k = a.status === 'Belum masuk' ? '-' : a.status === 'Terlambat' ? 'T' : 'H'; } else { const r = rnd(ei * 10 + di); k = (ei + di) % 6 === 0 ? 'L' : r < .12 ? 'T' : r < .17 ? 'I' : r < .2 ? 'A' : 'H'; } return { k, bg: MARK[k][0], fg: MARK[k][1] }; }) }));
   week.forEach(w => { w.hours = w.cells.filter(x => x.k === 'H' || x.k === 'T').length * 8 + ' jam'; });
   const ACCR = OS.PERM_ROWS.filter(p => p.page);
   const setUser = (uid, patch, label, before, after) => c.commit(real => { const g = c.gen(real), uu = real.users.find(x => x.id === uid); return { users: real.users.map(x => x.id === uid ? { ...x, ...patch } : x), logs: [c.mkLog(real, g, { type: 'permission_change', outletId: null, objType: 'user', objId: uid, objLabel: uu.name + ' · ' + label, before, after }), ...real.logs], seq: g.seq }; }, () => c.showToast('Izin pengguna diubah · tercatat di log'));
-  const roles = Object.keys(OS.ROLES);
+  const roles = Object.keys(OS.ROLES), mgr = c.isMgr(), X = staffX(c, R);
+  const TABS = mgr ? [['att', 'Hari ini'], ['sched', 'Jadwal'], ['leave', 'Izin & cuti'], ['week', 'Rekap'], ['review', 'Tinjauan'], ['users', 'Pengguna & akses'], ['perms', 'Peran & izin'], ...(owner ? [['attset', 'Pengaturan absensi']] : [])].map(([id, label]) => ({ id, label })) : [{ id: 'att', label: 'Absen' }, { id: 'sched', label: 'Jadwal' }, { id: 'leave', label: 'Izin & cuti' }];
+  const tab = TABS.some(t => t.id === s.empTab) ? s.empTab : 'att';
   return {
-    empTabs: [{ id: 'att', label: 'Absensi' }, ...(c.isMgr() ? [{ id: 'week', label: 'Rekap mingguan' }, { id: 'users', label: 'Pengguna & akses' }, { id: 'perms', label: 'Peran & izin' }] : [])].map(t => ({ ...t, pick: () => c.setState({ empTab: t.id }), ...seg(s.empTab === t.id) })),
-    isAtt: s.empTab === 'att' || !c.isMgr(), isWeek: c.isMgr() && s.empTab === 'week', isUsers: c.isMgr() && s.empTab === 'users', isPerms: c.isMgr() && s.empTab === 'perms',
+    ...X, empTabs: TABS.map(t => ({ ...t, label: t.id === 'review' && X.revCount ? `${t.label} · ${X.revCount}` : t.label, pick: () => c.setState({ empTab: t.id }), ...seg(tab === t.id) })),
+    isAtt: tab === 'att', isWeek: tab === 'week', isUsers: tab === 'users', isPerms: tab === 'perms', isSched: tab === 'sched', isSchedMgr: tab === 'sched' && mgr, isSchedMe: tab === 'sched' && !mgr, isLeave: tab === 'leave', isReview: tab === 'review', isAttSet: tab === 'attset',
     attKpis: [{ label: 'Hadir sekarang', value: String(att.filter(a => a.canOut).length) }, { label: 'Terlambat', value: String(att.filter(a => a.status === 'Terlambat').length) }, { label: 'Belum masuk', value: String(att.filter(a => a.canIn).length) }, { label: 'Total jam hari ini', value: dur(att.reduce((x, a) => { const r = s.att[a.name] || {}; return x + (r.in ? (r.out || now) - r.in : 0); }, 0)) }],
     ...(() => { const ca = s.camAtt; if (!ca) return { camOpen: false }; const e = R.find(x => x.name === ca.name) || {}, ml = ca.mode === 'in' ? 'masuk' : 'pulang';
       return { camOpen: true, camTitle: `Clock ${ca.mode} · ${ca.name}`, camSub: `${e.role || ''} · ${e.shift || ''} · ${hm(Date.now())}`, camModeLabel: ml, camRef: c.camRef, camClose: () => c.closeCam(),
@@ -4522,7 +4890,7 @@ window.bStaff = function (c, OM) {
         camRetry: () => { c.setState({ camAtt: { ...ca, phase: 'loading' } }); c.startCam(); }, camDemo: () => c.demoShot(), camConfirm: () => c.confirmCam(), camConfirmLabel: ca.geo ? `Konfirmasi clock ${ca.mode}` : 'Menunggu lokasi…', camConfirmDis: !ca.geo, camConfirmOp: ca.geo ? 1 : .5,
         ...(() => { const gp = ca.geoPhase, g = ca.geo; return { geoDenied: gp === 'denied', geoIcon: gp === 'ok' ? 'map-pin' : gp === 'denied' ? 'map-pin-off' : 'locate-fixed', geoFg: gp === 'ok' ? '#1F5C12' : gp === 'denied' ? '#8E1A14' : '#10140F', geoBg: gp === 'ok' ? '#EEF7EA' : gp === 'denied' ? '#FBE4E2' : '#F6F5F1', geoBd: gp === 'ok' ? '#CFE7C4' : gp === 'denied' ? '#E8B4AF' : '#E7E5DF',
           geoTitle: gp === 'ok' ? (g.demo ? 'Lokasi demo dipakai' : 'Lokasi perangkat terkunci') : gp === 'denied' ? 'Lokasi tidak bisa diakses' : 'Mengambil lokasi GPS…', geoSub: gp === 'ok' ? geoStr(g) : gp === 'denied' ? 'Izinkan akses lokasi di browser. Clock ' + ca.mode + ' butuh lokasi.' : 'Pastikan GPS perangkat aktif.', geoRetry: () => c.startGeo(), geoDemo: () => c.demoGeo() }; })() }; })(),
-    attRows: att, attGroups: SHIFTS.map(z => { const rows = att.filter(a => a.shift === z.label); return { label: z.label, time: pad2(z.start) + ':00–' + pad2(z.end) + ':00', rows, sum: rows.filter(a => !a.canIn).length + ' dari ' + rows.length + ' sudah masuk' }; }).filter(g => g.rows.length), weekDays: days.map(d => ({ ...d, fg: d.today ? '#10140F' : '#4A4E47' })), weekRows: week,
+    attRows: att, attGroups: SHIFTS.map(z => { const rows = att.filter(a => a.shift === z.label); return { label: z.label, time: (d2 => d2 ? d2.start + '–' + d2.end : pad2(z.start) + ':00–' + pad2(z.end) + ':00')(s.shiftDefs.find(q => q.id === z.id)), rows, sum: rows.filter(a => !a.canIn).length + ' dari ' + rows.length + ' sudah masuk' }; }).filter(g => g.rows.length), weekDays: days.map(d => ({ ...d, fg: d.today ? '#10140F' : '#4A4E47' })), weekRows: week,
     legend: ['H', 'T', 'I', 'L', 'A'].map(k => ({ k, bg: MARK[k][0], fg: MARK[k][1], label: MARK[k][2] })),
     usersNote: owner ? 'Owner membuat akun karyawan (email, password awal, PIN), lalu mengatur peran, outlet, dan akses modul. Mengganti peran mengembalikan akses ke default peran. Setiap perubahan tercatat di Log aktivitas.' : 'Hanya Owner yang dapat mengubah peran dan outlet pengguna.',
     userRows: s.users.map(x => { const self = x.id === me.id, ed = owner && !self; return { name: x.name, initial: x.name[0], phone: x.phone, roleLabel: OS.ROLES[x.role].label, roleDesc: OS.ROLES[x.role].desc, self, selfTag: self ? 'Anda' : '', canEdit: ed, readOnly: !ed,
@@ -4536,7 +4904,7 @@ window.bStaff = function (c, OM) {
       resetPin: () => c.setState({ credRs: { uid: x.id, kind: 'pin', val: '', show: false, own: '', ownShow: false, err: '' } }) }; }),
     permCols: roles.map(r => ({ label: OS.ROLES[r].label })),
     permRows: OS.PERM_ROWS.map((p, i) => { const rs = p.page ? OS.PAGE_ROLES[p.page] : p.roles; return { label: p.label, showG: i === 0 || OS.PERM_ROWS[i - 1].g !== p.g, g: p.g, cells: roles.map(r => { const ok = rs.includes(r); return { icon: ok ? 'circle-check' : 'minus', fg: ok ? '#1F5C12' : '#4A4E47', txt: ok ? 'Ya' : 'Tidak', fill: ok ? 1 : 0 }; }) }; }),
-    canAddUser: s.empTab === 'users' && owner,
+    canAddUser: tab === 'users' && owner,
     ...(() => { const cr = s.credRs; if (!cr) return { crOpen: false }; const tu = s.users.find(z => z.id === cr.uid) || {}, pin = cr.kind === 'pin', set = p => c.setState(st => ({ credRs: { ...st.credRs, err: '', ...p } })), eye = v => v ? 'visibility_off' : 'visibility';
       return { crOpen: true, crClose: () => c.setState({ credRs: null }), crTitle: (pin ? 'Reset PIN · ' : 'Reset password · ') + tu.name, crDesc: (pin ? 'Buat PIN baru untuk ' : 'Buat password baru untuk ') + tu.name + '. Berikan langsung secara tatap muka, jangan dikirim lewat chat.',
         crValLabel: pin ? 'PIN baru' : 'Password baru', crInputMode: pin ? 'numeric' : 'text', crMax: pin ? 4 : 64, crPh: pin ? '4 digit' : 'Minimal 4 karakter', crHint: pin ? 'Harus unik, tidak boleh sama dengan PIN karyawan lain.' : 'Karyawan bisa langsung masuk dengan password ini.',
@@ -4849,7 +5217,7 @@ window.bSettings = function (c, OM) {
   const tab = TABS.some(t => t[0] === s.settingsTab) ? s.settingsTab : TABS[0][0];
   const MODS = [
     { key: 'pos', name: 'Kasir & pesanan', icon: 'calculator', desc: 'Checkout, pembayaran, daftar pesanan, dan diskon.' },
-    { key: 'selfOrder', name: 'Self order QR', icon: 'qr-code', desc: 'Pelanggan memesan dari meja; kasir memverifikasi sebelum ke dapur.' },
+    { key: 'selfOrder', name: 'Self order QR', icon: 'qr-code', desc: 'Pelanggan memesan dari meja. Bayar e-wallet langsung ke dapur; bayar di kasir diverifikasi dulu.' },
     { key: 'tables', name: 'Manajemen meja', icon: 'utensils', desc: 'Denah 2D, status meja, dan reservasi.' },
     { key: 'kitchen', name: 'Dapur & bar (KDS)', icon: 'coffee', desc: 'Layar tiket, timer, resep, dan ketersediaan menu.' },
     { key: 'inventory', name: 'Inventaris', icon: 'archive', desc: 'Stok bahan per outlet, stock opname, dan pengurangan otomatis.' },
