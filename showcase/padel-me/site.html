@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html><head><title>Padel Me</title><script>window.__resources = {"r0": "assets/5fcdeb2a.jpg", "r4": "assets/e3732c55.jpg", "r2": "assets/9eb8e291.jpg", "r6": "assets/9d8ee22a.jpg", "r3": "assets/7ff0dc50.jpg", "u1612534847738-b3af9bc31f0c": "assets/65f92299.jpg", "r1": "assets/b225e377.jpg", "r5": "assets/277f338b.jpg", "u1767128890439-1af9ca2ff1ac": "assets/d8e89ee8.jpg", "u1646651105426-e8c8ee9badde": "assets/1cfd7cb8.jpg", "u1767128890583-b3f8dc30bdbc": "assets/1eb2ea3a.jpg", "u1646649851800-48dba35edc76": "assets/80cd6856.jpg", "u1767128890954-20ce481be8f0": "assets/ad707703.jpg", "u1646649853703-7645147474ba": "assets/5cffc776.jpg", "r7": "assets/b936d462.jpg", "u1759355456246-6937354a395d": "assets/86f2e088.jpg", "u1770230901556-4e1c0bacfb09": "assets/b70bfe66.jpg", "u1658723826297-fe4d1b1e6600": "assets/79c4aaf6.jpg", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "assets/abbacbb0.js", "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "assets/96e34ef9.js"};</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="assets/61aeab5a.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/d1aedfab.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/02b3a749.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/5160fd58.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("assets/72c9dd4b.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("assets/dfcc0455.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("assets/2c8801e1.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>html{scroll-behavior:smooth}body{margin:0;background:#F3F0E7;color:#0E1A15;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:inherit}::selection{background:#D6F25C;color:#0E1A15}button{font-family:inherit}@keyframes pmball{0%{offset-distance:0%;opacity:0}5%{opacity:1}95%{opacity:1}100%{offset-distance:100%;opacity:0}}
+/* Omnify: hero entrance, compositor-only animations, reduced motion */
+.pm-hero .pm-h{opacity:0;transform:translate3d(0,48px,0)}
+.pm-hero.pm-in .pm-h{animation:pmrise 1s cubic-bezier(.2,.7,.2,1) var(--d,0s) both}
+.pm-hero .pm-hbg{scale:1.14;opacity:.0}
+.pm-hero.pm-in .pm-hbg{animation:pmzoom 1.6s cubic-bezier(.2,.7,.2,1) both}
+.pm-hero.pm-in .pm-dot{animation:pmpop .6s cubic-bezier(.3,1.6,.5,1) 1.05s both}
+@keyframes pmrise{from{opacity:0;transform:translate3d(0,48px,0)}to{opacity:1;transform:none}}
+@keyframes pmzoom{from{scale:1.14;opacity:0}to{scale:1;opacity:1}}
+@keyframes pmpop{from{transform:scale(0)}to{transform:none}}
+.pm-marq{animation:pmmarq 60s linear infinite;will-change:transform}
+@keyframes pmmarq{to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pm-hero .pm-h,.pm-hero .pm-hbg{opacity:1;transform:none;scale:1;animation:none!important}.pm-marq,[style*="pmball"]{animation:none!important}}
+</style>
+</helmet>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:{{ navPad }};background:{{ navBg }};color:#F3F0E7;transition:padding .45s cubic-bezier(.2,.7,.2,1),background .45s">
+  <a href="#top" style="display:flex;align-items:center;gap:10px;font-family:Anton,sans-serif;font-size:28px;letter-spacing:.02em;line-height:1">
+    <svg sc-camel-view-box="0 0 40 40" width="38" height="38" style="flex:0 0 auto"><rect width="40" height="40" rx="10" style="fill:#D6F25C"></rect><circle cx="20" cy="20" r="12.5" style="fill:#16264A"></circle><path d="M12.5 10.5 C19 16 19 24 12.5 29.5" style="fill:none;stroke:#D6F25C;stroke-width:2.4;stroke-linecap:round"></path><path d="M27.5 10.5 C21 16 21 24 27.5 29.5" style="fill:none;stroke:#D6F25C;stroke-width:2.4;stroke-linecap:round"></path></svg>PADEL ME
+  </a>
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <nav style="display:flex;gap:32px">
+      <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+        <a href="{{ l.href }}" style="position:relative;padding:6px 0;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:{{ l.color }};transition:color .3s" style-hover="color:#D6F25C">{{ l.label }}<span style="position:absolute;left:0;bottom:0;height:2px;width:{{ l.bar }};background:#D6F25C;transition:width .45s cubic-bezier(.2,.7,.2,1)"></span></a>
+      </sc-for>
+    </nav>
+  </sc-if>
+  <button sc-camel-on-click="{{ openCourt }}" style="display:inline-flex;align-items:center;gap:10px;margin-left:{{ btnML }};padding:12px 20px;border-radius:999px;border:0;background:#D6F25C;color:#0E1A15;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:transform .35s,box-shadow .35s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(214,242,92,.7)">Book court</button>
+  <sc-if value="{{ showBurger }}" hint-placeholder-val="{{ false }}">
+    <button sc-camel-on-click="{{ toggleMenu }}" aria-label="Menu" style="flex:0 0 auto;width:46px;height:46px;padding:0;border-radius:50%;border:1.5px solid #F3F0E7;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer"><span style="width:18px;height:2px;background:#F3F0E7;transform:{{ burgerT }};transition:transform .3s"></span><span style="width:18px;height:2px;background:#F3F0E7;opacity:{{ burgerMid }};transition:opacity .2s"></span><span style="width:18px;height:2px;background:#F3F0E7;transform:{{ burgerB }};transition:transform .3s"></span></button>
+  </sc-if>
+</header>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:49;background:#0E1A15;color:#F3F0E7;padding:110px clamp(20px,4vw,56px) 40px;display:flex;flex-direction:column;overflow-y:auto">
+    <sc-for list="{{ menuLinks }}" as="l" hint-placeholder-count="7">
+      <a href="{{ l.href }}" sc-camel-on-click="{{ closeMenu }}" style="font-family:Anton,sans-serif;font-size:clamp(40px,9vw,64px);line-height:1.15;text-transform:uppercase;padding:8px 0;border-bottom:1px solid rgba(243,240,231,.15)" style-hover="color:#D6F25C">{{ l.label }}</a>
+    </sc-for>
+  </div>
+</sc-if>
+
+<section id="top" class="pm-hero" data-screen-label="Hero" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#0E1A15;color:#F3F0E7">
+  <img src="assets/3ef34e07.jpg" alt="Two players on a blue padel court" ref="{{ heroRef }}" class="pm-hbg" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);will-change:transform">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,21,.6) 0%,rgba(14,26,21,.05) 30%,rgba(14,26,21,.35) 60%,rgba(14,26,21,.92) 100%)"></div>
+  <div id="pm-hero-c" style="position:relative;display:flex;flex-direction:column;gap:32px;padding:140px clamp(20px,4vw,56px) 28px;will-change:transform,opacity">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:1100px">
+        <div class="pm-h" style="--d:.15s;align-self:flex-start;display:flex;align-items:center;gap:12px;padding:10px 18px;border-radius:999px;background:rgba(14,26,21,.5);color:#F3F0E7;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase">
+          <span style="width:8px;height:8px;border-radius:50%;background:{{ openDot }};box-shadow:0 0 0 4px rgba(214,242,92,.18)"></span>
+          <span>{{ openLabel }}</span><span style="opacity:.5">/</span><span>Indoor padel club, Bandung</span>
+        </div>
+        <h1 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(88px,16vw,260px);line-height:.84;letter-spacing:-.005em;text-transform:uppercase"><span class="pm-h" style="--d:.3s;display:block">Padel</span><span class="pm-h" style="--d:.45s;display:block">Me<span class="pm-dot" style="color:#D6F25C;display:inline-block">.</span></span></h1>
+        
+      </div>
+      <button class="pm-h" sc-camel-on-click="{{ openCourt }}" style="--d:.65s;display:flex;align-items:center;gap:14px;padding:14px 24px 14px 20px;border-radius:999px;border:1px solid rgba(243,240,231,.45);background:rgba(14,26,21,.55);color:#F3F0E7;cursor:pointer;text-align:left;transition:background .35s,color .35s" style-hover="background:rgba(14,26,21,.8)"><span style="flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.24);display:flex;align-items:center;justify-content:center"><svg sc-camel-view-box="0 0 24 24" width="22" height="22" style="fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="M12 5v14M3 12h4M17 12h4M7 8.5v7M17 8.5v7"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase">Next available court</span><span style="font-size:22px;font-weight:700">{{ nextSlot }}</span></span></button>
+    </div>
+    <div class="pm-h pm-line" style="--d:.8s;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;border-top:1px solid rgba(243,240,231,.28)">
+      <div style="display:flex;flex-wrap:wrap;gap:28px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#E6E3DA">
+        <span>8 courts</span><span>06:00 – 23:00</span><span>Coaching daily</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ showMarquee }}" hint-placeholder-val="{{ true }}">
+  <div style="overflow:hidden;background:#D6F25C;color:#0E1A15;padding:18px 0;border-bottom:1px solid #0E1A15">
+    <div ref="{{ marqueeRef }}" class="pm-marq" style="display:flex;width:max-content;font-family:Anton,sans-serif;font-size:40px;line-height:1;text-transform:uppercase;will-change:transform">
+      <sc-for list="{{ marqueeItems }}" as="m" hint-placeholder-count="12">
+        <span style="display:flex;align-items:center;gap:40px;padding-right:40px">{{ m }}<span style="width:14px;height:14px;border-radius:50%;background:#0E1A15"></span></span>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+
+<section id="events" data-screen-label="Events" style="padding:clamp(80px,10vw,150px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:56px">
+  <div data-reveal="" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      
+      <h2 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(60px,9vw,150px);line-height:.88;text-transform:uppercase">Events &amp;<br>tournaments</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;max-width:440px">
+      <p style="margin:0;font-size:18px;line-height:1.5;color:#4A544F;text-wrap:pretty">Socials, clinics and ranked tournaments every week. Pick a date, grab a spot, bring a partner or find one here.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+          <button sc-camel-on-click="{{ c.onClick }}" style="padding:9px 16px;border-radius:999px;border:1.5px solid #0E1A15;background:{{ c.bg }};color:{{ c.color }};font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s">{{ c.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:24px">
+    <div data-reveal="" style="position:relative;min-height:640px;border-radius:16px;overflow:hidden;background:#0E1A15;color:#F3F0E7;display:flex;flex-direction:column;justify-content:flex-end">
+      <img loading="lazy" decoding="async" src="{{ featured.img }}" alt="{{ featured.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .5s" style-hover="transform:scale(1.05)">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,21,0) 35%,rgba(14,26,21,.9) 100%);pointer-events:none"></div>
+      <div style="position:absolute;top:24px;left:24px;display:flex;gap:8px">
+        
+        
+      </div>
+      <div style="position:relative;padding:32px;display:flex;flex-direction:column;gap:18px;pointer-events:none">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#D6F25C">{{ featured.longDate }}</span>
+        <h3 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(44px,5vw,72px);line-height:.92;text-transform:uppercase">{{ featured.title }}</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:24px;font-size:15px;color:#E6E3DA">
+          <span>{{ featured.time }}</span><span>{{ featured.level }}</span><span>{{ featured.priceLabel }} per player</span>
+        </div>
+        <div style="pointer-events:auto">
+          <button sc-camel-on-click="{{ featured.onBook }}" style="display:inline-flex;align-items:center;gap:10px;padding:24px 44px;border-radius:999px;border:0;background:#D6F25C;color:#0E1A15;font-size:18px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s" style-hover="transform:translateY(-3px);box-shadow:0 14px 28px -10px rgba(214,242,92,.7)">{{ featured.cta }} →</button>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
+      <div style="background:#FBFAF5;border:1px solid #D9D5C8;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+          <span style="font-family:Anton,sans-serif;font-size:36px;line-height:1;text-transform:uppercase">{{ monthLabel }}</span>
+          <div style="display:flex;gap:8px">
+            <button sc-camel-on-click="{{ prevMonth }}" aria-label="Previous month" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #0E1A15;background:transparent;color:#0E1A15;font-size:18px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#0E1A15;color:#F3F0E7">←</button>
+            <button sc-camel-on-click="{{ nextMonth }}" aria-label="Next month" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #0E1A15;background:transparent;color:#0E1A15;font-size:18px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#0E1A15;color:#F3F0E7">→</button>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px">
+          <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="7">
+            <span style="text-align:center;padding:6px 0;font-size:11px;font-weight:700;letter-spacing:.14em;color:#5A635E">{{ w }}</span>
+          </sc-for>
+          <sc-for list="{{ calDays }}" as="d" hint-placeholder-count="35">
+            <button sc-camel-on-click="{{ d.onClick }}" style="position:relative;aspect-ratio:1/1;min-height:40px;border:{{ d.border }};border-radius:50%;background:{{ d.bg }};color:{{ d.color }};font-size:15px;font-weight:{{ d.weight }};cursor:pointer;transition:background .3s,color .3s,transform .3s" style-hover="transform:scale(1.08)">{{ d.num }}<span style="position:absolute;left:50%;bottom:16%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:{{ d.dot }}"></span></button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;border-top:1.5px solid #0E1A15">
+        <sc-for list="{{ monthEvents }}" as="e" hint-placeholder-count="4">
+          <div sc-camel-on-click="{{ e.onSelect }}" style="display:grid;grid-template-columns:64px minmax(0,1fr) auto;align-items:center;gap:20px;padding:18px 16px;border-bottom:1px solid #D9D5C8;border-radius:16px;background:{{ e.rowBg }};cursor:pointer;transition:background .35s,padding .35s" style-hover="padding-left:24px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;line-height:1.1">
+              <span style="font-size:11px;font-weight:700;letter-spacing:.14em">{{ e.dow }}</span>
+              <span style="font-family:Anton,sans-serif;font-size:34px">{{ e.dayNum }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="font-size:18px;font-weight:700">{{ e.title }}</span>
+              <span style="font-size:14px;color:#4A544F">{{ e.cat }} · {{ e.time }} · {{ e.priceLabel }}</span>
+            </div>
+            <button sc-camel-on-click="{{ e.onBook }}" style="padding:11px 18px;border-radius:999px;border:1.5px solid #0E1A15;background:#0E1A15;color:#F3F0E7;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .3s,color .3s" style-hover="background:#D6F25C;color:#0E1A15">{{ e.cta }}</button>
+          </div>
+        </sc-for>
+        <sc-if value="{{ noEvents }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:28px 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid #D9D5C8">
+            <span style="font-size:16px;color:#4A544F">Nothing on this month for that filter yet.</span>
+            <button sc-camel-on-click="{{ openCourt }}" style="padding:11px 18px;border-radius:999px;border:1.5px solid #0E1A15;background:transparent;color:#0E1A15;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">Book a court instead</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="coaching" data-screen-label="Coaching" style="padding:0 clamp(20px,4vw,56px) clamp(80px,10vw,150px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,4vw,64px)">
+    <div data-reveal="" style="position:relative;min-height:540px;border-radius:16px;overflow:hidden;background:#0E1A15"><img loading="lazy" decoding="async" src="assets/8ba83c0d.jpg" alt="Padel athlete mid-rally" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+    <div data-reveal="" style="display:flex;flex-direction:column;justify-content:center;gap:28px">
+      <h2 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(56px,9vw,150px);line-height:.9;text-transform:uppercase">Book a<br>coach</h2>
+      <p style="margin:0;font-size:18px;line-height:1.5;color:#4A544F;text-wrap:pretty;max-width:480px">Sharpen your bandeja, own the back glass and read the game earlier. Pick a session, pick a time, we handle the court.</p>
+      <div style="display:flex;flex-direction:column;border-top:1.5px solid #0E1A15">
+        <sc-for list="{{ sessions }}" as="ss" hint-placeholder-count="3">
+          <div sc-camel-on-click="{{ ss.onClick }}" style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;padding:20px 12px;border-bottom:1px solid #D9D5C8;border-radius:16px;cursor:pointer;transition:background .35s,padding .35s" style-hover="background:#D6F25C;padding-left:24px">
+            <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:Anton,sans-serif;font-size:30px;line-height:1;text-transform:uppercase">{{ ss.name }}</span><span style="font-size:14px;color:#4A544F">{{ ss.desc }}</span></div>
+            <span style="font-size:16px;font-weight:800;white-space:nowrap">{{ ss.price }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <button sc-camel-on-click="{{ openCourt }}" style="align-self:flex-start;padding:20px 36px;border-radius:999px;border:0;background:#0E1A15;color:#F3F0E7;font-size:15px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#D6F25C;color:#0E1A15">Book a lesson</button>
+    </div>
+  </div>
+</section>
+
+<section id="store" data-screen-label="Pro Store" style="padding:0 clamp(20px,4vw,56px) clamp(80px,10vw,150px);display:flex;flex-direction:column;gap:48px">
+  <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;padding-top:clamp(56px,6vw,80px);border-top:1.5px solid #0E1A15">
+    <h2 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(56px,9vw,150px);line-height:.9;text-transform:uppercase">Pro store</h2>
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:20px;max-width:440px">
+      <p style="margin:0;font-size:18px;line-height:1.5;color:#4A544F;text-wrap:pretty">Rackets, apparel and court essentials, picked by our coaches and ready to collect at the front desk.</p>
+      <button style="padding:16px 28px;border-radius:999px;border:1.5px solid #0E1A15;background:transparent;color:#0E1A15;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#0E1A15;color:#F3F0E7">Shop all →</button>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px">
+    <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+      <article data-reveal="" style="display:flex;flex-direction:column;gap:14px;cursor:pointer">
+        <div style="aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#E2DED2"><img loading="lazy" decoding="async" src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.06)"></div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">{{ p.cat }}</span>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-family:Anton,sans-serif;font-size:26px;line-height:1.05;text-transform:uppercase">{{ p.name }}</span><span style="font-size:15px;font-weight:700;white-space:nowrap">{{ p.price }}</span></div>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<section id="community" data-screen-label="Community" style="background:#0E1A15;color:#F3F0E7;padding:clamp(80px,10vw,150px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(64px,8vw,120px);overflow:hidden">
+  <div data-reveal="" style="display: flex; flex-direction: column; gap: 28px; position: relative">
+    <h2 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(60px,10vw,180px);line-height:1;text-transform:uppercase;display:flex;flex-direction:column">
+      <span>Come for</span>
+      <span style="display:flex;align-items:center">the game<span style="position:relative;display:block;width:0;height:0;margin-left:.35em"><span style="position:absolute;left:0;top:0;display:block;width:0;height:0;transform:scale({{ ballScale }});transform-origin:0 0;pointer-events:none"><svg sc-camel-view-box="0 0 1 1" width="1" height="1" style="position:absolute;left:0;top:0;overflow:visible"><path d="M0,0 C30,0 70,170 120,170 Q165,60 210,170 Q250,110 290,170 Q315,145 340,170 L460,170" style="fill:none;stroke:#D6F25C;stroke-width:2.5;stroke-dasharray:4 10;stroke-linecap:round"></path></svg><span style="position:absolute;left:0;top:0;display:block;width:0;height:0;offset-anchor:0 0;offset-path:path('M0,0 C30,0 70,170 120,170 Q165,60 210,170 Q250,110 290,170 Q315,145 340,170 L460,170');offset-rotate:0deg;animation:pmball 3.6s linear infinite;will-change:transform"><svg sc-camel-view-box="0 0 56 56" width="80" height="80" style="position:absolute;left:-40px;top:-40px;display:block"><circle cx="28" cy="28" r="27" style="fill:#D6F25C"></circle><path d="M8 12 C22 20 22 36 8 44" style="fill:none;stroke:#F3F0E7;stroke-width:3"></path><path d="M48 12 C34 20 34 36 48 44" style="fill:none;stroke:#F3F0E7;stroke-width:3"></path></svg></span></span></span></span>
+      <span style="color:transparent;-webkit-text-stroke:2px #F3F0E7">Stay for</span>
+      <span style="color:#D6F25C">the community.</span>
+    </h2>
+    
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <p style="margin:0;max-width:520px;font-size:18px;line-height:1.55;color:#C9CCC4;text-wrap:pretty">Weekly socials, seasonal leagues and a match-finder chat that never sleeps. Come solo, leave with a squad and a standing Tuesday game.</p>
+      <button sc-camel-on-click="{{ openMember }}" style="display:inline-flex;align-items:center;gap:10px;padding:24px 44px;border-radius:999px;border:0;background:#D6F25C;color:#0E1A15;font-size:18px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s" style-hover="transform:translateY(-3px);box-shadow:0 14px 28px -10px rgba(214,242,92,.6)">+ Become a member</button>
+    </div>
+  </div>
+
+  </section>
+
+<section id="activity" data-screen-label="Recent Activity" style="padding:clamp(80px,10vw,150px) clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px)">
+  <div data-reveal="" style="flex:0 0 260px;display:flex;flex-direction:column;gap:36px">
+    <h2 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(56px,9vw,150px);line-height:.9;text-transform:uppercase;font-size:clamp(52px,6vw,88px);display:flex;flex-direction:column;align-items:flex-start"><span style="background:#D6F25C;padding:0 14px;transform:rotate(-1.5deg)">Recent</span><span>activity</span></h2>
+    <div style="display:flex;gap:12px">
+      <button sc-camel-on-click="{{ scrollPrev }}" aria-label="Previous" style="width:52px;height:52px;border-radius:16px;border:0;background:#2B2D2C;color:#F3F0E7;font-size:24px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#D6F25C;color:#0E1A15">←</button>
+      <button sc-camel-on-click="{{ scrollNext }}" aria-label="Next" style="width:52px;height:52px;border-radius:16px;border:0;background:#2B2D2C;color:#F3F0E7;font-size:24px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#D6F25C;color:#0E1A15">→</button>
+    </div>
+  </div>
+  <div ref="{{ scrollerRef }}" style="flex:1 1 320px;min-width:0;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none">
+    <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="4">
+      <article style="flex:0 0 clamp(250px,28vw,400px);scroll-snap-align:start;display:flex;flex-direction:column;gap:12px">
+        <div style="position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#E2DED2">
+          <img loading="lazy" decoding="async" src="{{ h.img }}" alt="{{ h.title }}" style="width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.06)">
+          <span style="position:absolute;top:14px;left:14px;padding:6px 12px;border-radius:999px;background:#F3F0E7;color:#0E1A15;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase">{{ h.tag }}</span>
+        </div>
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">{{ h.date }}</span>
+        <span style="font-family:Anton,sans-serif;font-size:28px;line-height:1;text-transform:uppercase">{{ h.title }}</span>
+        <span style="font-size:15px;line-height:1.5;color:#4A544F">{{ h.caption }}</span>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<section id="membership" data-screen-label="Membership" style="background:#0E1A15;color:#F3F0E7;padding:clamp(80px,10vw,150px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:56px;scroll-margin-top:60px">
+  <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px">
+    <h2 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(56px,9vw,150px);line-height:.9;text-transform:uppercase">Membership</h2>
+    <div style="display:flex;padding:4px;border-radius:999px;border:1.5px solid #F3F0E7">
+      <button sc-camel-on-click="{{ setMonthly }}" style="padding:12px 24px;border-radius:999px;border:0;background:{{ billMonthlyBg }};color:{{ billMonthlyColor }};font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .35s">Monthly</button>
+      <button sc-camel-on-click="{{ setAnnual }}" style="padding:12px 24px;border-radius:999px;border:0;background:{{ billAnnualBg }};color:{{ billAnnualColor }};font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .35s">Annual · 2 months free</button>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+    <sc-for list="{{ plans }}" as="pl" hint-placeholder-count="3">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:28px;padding:32px;border-radius:16px;border:1.5px solid {{ pl.border }};background:{{ pl.bg }};color:{{ pl.color }}">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-family:Anton,sans-serif;font-size:36px;line-height:1;text-transform:uppercase">{{ pl.label }}</span><span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">{{ pl.badge }}</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:Anton,sans-serif;font-size:clamp(40px,4vw,56px);line-height:1">{{ pl.price }}</span><span style="font-size:14px">{{ pl.per }}</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;flex:1">
+          <sc-for list="{{ pl.features }}" as="ft" hint-placeholder-count="3"><span style="font-size:16px;padding-bottom:12px;border-bottom:1px solid {{ pl.border }}">{{ ft }}</span></sc-for>
+        </div>
+        <button sc-camel-on-click="{{ pl.onClick }}" style="padding:18px 0;border-radius:999px;border:0;background:{{ pl.btnBg }};color:{{ pl.btnColor }};font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:transform .3s" style-hover="transform:translateY(-2px)">{{ pl.cta }}</button>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="invite" data-screen-label="Promo" style="padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px) 0">
+  <div data-reveal="" style="position:relative;overflow:hidden;border-radius:16px;min-height:420px;display:flex;align-items:flex-end;background:#0E1A15;color:#F3F0E7">
+    <img loading="lazy" decoding="async" src="assets/bc6b9790.jpg" alt="Players on court" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:rgba(14,26,21,.9)"></div>
+    <div style="position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding:clamp(24px,4vw,56px);width:100%">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:620px">
+        <span style="align-self:flex-start;padding:8px 14px;border-radius:999px;background:#D6F25C;color:#0E1A15;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">Invite code PADELME20</span>
+        <h2 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(56px,9vw,150px);line-height:.9;text-transform:uppercase;font-size:clamp(44px,6vw,92px);line-height:.95">Bring a friend. You both save 20%.</h2>
+        <p style="margin:0;font-size:18px;line-height:1.5;color:#F3F0E7;text-wrap:pretty">Share your code. When they book their first court, you each get 20% off your next game. Every 10th hour you play is on us.</p>
+      </div>
+      <button sc-camel-on-click="{{ openMember }}" style="padding:22px 40px;border-radius:999px;border:0;background:#D6F25C;color:#0E1A15;font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:transform .35s" style-hover="transform:translateY(-3px)">Get my invite</button>
+    </div>
+  </div>
+</section>
+
+<section id="location" data-screen-label="Location" style="padding:0 clamp(20px,4vw,56px) clamp(80px,10vw,150px);display:flex;flex-direction:column;gap:56px">
+  <div data-reveal="" style="display:flex;flex-direction:column;gap:18px;padding-top:clamp(56px,6vw,80px);border-top:1.5px solid #0E1A15">
+    
+    <h2 style="margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(60px,9vw,150px);line-height:.88;text-transform:uppercase">Find us,<br>follow us</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px">
+    <div data-reveal="" style="position:relative;min-height:560px;border-radius:16px;overflow:hidden;background:#E2DED2">
+      <iframe title="Padel Me location" src="https://maps.google.com/maps?q=Jalan%20Ir.%20H.%20Juanda%20Dago%20Bandung&amp;z=15&amp;output=embed" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05);transition:filter .6s" style-hover="filter:grayscale(0)"></iframe>
+      <a href="https://maps.google.com/?q=Jalan%20Ir.%20H.%20Juanda%20Dago%20Bandung" target="_blank" rel="noopener" style="position:absolute;left:20px;bottom:20px;display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:#0E1A15;color:#F3F0E7;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:background .35s,color .35s" style-hover="background:#D6F25C;color:#0E1A15">Get directions ↗</a>
+    </div>
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Address</span>
+          <span style="font-size:18px;line-height:1.5">Jl. Ir. H. Juanda No. 88, Dago<br>Coblong, Kota Bandung<br>Jawa Barat 40135</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Contact</span>
+          <a href="mailto:hello@padelme.club" style="font-size:18px;transition:color .3s" style-hover="color:#4A544F">hello@padelme.club</a>
+          <a href="tel:+62220000000" style="font-size:18px;transition:color .3s" style-hover="color:#4A544F">+62 22 0000 0000</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Opening hours</span>
+        <sc-for list="{{ hours }}" as="hr" hint-placeholder-count="7">
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:10px 12px;font-size:16px;background:{{ hr.bg }};font-weight:{{ hr.weight }};transition:background .3s">
+            <span>{{ hr.day }}</span><span>{{ hr.time }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1.5px solid #0E1A15">
+        <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+          <a href="{{ s.href }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 12px;border-bottom:1px solid #D9D5C8;transition:background .35s,padding .35s" style-hover="background:#D6F25C;padding-left:24px">
+            <span style="font-family:Anton,sans-serif;font-size:32px;line-height:1;text-transform:uppercase">{{ s.name }}</span>
+            <span style="display:flex;align-items:center;gap:16px;font-size:15px;color:#4A544F"><span>{{ s.handle }}</span><span style="font-size:20px;color:#0E1A15">↗</span></span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="background:#0E1A15;color:#F3F0E7;padding:clamp(64px,8vw,110px) clamp(20px,4vw,56px) 32px;display:flex;flex-direction:column;gap:64px;overflow:hidden">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:460px">
+      <span style="font-family:Anton,sans-serif;font-size:40px;line-height:1;text-transform:uppercase">First dibs on new events</span>
+      <span style="font-size:16px;color:#C9CCC4">One email a week. Fixtures, open spots, no filler.</span>
+    </div>
+    <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-wrap:wrap;gap:8px;width:min(100%,480px)">
+        <input type="email" placeholder="you@email.com" value="{{ email }}" sc-camel-on-change="{{ onEmail }}" style="flex:1;min-width:200px;padding:16px 22px;border-radius:999px;border:1.5px solid rgba(243,240,231,.4);background:transparent;color:#F3F0E7;font-family:inherit;font-size:16px;outline:none;transition:border-color .3s" style-focus="border-color:#D6F25C">
+        <button sc-camel-on-click="{{ subscribe }}" style="padding:20px 36px;border-radius:999px;border:0;background:#D6F25C;color:#0E1A15;font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:transform .35s" style-hover="transform:translateY(-2px)">Subscribe</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+      <span style="font-size:16px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D6F25C">You're on the list.</span>
+    </sc-if>
+  </div>
+  <div style="font-family:Anton,sans-serif;font-size:clamp(90px,22vw,380px);line-height:.8;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap">Padel me<span style="color:#D6F25C">.</span></div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;color:#C9CCC4;padding-top:20px;border-top:1px solid rgba(243,240,231,.2)">
+    <span>© 2026 Padel Me</span>
+    <div style="display:flex;flex-wrap:wrap;gap:24px"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">FAQ</a><a href="#top">Back to top ↑</a></div>
+  </div>
+</footer>
+
+
+
+
+<button sc-camel-on-click="{{ openCourt }}" aria-label="Book a court" style="position:fixed;right:clamp(16px,2.5vw,32px);bottom:clamp(16px,2.5vw,32px);z-index:70;width:64px;height:64px;padding:0;border-radius:50%;border:0;background:#D6F25C;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 14px 30px -10px rgba(14,26,21,.55);opacity:{{ fabOpacity }};transform:{{ fabTransform }};transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .35s" style-hover="transform:scale(1.08)"><svg sc-camel-view-box="0 0 24 24" width="30" height="30" style="fill:none;stroke:#0E1A15;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg></button>
+<div sc-camel-on-click="{{ closeDrawer }}" aria-hidden="true" style="position:fixed;inset:0;z-index:80;background:rgba(14,26,21,.55);opacity:{{ ovOpacity }};pointer-events:{{ ovPE }};transition:opacity .45s"></div>
+<aside aria-label="Booking" style="position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(520px,100vw);background:#F3F0E7;color:#0E1A15;display:flex;flex-direction:column;transform:{{ drawerX }};transition:transform .6s cubic-bezier(.2,.8,.2,1);box-shadow:-30px 0 60px -30px rgba(14,26,21,.5)">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px 16px">
+    <span style="font-family:Anton,sans-serif;font-size:44px;line-height:1;text-transform:uppercase">Book</span>
+    <button sc-camel-on-click="{{ closeDrawer }}" aria-label="Close" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #0E1A15;background:transparent;color:#0E1A15;font-size:20px;cursor:pointer;transition:background .3s,color .3s,transform .4s" style-hover="background:#0E1A15;color:#F3F0E7;transform:rotate(90deg)">×</button>
+  </div>
+  <div style="display:flex;gap:6px;padding:0 28px 20px;border-bottom:1px solid #D9D5C8">
+    <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="3">
+      <button sc-camel-on-click="{{ tb.onClick }}" style="flex:1;padding:12px 8px;border-radius:999px;border:1.5px solid #0E1A15;background:{{ tb.bg }};color:{{ tb.color }};font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s">{{ tb.label }}</button>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ showCourt }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Day</span>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">
+          <sc-for list="{{ days }}" as="dy" hint-placeholder-count="7">
+            <button sc-camel-on-click="{{ dy.onClick }}" style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 0;border-radius:12px;border:1.5px solid #0E1A15;background:{{ dy.bg }};color:{{ dy.color }};cursor:pointer;transition:background .3s,color .3s">
+              <span style="font-size:10px;font-weight:700;letter-spacing:.12em">{{ dy.dow }}</span>
+              <span style="font-family:Anton,sans-serif;font-size:22px;line-height:1.1">{{ dy.num }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Time · tap hours on the clock</span><span style="font-size:12px;color:#4A544F">{{ slotsLeft }}</span></div>
+        <div style="display:flex;align-self:center;padding:4px;border-radius:999px;border:1.5px solid #0E1A15">
+          <sc-for list="{{ ampmTabs }}" as="ap" hint-placeholder-count="2"><button sc-camel-on-click="{{ ap.onClick }}" style="padding:10px 26px;border-radius:999px;border:0;background:{{ ap.bg }};color:{{ ap.color }};font-size:12px;font-weight:700;letter-spacing:.12em;cursor:pointer;transition:all .3s">{{ ap.label }}</button></sc-for>
+        </div>
+        <div style="position:relative;width:min(100%,320px);aspect-ratio:1/1;align-self:center;border-radius:50%;background:#FBFAF5;border:1.5px solid #0E1A15">
+          <svg sc-camel-view-box="0 0 100 100" style="position:absolute;inset:0;width:100%;height:100%"><sc-for list="{{ hands }}" as="hd" hint-placeholder-count="0"><line x1="50" y1="50" x2="{{ hd.x }}" y2="{{ hd.y }}" style="stroke:#0E1A15;stroke-width:.8"></line></sc-for><circle cx="50" cy="50" r="2" style="fill:#0E1A15"></circle></svg>
+          <sc-for list="{{ dial }}" as="dl" hint-placeholder-count="12">
+            <button sc-camel-on-click="{{ dl.onClick }}" disabled="{{ dl.disabled }}" style="position:absolute;left:{{ dl.left }};top:{{ dl.top }};transform:translate(-50%,-50%);width:46px;height:46px;padding:0;border-radius:50%;border:1.5px solid {{ dl.border }};background:{{ dl.bg }};color:{{ dl.color }};font-family:Anton,sans-serif;font-size:20px;text-decoration:{{ dl.deco }};cursor:{{ dl.cursor }};transition:background .25s">{{ dl.n }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="0"><button sc-camel-on-click="{{ ch.onClick }}" style="padding:8px 14px;border-radius:999px;border:1.5px solid #0E1A15;background:#D6F25C;color:#0E1A15;font-size:13px;font-weight:700;cursor:pointer">{{ ch.label }} ×</button></sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Court</span>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <sc-for list="{{ courts }}" as="ct" hint-placeholder-count="2">
+            <button sc-camel-on-click="{{ ct.onClick }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:12px;border:1.5px solid #0E1A15;background:{{ ct.bg }};color:#0E1A15;font-size:15px;text-align:left;cursor:pointer;transition:background .3s">
+              <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700">{{ ct.label }}</span><span style="font-size:13px;color:#4A544F">{{ ct.desc }}</span></span>
+              <span style="width:18px;height:18px;border-radius:50%;border:1.5px solid #0E1A15;background:{{ ct.dot }};transition:background .3s"></span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showEvent }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Event</span>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <sc-for list="{{ eventOptions }}" as="eo" hint-placeholder-count="5">
+            <button sc-camel-on-click="{{ eo.onClick }}" style="display:grid;grid-template-columns:52px minmax(0,1fr) 18px;align-items:center;gap:14px;padding:12px 16px;border-radius:12px;border:1.5px solid #0E1A15;background:{{ eo.bg }};color:#0E1A15;text-align:left;cursor:pointer;transition:background .3s">
+              <span style="display:flex;flex-direction:column;align-items:center;line-height:1"><span style="font-size:10px;font-weight:700;letter-spacing:.12em">{{ eo.dow }}</span><span style="font-family:Anton,sans-serif;font-size:24px">{{ eo.dayNum }}</span></span>
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-weight:700;font-size:15px">{{ eo.title }}</span><span style="font-size:13px;color:#4A544F">{{ eo.time }} · {{ eo.priceLabel }} · {{ eo.spotsLabel }}</span></span>
+              <span style="width:18px;height:18px;border-radius:50%;border:1.5px solid #0E1A15;background:{{ eo.dot }}"></span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Players</span>
+        <div style="display:flex;align-items:center;gap:14px">
+          <button sc-camel-on-click="{{ decPlayers }}" aria-label="Fewer players" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #0E1A15;background:transparent;color:#0E1A15;font-size:20px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#0E1A15;color:#F3F0E7">−</button>
+          <span style="font-family:Anton,sans-serif;font-size:32px;min-width:24px;text-align:center">{{ players }}</span>
+          <button sc-camel-on-click="{{ incPlayers }}" aria-label="More players" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #0E1A15;background:transparent;color:#0E1A15;font-size:20px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#0E1A15;color:#F3F0E7">+</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showMember }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4A544F">Plan</span>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <sc-for list="{{ tierOptions }}" as="to" hint-placeholder-count="3">
+            <button sc-camel-on-click="{{ to.onClick }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px;border-radius:12px;border:1.5px solid #0E1A15;background:{{ to.bg }};color:#0E1A15;text-align:left;cursor:pointer;transition:background .3s">
+              <span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:Anton,sans-serif;font-size:26px;line-height:1;text-transform:uppercase">{{ to.label }}</span><span style="font-size:13px;color:#4A544F">{{ to.desc }}</span></span>
+              <span style="font-weight:800;font-size:16px;white-space:nowrap">{{ to.price }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;padding:4px;border-radius:999px;border:1.5px solid #0E1A15">
+        <button sc-camel-on-click="{{ setMonthly }}" style="flex:1;padding:11px 0;border-radius:999px;border:0;background:{{ dBillMonthlyBg }};color:{{ dBillMonthlyColor }};font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .35s">Monthly</button>
+        <button sc-camel-on-click="{{ setAnnual }}" style="flex:1;padding:11px 0;border-radius:999px;border:0;background:{{ dBillAnnualBg }};color:{{ dBillAnnualColor }};font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .35s">Annual</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+    <div style="padding:20px 28px 28px;border-top:1.5px solid #0E1A15;display:flex;flex-direction:column;gap:16px;background:#FBFAF5">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px">
+        <span style="font-size:14px;line-height:1.45;color:#4A544F;max-width:280px">{{ summary }}</span>
+        <span style="display:flex;flex-direction:column;align-items:flex-end;gap:2px"><span style="font-family:Anton,sans-serif;font-size:36px;line-height:1">{{ total }}</span><span style="font-size:12px;color:#4A544F">{{ totalNote }}</span></span>
+      </div>
+      <button sc-camel-on-click="{{ confirm }}" style="padding:18px 0;border-radius:999px;border:0;background:{{ confirmBg }};color:{{ confirmColor }};font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;cursor:{{ confirmCursor }};transition:background .35s,color .35s,transform .35s" style-hover="transform:translateY(-2px)">{{ confirmLabel }}</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showSuccess }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;padding:28px">
+      <span style="width:72px;height:72px;border-radius:50%;background:#D6F25C;border:1.5px solid #0E1A15;display:flex;align-items:center;justify-content:center;font-size:32px">✓</span>
+      <span style="font-family:Anton,sans-serif;font-size:64px;line-height:.92;text-transform:uppercase">{{ successTitle }}</span>
+      <span style="font-size:17px;line-height:1.5;color:#4A544F">{{ summary }}</span>
+      <span style="font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase">Ref {{ refCode }}</span>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <button sc-camel-on-click="{{ closeDrawer }}" style="padding:15px 24px;border-radius:999px;border:0;background:#0E1A15;color:#F3F0E7;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">Done</button>
+        <button sc-camel-on-click="{{ bookAnother }}" style="padding:15px 24px;border-radius:999px;border:1.5px solid #0E1A15;background:transparent;color:#0E1A15;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s" style-hover="background:#D6F25C">Book another</button>
+      </div>
+    </div>
+  </sc-if>
+</aside>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;showMarquee&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;revealAnimations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;heroParallax&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+const U = id => (window.__resources && window.__resources['u'+id]) || `https://images.unsplash.com/photo-${id}?fm=jpg&q=70&w=1400&auto=format&fit=crop`;
+const EVENTS = [
+  { id: 'e1', date: '2026-11-07', title: 'Saturday Smash Social', cat: 'Social', time: '18:00 – 21:00', level: 'All levels', spots: 12, price: 90000, img: U('1767128890583-b3f8dc30bdbc') },
+  { id: 'e2', date: '2026-11-12', title: 'Beginner Clinic', cat: 'Clinic', time: '19:00 – 20:30', level: 'New to padel', spots: 6, price: 125000, img: U('1612534847738-b3af9bc31f0c') },
+  { id: 'e3', date: '2026-11-14', title: 'Autumn Cup', cat: 'Tournament', time: '09:00 – 18:00', level: 'Intermediate +', spots: 8, price: 200000, img: U('1646651105426-e8c8ee9badde') },
+  { id: 'e4', date: '2026-11-19', title: 'Ladies Night Americano', cat: 'Social', time: '19:30 – 22:00', level: 'All levels', spots: 16, price: 100000, img: U('1767128890954-20ce481be8f0') },
+  { id: 'e5', date: '2026-11-21', title: 'Pro Drills: Bandeja', cat: 'Clinic', time: '10:00 – 11:30', level: 'Intermediate', spots: 4, price: 150000, img: U('1767128890439-1af9ca2ff1ac') },
+  { id: 'e6', date: '2026-11-28', title: 'Glow Padel Night', cat: 'Social', time: '21:00 – 00:00', level: 'All levels', spots: 20, price: 110000, img: U('1759355456246-6937354a395d') },
+  { id: 'e7', date: '2026-12-05', title: 'Winter Ladder Finals', cat: 'Tournament', time: '10:00 – 17:00', level: 'Ladder players', spots: 2, price: 175000, img: U('1770230901556-4e1c0bacfb09') },
+  { id: 'e8', date: '2026-12-12', title: 'Christmas Mix-In', cat: 'Social', time: '17:00 – 21:00', level: 'All levels', spots: 24, price: 75000, img: U('1646649851800-48dba35edc76') },
+];
+const HIGHLIGHTS = [
+  { tag: 'Tournament', date: '26 Oct 2026', title: 'Halloween Cup finals', caption: '48 players, one very loud final set and a costume prize nobody saw coming.', img: U('1646651105426-e8c8ee9badde') },
+  { tag: 'Social', date: '19 Oct 2026', title: 'Sunday Americano', caption: 'Rotating partners, bacon rolls, 32 new names in the group chat.', img: U('1767128890954-20ce481be8f0') },
+  { tag: 'League', date: '12 Oct 2026', title: 'Box League S3 kicks off', caption: 'Twelve boxes, six weeks. Standings update every Monday.', img: U('1658723826297-fe4d1b1e6600') },
+  { tag: 'Clinic', date: '05 Oct 2026', title: 'Wall play masterclass', caption: 'Coach Marta on reading the back glass. Sold out in a day.', img: U('1767128890439-1af9ca2ff1ac') },
+  { tag: 'Social', date: '28 Sep 2026', title: 'Late night rally', caption: 'Courts open till midnight, DJ on the terrace.', img: U('1646649853703-7645147474ba') },
+];
+const TEAM = [
+  { name: 'Marta Vidal', role: 'Head coach', bio: 'Twelve years coaching in Valencia and Bandung. Lives for a well-timed vibora.', img: ((window.__resources && window.__resources['r0']) || 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fm=jpg&q=70&w=900&auto=format&fit=crop'), cta: 'Book a lesson' },
+  { name: 'Leo Hartmann', role: 'Performance coach', bio: 'Footwork, fitness and match tactics for players chasing the next level.', img: ((window.__resources && window.__resources['r1']) || 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?fm=jpg&q=70&w=900&auto=format&fit=crop'), cta: 'Book a lesson' },
+  { name: 'Aisha Rahman', role: 'Community', bio: 'Runs socials, leagues and the match-finder. Will find you a fourth.', img: ((window.__resources && window.__resources['r2']) || 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=70&w=900&auto=format&fit=crop'), cta: 'See events' },
+  { name: 'Daniel Okafor', role: 'Club manager', bio: 'Keeps the courts perfect and the coffee strong. Ask him anything.', img: ((window.__resources && window.__resources['r3']) || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=70&w=900&auto=format&fit=crop'), cta: 'Get in touch' },
+];
+const SOCIALS = [
+  { name: 'Instagram', handle: '@padelme.club', href: 'https://instagram.com' },
+  { name: 'TikTok', handle: '@padelme', href: 'https://tiktok.com' },
+  { name: 'WhatsApp', handle: 'Match-finder group', href: 'https://wa.me' },
+  { name: 'YouTube', handle: 'Padel Me TV', href: 'https://youtube.com' },
+];
+const DOW = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const idr = n => 'Rp ' + Math.round(n).toLocaleString('id-ID');
+const pad = n => String(n).padStart(2, '0');
+const fmt = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const parse = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+const INK = '#0E1A15', LIME = '#D6F25C', CREAM = '#F3F0E7';
+const TIERS = { drop: { label: 'Drop-in', m: 0, desc: 'Pay as you play' }, club: { label: 'Club', m: 390000, desc: '14-day booking, 20% off, free hire' }, pro: { label: 'Pro', m: 890000, desc: 'Club + free courts + coaching' } };
+
+class Component extends DCLogic {
+  state = { scrolled: false, menu: false, w: 1200, active: '', drawer: false, tab: 'court', step: 'form', viewY: 2026, viewM: 10, selDate: '2026-11-07', cat: 'All', dayIdx: 0, dur: 90, hrs: [], ampm: 'PM', court: 'Panoramic', evId: 'e1', players: 2, tier: 'club', billing: 'monthly', email: '', subscribed: false };
+  marqueeRef = React.createRef();
+  heroRef = React.createRef();
+  scrollerRef = React.createRef();
+
+  componentDidMount() {
+    const now = new Date();
+    this.setState({ viewY: now.getFullYear(), viewM: now.getMonth(), w: window.innerWidth });
+    const upcoming = EVENTS.find(e => e.date >= fmt(now));
+    if (upcoming) this.setState({ selDate: upcoming.date, evId: upcoming.id, viewY: parse(upcoming.date).getFullYear(), viewM: parse(upcoming.date).getMonth() });
+    const ids = ['events', 'coaching', 'store', 'community', 'membership', 'team', 'location'];
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.onScroll = () => {
+      if (this.tick) return; this.tick = true;
+      requestAnimationFrame(() => {
+        this.tick = false;
+        const y = window.scrollY || 0, vh = window.innerHeight;
+        // reads
+        let active = '';
+        for (const id of ids) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < vh * 0.4) active = id; }
+        // writes (transform/opacity only: no layout)
+        if (!reduce && y < vh * 1.2) {
+          const k = Math.min(y, vh);
+          if (this.props.heroParallax !== false && this.heroRef.current) this.heroRef.current.style.transform = 'translate3d(0,' + (k * 0.18).toFixed(1) + 'px,0) scale(' + (1.04 + k * 0.00012).toFixed(4) + ')';
+          const hc = document.getElementById('pm-hero-c');
+          if (hc) { const t = Math.min(1, k / vh); hc.style.transform = 'translate3d(0,' + (-k * 0.1).toFixed(1) + 'px,0)'; hc.style.opacity = (1 - t * t * 0.9).toFixed(3); }
+        }
+        const scrolled = y > 40;
+        if (scrolled !== this.state.scrolled || active !== this.state.active) this.setState({ scrolled, active });
+      });
+    };
+    // Hero entrance: plays when the hero is on screen (on load, or when scrolled back to it from a deep link).
+    const hero = document.getElementById('top');
+    if (hero) {
+      if (reduce || this.props.revealAnimations === false) hero.classList.add('pm-in');
+      else { this.heroIo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { hero.classList.add('pm-in'); this.heroIo.disconnect(); } }), { threshold: 0.2 }); this.heroIo.observe(hero); }
+    }
+        this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ drawer: false }); };
+    window.addEventListener('keydown', this.onKey);
+    // Marquee runs on the compositor (CSS); duration keeps the old speed (~36px/s).
+    const mq = this.marqueeRef.current;
+    if (mq) mq.style.animationDuration = Math.max(20, mq.scrollWidth / 2 / 36) + 's';
+    if (this.props.revealAnimations !== false) {
+      const ease = 'cubic-bezier(.2,.7,.2,1)';
+      this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; this.io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      setTimeout(() => document.querySelectorAll('[data-reveal]').forEach((el, i) => {
+        if (el.getBoundingClientRect().top < window.innerHeight) return;
+        el.style.opacity = '0'; el.style.transform = 'translateY(48px)';
+        el.style.transition = `opacity .9s ${ease}, transform .9s ${ease}`;
+        this.io.observe(el);
+      }), 50);
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('keydown', this.onKey);
+    if (this.heroIo) this.heroIo.disconnect();
+    if (this.io) this.io.disconnect();
+  }
+
+  open(tab, extra) { this.setState({ drawer: true, tab, step: 'form', ...(extra || {}) }); }
+
+  nextDays() {
+    const t = new Date(); t.setHours(0, 0, 0, 0);
+    return Array.from({ length: 7 }, (_, i) => { const d = new Date(t); d.setDate(t.getDate() + i); return d; });
+  }
+  slotsFor(dayIdx) {
+    const now = new Date();
+    return Array.from({ length: 16 }, (_, i) => {
+      const h = 7 + i;
+      const past = dayIdx === 0 && h <= now.getHours();
+      const taken = (h * 7 + dayIdx * 3) % 5 === 0 || (h * 3 + dayIdx) % 7 === 0;
+      return { h, label: `${pad(h)}:00`, free: !past && !taken };
+    });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const wide = s.w >= 1120;
+    const scrolled = s.scrolled;
+    const now = new Date();
+    const todayKey = fmt(now);
+
+    const navLinks = [['Events', 'events'], ['Coaching', 'coaching'], ['Pro store', 'store'], ['Community', 'community'], ['Membership', 'membership']].map(([label, id]) => ({ label, href: '#' + id, color: s.active === id ? LIME : CREAM, bar: s.active === id ? '100%' : '0%' }));
+
+    const dowNow = now.getDay(), hr = now.getHours();
+    const openH = dowNow === 0 || dowNow === 6 ? [7, 22] : [6, 23];
+    const isOpen = hr >= openH[0] && hr < openH[1];
+
+    const cats = ['All', 'Social', 'Clinic', 'Tournament'].map(c => ({ label: c, bg: s.cat === c ? INK : 'transparent', color: s.cat === c ? CREAM : INK, onClick: () => this.setState({ cat: c }) }));
+    const evMeta = e => { const d = parse(e.date); return { ...e, dow: DOW[d.getDay()], dayNum: pad(d.getDate()), longDate: `${DOW[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}`, priceLabel: idr(e.price), cta: e.cat === 'Social' ? 'RSVP' : 'Join', spotsLabel: e.spots <= 4 ? `Only ${e.spots} spots left` : `${e.spots} spots left` }; };
+    const ym = `${s.viewY}-${pad(s.viewM + 1)}`;
+    const inCat = e => s.cat === 'All' || e.cat === s.cat;
+    const monthEvents = EVENTS.filter(e => e.date.startsWith(ym) && inCat(e)).map(e => ({
+      ...evMeta(e), rowBg: e.date === s.selDate ? LIME : 'transparent',
+      onSelect: () => this.setState({ selDate: e.date, evId: e.id }),
+      onBook: ev => { if (ev && ev.stopPropagation) ev.stopPropagation(); this.open('event', { evId: e.id, selDate: e.date }); },
+    }));
+    const featBase = EVENTS.find(e => e.date === s.selDate && inCat(e)) || EVENTS.find(e => e.id === s.evId && inCat(e)) || monthEvents[0] || EVENTS.find(inCat) || EVENTS[0];
+    const featured = { ...evMeta(featBase), onBook: () => this.open('event', { evId: featBase.id }) };
+
+    const first = new Date(s.viewY, s.viewM, 1);
+    const offset = (first.getDay() + 6) % 7;
+    const dim = new Date(s.viewY, s.viewM + 1, 0).getDate();
+    const cells = Math.ceil((offset + dim) / 7) * 7;
+    const calDays = Array.from({ length: cells }, (_, i) => {
+      const d = new Date(s.viewY, s.viewM, 1 - offset + i);
+      const key = fmt(d), inMonth = d.getMonth() === s.viewM;
+      const evs = EVENTS.filter(e => e.date === key && inCat(e));
+      const sel = key === s.selDate, isToday = key === todayKey;
+      return {
+        num: d.getDate(), bg: sel ? LIME : 'transparent', color: inMonth ? INK : '#B9B5A8', weight: evs.length || isToday ? 800 : 500,
+        border: isToday ? `1.5px solid ${INK}` : '1.5px solid transparent', dot: evs.length ? INK : 'transparent',
+        onClick: () => this.setState({ selDate: key, ...(evs[0] ? { evId: evs[0].id } : {}), ...(inMonth ? {} : { viewY: d.getFullYear(), viewM: d.getMonth() }) }),
+      };
+    });
+    const shiftMonth = dir => { const d = new Date(s.viewY, s.viewM + dir, 1); this.setState({ viewY: d.getFullYear(), viewM: d.getMonth() }); };
+
+    const hours = [['Monday', 1], ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6], ['Sunday', 0]].map(([day, n]) => ({ day, time: n === 0 || n === 6 ? '07:00 – 22:00' : '06:00 – 23:00', bg: n === dowNow ? LIME : 'transparent', weight: n === dowNow ? 700 : 400 }));
+
+    const per = s.billing === 'annual' ? '/ year' : '/ month';
+    const price = m => m === 0 ? 'Rp 0' : idr(s.billing === 'annual' ? m * 10 : m);
+
+    const days = this.nextDays();
+    const dayList = days.map((d, i) => ({ dow: i === 0 ? 'TODAY' : DOW[d.getDay()], num: pad(d.getDate()), bg: s.dayIdx === i ? INK : 'transparent', color: s.dayIdx === i ? CREAM : INK, onClick: () => this.setState({ dayIdx: i, hrs: [] }) }));
+    const slotData = this.slotsFor(s.dayIdx);
+    const hh = s.hrs.slice().sort((a, b) => a - b);
+    const to24 = n => s.ampm === 'AM' ? (n === 12 ? 0 : n) : (n === 12 ? 12 : n + 12);
+    const dial = Array.from({ length: 12 }, (_, i) => {
+      const n = i + 1, h = to24(n), sd = slotData.find(x => x.h === h), free = !!(sd && sd.free), on = hh.includes(h), ang = n * Math.PI / 6;
+      return { n, h, on, x: 50 + 38 * Math.sin(ang), y: 50 - 38 * Math.cos(ang), left: (50 + 38 * Math.sin(ang)) + '%', top: (50 - 38 * Math.cos(ang)) + '%', bg: on ? LIME : 'transparent', color: free ? INK : '#A19D90', border: on || free ? INK : '#E6E2D7', deco: free ? 'none' : 'line-through', cursor: free ? 'pointer' : 'not-allowed', disabled: !free, onClick: () => free && this.setState({ hrs: on ? s.hrs.filter(x => x !== h) : [...s.hrs, h] }) };
+    });
+    const hands = dial.filter(d => d.on);
+    const chips = hh.map(h => ({ label: pad(h) + ':00 – ' + pad(h + 1) + ':00', onClick: () => this.setState({ hrs: s.hrs.filter(x => x !== h) }) }));
+    const ampmTabs = ['AM', 'PM'].map(k => ({ label: k, bg: s.ampm === k ? INK : 'transparent', color: s.ampm === k ? CREAM : INK, onClick: () => this.setState({ ampm: k }) }));
+    const freeCount = slotData.filter(x => x.free).length;
+    const todayFree = this.slotsFor(0).find(x => x.free);
+    const fabNext = todayFree ? `Next free court today · ${todayFree.label}` : 'Courts free tomorrow from 07:00';
+
+    const courts = [['Panoramic', 'Full glass, best for spectators'], ['Classic', 'Indoor, LED lit, Rp 30.000 less per hour']].map(([label, desc]) => ({ label, desc, bg: s.court === label ? LIME : 'transparent', dot: s.court === label ? INK : 'transparent', onClick: () => this.setState({ court: label }) }));
+
+    const selDay = days[s.dayIdx];
+    const weekend = selDay.getDay() === 0 || selDay.getDay() === 6;
+    const rateOf = h => ((weekend || h >= 17) ? 250000 : 180000) - (s.court === 'Classic' ? 30000 : 0);
+    const courtTotal = hh.reduce((acc, h) => acc + rateOf(h), 0);
+    const peak = hh.some(h => weekend || h >= 17);
+
+    const ev = EVENTS.find(e => e.id === s.evId) || EVENTS[0];
+    const evM = evMeta(ev);
+    const upcomingEvents = EVENTS.filter(e => e.date >= todayKey);
+    const eventOptions = upcomingEvents.map(e => ({ ...evMeta(e), bg: e.id === s.evId ? LIME : 'transparent', dot: e.id === s.evId ? INK : 'transparent', onClick: () => this.setState({ evId: e.id }) }));
+    const tierOptions = Object.entries(TIERS).map(([k, t]) => ({ label: t.label, desc: t.desc, price: t.m === 0 ? 'Free' : `${price(t.m)} ${per}`, bg: s.tier === k ? LIME : 'transparent', onClick: () => this.setState({ tier: k }) }));
+    const tier = TIERS[s.tier];
+
+    let summary = '', total = '', totalNote = '', canConfirm = true, confirmLabel = 'Confirm booking', successTitle = '';
+    if (s.tab === 'court') {
+      const dayLbl = s.dayIdx === 0 ? 'Today' : `${DOW[selDay.getDay()]} ${selDay.getDate()} ${MONTHS[selDay.getMonth()].slice(0, 3)}`;
+      summary = hh.length === 0 ? `${dayLbl} · ${s.court}. Tap hours on the clock.` : `${dayLbl} · ${hh.map(h => pad(h) + ':00').join(', ')} · ${hh.length} hr · ${s.court} court`;
+      total = hh.length ? idr(courtTotal) : '—';
+      totalNote = hh.length ? `${idr(courtTotal / 4)} each for 4 · ${peak ? 'peak' : 'off-peak'}` : (weekend ? 'Weekend rate' : 'Rate by time');
+      canConfirm = hh.length > 0; confirmLabel = canConfirm ? 'Confirm court' : 'Select a time'; successTitle = "You're on court.";
+    } else if (s.tab === 'event') {
+      summary = `${ev.title} · ${evM.longDate} · ${ev.time} · ${s.players} player${s.players > 1 ? 's' : ''}`;
+      total = idr(ev.price * s.players); totalNote = `${evM.priceLabel} per player`; confirmLabel = ev.cat === 'Social' ? 'Confirm RSVP' : 'Join event'; successTitle = "You're in.";
+    } else {
+      summary = `${tier.label} membership · ${s.billing === 'annual' ? 'billed yearly' : 'billed monthly'}`;
+      total = tier.m === 0 ? 'Free' : price(tier.m); totalNote = tier.m === 0 ? 'No card needed' : per.replace('/ ', 'per '); confirmLabel = tier.m === 0 ? 'Create account' : `Join ${tier.label}`; successTitle = 'Welcome to the club.';
+    }
+    const refCode = 'PM-' + (s.tab[0] + (s.slot || s.players || 1) + s.dayIdx + s.evId + s.tier).toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
+
+    const billOn = v => ({ bg: s.billing === v ? LIME : 'transparent', color: s.billing === v ? INK : CREAM });
+    const dBillOn = v => ({ bg: s.billing === v ? INK : 'transparent', color: s.billing === v ? CREAM : INK });
+    const parallax = this.props.heroParallax !== false;
+
+    return {
+      wide, navLinks,
+      navPad: scrolled ? '12px clamp(20px,4vw,56px)' : '24px clamp(20px,4vw,56px)',
+      navBg: scrolled ? 'rgba(14,26,21,0.96)' : 'rgba(14,26,21,0)',
+      heroRef: this.heroRef, btnML: wide ? '0' : 'auto', showBurger: !wide, menuOpen: s.menu && !wide, toggleMenu: () => this.setState({ menu: !s.menu }), closeMenu: () => this.setState({ menu: false }), burgerT: s.menu ? 'translateY(7px) rotate(45deg)' : 'none', burgerMid: s.menu ? 0 : 1, burgerB: s.menu ? 'translateY(-7px) rotate(-45deg)' : 'none',
+      menuLinks: [['Events','events'],['Coaching','coaching'],['Pro store','store'],['Community','community'],['Membership','membership'],['Location','location']].map(([label, id]) => ({ label, href: '#' + id })),
+      nextSlot: todayFree ? 'Today · ' + todayFree.label : 'Tomorrow · 07:00',
+      sessions: [['Private lesson', '1 player · 60 min', 'Rp 350.000'], ['Semi-private', '2 players · 60 min', 'Rp 250.000 pp'], ['Group clinic', 'Up to 4 players · 90 min', 'Rp 150.000 pp']].map(([name, desc, price]) => ({ name, desc, price, onClick: () => this.open('court', { dur: 60 }) })),
+      products: [['Rackets', 'Pro Carbon 3K', 'Rp 3.250.000', ((window.__resources && window.__resources['r4']) || 'https://images.unsplash.com/photo-1657704358775-ed705c7388d2?fm=jpg&q=70&w=900&auto=format&fit=crop')], ['Rackets', 'Control Round', 'Rp 2.100.000', ((window.__resources && window.__resources['r5']) || 'https://images.unsplash.com/photo-1646649853517-e2f75cde1908?fm=jpg&q=70&w=900&auto=format&fit=crop')], ['Apparel', 'Padel Outfit Set', 'Rp 785.000', ((window.__resources && window.__resources['r6']) || 'https://images.unsplash.com/photo-1646649852046-b758d2d573f3?fm=jpg&q=70&w=900&auto=format&fit=crop')], ['Rackets', 'Team Pack x4', 'Rp 4.800.000', ((window.__resources && window.__resources['r7']) || 'https://images.unsplash.com/photo-1658723826297-fe4d1b1e6600?fm=jpg&q=70&w=900&auto=format&fit=crop')]].map(([cat, name, price, img]) => ({ cat, name, price, img })),
+      plans: [['drop', 'Drop-in', '', ['Pay as you play', 'Book 3 days ahead', 'Standard court rates'], 'Start playing'], ['club', 'Club', 'Most popular', ['Book 14 days ahead', '20% off courts', 'Free racket hire'], 'Join Club'], ['pro', 'Pro', '', ['Everything in Club', 'Free court hours every month', 'Coaching sessions included'], 'Join Pro']].map(([k, label, badge, features, cta]) => { const hi = k === 'club'; const m = TIERS[k].m; return { label, badge, features, cta, price: m === 0 ? 'Rp 0' : price(m), per: m === 0 ? 'No monthly fee' : per.replace('/ ', 'per '), bg: hi ? LIME : 'transparent', color: hi ? INK : CREAM, border: hi ? INK : 'rgba(243,240,231,.3)', btnBg: hi ? INK : LIME, btnColor: hi ? CREAM : INK, onClick: () => this.open('member', { tier: k }) }; }),
+      ballScale: Math.min(1.25, Math.max(0.3, Math.min(180, Math.max(60, s.w * 0.1)) / 144)) * (s.w < 700 ? 0.75 : 1),
+      openDot: isOpen ? LIME : '#E0795A', openLabel: isOpen ? 'Open now' : 'Closed now',
+      showMarquee: this.props.showMarquee !== false,
+      marqueeRef: this.marqueeRef,
+      marqueeItems: Array.from({ length: 4 }, () => ['Your court is waiting', 'Find your four', 'Play loud', 'Own the weekend', 'Padel Me']).flat(),
+      cats, monthEvents, featured, noEvents: monthEvents.length === 0,
+      monthLabel: `${MONTHS[s.viewM]} ${s.viewY}`, weekdays: ['M', 'T', 'W', 'T', 'F', 'S', 'S'], calDays,
+      prevMonth: () => shiftMonth(-1), nextMonth: () => shiftMonth(1),
+      highlights: HIGHLIGHTS, scrollerRef: this.scrollerRef,
+      scrollPrev: () => this.scrollerRef.current && this.scrollerRef.current.scrollBy({ left: -420, behavior: 'smooth' }),
+      scrollNext: () => this.scrollerRef.current && this.scrollerRef.current.scrollBy({ left: 420, behavior: 'smooth' }),
+      priceClub: price(390000), pricePro: price(890000), perLabel: per,
+      billMonthlyBg: billOn('monthly').bg, billMonthlyColor: billOn('monthly').color, billAnnualBg: billOn('annual').bg, billAnnualColor: billOn('annual').color,
+      dBillMonthlyBg: dBillOn('monthly').bg, dBillMonthlyColor: dBillOn('monthly').color, dBillAnnualBg: dBillOn('annual').bg, dBillAnnualColor: dBillOn('annual').color,
+      setMonthly: () => this.setState({ billing: 'monthly' }), setAnnual: () => this.setState({ billing: 'annual' }),
+      joinDrop: () => this.open('member', { tier: 'drop' }), joinClub: () => this.open('member', { tier: 'club' }), joinPro: () => this.open('member', { tier: 'pro' }),
+      team: TEAM.map(t => ({ ...t, onClick: () => t.cta === 'Book a lesson' ? this.open('court') : t.cta === 'See events' ? document.getElementById('events') && window.scrollTo({ top: document.getElementById('events').offsetTop - 60, behavior: 'smooth' }) : (window.location.href = 'mailto:hello@padelme.club') })),
+      hours, socials: SOCIALS,
+      email: s.email, onEmail: e => this.setState({ email: e.target.value }),
+      subscribe: () => { if (/\S+@\S+\.\S+/.test(s.email)) this.setState({ subscribed: true }); },
+      subscribed: s.subscribed, notSubscribed: !s.subscribed,
+      fabNext, fabOpacity: s.drawer ? 0 : 1, fabTransform: s.drawer ? 'translateY(24px) scale(.9)' : 'none',
+      openCourt: () => this.open('court'), openEventDefault: () => this.open('event'), openMember: () => this.open('member'),
+      closeDrawer: () => this.setState({ drawer: false }),
+      ovOpacity: s.drawer ? 1 : 0, ovPE: s.drawer ? 'auto' : 'none', drawerX: s.drawer ? 'translateX(0)' : 'translateX(calc(100% + 90px))',
+      tabs: [['court', 'Court'], ['event', 'Event'], ['member', 'Membership']].map(([k, label]) => ({ label, bg: s.tab === k ? INK : 'transparent', color: s.tab === k ? CREAM : INK, onClick: () => this.setState({ tab: k, step: 'form' }) })),
+      showForm: s.step === 'form', showSuccess: s.step === 'success',
+      showCourt: s.step === 'form' && s.tab === 'court', showEvent: s.step === 'form' && s.tab === 'event', showMember: s.step === 'form' && s.tab === 'member',
+      days: dayList, durations: [60, 90, 120].map(m => ({ label: `${m} min`, bg: s.dur === m ? INK : 'transparent', color: s.dur === m ? CREAM : INK, onClick: () => this.setState({ dur: m }) })),
+      dial, hands, chips, ampmTabs, slotsLeft: hh.length ? `${hh.length} hr selected` : `${freeCount} of 16 free`, courts,
+      eventOptions, players: s.players,
+      decPlayers: () => this.setState({ players: Math.max(1, s.players - 1) }), incPlayers: () => this.setState({ players: Math.min(4, s.players + 1) }),
+      tierOptions,
+      summary, total, totalNote, confirmLabel, successTitle, refCode,
+      confirmBg: canConfirm ? INK : '#D9D5C8', confirmColor: canConfirm ? CREAM : '#8A877C', confirmCursor: canConfirm ? 'pointer' : 'not-allowed',
+      confirm: () => canConfirm && this.setState({ step: 'success' }),
+      bookAnother: () => this.setState({ step: 'form', hrs: [] }),
+    };
+  }
+}
+</script>
+
+
+</body></html>
