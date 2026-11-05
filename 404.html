@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omnify</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script>
+// GitHub Pages paths are case-sensitive. Redirect /marketplace, /FNB/x, etc.
+// to the real folder name, keeping the rest of the path, query and hash.
+(function () {
+  var ROUTES = ['FnB', 'Marketplace', 'Lainnya', 'demo'];
+  var parts = location.pathname.split('/');
+  var first = (parts[1] || '').toLowerCase();
+  for (var i = 0; i < ROUTES.length; i++) {
+    if (ROUTES[i].toLowerCase() === first && ROUTES[i] !== parts[1]) {
+      parts[1] = ROUTES[i];
+      var path = parts.join('/');
+      if (parts.length === 2) path += '/';
+      location.replace(path + location.search + location.hash);
+      return;
+    }
+  }
+  document.documentElement.setAttribute('data-notfound', '1');
+})();
+</script>
+<style>
+:root{--bg:#f5f6f3;--fg:#0f1410;--muted:#5d6459;--accent:oklch(0.62 0.17 140)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;text-align:center}
+main{display:none}[data-notfound] main{display:block}
+h1{font-size:28px;margin:0 0 8px;letter-spacing:-.02em}
+p{color:var(--muted);margin:0 0 24px}
+a{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:600}
+</style>
+</head>
+<body>
+<main>
+  <h1>Halaman tidak ditemukan</h1>
+  <p>Page not found.</p>
+  <a href="/FnB/">Kembali ke Omnify</a>
+</main>
+</body>
+</html>
