@@ -1,4 +1,4 @@
-// Omnify showcase shell: bar (back · Web/Mobile tabs · WhatsApp) + the demo in an iframe.
+// Omnify Lab showcase shell: bar (back · Web/Mobile tabs · WhatsApp) + the demo in an iframe.
 //
 // Each showcase/<slug>/index.html is only this, the demo itself lives next to it (site.html):
 //   <script src="../demo-bar.js" data-name="Rumah Senja" data-src="site.html"
@@ -29,10 +29,10 @@
   try { lang = localStorage.getItem('omnify-lang') || 'id'; } catch (e) {}
   var t = lang === 'en'
     ? { back: 'Back to portfolio', backS: 'Back', wa: 'Consult via WhatsApp', waS: 'Consult', web: 'Web', mobile: 'Mobile',
-        msg: "Hi Omnify, I just tried the " + name + " demo and I'd like something similar for my business." }
+        msg: "Hi Omnify Lab, I just tried the " + name + " demo and I'd like something similar for my business." }
     : { back: 'Kembali ke portofolio', backS: 'Kembali', wa: 'Konsultasi via WhatsApp', waS: 'Konsultasi', web: 'Web', mobile: 'Mobile',
-        msg: 'Halo Omnify, saya baru coba demo ' + name + ' dan ingin dibuatkan yang serupa untuk bisnis saya.' };
-  if (!document.title) document.title = name + ' · Demo Omnify';
+        msg: 'Halo Omnify Lab, saya baru coba demo ' + name + ' dan ingin dibuatkan yang serupa untuk bisnis saya.' };
+  if (!document.title) document.title = name + ' · Demo Omnify Lab';
 
   var H = 56, PW = 390, PH = 844, BEZEL = 12;
   var css = [
@@ -79,7 +79,7 @@
     if (!meta) { meta = document.createElement('meta'); meta.name = 'viewport'; document.head.appendChild(meta); }
     meta.content = 'width=device-width, initial-scale=1, viewport-fit=cover';
 
-    var bar = document.createElement('nav'); bar.id = 'om-bar'; bar.setAttribute('aria-label', 'Omnify demo');
+    var bar = document.createElement('nav'); bar.id = 'om-bar'; bar.setAttribute('aria-label', 'Omnify Lab demo');
     var backA = document.createElement('a'); backA.className = 'om-back'; backA.href = '../../' + back;
     backA.innerHTML = icon(I.back) + '<span class="om-l">' + t.back + '</span><span class="om-s">' + t.backS + '</span>';
     backA.addEventListener('click', function (e) {

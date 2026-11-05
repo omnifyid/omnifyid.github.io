@@ -1,6 +1,6 @@
 # Turn an exported "Bundled Page" .html into showcase/<slug>/index.html + assets/.
 # Usage: python3 -I tools/unbundle.py "~/Downloads/export/Name.html" showcase/<slug>
-# Then run tools/wrap-demo.py to move it to site.html and add the Omnify shell.
+# Then run tools/wrap-demo.py to move it to site.html and add the Omnify Lab shell.
 # Unpack a "Bundled Page" single-file export into <out>/index.html + <out>/assets/*.
 import sys, json, re, base64, gzip, pathlib, mimetypes, html
 src, out = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])

@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Omnify POS — Demo Kasir &amp; Inventori</title>
-<meta name="description" content="Coba demo Omnify POS: kasir, inventori, self order, jadwal staf, dan laporan dalam satu sistem.">
+<title>Omnify Lab POS — Demo Kasir &amp; Inventori</title>
+<meta name="description" content="Coba demo Omnify Lab POS: kasir, inventori, self order, jadwal staf, dan laporan dalam satu sistem.">
 <link rel="canonical" href="https://omnifyid.github.io/demo/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Omnify">
+<meta property="og:site_name" content="Omnify Lab">
 <meta property="og:locale" content="id_ID">
-<meta property="og:title" content="Omnify POS — Demo Kasir &amp; Inventori">
-<meta property="og:description" content="Coba demo Omnify POS: kasir, inventori, self order, jadwal staf, dan laporan dalam satu sistem.">
+<meta property="og:title" content="Omnify Lab POS — Demo Kasir &amp; Inventori">
+<meta property="og:description" content="Coba demo Omnify Lab POS: kasir, inventori, self order, jadwal staf, dan laporan dalam satu sistem.">
 <meta property="og:url" content="https://omnifyid.github.io/demo/">
 <meta property="og:image" content="https://omnifyid.github.io/og/demo.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Omnify POS — Demo Kasir &amp; Inventori">
+<meta property="og:image:alt" content="Omnify Lab POS — Demo Kasir &amp; Inventori">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Omnify POS — Demo Kasir &amp; Inventori">
-<meta name="twitter:description" content="Coba demo Omnify POS: kasir, inventori, self order, jadwal staf, dan laporan dalam satu sistem.">
+<meta name="twitter:title" content="Omnify Lab POS — Demo Kasir &amp; Inventori">
+<meta name="twitter:description" content="Coba demo Omnify Lab POS: kasir, inventori, self order, jadwal staf, dan laporan dalam satu sistem.">
 <meta name="twitter:image" content="https://omnifyid.github.io/og/demo.png">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#0f1410">
@@ -62,7 +62,7 @@ input,select,textarea{font-size:16px}
   <div style="position:relative;overflow:hidden;background:radial-gradient(90% 70% at 85% 105%,#2F7A1F 0%,rgba(47,122,31,0) 60%),radial-gradient(70% 55% at 0% 0%,#1B3A17 0%,rgba(27,58,23,0) 65%),linear-gradient(160deg,#10140F 30%,#16301A 100%);color:#EAF3E6;padding:{{ loginSidePad }};display:flex;flex-direction:column;justify-content:space-between;gap:32px;min-height:100%">
     <div style="position:absolute;inset:0;background-image:url(data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2756%27 height=%2756%27%3E%3Cpath d=%27M18 16l12 12-12 12%27 fill=%27none%27 stroke=%27%237ED76A%27 stroke-width=%272.5%27 stroke-linecap=%27square%27/%3E%3Crect x=%2736%27 y=%2738%27 width=%278%27 height=%272.5%27 fill=%27%237ED76A%27/%3E%3C/svg%3E);background-size:56px 56px;opacity:.13;-webkit-mask-image:linear-gradient(200deg,#000 0%,rgba(0,0,0,0) 62%);mask-image:linear-gradient(200deg,#000 0%,rgba(0,0,0,0) 62%);pointer-events:none"></div>
     <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(234,243,230,.22) 1px,transparent 1.5px);background-size:14px 14px;-webkit-mask-image:linear-gradient(20deg,#000 0%,rgba(0,0,0,0) 45%);mask-image:linear-gradient(20deg,#000 0%,rgba(0,0,0,0) 45%);pointer-events:none"></div>
-    <div style="position:relative;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:32px;letter-spacing:-0.03em"><span style="color:#7ED76A">&gt;</span><span>omnify</span><span style="width:14px;height:26px;background:#7ED76A;animation:omBlink 1.1s steps(1) infinite"></span></div>
+    <div style="position:relative"><img src="../brand/logo-white.svg" alt="Omnify Lab" width="161" height="44" style="display:block;height:44px;width:auto;max-width:100%"></div>
     <div style="position:relative;display:flex;flex-direction:column;gap:10px">
       <div style="font-size:clamp(56px,7vw,96px);font-weight:600;letter-spacing:-0.045em;line-height:1;font-variant-numeric:tabular-nums">{{ clock }}</div>
       <div style="font-size:16px;color:#A9B3A5">{{ lgDate }}</div>
@@ -74,14 +74,14 @@ input,select,textarea{font-size:16px}
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#10140F;color:#EAF3E6">
-            <div style="flex:1"><div style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:20px;letter-spacing:-0.03em"><span style="color:#7ED76A">&gt;</span><span>omnify</span><span style="width:10px;height:19px;background:#7ED76A;animation:omBlink 1.1s steps(1) infinite"></span></div></div>
+            <div style="flex:1"><div style="display:flex;align-items:center"><img src="../brand/logo-white.svg" alt="Omnify Lab" width="102" height="28" style="display:block;height:28px;width:auto;max-width:100%"></div></div>
             <div style="font-variant-numeric:tabular-nums;font-size:12px;color:#A9B3A5">{{ clock }}</div>
           </div>
           
         </div>
       </sc-if>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <h1 style="margin:0;font-size:28px;font-weight:600;letter-spacing:-0.02em;line-height:1.15">Masuk ke Omnify</h1>
+        <h1 style="margin:0;font-size:28px;font-weight:600;letter-spacing:-0.02em;line-height:1.15">Masuk ke Omnify Lab</h1>
         <p style="margin:0;color:#4A4E47;font-size:14px;line-height:1.5;text-wrap:pretty">Gunakan email dan password yang dibuat owner untuk Anda.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px">
@@ -128,9 +128,7 @@ input,select,textarea{font-size:16px}
   <div style="position:relative;overflow:hidden;background:radial-gradient(90% 70% at 85% 105%,#2F7A1F 0%,rgba(47,122,31,0) 60%),radial-gradient(70% 55% at 0% 0%,#1B3A17 0%,rgba(27,58,23,0) 65%),linear-gradient(160deg,#10140F 30%,#16301A 100%);color:#EAF3E6;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between">
     <div style="position:absolute;inset:0;background-image:url(data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2756%27 height=%2756%27%3E%3Cpath d=%27M18 16l12 12-12 12%27 fill=%27none%27 stroke=%27%237ED76A%27 stroke-width=%272.5%27 stroke-linecap=%27square%27/%3E%3Crect x=%2736%27 y=%2738%27 width=%278%27 height=%272.5%27 fill=%27%237ED76A%27/%3E%3C/svg%3E);background-size:56px 56px;opacity:.13;-webkit-mask-image:linear-gradient(200deg,#000 0%,rgba(0,0,0,0) 62%);mask-image:linear-gradient(200deg,#000 0%,rgba(0,0,0,0) 62%);pointer-events:none"></div>
     <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(234,243,230,.22) 1px,transparent 1.5px);background-size:14px 14px;-webkit-mask-image:linear-gradient(20deg,#000 0%,rgba(0,0,0,0) 45%);mask-image:linear-gradient(20deg,#000 0%,rgba(0,0,0,0) 45%);pointer-events:none"></div>
-    <div style="position:relative;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:32px;letter-spacing:-0.03em">
-      <span style="color:#7ED76A">&gt;</span><span>omnify</span><span style="width:15px;height:28px;background:#7ED76A;animation:omBlink 1.1s steps(1) infinite"></span>
-    </div>
+    <div style="position:relative"><img src="../brand/logo-white.svg" alt="Omnify Lab" width="161" height="44" style="display:block;height:44px;width:auto;max-width:100%"></div>
     <div style="position:relative;display:flex;flex-direction:column;gap:18px;max-width:460px">
       <div style="font-size:44px;line-height:1.08;font-weight:600;letter-spacing:-0.02em;text-wrap:pretty">Pesanan, bar, dan stok dalam satu tempat.</div>
       <div style="font-size:16px;line-height:1.55;color:#A9B3A5;text-wrap:pretty">Masuk dengan PIN staf untuk melanjutkan.</div>
@@ -142,7 +140,7 @@ input,select,textarea{font-size:16px}
     <div style="width:100%;max-width:360px;display:flex;flex-direction:column;gap:22px;animation:omUp .4s ease;margin:auto 0">
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#10140F;color:#EAF3E6">
-          <div style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:20px;letter-spacing:-0.03em;flex:1"><span style="color:#7ED76A">&gt;</span><span>omnify</span><span style="width:10px;height:19px;background:#7ED76A;animation:omBlink 1.1s steps(1) infinite"></span></div>
+          <div style="display:flex;align-items:center;flex:1"><img src="../brand/logo-white.svg" alt="Omnify Lab" width="102" height="28" style="display:block;height:28px;width:auto;max-width:100%"></div>
           <div style="font-variant-numeric:tabular-nums;font-size:12px;color:#A9B3A5">{{ clock }}</div>
         </div>
       </sc-if>
@@ -186,11 +184,9 @@ input,select,textarea{font-size:16px}
 <div style="width:{{ sideW }};flex-shrink:0;position:relative;z-index:47">
 <aside data-om-side="1" onClick="{{ sideTap }}" style="scrollbar-width:none;-ms-overflow-style:none;position:absolute;top:0;left:0;bottom:0;width:{{ asideW }};background:#FBFAF7;border-right:1px solid #E7E5DF;box-shadow:{{ asideSh }};display:flex;flex-direction:column;padding:20px 12px;overflow-x:hidden;overflow-y:auto;transition:{{ asideTr }}">
   <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-    <div style="display:flex;align-items:center;gap:8px;padding:4px 10px 20px;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:24px;letter-spacing:-0.03em">
-      <span style="color:#45A02E">&gt;</span><span>omnify</span><span style="width:11px;height:20px;background:#45A02E;animation:omBlink 1.1s steps(1) infinite"></span>
-    </div>
+    <div style="padding:4px 10px 20px"><img src="../brand/logo-black.svg" alt="Omnify Lab" width="117" height="32" style="display:block;height:32px;width:auto;max-width:100%"></div>
     <div data-om-poptg="1" onClick="{{ toggleOutlet }}" title="Ganti outlet" style="cursor:{{ outletCur }};display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #E7E5DF;border-radius:12px;background:#fff;margin-bottom:16px" style-hover="border-color:#10140F">
-      <div style="width:30px;height:30px;border-radius:8px;background:#10140F;display:flex;align-items:center;justify-content:center;gap:2px;font-family:'JetBrains Mono',monospace;font-weight:800;color:#7ED76A;font-size:12px;flex-shrink:0"><span>&gt;</span><span style="width:6px;height:13px;background:#7ED76A"></span></div>
+      <img src="favicon.svg" alt="" width="30" height="30" style="width:30px;height:30px;border-radius:8px;display:block;flex-shrink:0">
       <div style="display:flex;flex-direction:column;min-width:0;flex:1">
         <div style="font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ outletName }}</div>
         <div style="font-size:12px;color:#4A4E47">{{ outletSub }}</div>
@@ -199,7 +195,7 @@ input,select,textarea{font-size:16px}
     </div>
   </sc-if>
   <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
-    <div style="width:44px;height:44px;margin:0 auto 20px;border-radius:12px;background:#10140F;display:flex;align-items:center;justify-content:center;gap:3px;font-family:'JetBrains Mono',monospace;font-weight:800;color:#7ED76A;font-size:20px"><span>&gt;</span><span style="width:8px;height:18px;background:#7ED76A"></span></div>
+    <img src="favicon.svg" alt="" width="44" height="44" style="width:44px;height:44px;border-radius:12px;display:block;flex-shrink:0;margin:0 auto 20px">
   </sc-if>
   <nav style="display:flex;flex-direction:column;gap:2px">
     <sc-for list="{{ nav }}" as="n" hint-placeholder-count="8">
@@ -2142,7 +2138,7 @@ input,select,textarea{font-size:16px}
       </sc-if>
       <sc-if value="{{ isSetAcc }}" hint-placeholder-val="{{ false }}">
         <div style="background:#10140F;color:#EAF3E6;border-radius:16px;padding:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-          <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:6px"><span style="font-variant-numeric:tabular-nums;font-size:12px;color:#7ED76A">Paket langganan</span><span style="font-size:24px;font-weight:600">Omnify Pro · 2 outlet</span><span style="color:#A9B3A5">Rp 349.000/bulan per outlet · diperpanjang 12 Nov 2026</span></div>
+          <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:6px"><span style="font-variant-numeric:tabular-nums;font-size:12px;color:#7ED76A">Paket langganan</span><span style="font-size:24px;font-weight:600">Omnify Lab Pro · 2 outlet</span><span style="color:#A9B3A5">Rp 349.000/bulan per outlet · diperpanjang 12 Nov 2026</span></div>
           <button style="height:{{ tap }};padding:0 16px;border-radius:10px;border:none;background:#7ED76A;color:#10140F;font-weight:600;cursor:pointer">Kelola paket</button>
         </div>
         <div style="background:#fff;border:1px solid #E7E5DF;border-radius:14px;padding:6px 18px">
@@ -2270,7 +2266,7 @@ input,select,textarea{font-size:16px}
           </sc-if>
           <sc-if value="{{ isQr }}" hint-placeholder-val="{{ false }}">
             <div style="flex:1;display:flex;align-items:center;gap:18px;flex-wrap:wrap">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=omnify-pay-kopisenja" alt="QR pembayaran" style="width:140px;height:140px;border-radius:8px;border:8px solid #fff;outline:1px solid #E7E5DF">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=omnifylab-pay-kopisenja" alt="QR pembayaran" style="width:140px;height:140px;border-radius:8px;border:8px solid #fff;outline:1px solid #E7E5DF">
               <div style="flex:1;min-width:160px;display:flex;flex-direction:column;gap:8px"><span style="font-weight:600">Minta pelanggan memindai QR {{ payQrLbl }}</span><span style="color:#4A4E47;font-size:12px;line-height:1.5">QR dinamis juga tampil di layar pelanggan. Berlaku 4:59.</span><span style="display:flex;align-items:center;gap:6px;font-size:12px;color:#6A4400"><om-icon name="hourglass" size="16"></om-icon>Menunggu pembayaran</span></div>
             </div>
           </sc-if>
@@ -2306,7 +2302,7 @@ input,select,textarea{font-size:16px}
 <div style="position:fixed;left:0;right:0;bottom:0;z-index:49;background:#FBFAF7;border-radius:22px 22px 0 0;padding:10px 16px calc(18px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px;max-height:88%;overflow:auto;animation:omUp .25s ease;box-shadow:0 -12px 40px rgba(16,20,15,.18)">
   <div style="width:40px;height:4px;border-radius:2px;background:#D7D5CE;align-self:center"></div>
   <div style="display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #E7E5DF;border-radius:14px;background:#fff">
-    <div style="width:36px;height:36px;border-radius:10px;background:#10140F;display:flex;align-items:center;justify-content:center;gap:2px;font-family:'JetBrains Mono',monospace;font-weight:800;color:#7ED76A;font-size:16px;flex-shrink:0"><span>&gt;</span><span style="width:7px;height:15px;background:#7ED76A"></span></div>
+    <img src="favicon.svg" alt="" width="36" height="36" style="width:36px;height:36px;border-radius:10px;display:block;flex-shrink:0">
     <div style="display:flex;flex-direction:column;min-width:0;flex:1"><span style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ outletName }}</span><span style="font-size:12px;color:#4A4E47">Buka · Kasir 01 · {{ clock }}</span></div>
     <om-icon onClick="{{ closeMore }}" role="button" tabindex="0" aria-label="Tutup" name="x" size="24" style="cursor:pointer;color:#4A4E47;width:{{ tap }};height:{{ tap }};flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center"></om-icon>
   </div>
@@ -2355,7 +2351,7 @@ input,select,textarea{font-size:16px}
     <sc-if value="{{ cvMenu }}" hint-placeholder-val="{{ true }}">
       <div style="background:#fff;padding:12px 18px 12px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid #F0EEE9">
         <div style="display:flex;align-items:center;gap:10px">
-          <div style="width:36px;height:36px;border-radius:10px;background:#10140F;display:flex;align-items:center;justify-content:center;gap:2px;font-family:'JetBrains Mono',monospace;font-weight:800;color:#7ED76A;font-size:16px"><span>&gt;</span><span style="width:6px;height:14px;background:#7ED76A"></span></div>
+          <img src="favicon.svg" alt="" width="36" height="36" style="width:36px;height:36px;border-radius:10px;display:block;flex-shrink:0">
           <div style="flex:1;display:flex;flex-direction:column"><span style="font-weight:700;font-size:16px">Kopi Senja</span><span style="font-size:12px;color:#4A4E47">{{ cvTable }} · Kemang</span></div>
           <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}"><om-icon onClick="{{ cvClose }}" name="x" size="24" style="cursor:pointer;width:{{ tap }};height:{{ tap }};border-radius:50%;background:#F1F0EC;display:flex;align-items:center;justify-content:center"></om-icon></sc-if>
         </div>
@@ -2447,7 +2443,7 @@ input,select,textarea{font-size:16px}
       </div>
       <div style="flex:1;overflow:auto;scrollbar-width:none;padding:28px 22px;background:#fff;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
         <sc-if value="{{ cvMethodIsQr }}" hint-placeholder-val="{{ false }}">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=omnify-pay-kopisenja" alt="QR pembayaran" style="width:200px;height:200px;border-radius:10px;border:10px solid #fff;outline:1px solid #E7E5DF">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=omnifylab-pay-kopisenja" alt="QR pembayaran" style="width:200px;height:200px;border-radius:10px;border:10px solid #fff;outline:1px solid #E7E5DF">
         </sc-if>
         <sc-if value="{{ cvMethodIsApp }}" hint-placeholder-val="{{ true }}">
           <div style="width:200px;height:120px;border-radius:18px;border:1px solid #E7E5DF;background:#FBFAF7;display:flex;align-items:center;justify-content:center"><sc-for list="{{ cvMethodLogos }}" as="lg" hint-placeholder-count="1"><div aria-hidden="true" style="height:34px;width:140px;flex-shrink:0;background:url('{{ lg }}') center center/contain no-repeat"></div></sc-for></div>
@@ -4062,7 +4058,7 @@ window.bPos = function (c, OM) {
     onlPid: f.pid, onPid: e => setO({ pid: e.target.value.toUpperCase() }), onlCust: f.cust, onOnlCust: e => setO({ cust: e.target.value }), custBorder: hasCart && !(f.cust || '').trim() ? '#8E1A14' : '#D7D5CE', appBorder: hasCart && !(app > 0) ? '#8E1A14' : '#D7D5CE', onlDriver: f.driver, onDriver: e => setO({ driver: e.target.value }), onlNote: f.note, onOnlNote: e => setO({ note: e.target.value }),
     onlApp: idn(app), onApp: e => setO({ appTotal: String(pInt(e.target.value)) }), pidBorder: dup ? '#8E1A14' : f.pid ? '#D7D5CE' : '#D7D5CE',
     dupOn: !!dup, dupMsg: dup ? `ID ini sudah diinput untuk pesanan #${dup.no} (${dtm(dup.createdAt)}). Cek dulu agar tidak dobel.` : '',
-    mmOn: mm, mmMsg: mm ? `Total di aplikasi ${fmt(app)} · Omnify ${fmt(tot.total)} · selisih ${fmtS(app - tot.total)}. Cek item, opsi, atau harga kanal sebelum kirim.` : '',
+    mmOn: mm, mmMsg: mm ? `Total di aplikasi ${fmt(app)} · Omnify Lab ${fmt(tot.total)} · selisih ${fmtS(app - tot.total)}. Cek item, opsi, atau harga kanal sebelum kirim.` : '',
     chTag: online ? `Harga ${CH.label}` : '', chTagColor: CH ? CH.color : '#10140F', chTagTint: CH ? CH.tint : '#fff', chMark: CH ? CH.mark : '', chLogo: CH ? CH.logo : '', chName: CH ? CH.label : '',
     onlCommStr: online ? `Komisi ${cs.comm}% ${fmt(tot.commissionAmount)} · diterima ${fmt(tot.expectedPayout)} · cair ±${cs.lag} hari` : '', onlPayStr: online ? `Dibayar via ${CH.label}` : '',
     discFg: s.discCode ? '#10140F' : '#4A4E47', discCode: s.discCode, onDiscCode: e => { const v = e.target.value; if (!v) return c.setState({ disc: 0, discCode: '' }); const fd = s.discounts.find(x => x.code === v && x.active); if (fd) { c.setState({ disc: fd, discCode: v }); c.showToast(`Promo ${fd.name} dipakai`); } else c.showToast('Kode promo tidak valid atau nonaktif', 'warn'); }, discOpts: s.discounts.filter(x => x.active).map(x => ({ code: x.code, label: `${x.code} · ${x.name}` })), discBtn: d && !d.manual ? 'Hapus' : 'Pakai', hasDisc: !!d && !online, discName: d ? (d.manual ? `manual ${d.value}%` : d.code) : '',
@@ -4228,7 +4224,7 @@ window.bSelf = function (c, OM) {
       { label: 'Pesanan QR hari ini', value: String(qrOrders.length + 14) }, { label: 'Menunggu verifikasi', value: String(qrOrders.filter(o => o.status === 'pending').length) },
       { label: 'Rata-rata waktu verifikasi', value: '1:42' }, { label: 'Kontribusi penjualan', value: '23%' },
     ],
-    qrCards: OM.TABLES.map(t => ({ id: t.id, label: `${s.soPrefix || 'Meja'} ${parseInt(t.id.slice(1), 10)}`, area: t.area, seats: t.seats, qr: `https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=0&color=16-20-15&data=${encodeURIComponent('https://order.omnify.id/kopi-senja?meja=' + t.id)}`,
+    qrCards: OM.TABLES.map(t => ({ id: t.id, label: `${s.soPrefix || 'Meja'} ${parseInt(t.id.slice(1), 10)}`, area: t.area, seats: t.seats, qr: `https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=0&color=16-20-15&data=${encodeURIComponent('https://order.omnifylab.com/kopi-senja?meja=' + t.id)}`,
       open: () => c.setState({ cv: { table: t.id, cat: 'Semua', cart: [], modItem: null, modSel: { ...DEFMOD }, qty: 1, step: 'menu', note: '', name: '', orderNo: null } }),
       print: () => c.showToast(`QR ${t.id} dikirim ke printer`) })),
     printAll: () => c.showToast(`${OM.TABLES.length} QR meja dikirim ke printer`),
@@ -5227,7 +5223,7 @@ window.bReports = function (c, OM) {
   const tables = { daily: [tOut, tPay, tMoves, tExp, tDay, tVoid], monthly: [tOut, tPay, tMoves, tExp, tDay, tVoid], shift: [tShift, tMoves, tVoid], inv: [tInv, tWaste], pl: [tPL] }[tab];
   const waText = window.shiftText(c, OM, A.sh, { day: true }), waSubj = 'Laporan harian · ' + outletLabel + ' · ' + label;
   const doCsv = () => {
-    csv.length = 0; csv.push(['Omnify · Laporan ' + (TABS.find(t => t[0] === tab) || TABS[0])[1]], ['Periode', label], ['Outlet', oids.map(onm).join(', ')], []);
+    csv.length = 0; csv.push(['Omnify Lab · Laporan ' + (TABS.find(t => t[0] === tab) || TABS[0])[1]], ['Periode', label], ['Outlet', oids.map(onm).join(', ')], []);
     if (tab === 'daily' || tab === 'monthly') { csv.push(['Total diharapkan', Math.round(A.rev)], []); addKV('Ringkasan penjualan', wf); addKV('Tunai', recon); csv.push(['Tunai di laci kasir', Math.round(drawer)], ['Tunai dari pendapatan', Math.round(cashInc)], []); addKV('Pengeluaran', cats.map(k => ({ label: k.label, value: k.value }))); addKV('Rekap pajak', taxRows); }
     else if (tab === 'inv') addKV('Ringkasan', invK.map(k => ({ label: k.label, value: k.value })));
     else if (tab === 'pl') addKV('Ringkasan', plK.map(k => ({ label: k.label, value: k.value })));
