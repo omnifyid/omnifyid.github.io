@@ -9,7 +9,7 @@
 // GitHub Pages paths are case-sensitive. Redirect /marketplace, /FNB/x, etc.
 // to the real folder name, keeping the rest of the path, query and hash.
 (function () {
-  var ROUTES = ['FnB', 'Marketplace', 'Lainnya', 'demo'];
+  var ROUTES = ['FnB', 'Marketplace', 'Lainnya', 'demo', 'showcase'];
   var parts = location.pathname.split('/');
   var first = (parts[1] || '').toLowerCase();
   for (var i = 0; i < ROUTES.length; i++) {

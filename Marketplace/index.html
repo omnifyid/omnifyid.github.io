@@ -20,6 +20,7 @@
 <meta name="twitter:title" content="Omnify — Toko Online, E-commerce &amp; Sistem Booking">
 <meta name="twitter:description" content="Toko online, e-commerce fashion, dan sistem booking untuk brand dan seller. Cepat jadi, siap berkembang, dan mudah dijalankan tim Anda.">
 <meta name="twitter:image" content="https://omnifyid.github.io/og/marketplace.png">
+<script src="../showcase/demos.js"></script>
 <script src="../support.js"></script>
 </head>
 <body>
@@ -42,6 +43,38 @@ html{scroll-behavior:smooth}
 [data-vload]{display:none}[data-loading]>[data-vload]{display:flex;animation:vfade .25s .3s both}
 [data-vspin]{width:28px;height:28px;border-radius:50%;border:3px solid rgba(238,244,234,.25);border-top-color:oklch(0.8 0.17 140);animation:vspin .8s linear infinite}
 @keyframes vspin{to{transform:rotate(360deg)}}@keyframes vfade{from{opacity:0}}
+.skip-link{position:absolute;left:16px;top:-80px;z-index:100;background:#0f1410;color:#eef4ea;padding:12px 18px;border-radius:8px;font-weight:600}.skip-link:focus{top:12px;color:#eef4ea;outline:3px solid oklch(0.8 0.17 140);outline-offset:2px}
+.pf{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.pf-wrap{position:relative}
+.pf-stage{position:relative;display:block;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#0f1410;color:#eef4ea;isolation:isolate}
+a.pf-stage:hover{color:#eef4ea}
+.pf-bg{position:absolute;inset:-32px;background-position:center;background-size:cover;filter:blur(28px) brightness(.38);z-index:-1}
+.pf-stage video,.pf-stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.pf-kind{position:absolute;top:12px;left:12px;background:rgba(10,14,11,.9);color:#eef4ea;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;line-height:1.2}
+.pf-foot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:flex-end;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;padding:56px 16px 16px;background:linear-gradient(rgba(10,14,11,0),rgba(10,14,11,.92) 62%)}
+.pf-name{display:flex;flex-direction:column;gap:2px;font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:#fff;min-width:0}
+.pf-count{font-size:13px;font-weight:500;color:#d3dbd0;letter-spacing:0}
+.pf-cta{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;background:oklch(0.8 0.17 140);color:#0f1410;font-size:15px;font-weight:700;white-space:nowrap}
+.pf-stage:hover .pf-cta{background:oklch(0.88 0.14 140)}
+.pf-pause{position:absolute;top:8px;right:8px;z-index:2;width:44px;height:44px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(10,14,11,.9);color:#eef4ea;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.pf-pause:hover{background:#000}
+.pf-load{position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(15,20,16,.5);color:#eef4ea;font-size:13px;font-weight:600;pointer-events:none}
+.pf-pick{display:flex;flex-direction:column;gap:8px}
+.pf-hint{font-size:14px;line-height:1.4;color:#3f453c}
+.pf-tabs{display:grid;grid-template-columns:repeat(var(--pf-cols,3),minmax(0,1fr));gap:8px}
+.pf-tab{box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;min-height:56px;margin:0;padding:6px 14px 6px 6px;border-radius:10px;border:1px solid #b9bfb3;background:#fff;color:#0f1410;font:inherit;text-align:left}
+.pf-tab:hover{border-color:#0f1410}
+.pf-tab[aria-selected=true]{background:#0f1410;border-color:#0f1410;color:#eef4ea}
+.pf-tab img{width:64px;height:44px;object-fit:cover;object-position:top;border-radius:6px;flex:none;background:#e4e7df}
+.pf-tabtxt{display:flex;flex-direction:column;gap:2px;line-height:1.2;min-width:0}.pf-tabname,.pf-tabkind{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pf-tabname{font-size:14px;font-weight:600}
+.pf-tabkind{font-size:13px;color:#3f453c}
+.pf-tab[aria-selected=true] .pf-tabkind{color:#c9d2c6}
+article[id]{scroll-margin-top:24px}.pf-cats{display:flex;flex-wrap:wrap;gap:8px}.pf-cat{box-sizing:border-box;min-height:44px;margin:0;padding:0 8px 0 16px;border-radius:999px;border:1px solid #b9bfb3;background:#fff;color:#0f1410;font:inherit;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;cursor:pointer;white-space:nowrap}.pf-cat:hover{border-color:#0f1410}.pf-cat[aria-pressed=true]{background:#0f1410;border-color:#0f1410;color:#eef4ea}.pf-catn{min-width:24px;box-sizing:border-box;text-align:center;font-size:13px;font-weight:600;padding:3px 7px;border-radius:999px;background:#e4e7df;color:#0f1410}.pf-cat[aria-pressed=true] .pf-catn{background:#eef4ea}
+.pf a:focus-visible,.pf button:focus-visible{outline:3px solid #0f1410;outline-offset:3px}
+.pf .pf-pause:focus-visible{outline:3px solid #eef4ea;outline-offset:-6px}
+@media (max-width:640px){.pf-stage{aspect-ratio:4/3}.pf-name{font-size:17px}.pf-foot{padding:44px 12px 12px}.pf-tabs{display:flex;overflow-x:auto;scroll-snap-type:x proximity;margin:0 -20px;padding:3px 20px 6px;scroll-padding:0 20px}.pf-tab{flex:0 0 auto;scroll-snap-align:start}}
+@media (max-width:640px){.pf-cats{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:3px 20px 4px}.pf-cat{flex:none}}
 </style>
 <link rel="prefetch" href="../FnB/">
 <link rel="prefetch" href="../Marketplace/">
@@ -54,16 +87,17 @@ html{scroll-behavior:smooth}
 </sc-if>
 <sc-if value="{{ isWeb }}" hint-placeholder-val="{{ true }}">
 <div data-screen-label="Marketplace Portfolio" style="min-height:100vh;background:#f5f6f3;color:#0f1410;font-family:'IBM Plex Sans',sans-serif">
+  <a href="#portfolio" class="skip-link">{{ skipLabel }}</a>
 
   <header style="view-transition-name:site-header;position:sticky;top:0;z-index:10;background:rgba(245,246,243,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e1e4dc">
     <div style="max-width:1280px;margin:0 auto;padding:14px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px">
       <a href="#top" style="font-family:'IBM Plex Sans',sans-serif;font-weight:800;font-size:22px;line-height:1;letter-spacing:-.06em;display:flex;align-items:center;gap:.12em;color:#0f1410"><span style="color:oklch(0.55 0.16 140)">&gt;</span><span>omnify</span><span style="width:.5em;height:.82em;background:oklch(0.62 0.17 140)"></span></a>
       <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;margin-left:auto"><div role="group" aria-label="Language" style="display:flex;gap:2px;padding:3px;background:#fff;border:1px solid #e1e4dc;border-radius:999px"><button onClick="{{ setID }}" aria-pressed="{{ isID }}" title="Bahasa Indonesia" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:30px;padding:0 10px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;background:{{ setIDBg }};color:{{ setIDFg }}"><img src="https://flagcdn.com/id.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">ID</button><button onClick="{{ setEN }}" aria-pressed="{{ isEN }}" title="English" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:30px;padding:0 10px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;background:{{ setENBg }};color:{{ setENFg }}"><img src="https://flagcdn.com/gb.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">EN</button></div><nav style="display:flex;gap:4px;font-size:14px;font-weight:500;overflow-x:auto">
-        <a href="../FnB/" style="padding:9px 16px;border-radius:8px;color:#5d6459;white-space:nowrap">FnB</a>
+        <a href="../FnB/" style="padding:9px 16px;border-radius:8px;color:#454b42;white-space:nowrap">FnB</a>
         <a href="#top" style="view-transition-name:nav-pill;background:#0f1410;color:#eef4ea;padding:9px 16px;border-radius:8px;white-space:nowrap">Marketplace</a>
-        <a href="../Lainnya/" style="padding:9px 16px;border-radius:8px;color:#5d6459;white-space:nowrap">{{ t.k15 }}</a>
+        <a href="../Lainnya/" style="padding:9px 16px;border-radius:8px;color:#454b42;white-space:nowrap">{{ t.k15 }}</a>
       </nav>
-      <a href="#estimate" style="background:oklch(0.62 0.17 140);color:#fff;padding:11px 18px;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap">{{ t.k16 }}</a></div></sc-if>
+      <a href="#estimate" style="background:oklch(0.42 0.12 140);color:#fff;padding:11px 18px;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap">{{ t.k16 }}</a></div></sc-if>
     </div>
   </header>
 
@@ -76,7 +110,7 @@ html{scroll-behavior:smooth}
           <h1 style="margin:0;font-size:clamp(42px,6.4vw,88px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance;color:#f2f6ef">{{ t.k0 }}<span style="color:oklch(0.8 0.17 140)">{{ t.k1 }}</span></h1>
           <p style="margin:0;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:#c3ccc0;max-width:540px;text-wrap:pretty">{{ t.k2 }}</p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:6px">
-            <a href="#estimate" style="background:oklch(0.62 0.17 140);color:#fff;padding:15px 24px;border-radius:8px;font-size:15px;font-weight:600" style-hover="background:oklch(0.56 0.17 140);color:#fff">{{ t.k17 }}</a>
+            <a href="#estimate" style="background:oklch(0.42 0.12 140);color:#fff;padding:15px 24px;border-radius:8px;font-size:15px;font-weight:600" style-hover="background:oklch(0.36 0.11 140);color:#fff">{{ t.k17 }}</a>
             <a href="#p-01" style="border:1px solid rgba(255,255,255,.22);color:#eef4ea;padding:15px 24px;border-radius:8px;font-size:15px;font-weight:600" style-hover="border-color:rgba(255,255,255,.5);color:#fff">{{ t.k18 }}</a>
           </div>
         </div>
@@ -92,62 +126,71 @@ html{scroll-behavior:smooth}
       <div data-reveal-stagger="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">
         <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
           <a href="{{ p.href }}" style="background:#141a15;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;color:#eef4ea" style-hover="background:#1b241d;color:#fff">
-            <div style="display:flex;justify-content:flex-end;font-size:12px"><span style="color:#7f8c80">↓</span></div>
+            <div style="display:flex;justify-content:flex-end;font-size:12px"><span style="color:#a9b5a6">↓</span></div>
             <span style="font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.25">{{ p.title }}</span>
-            <span style="font-size:13px;color:#a9b5a6">{{ p.eta }}<sc-if value="{{ showPrice }}"> · {{ p.price }}</sc-if></span>
+            <span style="font-size:13px;color:#a9b5a6">{{ p.eta }}<sc-if value="{{ showPrice }}"> · {{ p.price }}</sc-if><sc-if value="{{ p.hasDemos }}"> · {{ p.countLabel }}</sc-if></span>
           </a>
         </sc-for>
       </div>
     </div>
   </section>
 
-  <section style="border-top:1px solid #e1e4dc">
+  <section id="portfolio" tabindex="-1" style="border-top:1px solid #e1e4dc;outline:none">
     <div style="max-width:1280px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,64px) 0;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px" data-reveal="1">
       <h2 style="margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.05">{{ t.k19 }}</h2>
-      <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#6d7469">{{ t.k8 }}</span>
+      <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#4b5247">{{ t.k8 }}</span>
     </div>
     <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
       <article id="{{ p.id }}" style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,64px);border-bottom:1px solid #e1e4dc;display:flex;flex-wrap:wrap;flex-direction:{{ p.dir }};gap:clamp(24px,5vw,64px);align-items:flex-start;box-sizing:border-box">
-        <sc-if value="{{ p.hasVideo }}" hint-placeholder-val="{{ false }}">
-        <div data-reveal="1" data-vframe="1" style="flex:1 1 520px;min-width:0;aspect-ratio:{{ p.vAr }};max-height:{{ p.vMaxH }};width:100%;background:#0f1410;border-radius:8px;overflow:hidden;display:grid;grid-template-columns:{{ p.vCols }};gap:12px;padding:12px;box-sizing:border-box">
-          <sc-for list="{{ p.videos }}" as="v" hint-placeholder-count="1">
-            <button onClick="{{ v.open }}" aria-label="{{ v.label }}" style="grid-column:{{ v.col }};aspect-ratio:{{ v.ar }};min-width:0;min-height:0;position:relative;border:none;padding:0;background:#000;cursor:pointer;border-radius:6px;overflow:hidden;display:block" style-hover="box-shadow:0 0 0 2px oklch(0.8 0.17 140)">
-              <video src="{{ v.src }}" poster="{{ v.poster }}" data-autoplay="1" loop="" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;pointer-events:none"></video>
-              <span data-vload="1" aria-hidden="true" style="position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(15,20,16,.55);color:#eef4ea;font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;pointer-events:none"><span data-vspin="1"></span><span>{{ v.loadLabel }}</span></span>
-              <span style="position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:8px;background:rgba(15,20,16,.82);backdrop-filter:blur(6px);color:#eef4ea;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 12px 7px 9px;font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;white-space:nowrap"><span style="width:18px;height:18px;border-radius:50%;background:oklch(0.8 0.17 140);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;border-left:6px solid #0f1410;border-top:4px solid transparent;border-bottom:4px solid transparent;margin-left:2px"></span></span><sc-if value="{{ v.showLabel }}" hint-placeholder-val="{{ true }}"><span>{{ v.label }}</span></sc-if></span>
-            </button>
-          </sc-for>
+        <div class="pf" data-reveal="1">
+          <sc-if value="{{ p.hasCats }}" hint-placeholder-val="{{ false }}"><div class="pf-cats" role="group" aria-label="{{ p.catsLabel }}"><sc-for list="{{ p.cats }}" as="c" hint-placeholder-count="3"><button type="button" class="pf-cat" aria-pressed="{{ c.on }}" onClick="{{ c.pick }}"><span>{{ c.label }}</span><span class="pf-catn">{{ c.n }}</span></button></sc-for></div></sc-if>
+          <div class="pf-wrap" id="{{ p.id }}-panel" role="{{ p.panelRole }}" aria-labelledby="{{ p.panelBy }}">
+            <a class="pf-stage" data-vcard="1" href="{{ p.cur.href }}" onClick="{{ p.cur.open }}" aria-label="{{ p.cur.aria }}">
+              <span class="pf-bg" aria-hidden="true" style="background-image:url('{{ p.cur.poster }}')"></span>
+              <sc-if value="{{ p.cur.hasVideo }}" hint-placeholder-val="{{ true }}"><video src="{{ p.cur.src }}" poster="{{ p.cur.poster }}" data-autoplay="1" loop="" preload="none" aria-hidden="true"></video></sc-if>
+              <sc-if value="{{ p.cur.noVideo }}" hint-placeholder-val="{{ false }}"><img src="{{ p.cur.poster }}" alt="" loading="lazy"></sc-if>
+              <span class="pf-load" data-vload="1" aria-hidden="true"><span data-vspin="1"></span><span>{{ p.cur.loadLabel }}</span></span>
+              <span class="pf-kind">{{ p.cur.kindLine }}</span>
+              <span class="pf-foot">
+                <span class="pf-name"><sc-if value="{{ p.multi }}" hint-placeholder-val="{{ true }}"><span class="pf-count">{{ p.cur.count }}</span></sc-if><span>{{ p.cur.name }}</span></span>
+                <span class="pf-cta"><span>{{ p.cur.cta }}</span><sc-if value="{{ p.cur.isDemo }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></sc-if><sc-if value="{{ p.cur.isVideo }}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"></path></svg></sc-if></span>
+              </span>
+            </a>
+            <sc-if value="{{ p.cur.hasVideo }}" hint-placeholder-val="{{ true }}"><button type="button" class="pf-pause" onClick="{{ togglePause }}" aria-pressed="{{ isPaused }}" aria-label="{{ pauseLabel }}" title="{{ pauseLabel }}"><sc-if value="{{ isPlaying }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg></sc-if><sc-if value="{{ isPaused }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"></path></svg></sc-if></button></sc-if>
+          </div>
+          <sc-if value="{{ p.multi }}" hint-placeholder-val="{{ true }}">
+          <div class="pf-pick">
+            <span class="pf-hint">{{ p.hint }}</span>
+            <div class="pf-tabs" style="--pf-cols:{{ p.cols }}" role="tablist" aria-label="{{ p.tabsLabel }}" onKeyDown="{{ p.tabKey }}">
+              <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="3">
+                <button type="button" role="tab" class="pf-tab" id="{{ it.tabId }}" aria-selected="{{ it.sel }}" aria-controls="{{ p.id }}-panel" sc-camel-tab-index="{{ it.tabIndex }}" onClick="{{ it.pick }}"><img src="{{ it.poster }}" alt="" loading="lazy" width="64" height="44"><span class="pf-tabtxt"><span class="pf-tabname">{{ it.name }}</span><span class="pf-tabkind">{{ it.typeLabel }}</span></span></button>
+              </sc-for>
+            </div>
+          </div>
+          </sc-if>
         </div>
-        </sc-if>
-        <sc-if value="{{ p.noVideo }}" hint-placeholder-val="{{ true }}">
-        <div data-reveal="1" style="flex:1 1 520px;min-width:0;aspect-ratio:4/3;max-height:520px;width:100%;background:repeating-linear-gradient(135deg,#e8ebe4 0 1px,#f0f2ed 1px 10px);border:1px solid #dfe2db;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative">
-          <div style="position:absolute;top:14px;left:14px;background:#fff;border:1px solid #dfe2db;border-radius:6px;padding:5px 9px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#4b5247">DEMO · 0:45</div>
-          <div style="width:64px;height:64px;border-radius:50%;background:#0f1410;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:16px solid oklch(0.8 0.17 140);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px"></div></div>
-          <div style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#6d7469;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:0 16px">{{ p.media }}</div>
-        </div>
-        </sc-if>
         <div data-reveal-stagger="1" data-reveal-delay="120" style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:26px">
           <div style="display:flex;flex-direction:column;gap:12px">
-            <h3 style="margin:0;font-size:clamp(30px,3.6vw,46px);line-height:1.05;font-weight:600;letter-spacing:-.035em">{{ p.title }}</h3>
+            <h3 id="{{ p.id }}-title" style="margin:0;font-size:clamp(30px,3.6vw,46px);line-height:1.05;font-weight:600;letter-spacing:-.035em">{{ p.title }}</h3>
             <p style="margin:0;font-size:16px;line-height:1.65;color:#4b5247;text-wrap:pretty">{{ p.desc }}</p>
           </div>
           <div style="display:flex;flex-direction:column;gap:12px;padding:16px 0;border-top:1px solid #0f1410;border-bottom:1px solid #dfe2db">
             <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px">
-              <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#6d7469">{{ t.k20 }}</span><span style="font-size:19px;font-weight:600">{{ p.eta }}</span></div>
+              <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#4b5247">{{ t.k20 }}</span><span style="font-size:19px;font-weight:600">{{ p.eta }}</span></div>
               <sc-if value="{{ showPrice }}">
-              <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#6d7469">{{ t.k21 }}</span><span style="font-size:19px;font-weight:600;color:oklch(0.45 0.13 140)">{{ p.price }}</span></div>
+              <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:#4b5247">{{ t.k21 }}</span><span style="font-size:19px;font-weight:600;color:oklch(0.45 0.13 140)">{{ p.price }}</span></div>
               </sc-if>
             </div>
             <span style="font-size:14px;line-height:1.5;color:#4b5247;text-wrap:pretty">{{ p.note }}</span>
             <div style="display:flex;flex-direction:column;gap:6px">
               <div style="height:6px;background:#e4e7df;border-radius:3px;position:relative"><div style="position:absolute;top:0;bottom:0;left:{{ p.barL }};width:{{ p.barW }};min-width:6px;border-radius:3px;background:oklch(0.62 0.17 140)"></div></div>
-              <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Sans',sans-serif;font-size:10px;color:#8a9186"><span>{{ t.k22 }}</span><span>{{ t.k23 }}</span><span>{{ t.k24 }}</span><span>{{ t.k25 }}</span></div>
+              <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Sans',sans-serif;font-size:10px;color:#4b5247"><span>{{ t.k22 }}</span><span>{{ t.k23 }}</span><span>{{ t.k24 }}</span><span>{{ t.k25 }}</span></div>
             </div>
           </div>
           <div style="display:flex;flex-direction:column;gap:8px">
-            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;letter-spacing:.06em;color:#6d7469">{{ t.k26 }}</div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;letter-spacing:.06em;color:#4b5247">{{ t.k26 }}</div>
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));column-gap:24px">
-              <sc-for list="{{ p.specs }}" as="s" hint-placeholder-count="6"><div style="display:flex;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px solid #e4e7df;font-size:14px;line-height:1.4"><span style="color:oklch(0.55 0.16 140);font-family:'IBM Plex Sans',sans-serif;flex:none">✓</span>{{ s }}</div></sc-for>
+              <sc-for list="{{ p.specs }}" as="s" hint-placeholder-count="6"><div style="display:flex;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px solid #e4e7df;font-size:14px;line-height:1.4"><span style="color:oklch(0.42 0.13 140);font-family:'IBM Plex Sans',sans-serif;flex:none">✓</span>{{ s }}</div></sc-for>
             </div>
           </div>
         </div>
@@ -169,7 +212,7 @@ html{scroll-behavior:smooth}
             <span style="border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px">{{ t.k13 }}</span>
           </div>
         </div>
-        <a href="#estimate" style="background:oklch(0.62 0.17 140);color:#fff;padding:16px 26px;border-radius:8px;font-size:16px;font-weight:700" style-hover="background:oklch(0.56 0.17 140);color:#fff">{{ t.k14 }}</a>
+        <a href="#estimate" style="background:oklch(0.42 0.12 140);color:#fff;padding:16px 26px;border-radius:8px;font-size:16px;font-weight:700" style-hover="background:oklch(0.36 0.11 140);color:#fff">{{ t.k14 }}</a>
       </div>
     </div>
   </section>
@@ -215,7 +258,7 @@ html{scroll-behavior:smooth}
           </div>
         </div>
         <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px">
-          <div style="height:140px;width:100%;position:relative"><div style="position:absolute;left:50%;top:20px;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:oklch(0.62 0.17 140);border:2px solid oklch(0.62 0.17 140);box-shadow:0 0 0 8px #f5f6f3,0 0 0 14px oklch(0.62 0.17 140 / .18);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;box-sizing:border-box">05</div></div>
+          <div style="height:140px;width:100%;position:relative"><div style="position:absolute;left:50%;top:20px;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:oklch(0.42 0.12 140);border:2px solid oklch(0.42 0.12 140);box-shadow:0 0 0 8px #f5f6f3,0 0 0 14px oklch(0.62 0.17 140 / .18);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;box-sizing:border-box">05</div></div>
           <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:-56px">
             <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k32 }}</span>
             <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k41 }}</span>
@@ -262,7 +305,7 @@ html{scroll-behavior:smooth}
         </div>
       </div>
       <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;align-items:start">
-        <div style="position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:oklch(0.62 0.17 140);border:2px solid oklch(0.62 0.17 140);box-shadow:0 0 0 6px #f5f6f3,0 0 0 11px oklch(0.62 0.17 140 / .18);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;box-sizing:border-box">05</div>
+        <div style="position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:oklch(0.42 0.12 140);border:2px solid oklch(0.42 0.12 140);box-shadow:0 0 0 6px #f5f6f3,0 0 0 11px oklch(0.62 0.17 140 / .18);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;box-sizing:border-box">05</div>
         <div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:6px">
           <span style="font-size:11px;font-weight:600;letter-spacing:.08em;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:5px 10px;border-radius:999px">{{ t.k32 }}</span>
           <span style="font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;text-wrap:balance">{{ t.k41 }}</span>
@@ -281,7 +324,7 @@ html{scroll-behavior:smooth}
         <p style="margin:0;font-size:16px;line-height:1.6;color:#4b5247">{{ t.k44 }}</p>
       </div>
       <div data-reveal="1" style="background:#0f1410;color:#eef4ea;border-radius:8px;padding:clamp(18px,2.4vw,24px) clamp(18px,2.6vw,28px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
-        <span style="background:oklch(0.62 0.17 140);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">{{ promo.tag }}</span>
+        <span style="background:oklch(0.42 0.12 140);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">{{ promo.tag }}</span>
         <div style="display:flex;flex-direction:column;gap:4px;flex:1 1 320px;min-width:0">
           <span style="font-size:clamp(17px,1.7vw,20px);font-weight:600;letter-spacing:-.015em;line-height:1.3">{{ promo.title }}</span>
           <span style="font-size:14px;line-height:1.55;color:#c3ccc0;text-wrap:pretty">{{ promo.body }}</span>
@@ -298,14 +341,14 @@ html{scroll-behavior:smooth}
           <sc-if value="{{ p.off }}" hint-placeholder-val="{{ true }}">
             <div onClick="{{ p.toggle }}" style="cursor:pointer;background:#f5f6f3;border:1.5px solid #e1e4dc;border-radius:8px;padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;box-sizing:border-box" style-hover="border-color:#9aa396">
               <div style="display:flex;justify-content:flex-end;align-items:center"><span style="width:22px;height:22px;border-radius:6px;border:1.5px solid #c4c9bf;box-sizing:border-box"></span></div>
-              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:clamp(16px,1.6vw,19px);font-weight:600;line-height:1.3;letter-spacing:-.01em">{{ p.goal }}</span><span style="font-size:13px;color:#6d7469">{{ p.short }}</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:clamp(16px,1.6vw,19px);font-weight:600;line-height:1.3;letter-spacing:-.01em">{{ p.goal }}</span><span style="font-size:13px;color:#4b5247">{{ p.short }}</span></div>
             </div>
           </sc-if>
         </sc-for>
       </div>
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
         <a href="{{ waHref }}" target="_blank" rel="noopener" style="background:#0f1410;color:#eef4ea;padding:16px 26px;border-radius:8px;font-size:16px;font-weight:600" style-hover="background:#24302a;color:#eef4ea">{{ t.k45 }}</a>
-        <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#6d7469">{{ selLabel }}</span>
+        <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#4b5247">{{ selLabel }}</span>
       </div>
     </div>
   </section>
@@ -321,7 +364,7 @@ html{scroll-behavior:smooth}
       <div data-reveal="1" style="flex:1 1 560px;min-width:0;max-width:680px;background:#fff;border:1px solid #e1e4dc;border-radius:16px;box-shadow:0 1px 0 #eef1ea,0 24px 60px rgba(15,20,16,.08);overflow:hidden;color:#0f1410">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(18px,3vw,28px);border-bottom:1px solid #eef1ea;font-size:14px;font-weight:600">
           <span style="display:inline-flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg> Instagram</span>
-          <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="color:#6d7469;font-weight:500" style-hover="color:#0f1410">{{ ig.view }} ↗</a>
+          <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="color:#4b5247;font-weight:500" style-hover="color:#0f1410">{{ ig.view }} ↗</a>
         </div>
         <div style="padding:clamp(22px,3.4vw,36px) clamp(18px,3vw,28px);display:flex;flex-wrap:wrap;align-items:flex-start;gap:20px clamp(24px,4vw,44px)">
           <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" aria-label="@creativelogy" style="flex:0 0 auto;width:clamp(96px,12vw,136px);aspect-ratio:1;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75);box-sizing:border-box">
@@ -331,11 +374,11 @@ html{scroll-behavior:smooth}
             <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px">
               <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="font-size:clamp(20px,2vw,24px);font-weight:500;letter-spacing:-.01em;color:#0f1410">creativelogy</a>
               <div style="display:flex;gap:8px;font-size:14px;font-weight:600">
-                <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="background:oklch(0.62 0.17 140);color:#fff;padding:8px 18px;border-radius:8px" style-hover="background:oklch(0.56 0.17 140);color:#fff">{{ ig.follow }}</a>
+                <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="background:oklch(0.42 0.12 140);color:#fff;padding:8px 18px;border-radius:8px" style-hover="background:oklch(0.36 0.11 140);color:#fff">{{ ig.follow }}</a>
                 <a href="https://ig.me/m/creativelogy" target="_blank" rel="noopener" style="background:#eef1ea;color:#0f1410;padding:8px 18px;border-radius:8px" style-hover="background:#e1e4dc;color:#0f1410">{{ ig.message }}</a>
               </div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:8px 36px;font-size:16px;color:#6d7469">
+            <div style="display:flex;flex-wrap:wrap;gap:8px 36px;font-size:16px;color:#4b5247">
               <span><b style="color:#0f1410;font-weight:600">1,387</b> {{ ig.followers }}</span>
               <span><b style="color:#0f1410;font-weight:600">1,413</b> {{ ig.following }}</span>
             </div>
@@ -344,7 +387,7 @@ html{scroll-behavior:smooth}
               <span>Product Designer | UX Designer</span>
               <span>Building websites for SMEs &amp; Startup (DM)</span>
               <span>-</span>
-              <span>Find me at <a href="https://www.instagram.com/seesightseen/" target="_blank" rel="noopener" style="color:#00376b" style-hover="color:#0f1410">@seesightseen</a> and listen to my… <span style="color:#6d7469">{{ ig.more }}</span></span>
+              <span>Find me at <a href="https://www.instagram.com/seesightseen/" target="_blank" rel="noopener" style="color:#00376b" style-hover="color:#0f1410">@seesightseen</a> and listen to my… <span style="color:#4b5247">{{ ig.more }}</span></span>
               <a href="https://www.linkedin.com/in/khalifah-imam-ali-2211701ba" target="_blank" rel="noopener" style="margin-top:4px;display:inline-flex;align-items:center;gap:6px;color:#00376b;font-weight:600;min-width:0;overflow-wrap:anywhere" style-hover="color:#0f1410"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg><span>www.linkedin.com/in/khalifah-imam-ali-2211701ba</span></a>
             </div>
           </div>
@@ -354,8 +397,8 @@ html{scroll-behavior:smooth}
   </section>
 
   <footer style="border-top:1px solid #e1e4dc">
-    <div style="max-width:1280px;margin:0 auto;padding:28px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:#6d7469;box-sizing:border-box">
-      <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:800;font-size:18px;line-height:1;letter-spacing:-.06em;display:flex;align-items:center;gap:.12em;color:#0f1410"><span style="color:oklch(0.55 0.16 140)">&gt;</span><span>omnify</span><span style="width:.5em;height:.82em;background:oklch(0.62 0.17 140)"></span></div>
+    <div style="max-width:1280px;margin:0 auto;padding:28px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:#4b5247;box-sizing:border-box">
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:800;font-size:18px;line-height:1;letter-spacing:-.06em;display:flex;align-items:center;gap:.12em;color:#0f1410"><span style="color:oklch(0.42 0.13 140)">&gt;</span><span>omnify</span><span style="width:.5em;height:.82em;background:oklch(0.62 0.17 140)"></span></div>
       <span>© 2026 Omnify</span>
     </div>
   </footer>
@@ -366,7 +409,7 @@ html{scroll-behavior:smooth}
         <a href="../FnB/" onClick="{{ closeMenu }}" style="padding:14px 16px;border-radius:10px;font-size:16px;font-weight:500;color:#0f1410;display:flex;align-items:center" style-hover="background:#f5f6f3">FnB</a>
         <a href="#top" onClick="{{ closeMenu }}" style="padding:14px 16px;border-radius:10px;font-size:16px;font-weight:600;background:#eef1ea;color:#0f1410;display:flex;justify-content:space-between;align-items:center">Marketplace<span style="width:8px;height:8px;border-radius:50%;background:oklch(0.62 0.17 140)"></span></a>
         <a href="../Lainnya/" onClick="{{ closeMenu }}" style="padding:14px 16px;border-radius:10px;font-size:16px;font-weight:500;color:#0f1410;display:flex;align-items:center" style-hover="background:#f5f6f3">{{ t.k15 }}</a>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 4px 4px 16px;margin-top:4px;border-top:1px solid #eef1ea"><span style="font-size:14px;color:#6d7469">{{ t.lang }}</span><div role="group" aria-label="Language" style="display:flex;gap:2px;padding:3px;background:#fff;border:1px solid #e1e4dc;border-radius:999px"><button onClick="{{ setID }}" aria-pressed="{{ isID }}" title="Bahasa Indonesia" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:40px;padding:0 14px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;background:{{ setIDBg }};color:{{ setIDFg }}"><img src="https://flagcdn.com/id.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">ID</button><button onClick="{{ setEN }}" aria-pressed="{{ isEN }}" title="English" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:40px;padding:0 14px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;background:{{ setENBg }};color:{{ setENFg }}"><img src="https://flagcdn.com/gb.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">EN</button></div></div><a href="#estimate" onClick="{{ closeMenu }}" style="margin-top:6px;background:oklch(0.62 0.17 140);color:#fff;padding:15px 16px;border-radius:10px;font-size:16px;font-weight:600;text-align:center">{{ t.k16 }}</a>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 4px 4px 16px;margin-top:4px;border-top:1px solid #eef1ea"><span style="font-size:14px;color:#4b5247">{{ t.lang }}</span><div role="group" aria-label="Language" style="display:flex;gap:2px;padding:3px;background:#fff;border:1px solid #e1e4dc;border-radius:999px"><button onClick="{{ setID }}" aria-pressed="{{ isID }}" title="Bahasa Indonesia" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:40px;padding:0 14px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;background:{{ setIDBg }};color:{{ setIDFg }}"><img src="https://flagcdn.com/id.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">ID</button><button onClick="{{ setEN }}" aria-pressed="{{ isEN }}" title="English" style="display:flex;align-items:center;gap:6px;border:none;cursor:pointer;height:40px;padding:0 14px;border-radius:999px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;background:{{ setENBg }};color:{{ setENFg }}"><img src="https://flagcdn.com/gb.svg" alt="" width="18" height="12" style="width:18px;height:12px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">EN</button></div></div><a href="#estimate" onClick="{{ closeMenu }}" style="margin-top:6px;background:oklch(0.42 0.12 140);color:#fff;padding:15px 16px;border-radius:10px;font-size:16px;font-weight:600;text-align:center">{{ t.k16 }}</a>
       </nav>
     </sc-if>
     <button onClick="{{ toggleMenu }}" aria-label="Open menu" aria-expanded="{{ menuOpen }}" style="position:fixed;right:16px;bottom:16px;z-index:42;height:56px;min-width:56px;padding:0 22px 0 18px;border-radius:999px;border:2px solid #0f1410;background:oklch(0.8 0.17 140);color:#0f1410;box-shadow:0 0 0 3px #fff,0 12px 32px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em" style-focus="outline:3px solid #0f1410;outline-offset:4px" style-active="transform:scale(.96)">
@@ -386,10 +429,12 @@ html{scroll-behavior:smooth}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;view&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Web&quot;,&quot;Mobile&quot;],&quot;default&quot;:&quot;Web&quot;,&quot;tsType&quot;:&quot;'Web' | 'Mobile'&quot;,&quot;section&quot;:&quot;Preview&quot;}}">
 class Component extends DCLogic {
+  PAGE = 'Marketplace';
+  PFX = 'p-';
   // Set to true to show prices on the site again.
   SHOW_PRICE = false;
-  state = { goals: [], narrow: false, menuOpen: false, lang: (() => { try { return localStorage.getItem('omnify-lang') || 'id'; } catch (e) { return 'id'; } })() };
-  data = [{"n":"01","videos":["../uploads/Film%20-%20Pualam.mp4"],"title":"Business Landing Page + Catalogue","short":"Landing + catalogue","goal":"Give my business a home beyond social media","problem":"Our business only lives on social media","desc":"A landing page for your business with a browsable product or service catalogue. Customers see what you offer and order through WhatsApp or your marketplace stores.","eta":"3–7 days","price":"Rp 2–10 jt","note":"Includes hosting and domain. CMS or other platforms like WordPress, Shopify or Webflow available on request (subscription fee excluded).","days":[3,7],"media":"Video demo · landing page & catalogue walkthrough","specs":["Responsive business landing page","Product or service catalogue with categories","Item detail with photos, prices & variants","Order via WhatsApp or marketplace links","SEO, Meta Pixel & analytics","Hosting & domain included"]},{"n":"02","videos":["../uploads/Dynare%201c%20Showcase%20(1).mp4"],"title":"Fashion E-commerce","short":"Fashion store","goal":"Sell clothing online with size & stock control","problem":"Sizes and stock get mixed up across channels","desc":"An online fashion store with size and colour variants, lookbooks and a checkout built for mobile shoppers.","eta":"14–30 days","price":"Rp 6–15 jt","note":"Price depends on scale and complexity. Includes hosting and domain. Payment gateway fees charged separately by the provider.","days":[14,30],"media":"Video demo · browse to checkout","specs":["Size, colour & variant stock","Lookbook & collection pages","Cart, checkout & payment gateway","Shipping rates & tracking number","Vouchers, discounts & member tiers","Order & sales dashboard"]},{"n":"03","videos":["../uploads/Omnify%20Film%20-%20Kasir%20-%20Inventaris.mp4"],"title":"POS & Inventory Management System","short":"POS & inventory","goal":"Run sales and stock from one system","problem":"Sales are recorded by hand and stock never matches across channels","desc":"Ring up sales, accept every payment method and close shifts with reports you can trust. Every sale deducts stock automatically across warehouses, branches and marketplace channels.","eta":"4–6 weeks","price":"Rp 350rb / month","note":"Discount available for more than 1 business. One-time purchase available, price on discussion.","days":[28,42],"media":"Video demo · cashier & stock dashboard","specs":["Fast checkout with barcode scanning","Discounts, vouchers & taxes","QRIS, card & cash payments","Multi-warehouse / branch stock","Low-stock alerts & purchase orders","Sales & stock reports"]}];
+  state = { goals: [], sel: {}, cat: {}, paused: (() => { try { if (localStorage.getItem('omnify-pf-paused') === '1') return true; } catch (e) {} return !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches); })(), narrow: false, menuOpen: false, lang: (() => { try { return localStorage.getItem('omnify-lang') || 'id'; } catch (e) { return 'id'; } })() };
+  data = [{"n":"01","title":"Business Landing Page + Catalogue","short":"Landing + catalogue","goal":"Give my business a home beyond social media","problem":"Our business only lives on social media","desc":"A landing page for your business with a browsable product or service catalogue. Customers see what you offer and order through WhatsApp or your marketplace stores.","eta":"3–7 days","price":"Rp 2–10 jt","note":"Includes hosting and domain. CMS or other platforms like WordPress, Shopify or Webflow available on request (subscription fee excluded).","days":[3,7],"media":"Video demo · landing page & catalogue walkthrough","specs":["Responsive business landing page","Product or service catalogue with categories","Item detail with photos, prices & variants","Order via WhatsApp or marketplace links","SEO, Meta Pixel & analytics","Hosting & domain included"],"demos":["pualam"]},{"n":"02","title":"Fashion E-commerce","short":"Fashion store","goal":"Sell clothing online with size & stock control","problem":"Sizes and stock get mixed up across channels","desc":"An online fashion store with size and colour variants, lookbooks and a checkout built for mobile shoppers.","eta":"14–30 days","price":"Rp 6–15 jt","note":"Price depends on scale and complexity. Includes hosting and domain. Payment gateway fees charged separately by the provider.","days":[14,30],"media":"Video demo · browse to checkout","specs":["Size, colour & variant stock","Lookbook & collection pages","Cart, checkout & payment gateway","Shipping rates & tracking number","Vouchers, discounts & member tiers","Order & sales dashboard"],"demos":["dynare"]},{"n":"03","title":"POS & Inventory Management System","short":"POS & inventory","goal":"Run sales and stock from one system","problem":"Sales are recorded by hand and stock never matches across channels","desc":"Ring up sales, accept every payment method and close shifts with reports you can trust. Every sale deducts stock automatically across warehouses, branches and marketplace channels.","eta":"4–6 weeks","price":"Rp 350rb / month","note":"Discount available for more than 1 business. One-time purchase available, price on discussion.","days":[28,42],"media":"Video demo · cashier & stock dashboard","specs":["Fast checkout with barcode scanning","Discounts, vouchers & taxes","QRIS, card & cash payments","Multi-warehouse / branch stock","Low-stock alerts & purchase orders","Sales & stock reports"],"demos":["pos-inventory"]}];
   dataId = [{"title":"Landing Page Bisnis + Katalog","short":"Landing + katalog","goal":"Punya rumah bisnis di luar media sosial","desc":"Landing page untuk bisnis Anda dengan katalog produk atau layanan yang mudah dijelajahi. Pelanggan melihat apa yang Anda tawarkan dan memesan lewat WhatsApp atau toko marketplace Anda.","eta":"3–7 hari","price":"Rp 2–10 jt","note":"Sudah termasuk hosting dan domain. CMS atau platform lain seperti WordPress, Shopify, atau Webflow tersedia atas permintaan (belum termasuk biaya langganan).","media":"Video demo · walkthrough landing page & katalog","specs":["Landing page bisnis responsif","Katalog produk atau layanan dengan kategori","Detail item dengan foto, harga & varian","Pesan via WhatsApp atau link marketplace","SEO, Meta Pixel & analytics","Termasuk hosting & domain"]},{"title":"E-commerce Fashion","short":"Toko fashion","goal":"Jual pakaian online dengan kontrol ukuran & stok","desc":"Toko fashion online dengan varian ukuran dan warna, lookbook, dan checkout yang dirancang untuk pembeli di ponsel.","eta":"14–30 hari","price":"Rp 6–15 jt","note":"Harga tergantung skala dan kompleksitas. Sudah termasuk hosting dan domain. Biaya payment gateway ditagih terpisah oleh penyedia.","media":"Video demo · dari browsing ke checkout","specs":["Stok per ukuran, warna & varian","Halaman lookbook & koleksi","Keranjang, checkout & payment gateway","Ongkir & nomor resi","Voucher, diskon & tier member","Dashboard pesanan & penjualan"]},{"title":"Sistem Kasir (POS) & Inventori","short":"POS & inventori","goal":"Kelola penjualan dan stok dari satu sistem","desc":"Catat penjualan, terima semua metode pembayaran, dan tutup shift dengan laporan yang akurat. Setiap penjualan otomatis memotong stok di semua gudang, cabang, dan channel marketplace.","eta":"4–6 minggu","price":"Rp 350rb / bulan","note":"Harga bisa didiskon untuk lebih dari 1 bisnis. Tersedia opsi beli putus, harga bisa didiskusikan.","media":"Video demo · kasir & dashboard stok","specs":["Checkout cepat dengan scan barcode","Diskon, voucher & pajak","Pembayaran QRIS, kartu & tunai","Stok multi-gudang / cabang","Notifikasi stok menipis & purchase order","Laporan penjualan & stok"]}];
   I18N = { en: {"k0":"Sell more online. ","k1":"Handle less by hand.","k2":"Storefronts, fashion e-commerce and booking systems for brands and sellers. Shipped fast, built to scale, simple for your team to run.","k3":"Order #2041 · Paid","k4":"Linen shirt · size M","k5":"Low stock: Linen shirt","k6":"3 left · size L","k7":"Sat 10:00 · Haircut","k8":"3 products · Marketplace","k9":"Bundle offer","k10":"Get 15% off your landing page","k11":"Order a Business Landing Page + Catalogue together with a POS & Inventory Management System, and the landing page is 15% cheaper.","k12":"Business Landing Page + Catalogue","k13":"POS & Inventory","k14":"Claim the bundle","k15":"Others","k16":"Get an estimate","k17":"Start a project →","k18":"See the work","k19":"Portfolio","k20":"ETA","k21":"PRICE RANGE","k22":"Day 1","k23":"15 days","k24":"30 days","k25":"45 days","k26":"SPECIFICATION","k27":"How a project runs","k28":"DAY 0","k29":"WITHIN 2 DAYS","k30":"NEXT 2–3 DAYS","k31":"EVERY WEEK","k32":"LAUNCH","k33":"Free consultation","k34":"A 30-minute call to understand your business, team and current tools.","k35":"Fixed scope & quote","k36":"A written scope with timeline and price. No surprises later.","k37":"Demo builds","k38":"You test a working demo on your own phone and give feedback early.","k39":"Iteration & implementation report","k40":"A weekly report on what changed, what shipped and what comes next.","k41":"Go live & train staff","k42":"We launch, train your team and hand over everything you own.","k43":"What do you want to fix first?","k44":"Select one or more goals, then chat with us on WhatsApp.","k45":"Chat on WhatsApp →","k46":"Close","k47":"Booking confirmed","lang":"Language"}, id: {"k0":"Jual lebih banyak secara online. ","k1":"Lebih sedikit kerja manual.","k2":"Toko online, e-commerce fashion, dan sistem booking untuk brand dan seller. Cepat jadi, siap berkembang, dan mudah dijalankan tim Anda.","k3":"Pesanan #2041 · Lunas","k4":"Kemeja linen · ukuran M","k5":"Stok menipis: Kemeja linen","k6":"Sisa 3 · ukuran L","k7":"Sab 10:00 · Potong rambut","k8":"3 produk · Marketplace","k9":"Penawaran paket","k10":"Diskon 15% untuk landing page Anda","k11":"Pesan Landing Page Bisnis + Katalog bersama Sistem Kasir (POS) & Inventori, dan landing page jadi 15% lebih murah.","k12":"Landing Page Bisnis + Katalog","k13":"POS & Inventori","k14":"Ambil paket ini","k15":"Lainnya","k16":"Minta estimasi","k17":"Mulai proyek →","k18":"Lihat portofolio","k19":"Portofolio","k20":"ESTIMASI","k21":"KISARAN HARGA","k22":"Hari 1","k23":"15 hari","k24":"30 hari","k25":"45 hari","k26":"SPESIFIKASI","k27":"Alur pengerjaan proyek","k28":"HARI 0","k29":"DALAM 2 HARI","k30":"2–3 HARI BERIKUTNYA","k31":"SETIAP MINGGU","k32":"PELUNCURAN","k33":"Konsultasi gratis","k34":"Sesi 30 menit untuk memahami bisnis, tim, dan tools yang Anda pakai saat ini.","k35":"Ruang lingkup & penawaran harga","k36":"Ruang lingkup tertulis lengkap dengan timeline dan harga. Tanpa biaya kejutan.","k37":"Pembuatan demo","k38":"Anda mencoba demo langsung di ponsel sendiri dan memberi masukan sejak awal.","k39":"Iterasi & laporan implementasi","k40":"Laporan mingguan tentang apa yang berubah, apa yang sudah rilis, dan langkah berikutnya.","k41":"Go-live & pelatihan staf","k42":"Kami meluncurkan sistem, melatih tim Anda, dan menyerahkan semua aset milik Anda.","k43":"Apa yang ingin Anda benahi lebih dulu?","k44":"Pilih satu atau lebih tujuan, lalu chat dengan kami di WhatsApp.","k45":"Chat via WhatsApp →","k46":"Tutup","k47":"Booking dikonfirmasi","lang":"Bahasa"} };
   setLang(l) { try { localStorage.setItem('omnify-lang', l); } catch (e) {} document.documentElement.lang = l; this.setState({ lang: l }); }
@@ -397,9 +442,10 @@ class Component extends DCLogic {
     document.documentElement.lang = this.state.lang;
     this._rs = () => { const n = window.innerWidth < 640; if (n !== this.state.narrow) this.setState({ narrow: n }); };
     window.addEventListener('resize', this._rs); this._rs(); this.setupReveal(); this.setupVideos(); this._esc = e => { if (e.key === 'Escape' && this.state.pop) this.closePop(); }; window.addEventListener('keydown', this._esc);
+    this._hash = () => this.applyHash(false); window.addEventListener('hashchange', this._hash); this.applyHash(true);
   }
   componentDidUpdate() { this.setupReveal(); this.setupVideos(); }
-  componentWillUnmount() { window.removeEventListener('resize', this._rs); window.removeEventListener('keydown', this._esc); this._vio && this._vio.disconnect(); this._io && this._io.disconnect(); }
+  componentWillUnmount() { window.removeEventListener('resize', this._rs); window.removeEventListener('hashchange', this._hash); window.removeEventListener('keydown', this._esc); this._vio && this._vio.disconnect(); this._io && this._io.disconnect(); }
   revealItems(el) { return el.hasAttribute('data-reveal-stagger') ? [...el.children] : [el]; }
   setupReveal() {
     if (!window.IntersectionObserver || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -418,23 +464,88 @@ class Component extends DCLogic {
     });
   }
   setupVideos() {
-    if (!window.IntersectionObserver) return;
-    if (!this._vio) this._vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target; v._vis = e.isIntersecting; if (e.isIntersecting && !this.state.pop && !(this.state.narrow && v._extra)) this.playVid(v); else v.pause(); }), { threshold: 0.35 });
-    document.querySelectorAll('video[data-autoplay]').forEach(v => { if (v.dataset.vo) return; v.dataset.vo = '1'; v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v._extra = v.closest('[data-vframe]').querySelector('video') !== v; this._vio.observe(v); const fit = () => this.fitFrame(v); if (v.readyState >= 1) return fit(); v.addEventListener('loadedmetadata', fit, { once: true }); const im = new Image(); im.onload = () => { if (!v.videoWidth) this.fitFrame(v, im.naturalWidth, im.naturalHeight); }; im.src = v.poster; });
+    if (!this._vio && window.IntersectionObserver) this._vio = new IntersectionObserver(es => es.forEach(e => { e.target._vis = e.isIntersecting; this.syncVid(e.target); }), { threshold: 0.35 });
+    document.querySelectorAll('video[data-autoplay]').forEach(v => {
+      if (!v.dataset.vo) { v.dataset.vo = '1'; v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('muted', ''); if (this._vio) this._vio.observe(v); else v._vis = true; }
+      const src = v.getAttribute('src');
+      if (v.dataset.cur !== src) { const first = !v.dataset.cur; v.dataset.cur = src; if (!first) v.load(); }
+      this.syncVid(v);
+    });
   }
-  playVid(v, el = v.closest('button')) {
+  // Previews play only while on screen, not paused by the visitor, and no popup is open.
+  syncVid(v) { if (v._vis && !this.state.pop && !this.state.paused) this.playVid(v); else v.pause(); }
+  playVid(v, el = v.closest('[data-vcard]')) {
     const set = on => el && (on ? el.setAttribute('data-loading', '') : el.removeAttribute('data-loading'));
     if (!v._tl) { v._tl = 1; v.addEventListener('waiting', () => set(true)); ['playing', 'pause', 'error'].forEach(t => v.addEventListener(t, () => set(false))); }
     if (v.readyState < 3) set(true);
     v.play().catch(() => set(false));
   }
-  fitFrame(v, w = v.videoWidth, h = v.videoHeight) {
-    const f = v.closest('[data-vframe]'); if (!f || f.querySelectorAll('video').length !== 1 || !w) return;
-    const ar = w / h;
-    Object.assign(f.style, { aspectRatio: String(ar), padding: '0', gap: '0', background: 'transparent' });
-    if (ar < 1) Object.assign(f.style, { flex: '0 0 auto', width: 'auto', height: 'min(560px, 75vh)', maxHeight: 'none', maxWidth: '100%' });
-    else Object.assign(f.style, { maxHeight: 'none' });
-    const btn = v.closest('button'); if (btn) btn.style.borderRadius = '8px';
+
+  // ---- Portfolio stage: one preview per product + a picker (catalogue in ../showcase/demos.js) ----
+  // Examples of one product can span categories (OMNIFY_CATS, e.g. Restoran / Kafe): the page then
+  // shows category buttons, and #<product>-<category> (e.g. #fnb-01-cafe) opens that category directly.
+  pfItem(key, j, all, isID, back) {
+    const d = (window.OMNIFY_DEMOS || {})[key] || { name: key, kind: 'web' };
+    const live = !!(d.href && d.live !== false);
+    const file = d.video ? encodeURIComponent(d.video) : '';
+    const kindLabel = ({ web: 'Website', app: isID ? 'Aplikasi booking' : 'Booking app', system: isID ? 'Sistem' : 'System' })[d.kind] || '';
+    const type = d.type ? d.type[isID ? 'id' : 'en'] : '';
+    let href = '#' + back;
+    if (live) { const [hp, hh] = d.href.split('#'); href = '../' + hp + (/^showcase\//.test(hp) ? '?from=' + encodeURIComponent(this.PAGE + '/#' + back) : '') + (hh ? '#' + hh : ''); }
+    const cta = live ? (isID ? 'Coba demo' : 'Try the demo') : (isID ? 'Tonton video' : 'Watch video');
+    const full = file ? `../uploads/${file}.mp4` : '';
+    return {
+      key, name: d.name, kindLabel, typeLabel: type || kindLabel, kindLine: type ? `${kindLabel} · ${type}` : kindLabel, href, isDemo: live, isVideo: !live, hasVideo: !!file, noVideo: !file,
+      src: file ? `../uploads/previews/${file}.mp4` : '',
+      poster: file ? `../uploads/posters/${file}.jpg` : `../uploads/posters/${encodeURIComponent(d.poster || key)}.jpg`,
+      open: e => { if (live || !full) return; if (e && e.preventDefault) e.preventDefault(); this.openPop(full); },
+      cta, aria: `${cta}: ${d.name} (${type || kindLabel})`, count: `${j + 1} / ${all.length}`, loadLabel: isID ? 'Memuat pratinjau…' : 'Loading preview…'
+    };
+  }
+  pfCats(p) {
+    const D = window.OMNIFY_DEMOS || {}, C = window.OMNIFY_CATS || {};
+    return [...new Set((p.demos || []).map(k => (D[k] || {}).cat).filter(c => c && C[c]))];
+  }
+  pfVals(p, i, isID, id) {
+    const D = window.OMNIFY_DEMOS || {}, C = window.OMNIFY_CATS || {}, all = p.demos || [];
+    const catIds = this.pfCats(p), hasCats = catIds.length > 1;
+    const cat = hasCats && catIds.includes(this.state.cat[i]) ? this.state.cat[i] : '';
+    const inCat = c => all.filter(k => (D[k] || {}).cat === c);
+    const keys = cat ? inCat(cat) : all, back = cat ? `${id}-${cat}` : id;
+    const k = Math.min(this.state.sel[i] || 0, Math.max(0, keys.length - 1));
+    const items = keys.map((key, j, list) => ({ ...this.pfItem(key, j, list, isID, back), sel: j === k, tabIndex: j === k ? 0 : -1, tabId: `${id}-tab-${j}`, pick: () => this.pickDemo(i, j, id, false) }));
+    const n = items.length, multi = n > 1;
+    const cats = !hasCats ? [] : [{ key: '', label: isID ? 'Semua' : 'All', n: all.length }, ...catIds.map(c => ({ key: c, label: C[c][isID ? 'id' : 'en'], n: inCat(c).length }))]
+      .map(c => ({ ...c, on: c.key === cat, pick: () => this.pickCat(i, c.key, id) }));
+    return {
+      hasDemos: all.length > 0, items, cols: n === 4 ? 2 : Math.min(n, 3), cur: items[k] || {}, multi, panelRole: multi ? 'tabpanel' : 'group', panelBy: multi ? `${id}-tab-${k}` : `${id}-title`,
+      hasCats, cats, catsLabel: isID ? `Kategori ${p.title}` : `${p.title} categories`,
+      tabsLabel: isID ? `Contoh ${p.title}` : `${p.title} examples`,
+      hint: isID ? `${n} contoh · pilih untuk melihat pratinjau` : `${n} examples · pick one to preview`,
+      countLabel: isID ? `${all.length} contoh` : `${all.length} example${all.length > 1 ? 's' : ''}`,
+      tabKey: e => { const m = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }; let j; if (e.key in m) j = (k + m[e.key] + n) % n; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1; else return; e.preventDefault(); this.pickDemo(i, j, id, true); }
+    };
+  }
+  pickDemo(i, j, id, focus) {
+    this.setState(s => ({ sel: { ...s.sel, [i]: j } }), () => { if (focus) { const t = document.getElementById(`${id}-tab-${j}`); if (t) t.focus(); } });
+  }
+  // The URL follows the category, so a link copied from the address bar opens the same view.
+  pickCat(i, c, id) {
+    this.setState(s => ({ cat: { ...s.cat, [i]: c }, sel: { ...s.sel, [i]: 0 } }));
+    try { history.replaceState(history.state, '', '#' + (c ? `${id}-${c}` : id)); } catch (e) {}
+  }
+  applyHash(first) {
+    const m = /^#(.+)-([a-z]+)$/.exec(location.hash); if (!m) return;
+    const i = this.data.findIndex(p => `${this.PFX}${p.n}` === m[1]);
+    if (i < 0 || !this.pfCats(this.data[i]).includes(m[2])) return;
+    const nav = first && performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    const restoring = nav && nav.type === 'back_forward';
+    this.setState(s => ({ cat: { ...s.cat, [i]: m[2] }, sel: { ...s.sel, [i]: 0 } }), () => { const el = document.getElementById(m[1]); if (el && !restoring) el.scrollIntoView(); });
+  }
+  togglePause() {
+    const paused = !this.state.paused;
+    try { localStorage.setItem('omnify-pf-paused', paused ? '1' : '0'); } catch (e) {}
+    this.setState({ paused });
   }
   posterOf(src) { return src.replace('/uploads/', '/uploads/posters/').replace(/\.mp4$/, '.jpg'); }
   openPop(src) {
@@ -442,7 +553,7 @@ class Component extends DCLogic {
     this.setState({ pop: src }, () => { const v = document.querySelector('video[data-pop-video]'); if (v) { v.currentTime = 0; this.playVid(v, v.parentElement); } });
   }
   closePop() {
-    this.setState({ pop: null }, () => document.querySelectorAll('video[data-autoplay]').forEach(v => { if (v._vis && v.isConnected && !(this.state.narrow && v._extra)) this.playVid(v); }));
+    this.setState({ pop: null }, () => document.querySelectorAll('video[data-autoplay]').forEach(v => { if (v.isConnected) this.syncVid(v); }));
   }
   renderVals() {
     const g = this.state.goals;
@@ -457,7 +568,7 @@ class Component extends DCLogic {
       isMobile: mobile, isWeb: !mobile, narrow: this.state.narrow, wide: !this.state.narrow, menuOpen: this.state.menuOpen, menuClosed: !this.state.menuOpen, toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })), closeMenu: () => this.setState({ menuOpen: false }),
       frameSrc: location.pathname.split('/').pop() + '?frame=1',
       projects: data.map((p, i) => ({
-        ...p, hasVideo: !!(p.videos && p.videos.length), noVideo: !(p.videos && p.videos.length), vCols: (p.videos || []).length > 1 ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)', vAr: (p.videos || []).length === 3 ? 'auto' : (p.videos || []).length === 2 ? '9/8' : '4/3', vMaxH: (p.videos || []).length === 3 ? 'none' : '520px', videos: (p.videos || []).map((src, k, a) => ({ src, poster: this.posterOf(src), loadLabel: isID ? 'Memuat video…' : 'Loading video…', col: a.length === 3 && k === 0 ? '1 / -1' : 'auto', ar: a.length === 3 ? '16/9' : 'auto', showLabel: !(this.state.narrow && a.length > 1 && !(a.length === 3 && k === 0)), open: () => this.openPop(src), label: isID ? 'Lihat demo' : 'Watch demo' })), total: String(data.length).padStart(2, '0'), id: `p-${p.n}`, href: `#p-${p.n}`, dir: i % 2 ? 'row-reverse' : 'row',
+        ...p, ...this.pfVals(p, i, isID, `p-${p.n}`), total: String(data.length).padStart(2, '0'), id: `p-${p.n}`, href: `#p-${p.n}`, dir: i % 2 ? 'row-reverse' : 'row',
         barL: `${(p.days[0] / 45) * 100}%`, barW: `${((p.days[1] - p.days[0]) / 45) * 100}%`,
         on: g.includes(i), off: !g.includes(i),
         toggle: () => this.setState(s => ({ goals: s.goals.includes(i) ? s.goals.filter(x => x !== i) : [...s.goals, i].sort() }))
@@ -465,8 +576,8 @@ class Component extends DCLogic {
       ig: isID ? { tag: 'Instagram', title: 'Masih ada pertanyaan?', body: 'Hubungi saya juga lewat Instagram. Kirim DM untuk tanya apa saja, dari ide awal, harga, sampai sistem yang cocok untuk bisnis Anda.', cta: 'Kunjungi @creativelogy', follow: 'Ikuti', message: 'Kirim pesan', followers: 'pengikut', following: 'mengikuti', more: 'selengkapnya', view: 'Lihat profil' } : { tag: 'Instagram', title: 'Still have questions?', body: 'Reach out to me on Instagram too. Send a DM about anything, from a first idea and pricing to the right system for your business.', cta: 'Visit @creativelogy', follow: 'Follow', message: 'Message', followers: 'followers', following: 'following', more: 'more', view: 'View profile' },
       promo: isID ? { tag: 'Diskon multi-bisnis', title: 'Punya lebih dari satu bisnis?', body: 'Langganan sistem manajemen kami untuk 2 bisnis atau lebih dan dapatkan potongan harga hingga Rp 50rb / bulan per bisnis. Seluruh sistem manajemen kami juga sudah mendukung multi cabang.' } : { tag: 'Multi-business discount', title: 'Running more than one business?', body: 'Subscribe to our management system for 2 or more of your businesses and get a discount of up to Rp 50rb / month per business. All of our management systems also support multiple branches.' },
       selLabel: isID ? (sel.length ? `${sel.length} tujuan dipilih` : 'Pilih tujuan Anda agar kami bisa lebih memahami bisnis Anda') : (sel.length ? `${sel.length} goal${sel.length > 1 ? 's' : ''} selected` : 'Pick your goals so we can better understand your business'),
-      popOpen: !!this.state.pop, popSrc: this.state.pop || '', popPoster: this.posterOf(this.state.pop || ''), popLoadLabel: isID ? 'Memuat video…' : 'Loading video…', closePop: () => this.closePop(), stopProp: e => e.stopPropagation(), t, isID, isEN: !isID, setID: () => this.setLang('id'), setEN: () => this.setLang('en'),
-      setIDBg: isID ? '#0f1410' : 'transparent', setIDFg: isID ? '#eef4ea' : '#5d6459', setENBg: isID ? 'transparent' : '#0f1410', setENFg: isID ? '#5d6459' : '#eef4ea',
+      skipLabel: isID ? 'Langsung ke portofolio' : 'Skip to portfolio', isPaused: !!this.state.paused, isPlaying: !this.state.paused, togglePause: () => this.togglePause(), pauseLabel: this.state.paused ? (isID ? 'Putar pratinjau video' : 'Play video previews') : (isID ? 'Jeda pratinjau video' : 'Pause video previews'), popOpen: !!this.state.pop, popSrc: this.state.pop || '', popPoster: this.posterOf(this.state.pop || ''), popLoadLabel: isID ? 'Memuat video…' : 'Loading video…', closePop: () => this.closePop(), stopProp: e => e.stopPropagation(), t, isID, isEN: !isID, setID: () => this.setLang('id'), setEN: () => this.setLang('en'),
+      setIDBg: isID ? '#0f1410' : 'transparent', setIDFg: isID ? '#eef4ea' : '#454b42', setENBg: isID ? 'transparent' : '#0f1410', setENFg: isID ? '#454b42' : '#eef4ea',
       bundleWa: 'https://wa.me/628977887994?text=' + encodeURIComponent(isID ? 'Halo Omnify, saya tertarik dengan paket POS + IKM' : "Hi Omnify, I'm interested in the POS + IKM bundle"),
       waHref: `https://wa.me/628977887994?text=${encodeURIComponent(msg)}`
     };

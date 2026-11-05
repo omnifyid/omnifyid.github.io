@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./page-transition.js"></script>
+<script src="./subpages-data.js"></script>
+<script src="./subpages-data-2.js"></script>
+<script src="./subpages-data-3.js"></script>
+<script src="./subpages-data-4.js"></script>
+<style>
+body{margin:0;background:#FFFFFF;color:#141414;font-family:'Hanken Grotesk',system-ui,sans-serif;line-height:24px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+*{box-sizing:border-box}
+a{color:#5E4A1E;text-decoration:none}
+a:hover{color:#141414}
+:focus-visible{outline:2px solid #5E4A1E;outline-offset:4px}
+</style>
+</helmet>
+<div style="{{ rootStyle }}">
+
+<nav aria-label="Primary" ref="{{ navRef }}" onMouseLeave="{{ megaLeave }}" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));color:#FFFFFF;--na:#FFFFFF;--nm:#4A4A4A;--nb:rgba(255,255,255,.6);transition:transform .6s cubic-bezier(.2,.7,.2,1),background .4s,box-shadow .4s">
+  <a href="site.html" style="display:flex;align-items:center;min-height:44px;flex:none"><img src="assets/logo-white.svg" alt="Sanurhasta home" style="{{ logoW }}"><img src="assets/logo-color.svg" alt="" aria-hidden="true" style="{{ logoC }}"></a>
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;align-items:center;gap:round(clamp(16px,1.875vw,32px),4px)">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+        <a href="{{ n.href }}" onMouseEnter="{{ n.enter }}" onFocus="{{ n.enter }}" style="{{ n.style }}" style-hover="opacity:.75">{{ n.label }}<span style="{{ n.ul }}"></span></a>
+      </sc-for>
+      <div style="display:flex;align-items:center;gap:8px;padding-left:20px;border-left:1px solid var(--nb);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.08em">
+        <button onClick="{{ setID }}" style="{{ idBtn }}"><svg viewBox="0 0 3 2" preserveAspectRatio="none" aria-hidden="true" style="width:24px;height:16px;flex:none;display:block;border-radius:3px;box-shadow:0 0 0 1px rgba(20,20,20,.15)"><rect width="3" height="1" fill="#CE1126"></rect><rect y="1" width="3" height="1" fill="#FFFFFF"></rect></svg>ID</button>
+        <span style="color:var(--nb)">/</span>
+        <button onClick="{{ setEN }}" style="{{ enBtn }}"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="width:24px;height:16px;flex:none;display:block;border-radius:3px;box-shadow:0 0 0 1px rgba(20,20,20,.15)"><clipPath id="ukS2"><path d="M0,0 v30 h60 v-30 z"></path></clipPath><clipPath id="ukT2"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"></path></clipPath><g clip-path="url(#ukS2)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"></path><path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFFFFF" stroke-width="6"></path><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukT2)" stroke="#C8102E" stroke-width="4"></path><path d="M30,0 v30 M0,15 h60" stroke="#FFFFFF" stroke-width="10"></path><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"></path></g></svg>EN</button>
+      </div>
+    </div>
+    <div onMouseEnter="{{ megaKeep }}" style="{{ megaBox }}">
+      <div style="display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:round(clamp(32px,4vw,64px),4px);padding:round(clamp(32px,3vw,48px),4px)">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-weight:400;font-size:round(clamp(28px,3vw,48px),4px);line-height:calc(1em + 8px);letter-spacing:-.025em;color:#141414">{{ mega.title }}</span>
+          <span style="font-size:16px;line-height:24px;color:#4A4A4A">{{ mega.desc }}</span>
+          <div style="aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:#EFEAE0;margin-top:8px"><span style="{{ megaImgStyle }}"></span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));column-gap:40px;align-content:start">
+          <sc-for list="{{ mega.links }}" as="l" hint-placeholder-count="0">
+            <div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(20,20,20,.12)">
+              <a href="{{ l.href }}" onClick="{{ megaClose }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;font-size:16px;line-height:24px;color:#141414;transition:color .2s,padding .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#5E4A1E;padding-left:8px">{{ l.t }}<span style="color:#8A6A2A;font-size:16px;line-height:24px"><span aria-hidden="true">→</span></span></a>
+              <sc-if value="{{ l.hasSub }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:2px;padding:0 0 16px 16px;border-left:1px solid rgba(168,132,58,.4);margin:0 0 4px 2px">
+                  <sc-for list="{{ l.sub }}" as="s" hint-placeholder-count="0">
+                    <a href="{{ s.href }}" onClick="{{ megaClose }}" style="display:flex;align-items:center;min-height:44px;font-size:16px;line-height:24px;color:#4A4A4A;padding:0;transition:color .2s" style-hover="color:#5E4A1E">{{ s.t }}</a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;align-items:center;gap:12px">
+      <button onClick="{{ toggleLang }}" style="background:none;border:0;color:inherit;font:500 16px/24px 'Hanken Grotesk',sans-serif;letter-spacing:.06em;cursor:pointer;min-height:44px;min-width:44px">{{ lang }}</button>
+      <button onClick="{{ openMenu }}" style="background:none;border:1px solid var(--nb);color:inherit;border-radius:1000px;padding:12px 20px;font:500 16px/24px 'Hanken Grotesk',sans-serif;cursor:pointer">{{ t.menu }}</button>
+    </div>
+  </sc-if>
+</nav>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:60;background:#FFFFFF;overflow-y:auto;padding:24px 24px 48px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <img src="assets/logo-color.svg" alt="Sanurhasta" style="height:32px;width:auto">
+      <button onClick="{{ closeMenu }}" style="background:none;border:1px solid #141414;color:#141414;border-radius:1000px;padding:12px 20px;font:500 16px/24px 'Hanken Grotesk',sans-serif;cursor:pointer">{{ t.close }}</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:32px;margin-top:40px">
+      <sc-for list="{{ megas }}" as="c" hint-placeholder-count="0">
+        <div style="display:flex;flex-direction:column">
+          <span style="font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600;padding-bottom:8px">{{ c.title }}</span>
+          <sc-for list="{{ c.flat }}" as="l" hint-placeholder-count="0">
+            <a href="{{ l.href }}" onClick="{{ closeMenu }}" style="{{ l.style }}">{{ l.t }}</a>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+
+<header data-screen-label="Page Hero" style="position:relative;overflow:hidden;background:#141210;color:#FFFFFF;min-height:clamp(440px,52vh,600px);display:flex;flex-direction:column;justify-content:flex-end;padding:round(clamp(144px,14vw,200px),4px) max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) 0">
+  <span aria-hidden="true" style="{{ heroImg }}"></span>
+  <span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,10,8,.72) 0%,rgba(12,10,8,.5) 55%,rgba(12,10,8,.38) 100%),linear-gradient(0deg,rgba(12,10,8,.55) 0%,rgba(12,10,8,0) 55%)"></span>
+  <span aria-hidden="true" style="position:absolute;inset:0 0 auto 0;height:160px;background:linear-gradient(180deg,rgba(12,10,8,.5),rgba(12,10,8,0))"></span>
+  <div style="position:relative;display:flex;flex-wrap:wrap;align-items:stretch;gap:round(clamp(32px,4vw,64px),4px)">
+    <div style="flex:1 1 520px;display:flex;flex-direction:column;gap:24px;min-width:0;padding-bottom:round(clamp(48px,5vw,80px),4px)">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px;line-height:20px;color:#E8E2D6">
+        <a href="site.html" style="color:#E8E2D6" style-hover="color:#FFFFFF">{{ t.home }}</a><span aria-hidden="true" style="color:#D9C49A">/</span>
+        <a href="{{ catHref }}" style="color:#E8E2D6" style-hover="color:#FFFFFF">{{ catTitle }}</a>
+        <sc-if value="{{ hasParent }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="color:#D9C49A">/</span><a href="{{ parentHref }}" style="color:#E8E2D6" style-hover="color:#FFFFFF">{{ parentTitle }}</a></sc-if>
+      </div>
+      <h1 style="margin:0;font-weight:400;font-size:round(clamp(40px,5vw,76px),4px);line-height:calc(1em + 4px);letter-spacing:-.035em;max-width:920px;color:#FFFFFF;text-wrap:balance">{{ pageTitle }}</h1>
+      <sc-if value="{{ hasLead }}" hint-placeholder-val="{{ false }}"><p style="margin:0;max-width:720px;font-size:round(clamp(17px,1.5625vw,20px),4px);line-height:calc(1em + 11px);color:#EDE8DF;text-wrap:pretty">{{ lead }}</p></sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ isNR }}" hint-placeholder-val="{{ false }}">
+    <div role="tablist" aria-label="{{ nr.tabsLabel }}" style="position:relative;display:flex;gap:round(clamp(16px,2.5vw,40px),4px);overflow-x:auto;overflow-y:hidden;border-top:1px solid rgba(255,255,255,.22)">
+      <sc-for list="{{ nr.tabs }}" as="tb" hint-placeholder-count="3">
+        <button type="button" role="tab" aria-selected="{{ tb.on }}" onClick="{{ tb.pick }}" style="{{ tb.style }}" style-hover="color:#FFFFFF"><span>{{ tb.t }}</span><span style="{{ tb.nStyle }}">{{ tb.n }}</span></button>
+      </sc-for>
+    </div>
+  </sc-if>
+</header>
+
+<main data-screen-label="Page Body" style="flex:1;display:flex;flex-wrap:wrap;gap:round(clamp(40px,5vw,96px),4px);padding:round(clamp(56px,6vw,96px),4px) max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) round(clamp(80px,8vw,128px),4px);background:#FFFFFF;border-top:1px solid rgba(20,20,20,.08)">
+  <sc-if value="{{ showChips }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="{{ catTitle }}" style="flex:1 1 100%;min-width:0;margin:-16px calc(-1 * max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2))) 0;overflow-x:auto">
+      <div style="display:flex;gap:8px;width:max-content;padding:0 max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) 8px">
+        <sc-for list="{{ chips }}" as="s" hint-placeholder-count="6"><a href="{{ s.href }}" aria-current="{{ s.cur }}" style="{{ s.style }}">{{ s.t }}<sc-if value="{{ s.soon }}" hint-placeholder-val="{{ false }}"><span style="{{ s.chip }}">{{ t.soonChip }}</span></sc-if></a></sc-for>
+      </div>
+    </nav>
+  </sc-if>
+  <sc-if value="{{ showAside }}" hint-placeholder-val="{{ true }}">
+    <aside aria-label="{{ catTitle }}" style="flex:0 1 288px;min-width:248px">
+      <div style="position:sticky;top:112px;display:flex;flex-direction:column">
+        <span style="font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600;padding:0 0 16px">{{ catTitle }}</span>
+        <sc-for list="{{ side }}" as="s" hint-placeholder-count="8">
+          <a href="{{ s.href }}" aria-current="{{ s.cur }}" style="{{ s.style }}" style-hover="color:#5E4A1E"><span style="display:flex;align-items:center;gap:10px"><span style="{{ s.dot }}"></span>{{ s.t }}</span><sc-if value="{{ s.soon }}" hint-placeholder-val="{{ false }}"><span style="{{ s.chip }}">{{ t.soonChip }}</span></sc-if></a>
+        </sc-for>
+      </div>
+    </aside>
+  </sc-if>
+
+  <sc-if value="{{ isNR }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1 1 100%;min-width:0;display:flex;flex-direction:column;gap:round(clamp(40px,4vw,64px),4px)">
+
+
+      <sc-if value="{{ nr.tabAll }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:round(clamp(56px,6vw,96px),4px)">
+          <a href="{{ nr.lead.url }}" target="_blank" rel="noopener" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:round(clamp(28px,4vw,64px),4px);align-items:center;color:#141414" style-hover="color:#5E4A1E">
+            <div style="position:relative;aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#EFEAE0"><img src="{{ nr.lead.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+            <div style="display:flex;flex-direction:column;align-items:flex-start;gap:20px;max-width:620px">
+              <span style="font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#FFFFFF;background:#141414;padding:6px 14px;border-radius:1000px">{{ t.latest }}</span>
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600"><span style="color:#5E4A1E">{{ nr.cat }}</span><span aria-hidden="true" style="width:4px;height:4px;border-radius:50%;background:#8A6A2A"></span><time style="color:#4A4A4A">{{ nr.lead.date }}</time></div>
+              <h2 style="margin:0;font-weight:400;font-size:round(clamp(30px,3.4vw,48px),4px);line-height:calc(1em + 10px);letter-spacing:-.025em">{{ nr.lead.title }}</h2>
+              <sc-if value="{{ nr.lead.hasEx }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:18px;line-height:30px;color:#2A2A2A">{{ nr.lead.ex }}</p></sc-if>
+              <span style="font-size:16px;line-height:24px;font-weight:600;color:#5E4A1E">{{ nr.readMore }} ↗</span>
+            </div>
+          </a>
+
+          <div style="display:flex;flex-wrap:wrap;gap:round(clamp(40px,5vw,80px),4px);align-items:flex-start">
+            <section aria-labelledby="nr-more" style="flex:2 1 560px;min-width:0;display:flex;flex-direction:column">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:16px;border-bottom:2px solid #141414">
+                <h2 id="nr-more" style="margin:0;font-weight:400;font-size:round(clamp(26px,2.6vw,36px),4px);line-height:calc(1em + 8px);letter-spacing:-.025em">{{ nr.moreNews }}</h2>
+                <button type="button" onClick="{{ nr.toNews }}" style="background:none;border:0;padding:0 4px;min-height:44px;cursor:pointer;font:600 15px/22px 'Hanken Grotesk',sans-serif;color:#5E4A1E" style-hover="color:#141414">{{ nr.seeAll }} →</button>
+              </div>
+              <sc-for list="{{ nr.rest }}" as="n" hint-placeholder-count="3">
+                <a href="{{ n.url }}" target="_blank" rel="noopener" style="display:flex;flex-wrap:wrap;gap:20px 28px;padding:28px 0;border-bottom:1px solid rgba(20,20,20,.12);color:#141414" style-hover="color:#5E4A1E">
+                  <div style="position:relative;flex:0 0 200px;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#EFEAE0"><img src="{{ n.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+                  <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                    <time style="font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ n.date }}</time>
+                    <h3 style="margin:0;font-weight:400;font-size:22px;line-height:30px;letter-spacing:-.01em">{{ n.title }}</h3>
+                    <sc-if value="{{ n.hasEx }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:16px;line-height:26px;color:#3A3A3A;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden">{{ n.ex }}</p></sc-if>
+                  </div>
+                </a>
+              </sc-for>
+            </section>
+            <aside aria-labelledby="nr-ann-latest" style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:16px;border-bottom:2px solid #141414">
+                <h2 id="nr-ann-latest" style="margin:0;font-weight:400;font-size:round(clamp(26px,2.6vw,36px),4px);line-height:calc(1em + 8px);letter-spacing:-.025em">{{ nr.annLatest }}</h2>
+              </div>
+              <sc-for list="{{ nr.top }}" as="a" hint-placeholder-count="5">
+                <a href="{{ a.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:6px;padding:18px 0;border-top:1px solid rgba(20,20,20,.12);color:#141414" style-hover="color:#5E4A1E">
+                <span style="display:flex;justify-content:space-between;gap:12px;font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600"><span style="color:#5E4A1E">{{ a.type }}</span><span style="color:#4A4A4A;font-variant-numeric:tabular-nums">{{ a.year }}</span></span>
+                <span style="font-size:17px;line-height:26px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden">{{ a.title }}</span>
+              </a>
+              </sc-for>
+              <button type="button" onClick="{{ nr.toAnn }}" style="margin-top:16px;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 24px;border-radius:1000px;border:1px solid #141414;background:transparent;cursor:pointer;font:500 16px/24px 'Hanken Grotesk',sans-serif;color:#141414" style-hover="background:#141414;color:#FFFFFF">{{ nr.allAnn }} →</button>
+            </aside>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ nr.tabNews }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;max-width:1200px">
+          <sc-for list="{{ nr.news }}" as="n" hint-placeholder-count="4">
+            <article style="display:flex;flex-wrap:wrap;gap:24px 48px;padding:40px 0;border-bottom:1px solid rgba(20,20,20,.12)">
+              <a href="{{ n.url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="position:relative;flex:1 1 320px;max-width:480px;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#EFEAE0"><img src="{{ n.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></a>
+              <div style="flex:1.2 1 360px;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:14px;max-width:640px">
+                <div style="align-self:stretch;display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600"><span style="color:#5E4A1E">{{ nr.cat }}</span><span aria-hidden="true" style="width:4px;height:4px;border-radius:50%;background:#8A6A2A"></span><time style="color:#4A4A4A">{{ n.date }}</time></div>
+                <h2 style="margin:0;font-weight:400;font-size:round(clamp(24px,2.4vw,32px),4px);line-height:calc(1em + 10px);letter-spacing:-.02em"><a href="{{ n.url }}" target="_blank" rel="noopener" style="color:#141414" style-hover="color:#5E4A1E">{{ n.title }}</a></h2>
+                <sc-if value="{{ n.hasEx }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:17px;line-height:28px;color:#2A2A2A">{{ n.ex }}</p></sc-if>
+                <a href="{{ n.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:44px;font-size:16px;line-height:24px;font-weight:600;color:#5E4A1E" style-hover="color:#141414">{{ nr.readMore }} ↗</a>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ nr.tabAnn }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:24px;max-width:1200px">
+          <p style="margin:0;max-width:640px;font-size:17px;line-height:28px;color:#3A3A3A">{{ nr.annSub }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between">
+            <label style="flex:1 1 320px;max-width:480px;display:flex;align-items:center;gap:12px;min-height:52px;padding:0 20px;border:1px solid rgba(20,20,20,.3);border-radius:1000px;background:#FFFFFF"><span aria-hidden="true" style="font-size:18px;color:#4A4A4A">⌕</span><input type="search" value="{{ nr.q }}" onInput="{{ nr.onQ }}" placeholder="{{ nr.qPh }}" aria-label="{{ nr.qPh }}" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font:400 16px/24px 'Hanken Grotesk',sans-serif;color:#141414"></label>
+            <div role="group" aria-label="{{ nr.yearLabel }}" style="display:flex;flex-wrap:wrap;gap:4px">
+              <sc-for list="{{ nr.years }}" as="y" hint-placeholder-count="6"><button type="button" aria-pressed="{{ y.on }}" onClick="{{ y.pick }}" style="{{ y.style }}">{{ y.y }}</button></sc-for>
+            </div>
+          </div>
+          <span aria-live="polite" style="font-size:15px;line-height:22px;color:#4A4A4A">{{ nr.resLabel }}</span>
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{ nr.list }}" as="a" hint-placeholder-count="8">
+              <a href="{{ a.url }}" target="_blank" rel="noopener" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 32px;padding:20px 0;border-bottom:1px solid rgba(20,20,20,.12);color:#141414" style-hover="color:#5E4A1E">
+                <span style="flex:0 0 56px;font-size:15px;line-height:22px;font-variant-numeric:tabular-nums;color:#4A4A4A">{{ a.year }}</span>
+                <span style="flex:0 0 200px;font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:22px;color:#5E4A1E">{{ a.type }}</span>
+                <span style="flex:1 1 320px;min-width:0;font-size:18px;line-height:26px">{{ a.title }}</span>
+                <span style="flex:none;font-size:13px;line-height:22px;letter-spacing:.08em;font-weight:600;color:#141414">{{ a.ext }} ↗</span>
+              </a>
+            </sc-for>
+          </div>
+          <sc-if value="{{ nr.empty }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:32px 0;font-size:17px;line-height:28px;color:#3A3A3A">{{ nr.emptyLabel }}</p></sc-if>
+          <sc-if value="{{ nr.hasMore }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ nr.more }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 24px;border-radius:1000px;border:1px solid #141414;background:transparent;cursor:pointer;font:500 16px/24px 'Hanken Grotesk',sans-serif;color:#141414" style-hover="background:#141414;color:#FFFFFF">{{ nr.moreLabel }}</button></sc-if>
+        </div>
+      </sc-if>
+
+    </div>
+  </sc-if>
+
+  <div style="flex:1 1 560px;min-width:0;max-width:1080px;display:flex;flex-direction:column;gap:64px">
+
+    <sc-if value="{{ isSoon }}" hint-placeholder-val="{{ false }}">
+      <section style="position:relative;overflow:hidden;border-radius:24px;background:#F8F5EF;padding:round(clamp(40px,5vw,72px),4px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:40px;align-items:center">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:20px;position:relative">
+          <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#FFFFFF;background:var(--dp);padding:6px 14px;border-radius:1000px">{{ soonBadge }}</span><sc-if value="{{ isReg }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--dp);border:1px solid var(--dp);padding:5px 12px;border-radius:1000px">{{ regLabel }}</span></sc-if></div>
+          <h2 style="font-weight:400;font-size:round(clamp(28px,3vw,40px),4px);line-height:calc(1em + 8px);letter-spacing:-.025em;margin:0;color:#141414">{{ soonH }}</h2>
+          <p style="margin:0;max-width:520px;font-size:18px;line-height:28px;color:#2A2A2A">{{ soonP }}</p>
+          <a href="{{ mailto }}" style="display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:var(--dp);color:#FFFFFF;border-radius:1000px;font-size:16px;line-height:24px;font-weight:500" style-hover="background:#141414;color:#FFFFFF">{{ contact.email }}<span aria-hidden="true">→</span></a>
+        </div>
+        <div aria-hidden="true" style="display:flex;align-items:center;justify-content:center"><img src="assets/s-mark.svg" alt="" style="width:min(60%,220px);opacity:.12"></div>
+      </section>
+    </sc-if>
+
+    <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="0">
+      <div style="display:flex;flex-direction:column;gap:32px;min-width:0">
+
+        <sc-if value="{{ b.isProse }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:32px">
+            <div style="position:relative;padding-top:40px"><span aria-hidden="true" style="position:absolute;top:-24px;left:-6px;font-size:120px;line-height:120px;color:var(--sf);font-family:Georgia,serif">“</span><p style="position:relative;margin:0;font-size:round(clamp(22px,2.2vw,30px),4px);line-height:calc(1em + 12px);letter-spacing:-.015em;color:#141414;max-width:860px">{{ b.first }}</p></div>
+            <sc-if value="{{ b.hasRest }}" hint-placeholder-val="{{ false }}"><div style="column-width:340px;column-gap:48px;font-size:18px;line-height:30px;color:#2A2A2A"><sc-for list="{{ b.rest }}" as="p" hint-placeholder-count="0"><p style="margin:0 0 20px;break-inside:avoid">{{ p }}</p></sc-for></div></sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isFacts }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
+            <sc-for list="{{ b.items }}" as="f" hint-placeholder-count="0"><div style="{{ f.style }}"><span style="font-weight:300;font-size:round(clamp(44px,4.4vw,64px),4px);line-height:calc(1em + 4px);letter-spacing:-.04em;font-variant-numeric:tabular-nums">{{ f.v }}</span><span style="{{ f.lStyle }}">{{ f.l }}</span></div></sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isHeading }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ b.sec }}" hint-placeholder-val="{{ false }}">
+            <div id="{{ b.hid }}" style="display:flex;flex-direction:column;gap:16px;scroll-margin-top:120px">
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-top:32px;border-top:2px solid #8A6A2A"><h2 style="font-weight:600;font-size:round(clamp(28px,3vw,40px),4px);line-height:calc(1em + 8px);letter-spacing:-.02em;margin:0;text-wrap:balance">{{ b.t }}</h2><sc-if value="{{ b.isSoonSec }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;line-height:20px;font-weight:700;letter-spacing:.04em;color:#5E4A1E;background:#F8F5EF;padding:6px 14px;border-radius:1000px">{{ b.soonTxt }}</span></sc-if></div>
+              <sc-if value="{{ b.hasP }}" hint-placeholder-val="{{ false }}"><p style="margin:0;max-width:780px;font-size:18px;line-height:30px;color:#2A2A2A;text-wrap:pretty">{{ b.p }}</p></sc-if>
+            </div>
+          </sc-if>
+          <sc-if value="{{ b.plain }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-top:8px">
+              <h2 style="font-weight:400;font-size:round(clamp(28px,3vw,40px),4px);line-height:calc(1em + 8px);letter-spacing:-.025em;margin:0">{{ b.t }}</h2>
+              <sc-if value="{{ b.hasP }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;line-height:20px;letter-spacing:.06em;font-weight:500;color:#4A4A4A">{{ b.p }}</span></sc-if>
+            </div>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ b.isVM }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:20px">
+            <div style="display:flex;flex-direction:column;gap:24px;padding-top:28px;border-top:1px solid #8A6A2A;color:#141414"><span style="font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ t.vision }}</span><p style="position:relative;margin:0;font-size:round(clamp(24px,2.4vw,32px),4px);line-height:calc(1em + 12px);letter-spacing:-.015em">{{ b.vision }}</p></div>
+            <div style="display:flex;flex-direction:column;gap:20px;padding-top:28px;border-top:1px solid #8A6A2A"><span style="font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ t.mission }}</span><sc-for list="{{ b.mission }}" as="m" hint-placeholder-count="0"><div style="display:flex;gap:16px;align-items:flex-start"><span style="flex:none;width:32px;height:32px;border-radius:50%;background:#5E4A1E;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">{{ m.n }}</span><p style="margin:0;font-size:18px;line-height:28px;color:#2A2A2A">{{ m.t }}</p></div></sc-for></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isValues }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:16px">
+            <sc-for list="{{ b.items }}" as="v" hint-placeholder-count="0"><div style="{{ v.style }}" style-hover="transform:translateY(-4px)"><div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:24px;line-height:30px;letter-spacing:-.01em">{{ v.t }}</span><span style="{{ v.dStyle }}">{{ v.d }}</span></div></div></sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isTimeline }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:56px clamp(20px,4vw,56px)">
+            <ol style="{{ b.wrap }}">
+              <sc-for list="{{ b.rows }}" as="r" hint-placeholder-count="0">
+                <li style="{{ r.style }}">
+                  <sc-if value="{{ r.hasNext }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="{{ r.turnA }}"></span><span aria-hidden="true" style="{{ r.turnC }}"></span></sc-if>
+                  <sc-if value="{{ r.hasPrev }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="{{ r.turnB }}"></span><span aria-hidden="true" style="{{ r.turnArrow }}"></span></sc-if>
+                  <sc-for list="{{ r.items }}" as="m" hint-placeholder-count="0">
+                    <div style="display:flex;flex-direction:column;min-width:0">
+                      <div style="display:flex;align-items:center;height:64px">
+                        <span style="width:64px;height:64px;flex:none;border-radius:50%;background:#F3E8D2;display:flex;align-items:center;justify-content:center"><img src="{{ m.icon }}" alt="" style="width:28px;height:28px"></span>
+                        <sc-if value="{{ m.line }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="flex:1;display:flex;align-items:center;margin:0 16px"><span style="flex:1;height:2px;background:#C9A055"></span><span style="width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:10px solid #C9A055"></span></span></sc-if>
+                      </div>
+                      <span style="margin-top:28px;font-weight:400;font-size:clamp(44px,4.4vw,60px);line-height:1.1;letter-spacing:.02em;color:#8E6A2C;font-variant-numeric:tabular-nums">{{ m.y }}</span>
+                      <p style="margin:20px 0 0;padding-right:40px;font-size:17px;line-height:28px;color:#1F2A44;text-wrap:pretty">{{ m.t }}</p>
+                      <span aria-hidden="true" style="margin-top:24px;width:32px;height:2px;background:#C9A055"></span>
+                    </div>
+                  </sc-for>
+                </li>
+              </sc-for>
+            </ol>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isShare }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px;align-items:center;padding:0">
+            <div role="img" aria-label="{{ b.aria }}" style="position:relative;width:min(100%,340px);aspect-ratio:1;justify-self:center;border-radius:50%;background:{{ b.conic }}"><div style="position:absolute;inset:22%;border-radius:50%;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center"><img src="assets/s-mark.svg" alt="" style="height:40px;opacity:.8"><span style="font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#4A4A4A;padding:0 12px">{{ b.asOf }}</span></div></div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <sc-for list="{{ b.items }}" as="s" hint-placeholder-count="0">
+                <div style="display:flex;align-items:center;gap:16px;padding:20px 0;border-top:1px solid rgba(20,20,20,.12)"><span style="{{ s.sw }}"></span><div style="flex:1;display:flex;flex-direction:column;min-width:0"><span style="font-size:19px;line-height:26px">{{ s.name }}</span><sc-if value="{{ s.hasNote }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;line-height:20px;color:#4A4A4A">{{ s.note }}</span></sc-if></div><span style="font-weight:400;font-size:28px;line-height:34px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#141414">{{ s.pct }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isPeople }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:24px">
+            <sc-for list="{{ b.people }}" as="p" hint-placeholder-count="0">
+              <button onClick="{{ p.open }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;color:#141414;transition:transform .4s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);color:#5E4A1E">
+                <div style="position:relative;aspect-ratio:4/5;background:#EFEAE0;border-radius:24px;overflow:hidden"><span role="img" aria-label="{{ p.name }}" style="{{ p.ph }}"></span></div>
+                <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:20px 0 0"><span style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:20px;line-height:26px;letter-spacing:-.01em;color:#141414">{{ p.name }}</span><span style="display:flex;align-items:center;gap:10px;font-size:15px;line-height:22px;color:#4A4A4A;text-wrap:balance">{{ p.role }}</span></span><span style="flex:none;width:40px;height:40px;border-radius:50%;border:1px solid #8A6A2A;color:#141414;display:flex;align-items:center;justify-content:center" aria-hidden="true">→</span></div>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isMembers }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:24px">
+            <sc-for list="{{ b.items }}" as="p" hint-placeholder-count="0">
+              <div style="display:flex;flex-direction:column">
+                <div style="aspect-ratio:4/5;background:{{ p.bg }};border-radius:24px;overflow:hidden"><span role="img" aria-label="{{ p.name }}" style="{{ p.ph }}"></span></div>
+                <div style="display:flex;flex-direction:column;gap:6px;padding:20px 0 0"><span style="font-size:20px;line-height:26px;letter-spacing:-.01em">{{ p.name }}</span><span style="{{ p.roleStyle }}">{{ p.role }}</span></div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isProperty }}" hint-placeholder-val="{{ false }}">
+          <article style="{{ b.wrap }}">
+            <div style="position:relative;flex:1.3 1 420px;min-height:340px;border-radius:24px;overflow:hidden;background:#EFEAE0"><span role="img" aria-label="{{ b.name }}" style="{{ b.ph }}"></span><sc-if value="{{ b.hasImgNote }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:16px;bottom:16px;font:500 12px/16px ui-monospace,monospace;color:#FFFFFF;background:rgba(20,20,20,.7);padding:6px 10px;border-radius:8px">{{ b.imgNote }}</span></sc-if></div>
+            <div style="flex:1 1 320px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:round(clamp(8px,1.5vw,24px),4px) round(clamp(8px,2vw,32px),4px);color:#141414">
+              <div style="display:flex;flex-direction:column;gap:20px"><h2 style="font-weight:400;font-size:round(clamp(28px,3vw,40px),4px);line-height:calc(1em + 8px);letter-spacing:-.025em;margin:0">{{ b.name }}</h2><sc-for list="{{ b.paras }}" as="p" hint-placeholder-count="0"><p style="margin:0;font-size:17px;line-height:28px;opacity:.9">{{ p }}</p></sc-for></div>
+              <sc-if value="{{ b.hasUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ b.url }}" target="_blank" rel="noopener" style="{{ b.btn }}">{{ t.visit }}<span aria-hidden="true">↗</span></a></sc-if>
+            </div>
+          </article>
+        </sc-if>
+
+        <sc-if value="{{ b.isAwards }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:20px">
+            <sc-for list="{{ b.items }}" as="a" hint-placeholder-count="0">
+              <figure style="{{ a.style }}"><div style="flex:1;display:flex;align-items:center;justify-content:center;padding:20px;border-radius:24px;background:#F8F5EF"><span role="img" aria-label="{{ a.alt }}" style="{{ a.ph }}"></span></div><figcaption style="display:flex;justify-content:space-between;align-items:center"><span style="{{ a.yStyle }}">{{ a.y }}</span></figcaption></figure>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isGroup }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:center;padding:8px 0">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:32px 48px;border-radius:20px;background:var(--dp);color:#FFFFFF;text-align:center;width:min(100%,420px)"><img src="assets/logo-white.svg" alt="" style="height:28px;width:auto;margin-bottom:8px"><span style="font-size:24px;line-height:32px;font-weight:700;letter-spacing:0;text-wrap:balance">{{ b.top0 }}</span><span style="font-size:16px;line-height:22px;letter-spacing:.08em;color:#F0E2BF;font-weight:700">{{ b.top1 }}</span></div>
+            <div style="width:3px;height:28px;background:var(--ac)"></div>
+            <div style="{{ b.kidGrid }}">
+              <sc-for list="{{ b.kids }}" as="k" hint-placeholder-count="0">
+                <sc-if value="{{ k.isMid }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;min-width:0">
+                    <div style="height:28px;position:relative"><span style="position:absolute;left:0;right:0;top:0;height:3px;background:var(--ac)"></span></div>
+                    <div style="height:72px"></div>
+                    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px">
+                      <div style="position:relative;display:flex;justify-content:center;align-items:center;height:52px">
+                        <span style="position:absolute;left:0;right:10px;top:50%;height:3px;margin-top:-1.5px;background:var(--ac)"></span>
+                        <span style="position:absolute;right:0;top:50%;margin-top:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:12px solid var(--ac)"></span>
+                        <span aria-label="{{ b.lab }} {{ b.pab }}" style="position:relative;font-size:26px;line-height:32px;font-weight:700;color:var(--dp);background:#FFFFFF;border:2px solid var(--dp);padding:8px 20px;border-radius:1000px;font-variant-numeric:tabular-nums">{{ b.pab }}</span>
+                      </div>
+                      <span style="font-size:16px;line-height:22px;font-weight:600;color:#141414;text-align:center;text-wrap:balance;padding:0 8px">{{ b.lab }}</span>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ k.isKid }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;align-items:center;min-width:0">
+                  <div style="position:relative;width:100%;height:28px"><span style="{{ k.hLine }}"></span><span style="position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;background:var(--ac)"></span></div>
+                  <span aria-label="{{ k.lab }}" style="{{ k.pctStyle }}">{{ k.pct }}</span>
+                  <div style="width:3px;height:20px;background:var(--ac)"></div>
+                  <div style="{{ k.cardStyle }}">
+                    <span style="{{ k.tagStyle }}">{{ k.tag }}</span>
+                    <span style="font-size:24px;line-height:32px;font-weight:700;color:#141414;text-wrap:balance">{{ k.n }}</span>
+                    <span style="font-size:17px;line-height:24px;letter-spacing:.06em;font-weight:700;color:#2A2A2A">{{ k.c }}</span>
+                  </div>
+                </div>
+                </sc-if>
+              </sc-for>
+            </div>
+            <sc-if value="{{ b.one }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;margin-top:32px;padding:14px 22px;border-radius:16px;border:2px dashed var(--ac);font-size:19px;line-height:26px;font-weight:500;color:#141414;text-align:center"><span aria-hidden="true" style="color:var(--ac);font-size:22px;font-weight:700">⇄</span><span>{{ b.lab }}</span><span style="font-weight:700;color:var(--dp);font-variant-numeric:tabular-nums">{{ b.pab }}</span></div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isOrg }}" hint-placeholder-val="{{ false }}">
+          <div style="overflow-x:auto;margin:0 -4px;padding:4px">
+            <div style="min-width:960px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));row-gap:0">
+              <div style="grid-column:1 / 2;display:flex;align-items:center"><div style="display:flex;flex-direction:column;gap:8px;padding:18px 20px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(168,132,58,.4);min-width:0"><span style="font-size:15px;line-height:21px;font-weight:600;color:#5E4A1E">{{ b.ac }}</span><sc-for list="{{ b.acM }}" as="n" hint-placeholder-count="0"><span style="font-size:14px;line-height:20px;color:#2A2A2A">{{ n }}</span></sc-for></div><div style="flex:1;height:1px;background:var(--ac);min-width:16px"></div></div>
+              <div style="grid-column:2 / 4;display:flex;align-items:center"><div style="flex:1;height:1px;background:var(--ac);min-width:16px"></div><div style="flex:0 1 300px;display:flex;flex-direction:column;gap:12px;padding:22px 24px;border-radius:20px;background:var(--dp);color:#FFFFFF"><span style="font-size:15px;line-height:21px;font-weight:600;color:var(--sf)">Board of Commissioners</span><sc-for list="{{ b.boc }}" as="r" hint-placeholder-count="0"><div style="display:flex;flex-direction:column"><span style="font-size:12px;line-height:17px;color:#D8D0C2">{{ r.role }}</span><span style="font-size:16px;line-height:23px">{{ r.name }}</span></div></sc-for></div><div style="flex:1;height:1px;background:var(--ac);min-width:16px"></div></div>
+              <div style="grid-column:4 / 5;display:flex;align-items:center"><div style="flex:1;height:1px;background:var(--ac);min-width:16px"></div><div style="display:flex;flex-direction:column;gap:8px;padding:18px 20px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(168,132,58,.4);min-width:0"><span style="font-size:15px;line-height:21px;font-weight:600;color:#5E4A1E">{{ b.nrc }}</span></div></div>
+              <div style="grid-column:2 / 4"><div style="display:flex;justify-content:center"><div style="width:1px;height:36px;background:var(--ac)"></div></div></div>
+              <div style="grid-column:1 / 2;display:flex;align-items:center"><div style="display:flex;flex-direction:column;gap:8px;padding:18px 20px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(168,132,58,.4);min-width:0"><span style="font-size:15px;line-height:21px;font-weight:600;color:#5E4A1E">{{ b.ia }}</span><span style="font-size:14px;line-height:20px;color:#2A2A2A">{{ b.iaName }}</span></div><div style="flex:1;height:1px;background:var(--ac);min-width:16px"></div></div>
+              <div style="grid-column:2 / 4;display:flex;align-items:center"><div style="flex:1;height:1px;background:var(--ac);min-width:16px"></div><div style="flex:0 1 300px;display:flex;flex-direction:column;gap:12px;padding:22px 24px;border-radius:20px;background:var(--ac);color:#FFFFFF"><span style="font-size:15px;line-height:21px;font-weight:600;color:#F6EFE1">Board of Directors</span><sc-for list="{{ b.bod }}" as="r" hint-placeholder-count="0"><div style="display:flex;flex-direction:column"><span style="font-size:12px;line-height:17px;color:#F6EFE1">{{ r.role }}</span><span style="font-size:16px;line-height:23px">{{ r.name }}</span></div></sc-for></div><div style="flex:1;height:1px;background:var(--ac);min-width:16px"></div></div>
+              <div style="grid-column:4 / 5;display:flex;align-items:center"><div style="flex:1;height:1px;background:var(--ac);min-width:16px"></div></div>
+              <div style="grid-column:5 / 7;display:flex;align-items:stretch"><div style="flex:1;display:flex;align-items:center"><div style="flex:1;height:1px;background:var(--ac)"></div></div><div style="flex:0 1 240px;display:flex;flex-direction:column"><div style="flex:1"></div><div style="display:flex;flex-direction:column;gap:8px;padding:18px 20px;border-radius:16px;background:#FFFFFF;border:1px solid #8A6A2A"><span style="font-size:15px;line-height:21px;font-weight:600;color:#5E4A1E">{{ b.cs0 }}</span><span style="font-size:15px;line-height:22px;color:#141414">{{ b.cs1 }}</span></div><div style="flex:1;display:flex;justify-content:center"><div style="width:1px;background:var(--ac)"></div></div></div><div style="flex:1"></div></div>
+              <div style="grid-column:1 / 5"><div style="display:flex;flex-direction:column"><div style="display:flex;justify-content:center"><div style="width:1px;height:28px;background:var(--ac)"></div></div><div style="position:relative;height:1px"><div style="position:absolute;top:0;height:1px;background:var(--ac);left:calc(100% / 8);right:calc(100% / 8)"></div></div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr))"><sc-for list="{{ b.unitsBod }}" as="u" hint-placeholder-count="0"><div style="display:flex;flex-direction:column;padding:0 6px"><div style="display:flex;justify-content:center"><div style="width:1px;height:20px;background:var(--ac)"></div></div><div style="flex:1;display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:16px;background:var(--tn)"><span style="font-size:15px;line-height:21px;font-weight:600;color:#141414">{{ u.h }}</span><sc-for list="{{ u.items }}" as="i" hint-placeholder-count="0"><span style="font-size:13px;line-height:19px;color:#4A4A4A;padding-left:10px;border-left:1px solid rgba(168,132,58,.5)">{{ i }}</span></sc-for></div></div></sc-for></div></div></div>
+              <div style="grid-column:5 / 7"><div style="display:flex;flex-direction:column"><div style="display:flex;justify-content:center"><div style="width:1px;height:28px;background:var(--ac)"></div></div><div style="position:relative;height:1px"><div style="position:absolute;top:0;height:1px;background:var(--ac);left:calc(100% / 4);right:calc(100% / 4)"></div></div><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr))"><sc-for list="{{ b.unitsCs }}" as="u" hint-placeholder-count="0"><div style="display:flex;flex-direction:column;padding:0 6px"><div style="display:flex;justify-content:center"><div style="width:1px;height:20px;background:var(--ac)"></div></div><div style="flex:1;display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:16px;background:var(--tn)"><span style="font-size:15px;line-height:21px;font-weight:600;color:#141414">{{ u.h }}</span><sc-for list="{{ u.items }}" as="i" hint-placeholder-count="0"><span style="font-size:13px;line-height:19px;color:#4A4A4A;padding-left:10px;border-left:1px solid rgba(168,132,58,.5)">{{ i }}</span></sc-for></div></div></sc-for></div></div></div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isTable }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-if value="{{ b.hasSteps }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px;align-items:end;padding:round(clamp(24px,3vw,40px),4px);border-radius:24px;background:#FFFFFF;box-shadow:0 0 0 1px rgba(20,20,20,.1)">
+                <sc-for list="{{ b.steps }}" as="s" hint-placeholder-count="0">
+                  <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap"><span style="{{ s.tag }}">{{ s.k }}</span><sc-if value="{{ s.hasChg }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;line-height:22px;font-weight:700;color:#5E7A4C;font-variant-numeric:tabular-nums">↑ {{ s.chg }}</span></sc-if></div>
+                    <span style="font-size:17px;line-height:24px;font-weight:600;color:#2A2A2A">{{ s.d }}</span>
+                    <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:round(clamp(26px,2.6vw,34px),2px);line-height:1.15;font-weight:600;letter-spacing:-.02em;color:#141414;font-variant-numeric:tabular-nums">{{ s.num }}</span><span style="font-size:16px;line-height:22px;color:#4A4A4A">{{ s.unit }}</span></div>
+                    <div style="height:240px;display:flex;align-items:flex-end;border-bottom:2px solid #141414"><span style="{{ s.bar }}"></span></div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.hasSplit }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:24px;padding:round(clamp(24px,3vw,40px),4px);border-radius:24px;background:#FFFFFF;box-shadow:0 0 0 1px rgba(20,20,20,.1)">
+                <div role="img" aria-label="{{ b.splitLabel }}" style="display:flex;height:28px;border-radius:1000px;overflow:hidden;gap:3px"><sc-for list="{{ b.split }}" as="s" hint-placeholder-count="0"><span style="{{ s.seg }}"></span></sc-for></div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:20px 28px">
+                  <sc-for list="{{ b.split }}" as="s" hint-placeholder-count="0"><div style="display:flex;gap:12px;align-items:flex-start;min-width:0"><span style="{{ s.dot }}"></span><div style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:round(clamp(26px,2.6vw,34px),2px);line-height:1.15;font-weight:600;letter-spacing:-.02em;color:#141414;font-variant-numeric:tabular-nums">{{ s.pct }}</span><span style="font-size:17px;line-height:24px;font-weight:600;color:#141414">{{ s.name }}</span><sc-if value="{{ s.hasSub }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;line-height:21px;color:#4A4A4A">{{ s.sub }}</span></sc-if></div></div></sc-for>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.showTable }}" hint-placeholder-val="{{ true }}">
+            <div style="overflow-x:auto;border-radius:24px;background:#FFFFFF;box-shadow:0 0 0 1px rgba(20,20,20,.08)">
+              <table style="width:100%;min-width:640px;border-collapse:collapse;font-size:16px;line-height:24px">
+                <thead><tr><sc-for list="{{ b.cols }}" as="c" hint-placeholder-count="0"><th scope="col" style="{{ c.style }}">{{ c.t }}</th></sc-for></tr></thead>
+                <tbody>
+                  <sc-for list="{{ b.rows }}" as="r" hint-placeholder-count="0"><tr><sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="0"><td style="{{ c.style }}"><span style="display:block">{{ c.a }}</span><sc-if value="{{ c.hasB }}" hint-placeholder-val="{{ false }}"><span style="display:block;font-size:14px;line-height:20px;color:#4A4A4A">{{ c.b }}</span></sc-if></td></sc-for></tr></sc-for>
+                  <sc-if value="{{ b.hasTotal }}" hint-placeholder-val="{{ false }}"><tr><sc-for list="{{ b.total }}" as="c" hint-placeholder-count="0"><td style="{{ c.style }}">{{ c.a }}</td></sc-for></tr></sc-if>
+                </tbody>
+              </table>
+            </div>
+            </sc-if>
+            <sc-if value="{{ b.hasNote }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;line-height:22px;color:#4A4A4A">{{ b.note }}</span></sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isFin }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+              <sc-for list="{{ b.charts }}" as="c" hint-placeholder-count="0">
+                <div style="{{ c.card }}">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:15px;line-height:22px;font-weight:600">{{ c.label }}</span><span style="{{ c.vStyle }}">{{ c.latest }}</span></div>
+                  <div style="display:flex;align-items:flex-end;gap:10px;height:140px;border-bottom:1px solid rgba(20,20,20,.15)"><sc-for list="{{ c.bars }}" as="r" hint-placeholder-count="0"><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;height:100%"><span style="font-size:11px;line-height:14px;font-variant-numeric:tabular-nums;color:#4A4A4A">{{ r.v }}</span><span style="{{ r.style }}"></span></div></sc-for></div>
+                  <div style="display:flex;gap:10px"><sc-for list="{{ c.bars }}" as="r" hint-placeholder-count="0"><span style="flex:1;text-align:center;font-size:12px;line-height:16px;font-weight:600;color:#4A4A4A;font-variant-numeric:tabular-nums">{{ r.y }}</span></sc-for></div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="overflow-x:auto;border-radius:24px;background:#FFFFFF;box-shadow:0 0 0 1px rgba(20,20,20,.08)">
+              <table style="width:100%;min-width:720px;border-collapse:collapse;font-size:16px;line-height:24px;font-variant-numeric:tabular-nums">
+                <thead><tr><sc-for list="{{ b.cols }}" as="c" hint-placeholder-count="0"><th scope="col" style="{{ c.style }}">{{ c.t }}</th></sc-for></tr></thead>
+                <tbody><sc-for list="{{ b.rows }}" as="r" hint-placeholder-count="0"><tr><th scope="row" style="{{ r.lStyle }}">{{ r.l }}</th><sc-for list="{{ r.v }}" as="c" hint-placeholder-count="0"><td style="{{ c.style }}">{{ c.t }}</td></sc-for></tr></sc-for></tbody>
+              </table>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isDocs }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:24px">
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ b.rows }}" as="d" hint-placeholder-count="0">
+                <a href="{{ d.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:20px;padding:20px 8px;border-bottom:1px solid rgba(20,20,20,.16);color:#141414;text-decoration:none" style-hover="background:#F8F5EF">
+                  <span aria-hidden="true" style="{{ d.icon }}"><svg width="22" height="26" viewBox="0 0 22 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 1H3a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9z"></path><path d="M13 1v8h8"></path></svg><span style="font-size:11px;line-height:14px;font-weight:700;letter-spacing:.06em">{{ d.ext }}</span></span>
+                  <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px"><span style="font-size:19px;line-height:27px;font-weight:600;text-wrap:pretty">{{ d.title }}</span><sc-if value="{{ d.hasDate }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;line-height:22px;color:#4A4A4A;font-variant-numeric:tabular-nums">{{ d.date }}</span></sc-if></span>
+                  <span style="flex:none;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:1000px;border:2px solid #141414;font-size:16px;line-height:22px;font-weight:600">{{ b.dlLabel }}<span aria-hidden="true">↓</span></span>
+                </a>
+              </sc-for>
+            </div>
+            <sc-if value="{{ b.paged }}" hint-placeholder-val="{{ false }}">
+              <nav aria-label="Pagination" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+                <span style="font-size:16px;line-height:22px;color:#2A2A2A;font-variant-numeric:tabular-nums">{{ b.range }}</span>
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">
+                  <button type="button" onClick="{{ b.prev }}" disabled="{{ b.noPrev }}" aria-label="Previous page" style="{{ b.arrowStyle }}">←</button>
+                  <sc-for list="{{ b.pages }}" as="p" hint-placeholder-count="0"><button type="button" onClick="{{ p.go }}" aria-current="{{ p.cur }}" style="{{ p.style }}">{{ p.n }}</button></sc-for>
+                  <button type="button" onClick="{{ b.next }}" disabled="{{ b.noNext }}" aria-label="Next page" style="{{ b.arrowStyle2 }}">→</button>
+                </div>
+              </nav>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isDocYears }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:24px">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font-size:16px;line-height:22px;font-weight:600;color:#2A2A2A">{{ b.yearLabel }}</span>
+              <div role="tablist" style="display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid rgba(20,20,20,.12);scrollbar-width:thin">
+                <sc-for list="{{ b.years }}" as="y" hint-placeholder-count="0"><button role="tab" type="button" aria-selected="{{ y.on }}" onClick="{{ y.pick }}" style="{{ y.style }}" style-hover="color:#141414;background:#F8F5EF">{{ y.y }}<span style="{{ y.cStyle }}">{{ y.n }}</span></button></sc-for>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ b.rows }}" as="d" hint-placeholder-count="0">
+                <a href="{{ d.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:20px;padding:20px 8px;border-bottom:1px solid rgba(20,20,20,.16);color:#141414;text-decoration:none" style-hover="background:#F8F5EF">
+                  <span aria-hidden="true" style="{{ d.icon }}"><svg width="22" height="26" viewBox="0 0 22 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 1H3a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9z"></path><path d="M13 1v8h8"></path></svg><span style="font-size:11px;line-height:14px;font-weight:700;letter-spacing:.06em">{{ d.ext }}</span></span>
+                  <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px"><span style="font-size:19px;line-height:27px;font-weight:600;text-wrap:pretty">{{ d.title }}</span><sc-if value="{{ d.hasDate }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;line-height:22px;color:#4A4A4A;font-variant-numeric:tabular-nums">{{ d.date }}</span></sc-if></span>
+                  <span style="flex:none;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:1000px;border:2px solid #141414;font-size:16px;line-height:22px;font-weight:600">{{ b.dlLabel }}<span aria-hidden="true">↓</span></span>
+                </a>
+              </sc-for>
+            </div>
+            <sc-if value="{{ b.paged }}" hint-placeholder-val="{{ false }}">
+              <nav aria-label="Pagination" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+                <span style="font-size:16px;line-height:22px;color:#2A2A2A;font-variant-numeric:tabular-nums">{{ b.range }}</span>
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">
+                  <button type="button" onClick="{{ b.prev }}" disabled="{{ b.noPrev }}" aria-label="Previous page" style="{{ b.arrowStyle }}">←</button>
+                  <sc-for list="{{ b.pages }}" as="p" hint-placeholder-count="0"><button type="button" onClick="{{ p.go }}" aria-current="{{ p.cur }}" style="{{ p.style }}">{{ p.n }}</button></sc-for>
+                  <button type="button" onClick="{{ b.next }}" disabled="{{ b.noNext }}" aria-label="Next page" style="{{ b.arrowStyle2 }}">→</button>
+                </div>
+              </nav>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isPros }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
+            <sc-for list="{{ b.items }}" as="p" hint-placeholder-count="0">
+              <div style="{{ p.style }}">
+                <span style="{{ p.kStyle }}">{{ p.k }}</span>
+                <span style="font-size:28px;line-height:34px;letter-spacing:-.02em">{{ p.n }}</span>
+                <div style="display:flex;flex-direction:column;font-size:17px;line-height:26px;opacity:.9"><sc-for list="{{ p.addr }}" as="a" hint-placeholder-count="0"><span>{{ a }}</span></sc-for></div>
+                <div style="{{ p.telStyle }}"><sc-for list="{{ p.tel }}" as="a" hint-placeholder-count="0"><span>{{ a }}</span></sc-for></div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isNews }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px">
+            <sc-for list="{{ b.items }}" as="n" hint-placeholder-count="0">
+              <a href="{{ n.url }}" target="_blank" rel="noopener" style="{{ n.style }}" style-hover="transform:translateY(-4px)">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="{{ n.dStyle }}">{{ n.date }}</span><sc-if value="{{ n.first }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#FFFFFF;background:#5E4A1E;padding:4px 12px;border-radius:1000px">{{ t.latest }}</span></sc-if></div>
+                <span style="font-size:round(clamp(20px,1.875vw,24px),4px);line-height:calc(1em + 8px);letter-spacing:-.01em">{{ n.title }}</span>
+                <sc-if value="{{ n.hasEx }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;line-height:24px;opacity:.8">{{ n.ex }}</span></sc-if>
+                <span style="margin-top:auto;font-size:15px;line-height:22px;font-weight:600">{{ t.read }} →</span>
+              </a>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isContact }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+            <div style="position:relative;overflow:hidden;display:flex;flex-direction:column;gap:16px;padding:40px;border-radius:24px;background:#F8F5EF;color:#141414"><img src="assets/s-mark.svg" alt="" aria-hidden="true" style="position:absolute;right:-40px;bottom:-50px;height:220px;opacity:.06"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ t.address }}</span><span style="font-size:26px;line-height:32px;letter-spacing:-.01em">{{ contact.name }}</span><div style="display:flex;flex-direction:column;font-size:18px;line-height:28px;color:#2A2A2A"><sc-for list="{{ contact.addr }}" as="a" hint-placeholder-count="0"><span>{{ a }}</span></sc-for></div></div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <a href="{{ telHref }}" style="display:flex;flex-direction:column;gap:4px;padding:24px 28px;border-radius:24px;border:1px solid rgba(20,20,20,.12);color:#141414" style-hover="border-color:#8A6A2A;color:#141414"><span style="font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ t.phone }}</span><span style="font-size:24px;line-height:30px">{{ contact.phone }}</span></a>
+              <div style="display:flex;flex-direction:column;gap:4px;padding:24px 28px;border-radius:24px;border:1px solid rgba(20,20,20,.12)"><span style="font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ t.fax }}</span><span style="font-size:24px;line-height:30px">{{ contact.fax }}</span></div>
+              <a href="{{ mailto }}" style="display:flex;flex-direction:column;gap:4px;padding:24px 28px;border-radius:24px;border:1px solid rgba(20,20,20,.12);color:#141414" style-hover="border-color:#8A6A2A;color:#141414"><span style="font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#5E4A1E">Email</span><span style="font-size:24px;line-height:30px">{{ contact.email }}</span></a>
+            </div>
+          </div>
+        </sc-if>
+
+      </div>
+    </sc-for>
+
+    <nav aria-label="Pager" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;padding-top:24px">
+      <sc-if value="{{ hasPrev }}" hint-placeholder-val="{{ false }}"><a href="{{ prev.href }}" style="display:flex;flex-direction:column;gap:8px;padding:28px;border-radius:16px;border:1px solid rgba(20,20,20,.12);color:#141414" style-hover="border-color:#8A6A2A;color:#5E4A1E"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#4A4A4A">← {{ t.prev }}</span><span style="font-size:22px;line-height:28px;letter-spacing:-.01em">{{ prev.t }}</span></a></sc-if>
+      <sc-if value="{{ hasNext }}" hint-placeholder-val="{{ false }}"><a href="{{ next.href }}" style="display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:8px;padding:28px;border-radius:16px;border:1px solid rgba(20,20,20,.12);color:#141414;grid-column:-2" style-hover="border-color:#8A6A2A;color:#5E4A1E"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#4A4A4A">{{ t.next }} →</span><span style="font-size:22px;line-height:28px;letter-spacing:-.01em">{{ next.t }}</span></a></sc-if>
+    </nav>
+  </div>
+</main>
+
+<footer data-screen-label="Footer" style="background:#F8F5EF;color:#2A2A2A;padding:round(clamp(64px,6vw,96px),4px) max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) 32px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:40px">
+    <div style="display:flex;flex-direction:column;gap:16px"><img src="assets/logo-color.svg" alt="Sanurhasta" style="height:32px;width:auto;align-self:flex-start"><div style="display:flex;flex-direction:column;font-size:16px;line-height:24px;color:#4A4A4A"><span style="color:#141414;font-weight:500">{{ contact.name }}</span><sc-for list="{{ contact.addr }}" as="a" hint-placeholder-count="4"><span>{{ a }}</span></sc-for></div></div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:24px"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#5E4A1E;padding-bottom:8px">{{ t.contactH }}</span><a href="{{ telHref }}" style="color:#141414">{{ t.phone }}: {{ contact.phone }}</a><span style="color:#4A4A4A">{{ t.fax }}: {{ contact.fax }}</span><a href="{{ mailto }}" style="color:#141414">{{ contact.email }}</a></div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:24px"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#5E4A1E;padding-bottom:8px">{{ t.links }}</span><sc-for list="{{ footLinks }}" as="l" hint-placeholder-count="5"><a href="{{ l.href }}" style="color:#141414" style-hover="color:#5E4A1E">{{ l.t }}</a></sc-for></div>
+    <div style="display:flex;flex-direction:column;gap:16px"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ t.listed }}</span><div style="display:flex;gap:16px;align-items:center"><span style="background:#FFFFFF;border-radius:12px;padding:10px 14px;display:flex"><img src="https://sanurhastamitra.com/wp-content/uploads/2023/01/idx_new_logo-1.png" alt="Bursa Efek Indonesia" style="height:32px;width:auto;display:block"></span><span style="background:#FFFFFF;border-radius:12px;padding:10px 14px;display:flex"><img src="https://sanurhastamitra.com/wp-content/uploads/2023/01/ojk_new_logo-1.png" alt="Otoritas Jasa Keuangan" style="height:32px;width:auto;display:block"></span></div></div>
+  </div>
+  <div style="margin-top:64px;padding-top:24px;border-top:1px solid rgba(20,20,20,.12);font-size:14px;line-height:20px;color:#4A4A4A">© 2026 PT Sanurhasta Mitra Tbk.</div>
+</footer>
+
+<sc-if value="{{ personOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="{{ person.name }}" style="position:fixed;inset:0;z-index:80;display:flex;justify-content:flex-end">
+    <div onClick="{{ closePerson }}" style="position:absolute;inset:0;background:rgba(20,18,14,.5)"></div>
+    <div style="position:relative;width:min(720px,100%);height:100%;overflow-y:auto;background:#FFFFFF;padding:round(clamp(28px,4vw,56px),4px);display:flex;flex-direction:column;gap:32px">
+      <button onClick="{{ closePerson }}" style="align-self:flex-end;background:none;border:1px solid #141414;color:#141414;border-radius:1000px;padding:10px 20px;font:500 16px/24px 'Hanken Grotesk',sans-serif;cursor:pointer">{{ t.close }}</button>
+      <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end"><div style="width:180px;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:#EFEAE0;flex:none"><span style="{{ person.ph }}"></span></div><div style="display:flex;flex-direction:column;gap:8px;flex:1 1 260px"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ person.role }}</span><h2 style="margin:0;font-weight:400;font-size:round(clamp(32px,3.5vw,44px),4px);line-height:calc(1em + 4px);letter-spacing:-.03em">{{ person.name }}</h2></div></div>
+      <div style="display:flex;flex-direction:column;gap:16px"><sc-for list="{{ person.bio }}" as="p" hint-placeholder-count="0"><p style="margin:0;font-size:17px;line-height:28px;color:#2A2A2A">{{ p }}</p></sc-for></div>
+      <sc-for list="{{ person.lists }}" as="l" hint-placeholder-count="0"><div style="display:flex;flex-direction:column"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#5E4A1E;padding-bottom:12px">{{ l.h }}</span><sc-for list="{{ l.items }}" as="i" hint-placeholder-count="0"><span style="padding:12px 0;border-top:1px solid rgba(20,20,20,.1);font-size:16px;line-height:24px;color:#2A2A2A">{{ i }}</span></sc-for></div></sc-for>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { slug: null, mega: null, menuOpen: false, person: null, vw: window.innerWidth, year: null, scrolled: false,
+    lang: (() => { try { return localStorage.getItem('sh-lang') || 'EN'; } catch (e) { return 'EN'; } })() };
+  navRef = React.createRef();
+  annRef = React.createRef();
+  newsroom(F, EN, t, slug) {
+    const U = 'https://sanurhastamitra.com/wp-content/uploads/', W = 'https://sanurhastamitra.com/';
+    const ID_ = [
+      ['5 Februari 2026', 'Siaran Pers PT Sanurhasta Mitra Tbk (“Perusahaan”)', '', W + 'press-release-pt-sanurhasta-mitra-tbk-company/'],
+      ['25 November 2025', 'Sanurhasta Mitra TBK (MINA) Menunjuk LAB Architecture Untuk Memimpin Pengembangan Visi Proyek Sanur Seluas 4 Hektar', 'PT Sanurhasta Mitra Tbk, yang diperdagangkan dengan kode saham MINA di Bursa Efek Indonesia, dengan bangga mengumumkan penunjukan LAB Architecture (Local Architecture Bureau) sebagai mitra utama dalam perencanaan arsitektur dan interior untuk pengembangan visioner atas lahan seluas 4 hektar milik perseroan di Sanur, Bali.', W + 'sanurhasta-mitra-tbk-mina-menunjuk-lab-architecture-untuk-memimpin-pengembangan-visi-proyek-sanur-seluas-4-hektar/'],
+      ['31 Maret 2025', 'The Santai – Umalas Raih Sertifikasi Green Globe', 'PT Sanurhasta Mitra Tbk. (MINA) dengan bangga mengumumkan bahwa The Santai – Umalas, resort vila mewah unggulan di Bali, secara resmi telah menerima Sertifikasi Green Globe pertamanya – sebuah standar prestisius dalam pariwisata berkelanjutan tingkat global.', W + 'the-santai-umalas-raih-sertifikasi-green-globe/'],
+      ['1 November 2020', 'The Santai Certified A Safe Hotel', 'The Santai, bagian dari Lifestyle Retreats, dengan bangga mengumumkan bahwa hotel ini telah secara resmi disertifikasi sebagai Hotel yang Memenuhi Standar Kawasan Baru.', W + 'the-santai-certified-a-safe-hotel/']];
+    const EN_ = [
+      ['February 5, 2026', 'Press Release PT Sanurhasta Mitra Tbk (“Company”)', '', W + 'en/press-release-pt-sanurhasta-mitra-tbk-company/'],
+      ['November 25, 2025', 'Sanurhasta Mitra TBK (MINA) Appoints LAB Architecture To Lead The Visionary 4 – Hectare Sanur Development', 'P.T. Sanurhasta Mitra Tbk, trading as MINA on the Indonesia Stock Exchange is proud to share the recent appointment of LAB Architecture (Local Architecture Bureau) as its lead architectural and interior partner for the visionary development of the company’s 4 hectares land bank in Sanur, Bali.', W + 'en/sanurhasta-mitra-tbk-mina-appoints-lab-architecture-to-lead-the-visionary-4-hectare-sanur-development/'],
+      ['March 31, 2025', 'The Santai – Umalas Achieves Green Globe Certification', 'PT Sanurhasta Mitra Tbk. (MINA) is pleased to announce that The Santai – Umalas, its flagship luxury villa resort in Bali, has officially received its inaugural Green Globe certification – a prestigious benchmark in global sustainable tourism.', W + 'en/the-santai-umalas-achieves-green-globe-certification/'],
+      ['November 1, 2020', 'The Santai Certified A Safe Hotel', 'The Santai, member of Lifestyle Retreats, is delighted to announce that it has been officially certified as a New Area Compliant Hotel.', W + 'en/the-santai-certified-a-safe-hotel/']];
+    const imgs = ['assets/web/berita-media.jpg', 'assets/web/land-bank-01-coastal-development-parcel.jpg', 'assets/web/villa-01-tropical-pool-residence.jpg', 'assets/web/hotel-01-beachfront-resort.jpg'];
+    const news = (EN ? EN_ : ID_).map((n, i) => ({ date: n[0], title: n[1], ex: n[2], hasEx: !!n[2], url: n[3], img: imgs[i] }));
+    const rp = F.find(x => x.p.slug === 'rups');
+    const groups = ((rp && rp.p.blocks || []).find(b => b.groups) || { groups: [] }).groups;
+    const TY = [[/^(iklan koran )?pengumuman/i, 'Pengumuman', 'Announcement'], [/^(pemanggilan|panggilan)/i, 'Pemanggilan RUPS', 'Notice of GMS'], [/(hasil|risalah)/i, 'Hasil RUPS', 'GMS Results'], [/^keterbukaan/i, 'Keterbukaan Informasi', 'Disclosure']];
+    const all = [];
+    groups.forEach(g => g[1].forEach(d => { const ty = TY.find(x => x[0].test(d[0])); if (!ty) return; const raw = d.length > 2 ? d[2] : d[1]; const url = /^https?:/.test(raw) ? raw : U + raw; all.push({ year: g[0], title: d[0], url, type: EN ? ty[2] : ty[1], ext: ((/\.(pdf|docx?)(\?|$)/i.exec(url) || [, 'pdf'])[1]).toUpperCase() }); }));
+    const ys = [...new Set(all.map(a => a.year))];
+    const ySel = this.state.annYear || 'all', q = this.state.annQ || '';
+    const filt = all.filter(a => (ySel === 'all' || a.year === ySel) && (!q || a.title.toLowerCase().includes(q.toLowerCase())));
+    const lim = this.state.annAll ? filt.length : 12;
+    const tab = (this.state.nrTabSlug === slug && this.state.nrTab) || (slug === 'pengumuman' ? 'ann' : 'all');
+    const go = k => { this.setState({ nrTab: k, nrTabSlug: slug }); const top = this.navRef.current ? 0 : 0; const el = document.querySelector('main'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); };
+    const chip = on => ({ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '8px 16px', borderRadius: '1000px', cursor: 'pointer', border: 0, font: "500 16px/24px 'Hanken Grotesk',sans-serif", fontVariantNumeric: 'tabular-nums', background: on ? '#141414' : 'transparent', color: on ? '#FFFFFF' : '#141414' });
+    const L = EN ? { all: 'All', news: 'News', ann: 'Announcements & Publications' } : { all: 'Semua', news: 'Berita', ann: 'Pengumuman & Publikasi' };
+    const tabs = [['all', L.all, news.length + all.length], ['news', L.news, news.length], ['ann', L.ann, all.length]].map(([k, l, n]) => { const on = tab === k; return { t: l, n, on: on ? 'true' : 'false', pick: () => this.setState({ nrTab: k, nrTabSlug: slug }),
+      style: { flex: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px', minHeight: '64px', padding: '0 2px', background: 'none', border: 0, borderTop: on ? '2px solid #FFFFFF' : '2px solid transparent', marginTop: '-1px', cursor: 'pointer', font: (on ? 600 : 500) + " 17px/24px 'Hanken Grotesk',sans-serif", color: on ? '#FFFFFF' : '#E0DBD2' },
+      nStyle: { fontSize: '12px', lineHeight: '16px', fontWeight: 600, fontVariantNumeric: 'tabular-nums', padding: '3px 9px', borderRadius: '1000px', background: on ? '#FFFFFF' : 'rgba(255,255,255,.16)', color: on ? '#141414' : '#FFFFFF' } }; });
+    return {
+      tabs, tabAll: tab === 'all', tabNews: tab === 'news', tabAnn: tab === 'ann', tabsLabel: EN ? 'News & Media sections' : 'Bagian Berita & Media',
+      lead: news[0] || {}, rest: news.slice(1), news, top: all.slice(0, 5), list: filt.slice(0, lim), hasMore: filt.length > lim, empty: filt.length === 0,
+      more: () => this.setState({ annAll: true }), moreLabel: (EN ? 'Show all ' : 'Tampilkan semua ') + filt.length,
+      years: [['all', L.all], ...ys.map(y => [y, y])].map(([k, l]) => ({ y: l, on: ySel === k ? 'true' : 'false', style: chip(ySel === k), pick: () => this.setState({ annYear: k, annAll: false }) })),
+      q, onQ: e => this.setState({ annQ: e.target.value, annAll: false }), qPh: EN ? 'Search announcements' : 'Cari pengumuman',
+      resLabel: filt.length + (EN ? ' documents' : ' dokumen'), emptyLabel: EN ? 'No announcements match your search.' : 'Tidak ada pengumuman yang sesuai dengan pencarian.',
+      toNews: () => go('news'), toAnn: () => go('ann'),
+      cat: L.news, readMore: EN ? 'Read more' : 'Selengkapnya', moreNews: EN ? 'More news' : 'Berita lainnya', seeAll: EN ? 'View all' : 'Lihat semua',
+      annLatest: EN ? 'Latest announcements' : 'Pengumuman terbaru', allAnn: EN ? 'All announcements' : 'Semua pengumuman',
+      annSub: EN ? 'Official notices and disclosures to shareholders, including General Meeting of Shareholders documents.' : 'Pemberitahuan resmi dan keterbukaan informasi kepada pemegang saham, termasuk dokumen Rapat Umum Pemegang Saham.',
+      yearLabel: EN ? 'Filter by year' : 'Filter tahun'
+    };
+  }
+  EN = {
+    cats: [['About Us', 'Our profile, structure, and leadership'], ['Our Business', 'Our core business lines'], ['Investor Relations', 'Investor data and capital market disclosures'], ['Corporate Governance', 'Governance policies and compliance'], ['Sustainability', 'ESG and sustainability reporting'], ['News & Media', 'Publications and latest updates'], ['Contact', 'Official communication channels']],
+    nav: ['About Us', 'Our Business', 'Investor Relations', 'Governance (GCG)', 'Sustainability', 'News & Media', 'Contact'],
+    pages: { 'profil-perusahaan': 'Company Profile', 'visi-misi': 'Vision & Mission', 'milestone': 'Milestones', 'struktur-organisasi': 'Organizational Structure', 'pemegang-saham': 'Shareholders', 'struktur-perusahaan': 'Ownership Structure & Group Companies', 'dewan-komisaris': 'Board of Commissioners', 'direksi': 'Board of Directors', 'sekretaris-perusahaan': 'Corporate Secretary', 'penghargaan': 'Awards & Achievements', 'perhotelan': 'Hospitality', 'pengembangan-properti': 'Property Development', 'perbankan-tanah': 'Land Banking', 'ikhtisar-keuangan': 'Financial Highlights', 'laporan-tahunan': 'Annual Reports', 'laporan-keuangan': 'Financial Statements', 'prospektus': 'Public Offering Prospectus', 'informasi-saham': 'Share Information', 'informasi-dividen': 'Dividend Information', 'rups': 'General Meeting of Shareholders (GMS)', 'rups-pengumuman': 'Announcements & Notices', 'rups-materi': 'Agenda Materials', 'rups-tata-tertib': 'GMS Rules of Conduct', 'rups-surat-kuasa': 'Power of Attorney', 'rups-risalah': 'Summary of GMS Minutes', 'keterbukaan-informasi': 'Corporate Actions / Disclosures', 'kalender-investor': 'Investor Calendar', 'kontak-ir': 'Investor Relations Contact', 'board-manual': 'Board Manual', 'piagam-dekom': 'Board of Commissioners Charter', 'piagam-direksi': 'Board of Directors Charter', 'piagam-audit': 'Internal Audit Charter', 'kode-etik': 'Code of Conduct', 'komite': 'Committees', 'komite-audit': 'Audit Committee', 'komite-nomrem': 'Nomination & Remuneration Committee', 'piagam-komite': 'Committee Charters', 'manajemen-risiko': 'Risk Management Policy', 'wbs': 'Whistleblowing System', 'antikorupsi': 'Anti-Corruption Policy', 'profesi-penunjang': 'Capital Market Supporting Professionals', 'anggaran-dasar': 'Articles of Association', 'laporan-keberlanjutan': 'Sustainability Reports', 'kebijakan-lst': 'ESG Policy', 'program-lingkungan': 'Environmental Programs', 'program-sosial': 'Social & Employment Programs', 'siaran-pers': 'Press Releases', 'pengumuman': 'Announcements & Publications', 'kantor-pusat': 'Head Office', 'peta-lokasi': 'Location Map', 'formulir-investor': 'Investor Inquiry Form' }
+  };
+  T = {
+    ID: { menu: 'Menu', close: 'Tutup', home: 'Beranda', soonChip: 'Segera', soonBadge: 'Segera Hadir', soonH: 'Konten sedang disiapkan.', soonP: 'Informasi {x} akan tersedia di halaman ini. Untuk pertanyaan sementara, silakan hubungi Sekretaris Perusahaan.', updBadge: 'Sedang Diperbarui', updH: 'Konten sedang diperbarui.', updP: 'Informasi {x} sedang diperbarui dan akan segera ditampilkan di halaman ini.', reg: 'Wajib', vision: 'Visi', mission: 'Misi', viewProfile: 'Lihat profil', visit: 'Kunjungi Website', address: 'Alamat', touch: 'Hubungi Kami', phone: 'Telepon', fax: 'Faks', prev: 'Sebelumnya', next: 'Berikutnya', contactH: 'Kontak', links: 'Tautan', listed: 'Tercatat & Diawasi', foot: ['Kontak', 'Berita', 'Penghargaan dan Pencapaian', 'Rapat Umum Pemegang Saham (RUPS)', 'Privacy Policy'], comA: 'Komite Audit', comN: 'Komite Nominasi & Remunerasi', latest: 'Terbaru', read: 'Baca selengkapnya' },
+    EN: { menu: 'Menu', close: 'Close', home: 'Home', soonChip: 'Soon', soonBadge: 'Coming Soon', soonH: 'Content is being prepared.', soonP: '{x} information will be available on this page. For enquiries in the meantime, please contact the Corporate Secretary.', updBadge: 'Updating', updH: 'Content is being updated.', updP: '{x} information is being updated and will be shown on this page shortly.', reg: 'Required', vision: 'Vision', mission: 'Mission', viewProfile: 'View profile', visit: 'Visit Website', address: 'Address', touch: 'Get in Touch', phone: 'Phone', fax: 'Fax', prev: 'Previous', next: 'Next', contactH: 'Contact', links: 'Links', listed: 'Listed & Supervised', foot: ['Contact', 'News', 'Awards & Achievements', 'General Meeting of Shareholders (GMS)', 'Privacy Policy'], comA: 'Audit Committee', comN: 'Nomination & Remuneration Committee', latest: 'Latest', read: 'Read more' }
+  };
+  componentDidMount() {
+    this.onHash = () => { const sl = this.readHash(), R = this.data(), x = R && R.F.find(y => y.p.slug === sl), ox = R && R.F.find(y => y.p.slug === this.state.slug);
+      const par = e => e && (e.depth ? e.parent : e.p); const same = x && ox && par(x) === par(ox);
+      if (!same) window.scrollTo(0, 0);
+      this.setState({ slug: sl, mega: null, person: null, year: null, menuOpen: false }, () => this.toAnchor(same ? 'smooth' : 'auto', !same)); };
+    window.addEventListener('hashchange', this.onHash);
+    this.onResize = () => this.setState({ vw: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ person: null, mega: null, menuOpen: false }); };
+    window.addEventListener('keydown', this.onKey);
+    this.lastY = window.scrollY;
+    this.onScroll = () => { const y = window.scrollY, nav = this.navRef.current; if (nav) { const hide = y > this.lastY + 3 && y > 240 && this.state.mega === null; if (hide) nav.style.transform = 'translateY(-110%)'; else if (y < this.lastY - 3 || y < 240) nav.style.transform = 'translateY(0)'; } this.lastY = y; if ((y > 40) !== this.state.scrolled) this.setState({ scrolled: y > 40 }); if (this.state.mega !== null) this.setState({ mega: null }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    if (!window.SH_DATA) this.poll = setInterval(() => { if (window.SH_DATA) { clearInterval(this.poll); this.forceUpdate(); } }, 50);
+    document.documentElement.lang = this.state.lang.toLowerCase();
+    this.setState({ slug: this.readHash() }, () => setTimeout(() => this.toAnchor('auto'), 300));
+  }
+  componentDidUpdate() { if (this._lastLang !== this.state.lang) { this._lastLang = this.state.lang; document.documentElement.lang = this.state.lang.toLowerCase(); } }
+  componentWillUnmount() { ['hashchange', 'resize', 'keydown', 'scroll'].forEach((e, i) => window.removeEventListener(e, [this.onHash, this.onResize, this.onKey, this.onScroll][i])); clearInterval(this.poll); clearTimeout(this.megaT); }
+  toAnchor(behavior, top) { requestAnimationFrame(() => { const el = document.getElementById('sec-' + this.state.slug); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 120, behavior }); else if (!top && behavior === 'smooth') window.scrollTo({ top: 0, behavior }); }); }
+  readHash() { return (location.hash || '').replace(/^#\/?/, '') || 'profil-perusahaan'; }
+  setLang(l) { try { localStorage.setItem('sh-lang', l); } catch (e) {} this.setState({ lang: l }); }
+  data() {
+    if (this._D) return this._D;
+    const D = window.SH_DATA; if (!D) return null;
+    const P = window.SH_PATCH || {};
+    const F = [];
+    D.cats.forEach((c, ci) => c.pages.forEach(p => { F.push({ p, c, ci, parent: null, depth: 0 }); (p.children || []).forEach(ch => F.push({ p: ch, c, ci, parent: p, depth: 1 })); }));
+    F.forEach(x => { const pt = P[x.p.slug]; if (pt) Object.assign(x.p, pt); });
+    const pg = F.find(x => x.p.slug === 'pengumuman'); if (pg) pg.p.status = 'live';
+    F.filter(x => !x.depth && x.p.children && x.p.children.length).forEach(x => { const par = x.p;
+      const mk = en => par.children.flatMap(ch => { const c = (en && ch.en && ch.en.blocks) ? ch.en : ch; const bl = (ch.status === 'live' && c.blocks) || [];
+        const live = bl.some(b => b.type !== 'docyears' || (b.groups && b.groups.length));
+        return [{ type: 'heading', sl: ch.slug, p: (en && ch.en && ch.en.lead) || ch.lead || '', soon: !live }, ...(live ? bl : [])]; });
+      par.status = 'live'; par.lead = par.lead || ''; par.blocks = mk(false); par.en = { ...(par.en || {}), lead: (par.en && par.en.lead) || '', blocks: mk(true) }; });
+    return (this._D = { D, F });
+  }
+  renderVals() {
+    const R = this.data();
+    const lang = this.state.lang, EN = lang === 'EN', t = this.T[lang];
+    const btn = on => ({ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'none', border: 0, minHeight: '44px', padding: '0 4px', cursor: 'pointer', font: 'inherit', letterSpacing: 'inherit', color: on ? 'var(--na)' : 'var(--nm)', borderBottom: on ? '1px solid var(--na)' : '1px solid transparent' });
+    const base = { t, lang, logoW: { display: 'none' }, logoC: { height: '32px', width: 'auto', display: 'block' }, navRef: this.navRef, idBtn: btn(!EN), enBtn: btn(EN), setID: () => this.setLang('ID'), setEN: () => this.setLang('EN'), toggleLang: () => this.setLang(EN ? 'ID' : 'EN'), wide: this.state.vw >= 1440, narrow: this.state.vw < 1440 };
+    if (!R) return { ...base, rootStyle: { position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', '--dp': '#3B2F17', '--ac': '#8A6A2A', '--tn': '#F6EFE1', '--sf': '#E6D3A3' }, navItems: [], megas: [], blocks: [], side: [], chips: [], contact: { addr: [] }, mega: { links: [] }, footLinks: [], person: { bio: [], lists: [] } };
+    const { D, F } = R;
+    let cur = F.find(x => x.p.slug === this.state.slug) || F[0];
+    const act = cur; if (cur.depth) cur = F.find(x => x.p === cur.parent) || cur;
+    const { p: page, c: cat } = cur;
+    const idx = F.indexOf(cur);
+    const H = s => '#/' + s;
+    const TT = p => (EN && this.EN.pages[p.slug]) || (EN && p.en && p.en.title) || (!EN && p.title) || p.title;
+    const CT = ci => EN ? this.EN.cats[ci][0] : D.cats[ci].title;
+    const content = (EN && page.en) ? page.en : page;
+    const pageTitle = (page.slug === 'siaran-pers' || page.slug === 'pengumuman') ? (EN ? 'News & Media' : 'Berita & Media') : EN ? TT(page) : page.title;
+    const contact = D.contact;
+    const megas = D.cats.map((c, ci) => {
+      const links = c.pages.map(p => ({ t: TT(p), href: H(p.slug), hasSub: !!(p.children && p.children.length), sub: (p.children || []).map(ch => ({ t: TT(ch), href: H(ch.slug) })) }));
+      return { title: CT(ci), desc: EN ? this.EN.cats[ci][1] : c.desc, img: c.img, links,
+        flat: F.filter(x => x.ci === ci).map(x => ({ t: TT(x.p), href: H(x.p.slug), style: { display: 'flex', alignItems: 'center', minHeight: '44px', padding: x.depth ? '6px 0 6px 16px' : '8px 0', borderTop: x.depth ? 'none' : '1px solid rgba(20,20,20,.12)', fontSize: x.depth ? '15px' : '18px', color: x.depth ? '#4A4A4A' : '#141414' } })) };
+    });
+    const mi = this.state.mega;
+    const scrolled = this.state.scrolled || mi !== null;
+    const navBg = scrolled ? { background: 'rgba(255,255,255,.9)', backdropFilter: 'blur(14px)', boxShadow: '0 1px 0 rgba(20,20,20,.08)' } : {};
+    const dk = !scrolled;
+    if (this.navRef.current) { const ns = this.navRef.current.style; ns.color = dk ? '#FFFFFF' : '#141414'; ns.setProperty('--na', dk ? '#FFFFFF' : '#5E4A1E'); ns.setProperty('--nm', dk ? '#E0DBD2' : '#4A4A4A'); ns.setProperty('--nb', dk ? 'rgba(255,255,255,.6)' : 'rgba(20,20,20,.3)'); }
+    this._logo = dk ? 'assets/logo-white.svg' : 'assets/logo-color.svg';
+    if (this.navRef.current) Object.assign(this.navRef.current.style, { background: navBg.background || 'transparent', backdropFilter: navBg.backdropFilter || 'none', boxShadow: navBg.boxShadow || 'none' });
+    const navItems = (EN ? this.EN.nav : ['Tentang Kami', 'Bisnis Kami', 'Hubungan Investor', 'Tata Kelola (GCG)', 'Keberlanjutan', 'Berita & Media', 'Kontak']).map((label, i) => {
+      const on = i === mi || (mi === null && i === cur.ci);
+      return { label, href: H(D.cats[i].pages[0].slug), enter: () => { clearTimeout(this.megaT); this.setState({ mega: i }); },
+        style: { position: 'relative', color: on ? 'var(--na)' : 'inherit', fontSize: '16px', lineHeight: '24px', fontWeight: 500, whiteSpace: 'nowrap', padding: '12px 0', transition: 'color .25s' },
+        ul: { position: 'absolute', left: 0, right: 0, bottom: '2px', height: '1px', background: 'var(--na)', transform: on ? 'scaleX(1)' : 'scaleX(0)', transformOrigin: 'left', transition: 'transform .35s cubic-bezier(.2,.7,.2,1)' } };
+    });
+    const pad = 'max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2))';
+    const megaBox = { position: 'absolute', top: 'calc(100% - 12px)', left: pad, right: pad, background: '#FFFFFF', borderRadius: '24px', overflow: 'hidden', opacity: mi !== null ? 1 : 0, pointerEvents: mi !== null ? 'auto' : 'none', transform: mi !== null ? 'translate3d(0,0,0)' : 'translate3d(0,-10px,0)', boxShadow: '0 40px 80px -32px rgba(20,20,20,.28),0 0 0 1px rgba(20,20,20,.06)', transition: 'opacity .3s ease,transform .5s cubic-bezier(.2,.8,.2,1)' };
+    if (mi !== null) this._lastMega = mi;
+    const mega = megas[this._lastMega ?? 0];
+    const linkStyle = (on, depth) => ({ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px', minHeight: '44px', padding: depth ? '8px 0 8px 16px' : '10px 0', borderTop: depth ? 'none' : '1px solid rgba(20,20,20,.12)', borderLeft: depth ? '1px solid rgba(168,132,58,.4)' : 'none', marginLeft: depth ? '2px' : 0, fontSize: depth ? '15px' : '16px', lineHeight: '24px', color: on ? '#5E4A1E' : depth ? '#4A4A4A' : '#141414', fontWeight: on ? 600 : 400, transition: 'color .2s' });
+    const catTitleFor = () => CT(cur.ci);
+    const PAL = ['#141414', '#5E4A1E', '#F8F5EF', '#E6D3A3'];
+    const [DP, AC, TN, SF] = PAL;
+    const card = (bg, ink) => ({ position: 'relative', display: 'flex', flexDirection: 'column', gap: '14px', padding: '28px', borderRadius: '24px', background: '#FFFFFF', color: '#141414', border: '1px solid rgba(20,20,20,.12)', transition: 'transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s' });
+    const yearSel = this.state.year;
+    let hN = 0, propN = 0;
+    const tileTheme = i => ['#FFFFFF', '#141414', AC];
+    const num = s => { const n = parseFloat(String(s).replace(/[()]/g, '').replace(EN ? /,/g : /\./g, '').replace(',', '.')); return /\(/.test(s) ? -n : n; };
+    const extC = { PDF: AC, DOC: '#34405A', DOCX: '#34405A', PPT: '#9A5230', PPTX: '#9A5230' };
+    const docItem = (d, i) => { const ext = ((/\.(pdf|docx?|pptx?)(\?|$)/i.exec(d[2]) || [, 'pdf'])[1]).toUpperCase(); const f = false; return { title: d[0], date: d[1], hasDate: !!d[1], url: d[2], ext,
+      style: { ...card(f ? DP : '#FFFFFF', f ? '#FFFFFF' : '#141414'), minHeight: '200px', justifyContent: 'space-between', boxShadow: f ? 'none' : '0 0 0 1px rgba(20,20,20,.08)' },
+      badge: { fontSize: '11px', lineHeight: '16px', letterSpacing: '.12em', fontWeight: 600, padding: '5px 10px', borderRadius: '1000px', background: TN, color: '#5E4A1E' },
+      dl: { width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #8A6A2A', color: '#141414' },
+      tStyle: { fontSize: '18px', lineHeight: '26px', letterSpacing: '-.005em' }, dStyle: { fontSize: '13px', lineHeight: '18px', opacity: .75, fontVariantNumeric: 'tabular-nums' } }; };
+    const thBase = { textAlign: 'left', padding: '18px 20px', fontSize: '12px', lineHeight: '18px', letterSpacing: '.1em', textTransform: 'uppercase', fontWeight: 600, color: '#5E4A1E', background: '#FFFFFF', borderBottom: '1px solid #8A6A2A', verticalAlign: 'bottom' };
+    const td = { padding: '16px 20px', borderBottom: '1px solid rgba(20,20,20,.12)', verticalAlign: 'top' };
+    const pager = (o, items, key) => { const PS = 8, tot = items.length, np = Math.ceil(tot / PS), pg = Math.min((this.state.docPg || {})[key] || 1, np || 1);
+      const go = n => () => this.setState(s => ({ docPg: { ...(s.docPg || {}), [key]: n } }));
+      const btn = (on, dis) => ({ minWidth: '48px', height: '48px', padding: '0 14px', borderRadius: '1000px', border: '2px solid ' + (on ? '#141414' : 'rgba(20,20,20,.2)'), background: on ? '#141414' : '#FFFFFF', color: on ? '#FFFFFF' : '#141414', fontFamily: 'inherit', fontSize: '17px', fontWeight: 600, cursor: dis ? 'default' : 'pointer', opacity: dis ? .35 : 1, fontVariantNumeric: 'tabular-nums' });
+      Object.assign(o, { dlLabel: EN ? 'Download' : 'Unduh', paged: np > 1,
+        rows: items.slice((pg - 1) * PS, pg * PS).map(d => { const x = docItem(d); const c = extC[x.ext] || AC; return { ...x, icon: { flex: 'none', width: '56px', height: '64px', borderRadius: '12px', background: c + '1A', color: c, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px' } }; }),
+        range: (EN ? 'Showing ' : 'Menampilkan ') + ((pg - 1) * PS + 1) + '–' + Math.min(pg * PS, tot) + (EN ? ' of ' : ' dari ') + tot,
+        pages: Array.from({ length: np }, (_, i) => ({ n: i + 1, cur: i + 1 === pg ? 'page' : 'false', go: go(i + 1), style: btn(i + 1 === pg, false) })),
+        prev: go(Math.max(1, pg - 1)), next: go(Math.min(np, pg + 1)), noPrev: pg === 1, noNext: pg === np, arrowStyle: btn(false, pg === 1), arrowStyle2: btn(false, pg === np) }); };
+    const blocks = (content.blocks || []).map((b, bi) => {
+      const o = {}; o['is' + ({ prose: 'Prose', facts: 'Facts', heading: 'Heading', vm: 'VM', values: 'Values', timeline: 'Timeline', shareholders: 'Share', people: 'People', property: 'Property', news: 'News', contact: 'Contact', awards: 'Awards', group: 'Group', org: 'Org', table: 'Table', fin: 'Fin', members: 'Members', docs: 'Docs', docyears: 'DocYears', pros: 'Pros' }[b.type])] = true;
+      if (b.type === 'prose') { o.first = b.paras[0]; o.rest = b.paras.slice(1); o.hasRest = b.paras.length > 1; }
+      if (b.type === 'facts') o.items = b.items.map((f, i) => { const [bg, ink, l] = tileTheme(i); return { v: f[0], l: f[1], style: { ...card(bg, ink), minHeight: '200px', justifyContent: 'space-between', boxShadow: bg === '#FFFFFF' ? '0 0 0 1px rgba(20,20,20,.08)' : 'none' }, lStyle: { fontSize: '16px', lineHeight: '24px', color: ink, opacity: .85 } }; });
+      if (b.type === 'heading') { const sx = b.sl && F.find(x => x.p.slug === b.sl); o.t = sx ? TT(sx.p) : b.t[0] === '@' ? t[b.t.slice(1)] : b.t; o.hid = sx ? 'sec-' + b.sl : undefined; o.sec = !!sx; o.plain = !sx; o.hasP = !!b.p; o.p = b.p || ''; o.isSoonSec = !!b.soon; o.soonTxt = t.soonBadge; }
+      if (b.type === 'vm') Object.assign(o, { vision: b.vision, mission: b.mission.map((m, i) => ({ n: i + 1, t: m })) });
+      if (b.type === 'values') o.items = b.items.map((v, i) => { const [bg, ink, nc] = tileTheme(i % 2 ? (i % 4 === 1 ? 1 : 2) : (i % 4 === 0 ? 0 : 3)); return { n: String(i + 1).padStart(2, '0'), t: v[0], d: v[1], style: { ...card(bg, ink), minHeight: '240px', justifyContent: 'space-between', boxShadow: bg === '#FFFFFF' ? '0 0 0 1px rgba(20,20,20,.08)' : 'none' }, nStyle: { fontWeight: 300, fontSize: '56px', lineHeight: '56px', letterSpacing: '-.04em', color: nc, fontVariantNumeric: 'tabular-nums' }, dStyle: { fontSize: '15px', lineHeight: '23px', opacity: .85 } }; });
+      if (b.type === 'timeline') { const wide = this.state.vw >= 900, per = wide ? 3 : 1, G = 80, gc = '#C9A055', bd = '2px solid ' + gc;
+        const ic = [
+          '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/>',
+          '<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/>',
+          '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/>',
+          '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/>',
+          '<path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9M2 16l6 6"/><circle cx="16" cy="9" r="2.9"/><circle cx="6" cy="5" r="3"/>',
+          '<path d="M3 3v16a2 2 0 0 0 2 2h16M8 17v-3M13 17V9M18 17V5"/>'];
+        const svg = s => 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#8E6A2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' + s + '</svg>');
+        o.wrap = { listStyle: 'none', margin: 0, padding: wide ? '0 28px' : 0, display: 'flex', flexDirection: 'column', gap: (wide ? G : 56) + 'px' };
+        const rows = []; for (let i = 0; i < b.items.length; i += per) rows.push(b.items.slice(i, i + per).map((m, j) => ({ y: m[0], t: m[1], icon: svg(ic[(i + j) % ic.length]), line: wide && j < per - 1 && i + j < b.items.length - 1 })));
+        o.rows = rows.map((items, r) => ({ items, hasNext: wide && r < rows.length - 1, hasPrev: wide && r > 0,
+          style: { position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(' + per + ',minmax(0,1fr))' },
+          turnA: { position: 'absolute', top: '31px', bottom: (-G / 2 - 1) + 'px', left: 'calc(200% / 3 + 80px)', right: '-28px', borderTop: bd, borderRight: bd, borderBottom: bd, borderRadius: '0 24px 24px 0' },
+          turnC: { position: 'absolute', bottom: (-G / 2 - 1) + 'px', height: '2px', left: '-8px', right: 'calc(100% / 3 - 80px)', background: gc },
+          turnB: { position: 'absolute', top: (-G / 2 - 1) + 'px', height: (G / 2 + 34) + 'px', left: '-28px', width: '20px', borderTop: bd, borderLeft: bd, borderBottom: bd, borderRadius: '20px 0 0 20px', boxSizing: 'border-box' },
+          turnArrow: { position: 'absolute', top: '26px', left: '-10px', width: 0, height: 0, borderTop: '6px solid transparent', borderBottom: '6px solid transparent', borderLeft: '10px solid ' + gc } }));
+        const two = false; o.spine = { position: 'absolute', top: '12px', bottom: '12px', left: two ? '50%' : '11px', width: '2px', marginLeft: '-1px', background: 'linear-gradient(180deg,' + SF + ',' + AC + ')' };
+        o.items = b.items.map((m, i, arr) => { const last = i === arr.length - 1, right = two && i % 2 === 1;
+          return { y: m[0], t: m[1], row: { position: 'relative', display: 'flex', justifyContent: two ? (right ? 'flex-end' : 'flex-start') : 'flex-start', paddingLeft: two ? 0 : '44px' },
+            card: { ...card('#FFFFFF', '#141414'), width: two ? 'calc(50% - 40px)' : '100%', borderColor: last ? '#8A6A2A' : 'rgba(20,20,20,.12)' },
+            yStyle: { fontWeight: 300, fontSize: 'round(clamp(40px,4vw,56px),4px)', lineHeight: 'calc(1em + 4px)', letterSpacing: '-.04em', color: last ? '#5E4A1E' : '#141414', fontVariantNumeric: 'tabular-nums' },
+            tStyle: { margin: 0, fontSize: '18px', lineHeight: '28px', opacity: .92 },
+            dot: { position: 'absolute', top: '36px', left: two ? '50%' : '11px', width: '18px', height: '18px', marginLeft: '-9px', borderRadius: '50%', background: last ? AC : '#FFFFFF', border: '3px solid ' + AC, boxShadow: '0 0 0 6px ' + TN } }; }); }
+      if (b.type === 'shareholders') { const cols = ['#34405A', '#8A6A2A', '#9A5230', '#CDB27A', '#7C8BA6'], dec = b.dec || ','; let acc = 0;
+        o.conic = 'conic-gradient(' + b.items.map((s, i) => { const st = acc; acc += s[2]; return cols[i] + ' ' + st + '% ' + acc + '%'; }).join(',') + ')';
+        o.asOf = b.asOf; o.aria = b.items.map(s => s[0] + ' ' + s[2].toFixed(2).replace('.', dec) + '%').join('; ');
+        o.items = b.items.map((s, i) => ({ name: s[0], note: s[1], hasNote: !!s[1], pct: s[2].toFixed(2).replace('.', dec) + '%', sw: { width: '16px', height: '16px', borderRadius: '50%', flex: 'none', background: cols[i] } })); }
+      if (b.type === 'people') o.people = b.ids.map(id => { const x = D.people[id]; return { name: x.name, role: x.role, photo: x.photo, ph: { display: 'block', width: '100%', height: '100%', backgroundImage: 'url("' + x.photo + '")', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat' }, open: () => this.setState({ person: id }) }; });
+      if (b.type === 'members') o.items = b.items.map((m, i) => ({ name: m[0], role: m[1], photo: m[2], ph: { display: 'block', width: '100%', height: '100%', backgroundImage: 'url("' + m[2] + '")', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat' }, bg: '#EFEAE0', roleStyle: { fontSize: '16px', lineHeight: '24px', color: i === 0 ? '#5E4A1E' : '#4A4A4A', fontWeight: i === 0 ? 500 : 400 } }));
+      if (b.type === 'property') { const k = propN++, dark = false;
+        Object.assign(o, { name: b.name, img: b.img, ph: { display: 'block', width: '100%', height: '100%', backgroundImage: 'url("' + b.img + '")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', position: 'absolute', inset: 0 }, url: b.url || '#', hasUrl: !!b.url, paras: b.paras, hasImgNote: !!b.imgNote, imgNote: b.imgNote || '', num: String(k + 1).padStart(2, '0') + ' · ' + catTitleFor(),
+          wrap: { display: 'flex', flexWrap: 'wrap', gap: '16px', flexDirection: k % 2 ? 'row-reverse' : 'row' }, panel: 'transparent', ink: '#141414', eye: '#5E4A1E',
+          btn: { alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '14px 24px', borderRadius: '1000px', fontSize: '16px', lineHeight: '24px', fontWeight: 500, background: 'transparent', border: '1px solid #141414', color: '#141414' } }); }
+      if (b.type === 'awards') o.items = b.items.map((x, i) => ({ y: x[0], img: x[1], ph: { display: 'block', width: '100%', height: '100%', backgroundImage: 'url("' + x[1] + '")', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', height: '240px' }, alt: (EN ? 'Award ' : 'Penghargaan ') + x[0], style: { margin: 0, display: 'flex', flexDirection: 'column', gap: '16px', padding: '16px 16px 20px', borderRadius: '28px', background: 'transparent', color: '#5E4A1E', gridColumn: i === 0 && this.state.vw >= 900 ? 'span 2' : 'auto' }, yStyle: { fontWeight: 300, fontSize: '40px', lineHeight: '44px', letterSpacing: '-.03em', fontVariantNumeric: 'tabular-nums', color: '#141414' } }));
+      if (b.type === 'group') { const two = this.state.vw >= 640;
+        Object.assign(o, { top0: b.top[0], top1: b.top[1], pab: b.pab, lab: b.lab,
+          one: !two,
+          kidGrid: { display: 'grid', gridTemplateColumns: two ? 'minmax(0,1fr) minmax(160px,220px) minmax(0,1fr)' : 'minmax(0,1fr)', columnGap: two ? 0 : '32px', rowGap: '8px', width: 'min(100%,1120px)' },
+          kids: [[b.a, b.pa, b.la, '#9A5230'], 'mid', [b.b, b.pb, b.lb, '#5E7A4C']].filter(k => two || k !== 'mid').map((k, j) => k === 'mid' ? { isMid: true } : (i => ({ isKid: true, n: k[0][0], c: k[0][1], tag: k[0][2], pct: k[1], lab: k[2] + ' ' + k[1],
+            hLine: { position: 'absolute', top: 0, height: '3px', background: two ? AC : 'transparent', left: i ? 0 : '50%', right: i ? '50%' : 0 },
+            pctStyle: { fontSize: '26px', lineHeight: '32px', fontWeight: 700, color: k[3], background: '#FFFFFF', border: '2px solid ' + k[3], padding: '8px 20px', borderRadius: '1000px', fontVariantNumeric: 'tabular-nums' },
+            cardStyle: { width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '28px 24px', borderRadius: '20px', background: '#FFFFFF', border: '2px solid rgba(20,20,20,.16)', borderTop: '6px solid ' + k[3], textAlign: 'center' },
+            tagStyle: { fontSize: '15px', lineHeight: '22px', fontWeight: 700, letterSpacing: '.03em', color: '#FFFFFF', background: k[3], padding: '5px 14px', borderRadius: '1000px' } }))(j ? 1 : 0)) }); }
+      if (b.type === 'org') { const O = window.SH_ORG, L = O[b.lang]; Object.assign(o, { ac: L.ac, nrc: L.nrc, ia: L.ia, acM: O.acMembers, iaName: O.iaName, boc: O.boc.map(r => ({ role: r[0], name: r[1] })), bod: O.bod.map(r => ({ role: r[0], name: r[1] })), cs0: O.cs[0], cs1: O.cs[1], unitsBod: O.units.slice(0, 4).map(u => ({ h: u[0], items: u[1] })), unitsCs: O.units.slice(4).map(u => ({ h: u[0], items: u[1] })) }); }
+      if (b.type === 'table') {
+        o.cols = b.cols.map((c, i) => ({ t: c, style: { ...thBase, textAlign: i ? 'right' : 'left' } }));
+        o.rows = b.rows.map((r, ri) => ({ cells: r.map((c, i) => { const [x, y] = c.split('\n'); return { a: x, b: y || '', hasB: !!y, style: { ...td, background: '#FFFFFF', textAlign: i ? 'right' : 'left', fontVariantNumeric: 'tabular-nums', color: '#141414', fontWeight: i ? 400 : 500, whiteSpace: i ? 'nowrap' : 'normal' } }; }) }));
+        o.hasTotal = !!b.total; o.total = (b.total || []).map((c, i) => ({ a: c, style: { ...td, borderBottom: 'none', background: '#F8F5EF', color: '#141414', fontWeight: 600, textAlign: i ? 'right' : 'left', fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' } }));
+        o.hasNote = !!b.note; o.note = b.note || '';
+        const isChron = /saham|shares/i.test(b.cols[2] || '') && b.rows.length <= 4 && !b.total; o.hasSteps = isChron;
+        const SC = ['#CDB27A', '#8A6A2A', '#5E4A1E', '#34405A'];
+        const nv = b.rows.map(r => parseInt(String(r[2]).replace(/\D/g, ''), 10) || 0), mxv = Math.max(...nv, 1);
+        o.showTable = !isChron;
+        o.steps = isChron ? b.rows.map((r, i, a) => { const m = /^([\d.,]+)\s*(.*)$/.exec(r[2]) || [, r[2], '']; const ratio = i ? nv[i] / nv[i - 1] : 0;
+          const chg = !i ? '' : Number.isInteger(+ratio.toFixed(3)) ? '×' + (+ratio.toFixed(3)) : '+' + Math.round((ratio - 1) * 100) + '%';
+          const c = SC[Math.min(i + (a.length < 3 ? 1 : 0), SC.length - 1)];
+          return { k: r[1], d: r[0], num: m[1], unit: m[2], chg, hasChg: !!chg,
+            bar: { display: 'block', width: '100%', height: Math.max(8, nv[i] / mxv * 100) + '%', borderRadius: '14px 14px 0 0', background: c },
+            tag: { fontSize: '15px', lineHeight: '20px', fontWeight: 700, letterSpacing: '.02em', color: '#FFFFFF', background: c === '#CDB27A' ? '#8A6A2A' : c, padding: '6px 14px', borderRadius: '1000px' } }; }) : [];
+        const pi = b.rows[0] ? b.rows[0].findIndex(c => /%$/.test(String(c).trim())) : -1;
+        o.hasSplit = !!b.total && pi > 0;
+        if (o.hasSplit) { const PC = ['#34405A', '#8A6A2A', '#9A5230', '#CDB27A', '#7C8BA6'];
+          o.split = b.rows.map((r, i) => { const [nm, sub] = r[0].split('\n'); const p = parseFloat(String(r[pi]).replace(EN ? /,/g : /\./g, '').replace(',', '.')) || 0; const c = PC[i % PC.length];
+            return { name: nm, sub: (sub || '').replace(/^\(|\)$/g, ''), hasSub: !!sub, pct: r[pi], seg: { display: 'block', flex: p + ' 1 0', minWidth: '6px', background: c }, dot: { flex: 'none', width: '14px', height: '14px', marginTop: '10px', borderRadius: '4px', background: c } }; });
+          o.splitLabel = b.rows.map(r => r[0].split('\n')[0] + ' ' + r[pi]).join(', ');
+          o.rows.forEach((row, i) => { row.cells[0].style = { ...row.cells[0].style, boxShadow: 'inset 4px 0 0 ' + PC[i % PC.length] }; }); } }
+      if (b.type === 'fin') {
+        o.cols = b.cols.map((c, i) => ({ t: c, style: { ...thBase, textAlign: i ? 'right' : 'left', background: '#FFFFFF', minWidth: i ? '96px' : '280px' } }));
+        o.rows = b.rows.map(r => { const grp = r[1] === 0, ind = r[6] === 1; return { l: r[0], lStyle: { ...td, textAlign: 'left', fontWeight: grp ? 600 : ind ? 400 : 500, paddingLeft: ind ? '40px' : '20px', color: ind ? '#4A4A4A' : '#141414', background: '#FFFFFF' },
+          v: grp ? [1, 2, 3, 4, 5].map(() => ({ t: '', style: { ...td } })) : r.slice(1, 6).map((x, i) => ({ t: x, style: { ...td, textAlign: 'right', whiteSpace: 'nowrap', background: i === 0 ? '#F8F5EF' : '#FFFFFF', fontWeight: i === 0 ? 600 : 400, color: /\(/.test(x) ? '#7A3226' : ind ? '#4A4A4A' : '#141414' } })) }; });
+        const pick = [0, 1, 2], yrs = b.cols.slice(1);
+        o.charts = pick.map((ri, ci) => { const r = b.rows[ri], vals = r.slice(1, 6).map(num), mx = Math.max(...vals.map(Math.abs)) || 1, neg = vals.some(v => v < 0), dark = false;
+          return { label: r[0], latest: r[1], card: { ...card('#FFFFFF', '#141414'), gap: '20px' }, vStyle: { fontWeight: 300, fontSize: '32px', lineHeight: '36px', letterSpacing: '-.02em', fontVariantNumeric: 'tabular-nums', color: neg ? (dark ? '#F0B8A8' : '#7A3226') : (dark ? SF : AC) },
+            bars: vals.map((v, i) => ({ y: yrs[i], v: '', style: { width: '100%', maxWidth: '40px', height: Math.max(4, Math.abs(v) / mx * 110) + 'px', borderRadius: '8px 8px 2px 2px', background: v < 0 ? (i === 0 ? '#B5533F' : '#E2A493') : (i === 0 ? (dark ? SF : AC) : (dark ? 'rgba(255,255,255,.28)' : SF)) } })).reverse().reverse() }; });
+        o.charts.forEach(c => { c.bars = c.bars.slice().reverse(); }); }
+      if (b.type === 'docs') pager(o, b.items, this.state.slug + ':' + bi);
+      if (b.type === 'docyears') { const ys = b.groups.map(g => g[0]); const yk = this.state.slug + ':' + bi, ysel = (this.state.years || {})[yk]; const y = ys.includes(ysel) ? ysel : ys[0];
+        o.years = b.groups.map(g => { const on = g[0] === y; return { y: g[0], n: g[1].length, on: on ? 'true' : 'false', pick: () => this.setState(s => ({ years: { ...(s.years || {}), [yk]: g[0] } })), style: { flex: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px', minHeight: '56px', padding: '12px 20px', marginBottom: '-2px', cursor: 'pointer', border: 0, borderBottom: '4px solid ' + (on ? AC : 'transparent'), borderRadius: '10px 10px 0 0', font: (on ? 700 : 600) + " 20px/26px 'Hanken Grotesk',sans-serif", fontVariantNumeric: 'tabular-nums', background: 'transparent', color: on ? '#141414' : '#4A4A4A' }, cStyle: { fontSize: '14px', lineHeight: '20px', fontWeight: 700, minWidth: '28px', textAlign: 'center', padding: '2px 8px', borderRadius: '1000px', background: on ? '#141414' : 'rgba(20,20,20,.08)', color: on ? '#FFFFFF' : '#2A2A2A' } }; });
+        o.yearLabel = EN ? 'Select year' : 'Pilih tahun';
+        pager(o, (b.groups.find(g => g[0] === y) || [0, []])[1], this.state.slug + ':' + bi + ':' + y); }
+      if (b.type === 'pros') o.items = b.items.map((p, i) => ({ k: p[0], n: p[1], addr: p[2], tel: p[3], style: { ...card('#FFFFFF', '#141414'), padding: '36px', gap: '16px' }, kStyle: { fontSize: '12px', lineHeight: '16px', letterSpacing: '.16em', textTransform: 'uppercase', fontWeight: 600, color: '#5E4A1E' }, telStyle: { display: 'flex', flexDirection: 'column', gap: '4px', paddingTop: '18px', borderTop: '1px solid rgba(20,20,20,.12)', fontSize: '16px', lineHeight: '24px', fontVariantNumeric: 'tabular-nums' } }));
+      if (b.type === 'news') o.items = b.items.map((n, i) => ({ date: n[0], title: n[1], ex: n[2], hasEx: !!n[2], url: n[3], first: i === 0, style: { ...card('#FFFFFF', '#141414'), minHeight: '240px', gap: '16px' }, dStyle: { fontSize: '13px', lineHeight: '18px', letterSpacing: '.1em', textTransform: 'uppercase', fontWeight: 600, color: '#5E4A1E' } }));
+      return o;
+    });
+    const pr = this.state.person && D.people[this.state.person];
+    const prev = F.slice(0, idx).reverse().find(x => !x.depth), next = F.slice(idx + 1).find(x => !x.depth);
+    const isNR = page.slug === 'siaran-pers' || page.slug === 'pengumuman';
+    const st = isNR ? 'live' : page.status;
+    const lead = isNR ? (EN ? 'Stay connected with the latest from us, from exciting new developments and project milestones to proud achievements and future plans. Discover how we continue to grow, innovate, and make an impact.' : 'Tetap terhubung dengan informasi terbaru dari kami, mulai dari perkembangan terbaru, pencapaian penting, hingga rencana kami ke depan. Temukan bagaimana kami terus berkembang, berinovasi, dan memberikan dampak positif.') : (content.lead || '');
+    const fs = ['kantor-pusat', 'siaran-pers', 'penghargaan', 'rups'];
+    return { ...base,
+      rootStyle: { position: 'relative', overflowX: 'clip', minHeight: '100vh', display: 'flex', flexDirection: 'column', '--dp': DP, '--ac': AC, '--tn': TN, '--sf': SF },
+      pageIdx: (() => { const sib = F.filter(x => x.ci === cur.ci); return String(sib.indexOf(cur) + 1).padStart(2, '0') + ' / ' + String(sib.length).padStart(2, '0'); })(), heroSoon: st === 'soon' || st === 'pending',
+      logoW: { height: '32px', width: 'auto', display: this._logo.includes('white') ? 'block' : 'none' }, logoC: { height: '32px', width: 'auto', display: this._logo.includes('white') ? 'none' : 'block' }, heroImg: { display: 'block', width: '100%', height: '100%', backgroundImage: 'url("' + cat.img + '")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', position: 'absolute', inset: 0 }, megas, mega, megaBox, navItems, megaImgStyle: { display: 'block', width: '100%', height: '100%', backgroundImage: mega && mega.img ? 'url("' + mega.img + '")' : 'none', backgroundSize: 'cover', backgroundPosition: 'center' },
+      megaKeep: () => clearTimeout(this.megaT),
+      megaLeave: () => { clearTimeout(this.megaT); this.megaT = setTimeout(() => this.setState({ mega: null }), 160); },
+      megaClose: () => this.setState({ mega: null }),
+      menuOpen: this.state.menuOpen, openMenu: () => this.setState({ menuOpen: true }), closeMenu: () => this.setState({ menuOpen: false }),
+      catTitle: CT(cur.ci), catImg: cat.img, catHref: H(cat.pages[0].slug), pageTitle,
+      hasParent: !!cur.parent, parentTitle: cur.parent ? TT(cur.parent) : '', parentHref: cur.parent ? H(cur.parent.slug) : '#',
+      hasLead: !!lead, lead, contact, blocks: isNR ? [] : blocks, isNR, showAside: this.state.vw >= 1000 && !isNR, showChips: this.state.vw < 1000 && !isNR, annRef: this.annRef, nr: isNR ? this.newsroom(F, EN, t, page.slug) : { lead: {}, top: [], rest: [], news: [], tabs: [], years: [], list: [] },
+      isSoon: st === 'soon' || st === 'pending', isReg: !!page.reg && st === 'soon',
+      soonBadge: st === 'pending' ? t.updBadge : t.soonBadge, soonH: st === 'pending' ? t.updH : t.soonH, soonP: (st === 'pending' ? t.updP : t.soonP).replace('{x}', pageTitle),
+      regLabel: t.reg + ' · ' + (page.regNote || 'POJK 8/2015'),
+      mailto: 'mailto:' + contact.email, telHref: 'tel:' + contact.tel,
+      compact: this.state.vw < 1000, full: this.state.vw >= 1000,
+      side: F.filter(x => x.ci === cur.ci).map(x => ({ t: TT(x.p), href: H(x.p.slug), cur: x === act ? 'page' : undefined, soon: x.p.status === 'soon' || x.p.status === 'pending', chip: { flex: 'none', fontSize: '10px', lineHeight: '14px', letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, color: '#4A4A4A', border: '1px solid rgba(20,20,20,.16)', borderRadius: '1000px', padding: '2px 8px' }, dot: { width: '6px', height: '6px', borderRadius: '50%', flex: 'none', background: x === act ? '#8A6A2A' : 'transparent', boxShadow: 'none' }, style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px', minHeight: '44px', padding: x.depth ? '8px 0 8px 16px' : '10px 0', borderTop: x.depth ? 'none' : '1px solid rgba(20,20,20,.12)', fontSize: x.depth ? '15px' : '16px', lineHeight: '22px', color: x === act ? '#5E4A1E' : x.depth ? '#4A4A4A' : '#141414', fontWeight: x === act ? 600 : 400, transition: 'color .2s' } })),
+      chips: F.filter(x => x.ci === cur.ci).map(x => { const on = x === act; return { t: (x.depth ? '↳ ' : '') + TT(x.p), href: H(x.p.slug), cur: on ? 'page' : undefined, soon: x.p.status === 'soon' || x.p.status === 'pending', chip: { marginLeft: '8px', fontSize: '10px', lineHeight: '14px', letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, padding: '2px 7px', borderRadius: '1000px', background: on ? '#FFFFFF' : TN, color: DP }, style: { gap: '0', display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '10px 18px', borderRadius: '1000px', whiteSpace: 'nowrap', fontSize: '15px', lineHeight: '24px', fontWeight: on ? 600 : 400, background: on ? '#141414' : '#FFFFFF', color: on ? '#FFFFFF' : '#141414', border: on ? '1px solid #141414' : '1px solid rgba(20,20,20,.16)' } }; }),
+      hasPrev: !!prev, prev: prev ? { t: TT(prev.p), href: H(prev.p.slug) } : {},
+      hasNext: !!next, next: next ? { t: TT(next.p), href: H(next.p.slug) } : {},
+      footLinks: t.foot.map((x, i) => ({ t: x, href: i < 4 ? H(fs[i]) : 'https://sanurhastamitra.com/privacy-policy/' })),
+      personOpen: !!pr, person: pr ? { name: pr.name, role: pr.role, photo: pr.photo, ph: { display: 'block', width: '100%', height: '100%', backgroundImage: 'url("' + pr.photo + '")', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat' }, bio: pr.bio, lists: pr.lists.map(l => ({ h: l[0], items: l[1] })) } : { bio: [], lists: [] },
+      closePerson: () => this.setState({ person: null })
+    };
+  }
+}
+</script>
+</body>
+</html>
