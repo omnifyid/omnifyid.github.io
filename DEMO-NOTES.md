@@ -23,6 +23,7 @@ Keputusan yang sudah disepakati (jangan dibahas ulang):
    Scrollbar di dalam demo: tipis & track transparan di tampilan Web, disembunyikan di tampilan Mobile (diatur `demo-bar.js`, style `#om-sb` di iframe).
 10. Company Profile: **tanpa harga**, estimasi **1–3 minggu, tergantung scope**.
 11. Desain mengikuti WCAG AAA (kontras teks ≥ 7:1, target sentuh ≥ 44px, fokus terlihat, konten bergerak bisa dijeda) dan 10 heuristik Nielsen.
+12. Landing page di HP (< 640px) memakai menu **hamburger** (☰ → dropdown). Dikelola satu file `showcase/hamburger.js`, dipasang lewat `<script data-site="…">` di `site.html` tiap landing page (config per situs ada di dalam file itu). Sanurhasta sudah punya tombol Menu + drawer sendiri.
 
 ## Peta portofolio (sumber: `data` di tiap halaman + `showcase/demos.js`)
 
