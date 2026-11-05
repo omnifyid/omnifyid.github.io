@@ -14,6 +14,7 @@
 <script>(function(){var s=function(x){return x.replace(/[^A-Za-z0-9]/g,'_')};function map(u){var r=window.__resources;if(!r||typeof u!=='string')return u;var m=u.match(/images\.unsplash\.com\/photo-(\d+-[0-9a-f]+)/);if(m&&r['u'+m[1]])return r['u'+m[1]];m=u.match(/Special:FilePath\/([^?#]+)/);if(m&&r['wm_'+s(decodeURIComponent(m[1]))])return r['wm_'+s(decodeURIComponent(m[1]))];m=u.match(/(?:^|\/)uploads\/([^?#]+)$/);if(m&&r['up_'+s(decodeURIComponent(m[1]))])return r['up_'+s(decodeURIComponent(m[1]))];m=u.match(/wikimedia\.org\/.*\/([^\/?#]+)$/);if(m&&r['wk_'+s(decodeURIComponent(m[1]))])return r['wk_'+s(decodeURIComponent(m[1]))];return u}window.__mapRes=map;var d=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'src');Object.defineProperty(HTMLImageElement.prototype,'src',{configurable:true,enumerable:d.enumerable,get:d.get,set:function(v){d.set.call(this,map(v))}});var sa=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){if(n==='src'||n==='href'||n==='xlink:href')v=map(v);return sa.call(this,n,v)}})();</script>
 <script src="assets/db7d17ed.js"></script>
 
+<script src="../hamburger.js" data-site="kopi-kala" defer></script>
 </head>
 <body>
 <x-dc>
