@@ -494,7 +494,7 @@ class Component extends DCLogic {
     const type = d.type ? d.type[isID ? 'id' : 'en'] : '';
     let href = '#' + back;
     if (live) { const [hp, hh] = d.href.split('#'); href = '../' + hp + (/^showcase\//.test(hp) ? '?from=' + encodeURIComponent(this.PAGE + '/#' + back) : '') + (hh ? '#' + hh : ''); }
-    const cta = live ? (isID ? 'Coba demo' : 'Try the demo') : (isID ? 'Tonton video' : 'Watch video');
+    const cta = live ? (d.detail ? (isID ? 'Lihat detail' : 'See details') : (isID ? 'Coba demo' : 'Try the demo')) : (isID ? 'Tonton video' : 'Watch video');
     const full = file ? `../uploads/${file}.mp4` : '';
     return {
       key, name: d.name, kindLabel, typeLabel: type || kindLabel, kindLine: type ? `${kindLabel} · ${type}` : kindLabel, href, isDemo: live, isVideo: !live, hasVideo: !!file, noVideo: !file,

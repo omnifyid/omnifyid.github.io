@@ -126,9 +126,25 @@ Perbaikan mobile ada di `<style id="om-mobile">` di `site.html`. Jangkar punya `
 4. Tambah entri di `showcase/demos.js` (dengan `type` dan, kalau perlu, `cat`), lalu tambahkan id ke `demos: [...]` layanan yang sesuai di halaman.
 5. Set `data-back` di `showcase/<slug>/index.html` ke halaman + kategori, mis. `FnB/#fnb-01-cafe`.
 
-## Tahap berikutnya
+## Halaman detail sistem — `showcase/sistem/` (2026-11-05, belum di-commit)
 
-**Showcase khusus sistem/POS dengan screenshot thumbnail.** Detail desain belum ditentukan; tanya pemilik saat dimulai.
-- Contoh terkait: self-order (FnB 02), pos (FnB 04), ikm (FnB 05), pos-inventory (Marketplace 03, Lainnya 03).
-- Begitu halamannya ada: beri `href` di `showcase/demos.js` → otomatis jadi "Coba demo". Jangan arahkan ke `demo/` (PIN).
-- Setelah itu kode popup (`openPop`, `closePop`, blok `popOpen`) dan video penuh sistem boleh dihapus.
+Semua layanan sistem manajemen (FnB 03 Self Order, FnB 04 POS, FnB 05 IKM, Marketplace 03, Lainnya 04) sekarang tombolnya **"Lihat detail"**
+(bukan "Tonton video") dan mengarah ke **satu halaman yang sama**: `showcase/sistem/`. Preview video 8 detik di card tetap.
+- `demos.js`: entri sistem punya `href: 'showcase/sistem/#<modul>'` + `detail: true` → `pfItem()` di 3 halaman memberi label "Lihat detail".
+  Jangkar: self-order & pos → `#kasir`, ikm → `#dapur`, pos-inventory → `#inventaris`. Lainnya: `#operasional`, `#addon`.
+- Isi: hero (screenshot Ringkasan) + 4 modul. Tiap modul: teks + manfaat, screenshot (thumbnail + lightbox), lalu **kartu kelompok fitur**
+  (Kasir 4 kelompok/18 fitur, Kitchen 3/13, Inventory 3/12, Operasional 4/20). Fitur yang add-on diberi badge "Add-on".
+  Screenshot: Kasir = layar kasir, tambah produk, denah meja · Kitchen = KDS, resep · Inventory = stok saja (Pembelian hanya di daftar fitur) ·
+  Operasional = absensi (POV kasir Bayu, tombol Clock in/out), izin & cuti, shift & kas, laporan harian (Ringkasan tidak dipakai di sini).
+- **Add-on (5):** Integrasi WhatsApp, Absensi Foto + GPS, Denah Meja, Purchase Order, Aplikasi Booking (link ke demo `rumah-senja-booking`).
+- Teks ID/EN ada di objek `T` di dalam `index.html` (ikut `omnify-lang`). Tombol kembali memakai `?from=` (divalidasi), default `FnB/#fnb-04`.
+- Gambar di `showcase/sistem/img/`: `<nama>-md.jpg` (1100px, dipakai di halaman), `<nama>.jpg` (1800px, hanya lightbox/layar besar lewat srcset),
+  `<nama>-sm.jpg` (thumbnail). Diambil dari `demo/` (owner Arif / kasir Bayu, outlet Kemang, skenario "Toko sudah berjalan") lewat Chrome headless;
+  kasir, KDS, meja, dan form produk diisi dulu lewat klik otomatis supaya tidak kosong. Laba rugi sengaja tidak dipakai (data contoh bulan ini rugi).
+- Performa: tanpa `backdrop-filter` dan `filter: blur` (glow = radial-gradient), gambar lazy + `decoding=async`, animasi hanya opacity/transform.
+  Scroll reveal: `[data-rv]` (fade/slide/zoom) dan `[data-rv-kids]` (anak muncul bergantian); satu IntersectionObserver, mati otomatis saat *reduce motion*.
+
+### Perlu tinjauan pemilik
+- [ ] Copy marketing & checklist fitur per modul (saya susun dari fitur yang ada di demo). Add-on: deskripsi saya tulis sendiri; harga tidak ditampilkan.
+- [ ] Estimasi "2–6 minggu, tergantung modul" diambil dari ETA POS (14–30 hari) & IKM (4–6 minggu).
+- [ ] Kode popup video (`openPop`, `closePop`, `popOpen`) & video penuh sistem di `uploads/` sekarang tidak dipakai card mana pun; boleh dihapus kalau setuju.

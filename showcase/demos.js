@@ -12,6 +12,7 @@
 //   poster  still image id for examples without video: uploads/posters/<poster>.jpg
 //   href    demo page from the site root. Leave out to open the full video in a popup instead.
 //   live    set to false to hide a demo link without deleting it (falls back to the video).
+//   detail  true = the link is a detail page, not a live demo: the button says "Lihat detail".
 //
 // The order inside a page's `demos: [...]` is the order on the site.
 // See DEMO-NOTES.md for the checklist.
@@ -43,10 +44,11 @@ window.OMNIFY_DEMOS = {
   'vetro-padel':         { name: 'Vetro Padel',    kind: 'app', cat: 'sport',   type: { id: 'Sewa lapangan padel', en: 'Padel court booking' }, poster: 'vetro-padel', href: 'showcase/vetro-padel/' },
   'nucleo-pilates':      { name: 'Nucleo Pilates', kind: 'app', cat: 'sport',   type: { id: 'Kelas pilates', en: 'Pilates classes' }, poster: 'nucleo-pilates', href: 'showcase/nucleo-pilates/' },
 
-  // Systems: video only for now. They must NOT link to demo/ (owner's decision);
-  // a screenshot showcase page comes later (DEMO-NOTES.md, "Tahap berikutnya").
-  'self-order':    { name: 'Self Order',          kind: 'system', video: 'Omnify Film - Self Order' },
-  'pos':           { name: 'Kasir (POS)',         kind: 'system', video: 'Omnify Film - Kasir (1)' },
-  'ikm':           { name: 'Dapur & Inventaris',  kind: 'system', video: 'Omnify Film - Dapur - Inventaris (1)' },
-  'pos-inventory': { name: 'Kasir & Inventaris',  kind: 'system', video: 'Omnify Film - Kasir - Inventaris' }
+  // Systems: the card keeps its video preview, the button opens the shared detail page
+  // (showcase/sistem/, screenshots + feature checklist per module). `detail: true` turns the
+  // button label into "Lihat detail". They must NOT link to demo/ (PIN-protected, owner's decision).
+  'self-order':    { name: 'Self Order',          kind: 'system', video: 'Omnify Film - Self Order', href: 'showcase/sistem/#kasir', detail: true },
+  'pos':           { name: 'Kasir (POS)',         kind: 'system', video: 'Omnify Film - Kasir (1)', href: 'showcase/sistem/#kasir', detail: true },
+  'ikm':           { name: 'Dapur & Inventaris',  kind: 'system', video: 'Omnify Film - Dapur - Inventaris (1)', href: 'showcase/sistem/#dapur', detail: true },
+  'pos-inventory': { name: 'Kasir & Inventaris',  kind: 'system', video: 'Omnify Film - Kasir - Inventaris', href: 'showcase/sistem/#inventaris', detail: true }
 };
