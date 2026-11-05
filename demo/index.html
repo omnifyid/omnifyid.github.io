@@ -2962,18 +2962,17 @@ const SHIFTS = [{ id: 'pagi', label: 'Pagi', start: 7, end: 15 }, { id: 'siang',
 const roster = s => [...EMP, ...s.users.filter(x => x.shiftId && !EMP.some(e => e.name.toLowerCase() === x.name.toLowerCase())).map(x => { const z = SHIFTS.find(q => q.id === x.shiftId) || SHIFTS[0]; return { name: x.name, role: window.OS.ROLES[x.role].label, shift: z.label, start: z.start, end: z.end, phone: x.phone, pin: true }; })];
 const SHDEF = [{ id: 'pagi', label: 'Pagi', start: '07:00', end: '15:00', tol: 10 }, { id: 'siang', label: 'Siang', start: '15:00', end: '22:00', tol: 10 }];
 const seedStaff = (t, mode) => {
-  const NEW = mode === 'new';
   const D = 86400000, d0 = new Date(t); d0.setHours(0, 0, 0, 0); const b = d0.getTime(), at = (day, h, m) => b + day * D + (h * 60 + m) * 60000;
   const L = (id, name, type, f, to, reason, status, note) => ({ id, name, type, from: b + f * D, to: b + to * D, reason, status, note: note || '', createdAt: b + Math.min(f, 0) * D - D });
   const leaves = [L('LV1', 'Putri', 'cuti', 7, 9, 'Pulang kampung', 'pending'), L('LV2', 'Rina', 'izin', 4, 5, 'Keluar kota', 'pending'), L('LV3', 'Bayu', 'izin', 0, 0, 'Mengurus perpanjangan KTP', 'pending'),
     L('LV4', 'Putri', 'sakit', -5, -4, 'Demam dan flu', 'approved'), L('LV5', 'Bayu', 'cuti', -12, -11, 'Acara keluarga di luar kota', 'approved', 'Selamat berlibur'), L('LV6', 'Putri', 'cuti', -15, -15, 'Ada urusan pribadi', 'rejected', 'Sedang banyak pesanan, coba hari lain')];
   const recs = [];
-  if (!NEW) [['Rina', 7], ['Dewi', 7], ['Bayu', 15], ['Putri', 15], ['Fajar', 15]].forEach(([n, h], ei) => { for (let d = -6; d <= -1; d++) { if ((ei + d + 7) % 6 === 0) continue; const r = rnd(ei * 31 - d * 7), inM = Math.round(-12 + r * 20), outM = Math.round(r * 25); recs.push({ id: `AR-${n}-${-d}`, name: n, day: b + d * D, in: at(d, h, 0) + inM * 60000, out: at(d, h + 7 + (h === 7 ? 1 : 0), 0) + outM * 60000, flags: [], score: .78 + r * .2, dist: Math.round(4 + r * 40), note: '', status: 'ok' }); } });
+  [['Rina', 7], ['Dewi', 7], ['Bayu', 15], ['Putri', 15], ['Fajar', 15]].forEach(([n, h], ei) => { for (let d = -6; d <= -1; d++) { if ((ei + d + 7) % 6 === 0) continue; const r = rnd(ei * 31 - d * 7), inM = Math.round(-12 + r * 20), outM = Math.round(r * 25); recs.push({ id: `AR-${n}-${-d}`, name: n, day: b + d * D, in: at(d, h, 0) + inM * 60000, out: at(d, h + 7 + (h === 7 ? 1 : 0), 0) + outM * 60000, flags: [], score: .78 + r * .2, dist: Math.round(4 + r * 40), note: '', status: 'ok' }); } });
   const fl = (id, patch) => { const x = recs.find(z => z.id === id); if (x) Object.assign(x, patch); };
   fl('AR-Bayu-5', { flags: ['face'], score: .21, dist: 26, status: 'open', in: at(-5, 14, 59), out: at(-5, 21, 15) });
   fl('AR-Rina-5', { flags: ['cam', 'manual'], score: null, dist: 45, status: 'open', note: 'Kamera tablet rusak, absen manual', in: at(-5, 6, 55), out: at(-5, 15, 10) });
   fl('AR-Fajar-2', { flags: ['geo'], dist: 340, status: 'open', note: 'Clock in dari luar radius outlet', in: at(-2, 15, 21), out: at(-2, 22, 4) });
-  return { shiftDefs: SHDEF.map(x => ({ ...x })), schedOv: {}, schedWk: 0, leaves: NEW ? leaves.filter(l => l.status === 'pending' && l.from >= b) : leaves, lvFilter: 'all', lvForm: null, lvDecide: null, attRecs: recs.sort((a, z) => z.in - a.in), revFilter: 'open', revOpen: null, corrForm: null, shForm: null,
+  return { shiftDefs: SHDEF.map(x => ({ ...x })), schedOv: {}, schedWk: 0, leaves, lvFilter: 'all', lvForm: null, lvDecide: null, attRecs: recs.sort((a, z) => z.in - a.in), revFilter: 'open', revOpen: null, corrForm: null, shForm: null,
     attCfg: { quota: 12, manualMax: 3, face: false, loc: { kmg: { lat: '-6.2615', lng: '106.8135', r: '100' }, snp: { lat: '-6.2297', lng: '106.8090', r: '100' }, bsd: { lat: '-6.3018', lng: '106.6520', r: '150' } } }, attCfgD: null };
 };
 const seedAtt = (t, mode) => { const d0 = new Date(t); d0.setHours(0, 0, 0, 0); const b = d0.getTime(), H = 3600000, M = 60000, dt = new Date(t), hr = dt.getHours() + dt.getMinutes() / 60, late = { Rina: 2, Bayu: 6, Dewi: 14 }, o = {};
@@ -3882,7 +3881,7 @@ window.bDash = function (c, OM) {
   const s = c.state, OS = window.OS, md = c.effMods(), now = s.now, t0 = OS.sod(now), all = s.outlet === 'all', DAY = 86400000, W = s.w, fit = W >= 1280, mid = W >= 768 && W < 1280;
   const today = s.orders.filter(o => o.createdAt >= t0), sales = today.filter(OS.validSale);
   const sum = daySum(today, t0), ySum = daySum(s.orders.filter(o => o.createdAt >= t0 - DAY && o.createdAt <= now - DAY), t0 - DAY);
-  const ch = (a, b, nB) => { if (!b) return { noteS: 'Belum ada data kemarin', fg: '#4A4E47' }; if (nB != null && nB < 5) return { noteS: `Kemarin s.d. jam ini ${fmt(b)}`, fg: '#4A4E47' }; const p = Math.round((a - b) / b * 100); return { noteS: `${p >= 0 ? 'Naik' : 'Turun'} ${Math.abs(p)}% vs kemarin`, fg: p >= 0 ? '#1F5C12' : '#8E1A14' }; };
+  const ch = (a, b, nB) => { if (!b) return { noteS: 'Belum ada data kemarin', fg: '#4A4E47' }; if (!a || (nB != null && nB < 5)) return { noteS: `Kemarin s.d. jam ini ${fmt(b)}`, fg: '#4A4E47' }; const p = Math.round((a - b) / b * 100); return { noteS: `${p >= 0 ? 'Naik' : 'Turun'} ${Math.abs(p)}% vs kemarin`, fg: p >= 0 ? '#1F5C12' : '#8E1A14' }; };
   const oids = all ? c.myOutlets(c.me()).map(o => o.id) : [s.outlet];
   const exps = md.finance ? (s.expenses || []).filter(e => e.date >= t0 && e.status === 'posted' && oids.includes(e.outletId)) : [], expT = exps.reduce((a, e) => a + e.amount, 0);
   const tdy = rvYmd(now), rvs = (s.reservations || []).filter(r => r.date === tdy && oids.includes(r.outletId) && rvLive(r)), rvArr = rvs.filter(r => r.status === 'arrived').length;
@@ -3904,7 +3903,7 @@ window.bDash = function (c, OM) {
   if (PR.length > 4) { const r = PR.slice(4); lg.push({ label: 'Lainnya', amt: r.reduce((a, [id]) => a + pa[id].amt, 0), n: r.reduce((a, [id]) => a + pa[id].n, 0) }); }
   let acc = 0; const stops = lg.map((l, i) => { const a = acc; acc += l.amt / (pTot.amt || 1) * 100; return `${DONUT[i]} ${a}% ${acc}%`; });
   const jt = v => (Math.round(v / 1e5) / 10).toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  const dStart = OS.sod(s.seededAt || now) - (s.demoMode === 'new' ? 0 : 59) * DAY;
+  const dStart = OS.sod(s.seededAt || now) - 59 * DAY;
   const wkD = Array.from({ length: 7 }, (_, k) => { const i = 6 - k, a = t0 - i * DAY, d = new Date(a); return { i, a, v: daySum(s.orders.filter(o => o.createdAt >= a && o.createdAt < a + DAY), a).net, d }; }).filter(x => x.a >= dStart);
   const wMx = Math.max(...wkD.map(x => x.v), 1), past = wkD.filter(x => x.i > 0), avg6 = past.reduce((a, x) => a + x.v, 0) / (past.length || 1);
   const wk = wkD.map(x => ({ label: x.i === 0 ? 'Hari ini' : RV_DOW[x.d.getDay()] + ' ' + x.d.getDate(), v: x.v > 0 ? jt(x.v) : '', pct: (x.v / wMx * 82) + '%', bg: x.i === 0 ? '#1F5C12' : '#45A02E', lFg: x.i === 0 ? '#1F5C12' : '#4A4E47', lW: x.i === 0 ? 700 : 500, tip: `${rvDFull(rvYmd(x.d.getTime()))} · ${fmt(x.v)}` }));
@@ -4918,7 +4917,7 @@ window.bStaff = function (c, OM) {
   });
   const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(now - (6 - i) * 86400000); return { label: d.toLocaleDateString('id-ID', { weekday: 'short' }), date: d.getDate(), today: i === 6 }; });
   const MARK = { H: ['#E6F4DF', '#1F5C12', 'Hadir'], T: ['#FBF1DC', '#6A4400', 'Terlambat'], I: ['#EAF0FB', '#1F4A8F', 'Izin'], L: ['#F1F0EC', '#4A4E47', 'Libur'], A: ['#FCE9E6', '#8E1A14', 'Alpa'], '-': ['#fff', '#4A4E47', 'Belum'] };
-  const week = R.map((e, ei) => ({ name: e.name, role: e.role, cells: days.map((d, di) => { let k; const dd = OS.sod(now) - (6 - di) * 86400000; if (staffLv(s, e.name, dd)) k = 'I'; else if (s.demoMode === 'new' && !d.today) k = '-'; else if (d.today) { const a = att[ei]; k = a.status === 'Belum masuk' ? '-' : a.status === 'Terlambat' ? 'T' : 'H'; } else { const r = rnd(ei * 10 + di); k = (ei + di) % 6 === 0 ? 'L' : r < .12 ? 'T' : r < .17 ? 'I' : r < .2 ? 'A' : 'H'; } return { k, bg: MARK[k][0], fg: MARK[k][1] }; }) }));
+  const week = R.map((e, ei) => ({ name: e.name, role: e.role, cells: days.map((d, di) => { let k; const dd = OS.sod(now) - (6 - di) * 86400000; if (staffLv(s, e.name, dd)) k = 'I'; else if (d.today) { const a = att[ei]; k = a.status === 'Belum masuk' ? '-' : a.status === 'Terlambat' ? 'T' : 'H'; } else { const r = rnd(ei * 10 + di); k = (ei + di) % 6 === 0 ? 'L' : r < .12 ? 'T' : r < .17 ? 'I' : r < .2 ? 'A' : 'H'; } return { k, bg: MARK[k][0], fg: MARK[k][1] }; }) }));
   week.forEach(w => { w.hours = w.cells.filter(x => x.k === 'H' || x.k === 'T').length * 8 + ' jam'; });
   const ACCR = OS.PERM_ROWS.filter(p => p.page);
   const setUser = (uid, patch, label, before, after) => c.commit(real => { const g = c.gen(real), uu = real.users.find(x => x.id === uid); return { users: real.users.map(x => x.id === uid ? { ...x, ...patch } : x), logs: [c.mkLog(real, g, { type: 'permission_change', outletId: null, objType: 'user', objId: uid, objLabel: uu.name + ' · ' + label, before, after }), ...real.logs], seq: g.seq }; }, () => c.showToast('Izin pengguna diubah · tercatat di log'));
@@ -5024,7 +5023,7 @@ window.bReports = function (c, OM) {
   const dayMode = tab === 'daily' || tab === 'shift';
   const oids = s.outlet === 'all' && mgr ? s.outlets.filter(o => o.active !== false).map(o => o.id) : [s.outlet === 'all' ? u.outlets[0] : s.outlet];
   const multi = oids.length > 1;
-  const sod0 = OS.sod(now), dOff = mgr && s.demoMode !== 'new' ? Math.min(59, s.repDay || 0) : 0, mOff = s.demoMode !== 'new' ? Math.min(1, s.repMon || 0) : 0;
+  const sod0 = OS.sod(now), dOff = mgr ? Math.min(59, s.repDay || 0) : 0, mOff = Math.min(1, s.repMon || 0);
   const fd = (t, o) => new Date(t).toLocaleDateString('id-ID', o);
   let from, to, pFrom, label;
   if (dayMode) { from = sod0 - dOff * D; to = from + D; pFrom = from - D; label = fd(from, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }); }
@@ -5087,7 +5086,7 @@ window.bReports = function (c, OM) {
   const addKV = (title, list) => { csv.push([title]); list.forEach(w => csv.push([w.label, w.value])); csv.push([]); };
   const KV = (label, value, o) => { o = o || {}; return { label, value, fw: o.b ? 700 : 400, bt: o.top ? '1px solid #E7E5DF' : 'none', bg: o.bg || 'transparent', pad: o.top || o.bg ? '10px 8px' : '6px 8px', lfg: o.lfg || '#10140F', vfg: o.vfg || '#10140F' }; };
   const delta = (a, b, costRow) => { if (!b) return X('—', { fg: MUT }); const p = (a - b) / Math.abs(b) * 100, up = p >= 0, good = costRow ? !up : up; return X((up ? '+' : '−') + Math.abs(p).toFixed(1).replace('.', ',') + '%', { fg: Math.abs(p) < .05 ? MUT : good ? GREEN : RED, b: true }); };
-  const dnote = (a, b) => { if (!b) return { t: 'Belum ada pembanding', fg: MUT }; const p = (a - b) / b * 100; return { t: (p >= 0 ? '+' : '−') + Math.abs(p).toFixed(1).replace('.', ',') + '% vs ' + (dayMode ? 'kemarin' : 'bulan lalu'), fg: p >= 0 ? GREEN : RED }; };
+  const dnote = (a, b) => { if (!b) return { t: 'Belum ada pembanding', fg: MUT }; if (!a) return { t: (dayMode ? 'Kemarin ' : 'Bulan lalu ') + fmt(b), fg: MUT }; const p = (a - b) / b * 100; return { t: (p >= 0 ? '+' : '−') + Math.abs(p).toFixed(1).replace('.', ',') + '% vs ' + (dayMode ? 'kemarin' : 'bulan lalu'), fg: p >= 0 ? GREEN : RED }; };
 
   // ---- tabel umum
   const payIds = [...OM.PAY.map(p => p.id), ...OS.CHANNELS.map(x => x.id), 'none'].filter(id => A.byM[id]);
@@ -5222,7 +5221,7 @@ window.bReports = function (c, OM) {
   else if (tab === 'inv') kpis = invK; else kpis = plK;
 
   const TABS = [['daily', 'Harian', 'today'], ['monthly', 'Bulanan', 'calendar_month'], ['shift', 'Shift & kas', 'point_of_sale'], ['inv', 'Persediaan', 'inventory_2'], ['pl', 'Laba rugi', 'account_balance']];
-  const off = dayMode ? dOff : mOff, maxOff = s.demoMode === 'new' ? 0 : dayMode ? 59 : 1;
+  const off = dayMode ? dOff : mOff, maxOff = dayMode ? 59 : 1;
   const setOff = v => c.setState(dayMode ? { repDay: v, repExp: false, repPg: {} } : { repMon: v, repExp: false, repPg: {} });
   const outletLabel = multi ? 'Semua outlet' : onm(oids[0]);
   const tables = { daily: [tOut, tPay, tMoves, tExp, tDay, tVoid], monthly: [tOut, tPay, tMoves, tExp, tDay, tVoid], shift: [tShift, tMoves, tVoid], inv: [tInv, tWaste], pl: [tPL] }[tab];
@@ -5347,8 +5346,8 @@ window.bSettings = function (c, OM) {
     polAdd: () => { const v = pf.nc.trim(); if (!v || pf.cats.includes(v)) return; setPf({ cats: [...pf.cats, v], nc: '' }); }, polDirty, polSaveBg: polDirty ? '#1F5C12' : '#D7D5CE', savePol: () => polDirty && savePol(), resetPol: () => c.setState({ polForm: null }),
     payMethods: OM.PAY.map(p => { const on = s.payEnabled[p.id]; return { ...p, hasIcon: !!p.icon, logoH: p.h || '18px', ...tog(on), opacity: on ? 1 : .5, isEdcOn: p.id === 'edc' && on, banks: p.id === 'edc' ? EDCB.map(b => { const a = (s.edcBanks || []).includes(b); return { label: b, ...chip(a), pressed: a ? 'true' : 'false', toggle: () => c.commit(real => { const cur = real.edcBanks || [], has = cur.includes(b), g = c.gen(real); return { edcBanks: has ? cur.filter(x => x !== b) : EDCB.filter(x => cur.includes(x) || x === b), logs: [settingsLog(real, g, 'Bank EDC ' + b, has ? 'Aktif' : 'Nonaktif', has ? 'Nonaktif' : 'Aktif'), ...real.logs], seq: g.seq }; }) }; }) : [], toggle: () => c.commit(real => { const g = c.gen(real); return { payEnabled: { ...real.payEnabled, [p.id]: !on }, logs: [settingsLog(real, g, 'Metode bayar ' + p.label, on ? 'Aktif' : 'Nonaktif', on ? 'Nonaktif' : 'Aktif'), ...real.logs], seq: g.seq }; }) }; }),
     accOutlets: c.myOutlets(me).map(o => ({ name: o.full, addr: o.addr, cur: o.id === s.outlet })), changePin: () => c.showToast('PIN baru dikirim lewat WhatsApp'), logout: () => c.askSignOut(), accEmail: uEmail(me),
-    dataStats: [{ label: 'Pesanan', value: s.orders.length.toLocaleString('id-ID') }, { label: 'Shift', value: String(s.shifts.length) }, { label: 'Log aktivitas', value: s.logs.length.toLocaleString('id-ID') }, { label: 'Data sejak', value: dstr(OS.sod(s.seededAt) - (s.demoMode === 'new' ? 0 : 59) * OS.D) }],
-    demoPresets: [['new', 'Toko baru buka', 'store', 'Hari pertama, toko baru saja buka. Belum ada pesanan, shift kasir belum dibuka, dapur kosong, belum ada transaksi keuangan, pembelian, laporan, atau riwayat log. Stok awal sudah tersedia.'], ['running', 'Toko sudah berjalan', 'trending-up', '60 hari riwayat sampai jam ini. Shift hari ini sedang berjalan dan dapur aktif, plus pesanan semua kanal, pengeluaran, pembelian, hutang, pencairan, void, refund, dan selisih kas.']].map(([id, label, icon, desc]) => { const cur = (s.demoMode || 'running') === id; return { label, icon, desc, cur, bd: cur ? '#1F5C12' : '#E7E5DF', bg: cur ? '#F3F9F0' : '#fff', btnLabel: cur ? 'Buat ulang' : 'Pakai skenario ini', pick: () => c.setState({ confirm: { title: 'Ganti data demo ke "' + label + '"?', desc: 'Semua transaksi, shift, pengeluaran, hutang, dan log saat ini akan diganti. Tanggal dan jam data mengikuti waktu sekarang. Tindakan ini tidak bisa dibatalkan.', okLabel: 'Buat data demo', danger: true, ok: () => c.resetDemo(id) } }) }; }),
+    dataStats: [{ label: 'Pesanan', value: s.orders.length.toLocaleString('id-ID') }, { label: 'Shift', value: String(s.shifts.length) }, { label: 'Log aktivitas', value: s.logs.length.toLocaleString('id-ID') }, { label: 'Data sejak', value: dstr(OS.sod(s.seededAt) - 59 * OS.D) }],
+    demoPresets: [['new', 'Toko baru buka', 'store', 'Pagi hari, toko baru saja buka. Riwayat 60 hari sampai tutup toko kemarin sudah lengkap, tapi hari ini belum ada pesanan, shift kasir belum dibuka, dan dapur masih kosong. Stok sisa kemarin.'], ['running', 'Toko sudah berjalan', 'trending-up', '60 hari riwayat sampai jam ini. Kasir dan layanan hari ini sudah berjalan sejak buka jam 07.00, jadi pesanan jam-jam sebelumnya sudah ada dan dapur aktif. Termasuk semua kanal, pengeluaran, pembelian, hutang, pencairan, void, refund, dan selisih kas.']].map(([id, label, icon, desc]) => { const cur = (s.demoMode || 'running') === id; return { label, icon, desc, cur, bd: cur ? '#1F5C12' : '#E7E5DF', bg: cur ? '#F3F9F0' : '#fff', btnLabel: cur ? 'Buat ulang' : 'Pakai skenario ini', pick: () => c.setState({ confirm: { title: 'Ganti data demo ke "' + label + '"?', desc: 'Semua transaksi, shift, pengeluaran, hutang, dan log saat ini akan diganti. Tanggal dan jam data mengikuti waktu sekarang. Tindakan ini tidak bisa dibatalkan.', okLabel: 'Buat data demo', danger: true, ok: () => c.resetDemo(id) } }) }; }),
     demoAutoOn: s.demoAuto !== false, ...(() => { const t = tog(s.demoAuto !== false); return { demoAutoTrack: t.trackBg, demoAutoJust: t.justify }; })(),
     demoSeededStr: dstr(s.seededAt) + ' · ' + hm(s.seededAt),
     toggleDemoAuto: () => { const on = s.demoAuto === false; c.setState({ demoAuto: on }); c.showToast(on ? 'Data demo akan disegarkan otomatis setiap hari' : 'Penyegaran otomatis dimatikan'); },
