@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omnify — Sistem Manajemen Toko: Kasir, Kitchen, Inventory & Operasional</title>
+<meta name="description" content="Kasir, dapur, stok, dan laporan dalam satu sistem. Lihat fitur lengkap 4 modul Sistem Manajemen Omnify beserta add-on.">
+<link rel="canonical" href="https://omnifyid.github.io/showcase/sistem/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omnify">
+<meta property="og:title" content="Sistem Manajemen Omnify — Kasir, Kitchen, Inventory & Operasional">
+<meta property="og:description" content="Kasir, dapur, stok, dan laporan dalam satu sistem.">
+<meta property="og:image" content="https://omnifyid.github.io/showcase/sistem/img/ringkasan.jpg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/ringkasan-md.jpg" imagesrcset="img/ringkasan-md.jpg 1100w, img/ringkasan.jpg 1800w" imagesizes="(max-width:1200px) 100vw, 1120px">
+<style>
+:root{
+  --ink:#0f1410;--paper:#f5f6f3;--line:#e1e4dc;--line2:#b9bfb3;--mut:#4b5247;
+  --g:oklch(0.42 0.12 140);--g-h:oklch(0.36 0.11 140);--g-lite:oklch(0.8 0.17 140);--g-tick:oklch(0.42 0.13 140);
+  --pad:clamp(20px,5vw,64px);--max:1280px;--hd:68px;--ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:136px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
+.dark :focus-visible{outline-color:var(--g-lite)}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.skip{position:absolute;left:16px;top:-80px;z-index:100;background:var(--ink);color:#eef4ea;padding:12px 18px;border-radius:8px;font-weight:600}.skip:focus{top:12px}
+
+/* header: solid background, no backdrop blur (cheaper to scroll) */
+.hd{position:sticky;top:0;z-index:30;background:rgba(245,246,243,.98);border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;gap:12px 20px;height:var(--hd)}
+.logo{font-weight:800;font-size:22px;line-height:1;letter-spacing:-.06em;display:flex;align-items:center;gap:.12em}
+.logo b{color:oklch(0.55 0.16 140)}.logo i{width:.5em;height:.82em;background:oklch(0.62 0.17 140)}
+.back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:8px;border:1px solid var(--line2);background:#fff;font-size:14px;font-weight:600}
+.back:hover{border-color:var(--ink)}
+.hd-r{margin-left:auto;display:flex;align-items:center;gap:10px}
+.lang{display:flex;gap:2px;padding:3px;background:#fff;border:1px solid var(--line);border-radius:999px}
+.lang button{border:0;background:transparent;min-width:44px;min-height:38px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;color:var(--mut)}
+.lang button[aria-pressed=true]{background:var(--ink);color:#eef4ea}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:8px;font-size:15px;font-weight:700;white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:background-color .15s,border-color .15s,transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-g{background:var(--g);color:#fff}.btn-g:hover{background:var(--g-h)}
+.btn-l{background:var(--g-lite);color:var(--ink)}.btn-l:hover{background:oklch(0.87 0.15 140)}
+.btn-o{border-color:rgba(255,255,255,.3);color:#eef4ea}.btn-o:hover{border-color:rgba(255,255,255,.65)}
+.hd .btn{min-height:44px;padding:0 16px;font-size:14px}
+@media (max-width:720px){.hd .btn{display:none}.back .lg{display:none}.back{padding:0 12px}}
+
+/* hero: glow and grid are plain gradients (no filter: blur) */
+.hero{position:relative;overflow:hidden;color:#eef4ea;background:radial-gradient(640px 520px at 8% -8%,rgba(98,186,72,.22),transparent 70%),radial-gradient(700px 500px at 100% 110%,rgba(98,186,72,.12),transparent 70%),var(--ink)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 90% 70% at 30% 25%,#000 30%,transparent 85%);mask-image:radial-gradient(ellipse 90% 70% at 30% 25%,#000 30%,transparent 85%);pointer-events:none}
+.hero .wrap{position:relative;padding-top:clamp(48px,7vw,96px);display:flex;flex-direction:column;gap:clamp(36px,5vw,56px)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--g-lite)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--g-lite);box-shadow:0 0 0 4px rgba(126,215,106,.18)}
+.hero h1{margin:0;font-size:clamp(40px,6.2vw,84px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance;color:#f2f6ef;max-width:14ch}
+.hero h1 span{color:var(--g-lite)}
+.hero-top{display:flex;flex-wrap:wrap;gap:28px 56px;align-items:flex-end;justify-content:space-between}
+.hero-txt{flex:1 1 560px;display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero .lead{margin:0;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:#c3ccc0;max-width:600px;text-wrap:pretty}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-mods{flex:0 1 380px;display:grid;grid-template-columns:1fr 1fr;gap:10px;min-width:0}
+.hm{display:flex;flex-direction:column;gap:6px;padding:16px;border-radius:12px;background:#141a15;border:1px solid rgba(255,255,255,.1);transition:background-color .15s,border-color .15s,transform .3s var(--ease)}
+.hm:hover{background:#1b241d;border-color:rgba(255,255,255,.22);transform:translateY(-2px)}
+.hm small{font-size:12px;font-weight:600;color:#a9b5a6;letter-spacing:.04em}
+.hm strong{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.hm span{font-size:13px;color:#a9b5a6;line-height:1.35}
+.hero-shot{position:relative;margin:0 auto;width:100%;max-width:1120px}
+.frame{border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(15,20,16,.12);box-shadow:0 24px 60px rgba(15,20,16,.18)}
+.hero .frame{border-color:rgba(255,255,255,.14);border-bottom:0;border-radius:14px 14px 0 0;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.bar{display:flex;align-items:center;gap:8px;height:34px;padding:0 14px;background:#eceee9;border-bottom:1px solid #dcdfd7}
+.bar i{width:10px;height:10px;border-radius:50%;background:#c9cdc4;flex:none}
+.bar span{margin-left:10px;font-size:12px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frame img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top left;background:#f4f3ef}
+.chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:#121813;border:1px solid rgba(255,255,255,.14);box-shadow:0 12px 30px rgba(0,0,0,.35);color:#eef4ea;font-size:13px;line-height:1.25}
+.chip b{display:block;font-size:15px}
+.chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.chip.c1{top:18%;left:-18px}.chip.c2{top:44%;right:-18px}.chip.c3{bottom:12%;left:8%}
+@media (max-width:760px){.chip{display:none}}
+.note-data{margin:0;font-size:13px;color:#a9b5a6;text-align:center;padding:14px 16px}
+
+/* module nav */
+.mnav{position:sticky;top:var(--hd);z-index:20;background:rgba(245,246,243,.98);border-bottom:1px solid var(--line)}
+.mnav ol{list-style:none;margin:0 auto;padding:10px var(--pad);max-width:var(--max);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.mnav ol::-webkit-scrollbar{display:none}
+.mnav a{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 16px 0 8px;border-radius:999px;border:1px solid var(--line2);background:#fff;font-size:14px;font-weight:600;white-space:nowrap;transition:background-color .2s,color .2s,border-color .2s}
+.mnav a:hover{border-color:var(--ink)}
+.mnav a .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#e9ece5;font-size:12px;font-weight:700;transition:background-color .2s}
+.mnav a[aria-current=true]{background:var(--ink);border-color:var(--ink);color:#eef4ea}
+.mnav a[aria-current=true] .n{background:var(--g-lite);color:var(--ink)}
+.mnav .sp{flex:1}
+
+/* section headings */
+.sec-h{display:flex;flex-direction:column;gap:10px;max-width:720px}
+.sec-h h2{margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.05;text-wrap:balance}
+.sec-h p{margin:0;font-size:16px;line-height:1.65;color:var(--mut);text-wrap:pretty}
+.tag{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--g);letter-spacing:.02em}
+.tag em{font-style:normal;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--g-lite);font-size:12px}
+
+/* flow */
+.flow{padding:clamp(48px,6vw,80px) 0 0}
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.steps li{position:relative;padding:20px;border-radius:12px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.steps li:not(:last-child)::after{content:"→";position:absolute;right:-6px;top:50%;transform:translate(50%,-50%);width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--g-lite);display:grid;place-items:center;font-size:14px;z-index:1}
+.ic{width:40px;height:40px;border-radius:10px;background:#eef4ea;display:grid;place-items:center;color:var(--g);flex:none}
+.steps strong{font-size:16px;letter-spacing:-.01em}
+.steps span{font-size:14px;color:var(--mut);line-height:1.45}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps li:nth-child(2)::after{display:none}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.steps li::after{display:none}}
+
+/* module */
+.mod{padding:clamp(56px,7vw,104px) 0;border-bottom:1px solid var(--line);scroll-margin-top:120px}
+.mod-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(28px,5vw,72px);align-items:center}
+.mod.flip .mod-top{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.mod.flip .txt{order:2}
+@media (max-width:980px){.mod-top,.mod.flip .mod-top{grid-template-columns:1fr}.mod.flip .txt{order:0}}
+.txt{display:flex;flex-direction:column;gap:20px;min-width:0}
+.txt h2{margin:0;font-size:clamp(30px,3.4vw,46px);line-height:1.06;font-weight:600;letter-spacing:-.035em;text-wrap:balance}
+.txt .lead{margin:0;font-size:17px;line-height:1.65;color:var(--mut);text-wrap:pretty}
+.gain{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:10px;background:#eef4ea;border:1px solid #d6e4cf;font-size:15px;line-height:1.5}
+.gain svg{flex:none;margin-top:2px;color:var(--g)}
+.stats{display:flex;flex-wrap:wrap;gap:8px}
+.stats span{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.gal{display:flex;flex-direction:column;gap:12px;min-width:0}
+.shot{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;text-align:left}
+.shot .frame{transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.shot:hover .frame{transform:translateY(-4px);box-shadow:0 32px 70px rgba(15,20,16,.22)}
+.shot img{transition:opacity .25s}
+.zoom{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:rgba(15,20,16,.92);color:#eef4ea;font-size:13px;font-weight:600}
+.badge-ad{position:absolute;left:12px;top:46px;padding:5px 10px;border-radius:999px;background:var(--ink);color:var(--g-lite);font-size:12px;font-weight:700}
+.badge-ad[hidden]{display:none}
+.cap{font-size:14px;color:var(--mut);min-height:21px}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.th{display:flex;align-items:center;gap:10px;min-height:56px;padding:6px 14px 6px 6px;border-radius:10px;border:1px solid var(--line2);background:#fff;cursor:pointer;text-align:left;font-size:14px;font-weight:600;transition:background-color .2s,border-color .2s,color .2s}
+.th:hover{border-color:var(--ink)}
+.th img{width:64px;height:40px;object-fit:cover;object-position:top left;border-radius:6px;background:#e4e7df}
+.th[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#eef4ea}
+@media (max-width:640px){.thumbs{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(var(--pad) * -1);padding:2px var(--pad) 6px;scrollbar-width:none}.th{flex:none}}
+
+/* feature groups */
+.fg{margin-top:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:14px}
+.grp{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px 10px;display:flex;flex-direction:column}
+.grp h3{margin:0 0 10px;display:flex;align-items:center;gap:10px;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.grp h3 .ic{width:34px;height:34px;border-radius:9px}
+.grp h3 small{margin-left:auto;font-size:12px;font-weight:600;color:var(--mut)}
+.cl{list-style:none;margin:0;padding:0}
+.cl li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid #edefe9;font-size:15px;line-height:1.4;font-weight:600}
+.cl li::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:var(--g-tick) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.cl li small{display:block;font-size:13.5px;font-weight:400;color:var(--mut);margin-top:3px;line-height:1.45}
+.cl li .ad{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--ink);color:var(--g-lite);font-size:11px;font-weight:700;vertical-align:1px}
+
+/* add-ons */
+.addons{padding:clamp(56px,7vw,104px) 0;scroll-margin-top:120px}
+.ad-grid{margin-top:32px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.ad-grid>*{grid-column:span 2}
+.ad-grid>:nth-child(4),.ad-grid>:nth-child(5){grid-column:span 3}
+@media (max-width:980px){.ad-grid{grid-template-columns:1fr 1fr}.ad-grid>*,.ad-grid>:nth-child(4){grid-column:span 1}.ad-grid>:nth-child(5){grid-column:span 2}}
+@media (max-width:640px){.ad-grid{grid-template-columns:1fr}.ad-grid>*,.ad-grid>:nth-child(5){grid-column:span 1}}
+.adc{position:relative;display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:14px;background:#fff;border:1px solid var(--line);transition:border-color .3s,transform .4s var(--ease),box-shadow .4s var(--ease)}
+.adc:hover{border-color:var(--line2);transform:translateY(-3px);box-shadow:0 20px 50px rgba(15,20,16,.08)}
+.adc .ic{width:48px;height:48px;border-radius:12px;background:var(--ink);color:var(--g-lite)}
+.adc .pill{position:absolute;top:24px;right:24px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:#eef4ea;color:#1f4d14}
+.adc h3{margin:0;font-size:21px;font-weight:600;letter-spacing:-.02em}
+.adc p{margin:0;font-size:15px;line-height:1.6;color:var(--mut)}
+.adc ul{list-style:none;margin:auto 0 0;padding:14px 0 0;border-top:1px solid #e4e7df;display:flex;flex-direction:column;gap:8px}
+.adc li{display:flex;gap:10px;font-size:14px;line-height:1.45}
+.adc li::before{content:"+";flex:none;font-weight:700;color:var(--g-tick)}
+.adc-a{display:flex;flex-wrap:wrap;gap:0 18px}
+.lnk{display:inline-flex;align-items:center;min-height:44px;font-size:14px;font-weight:700;color:var(--g);text-decoration:underline;text-underline-offset:4px}
+.lnk:hover{color:var(--g-h)}
+.ad-note{margin:16px 0 0;font-size:14px;color:var(--mut)}
+
+/* start + cta */
+.start{padding:0 0 clamp(56px,7vw,96px)}
+.start-grid{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.start-grid{grid-template-columns:1fr}}
+.st{padding:22px;border-radius:12px;border:1px solid var(--line);background:#fff;display:flex;flex-direction:column;gap:8px}
+.st b{font-size:13px;color:var(--g)}
+.st strong{font-size:17px;letter-spacing:-.01em}
+.st span{font-size:14px;color:var(--mut);line-height:1.5}
+.cta{position:relative;overflow:hidden;margin-top:clamp(40px,6vw,72px);border-radius:16px;color:#eef4ea;padding:clamp(32px,6vw,72px);display:flex;flex-wrap:wrap;gap:28px 48px;align-items:flex-end;justify-content:space-between;background:radial-gradient(520px 420px at 100% 100%,rgba(98,186,72,.3),transparent 70%),var(--ink)}
+.cta h2{margin:0;font-size:clamp(30px,4vw,52px);font-weight:600;letter-spacing:-.035em;line-height:1.05;text-wrap:balance;max-width:16ch;color:#f2f6ef}
+.cta p{margin:12px 0 0;font-size:16px;line-height:1.6;color:#d3dbd0;max-width:560px;text-wrap:pretty}
+.cta-b{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.cta-b small{font-size:13px;color:#a9b5a6}
+footer{padding:28px 0 96px;font-size:13px;color:var(--mut)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer a{text-decoration:underline;text-underline-offset:3px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(10,14,11,.95);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:64px clamp(12px,4vw,72px) 24px}
+.lb.on{display:flex;animation:lbIn .25s var(--ease)}
+@keyframes lbIn{from{opacity:0}}
+.lb img{max-width:100%;max-height:calc(100vh - 150px);border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#fff;animation:lbImg .35s var(--ease)}
+@keyframes lbImg{from{opacity:0;transform:scale(.97)}}
+.lb p{margin:0;color:#eef4ea;font-size:15px;text-align:center}
+.lb p span{color:#a9b5a6}
+.lb button{position:fixed;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#eef4ea;cursor:pointer;display:grid;place-items:center;font-size:20px}
+.lb button[hidden]{display:none}
+.lb button:hover{background:rgba(255,255,255,.18)}
+.lb .x{top:12px;right:12px}.lb .pv{left:12px;top:50%;transform:translateY(-50%)}.lb .nx{right:12px;top:50%;transform:translateY(-50%)}
+.lb button:focus-visible{outline:3px solid var(--g-lite);outline-offset:2px}
+@media (max-width:640px){.lb .pv,.lb .nx{top:auto;bottom:16px;transform:none}}
+
+/* scroll reveal: opacity + transform only (GPU friendly). JS adds .in; children get a stagger delay. */
+.js [data-rv]{opacity:0;transform:translate3d(0,24px,0);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js [data-rv=left]{transform:translate3d(-32px,0,0)}
+.js [data-rv=right]{transform:translate3d(32px,0,0)}
+.js [data-rv=zoom]{transform:translate3d(0,40px,0) scale(.96)}
+.js [data-rv].in{opacity:1;transform:none}
+.js [data-rv-kids]>*{opacity:0;transform:translate3d(0,18px,0);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0) * 70ms)}
+.js [data-rv-kids].in>*{opacity:1;transform:none}
+.js .cl li{opacity:0;transform:translate3d(-8px,0,0);transition:opacity .5s var(--ease),transform .5s var(--ease);transition-delay:calc(var(--i,0) * 45ms + 200ms)}
+.js .fg.in .cl li{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js [data-rv],.js [data-rv-kids]>*,.js .cl li{opacity:1!important;transform:none!important;transition:none!important}
+  *,*::before,*::after{animation:none!important}
+}
+
+.fab{position:fixed;right:16px;bottom:16px;z-index:40;display:none;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;background:var(--g-lite);color:var(--ink);font-weight:700;font-size:15px;box-shadow:0 0 0 3px #fff,0 12px 32px rgba(0,0,0,.3)}
+@media (max-width:720px){.fab{display:flex}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main" data-t="skip"></a>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="logo" href="../../" aria-label="Omnify"><b>&gt;</b><span>omnify</span><i></i></a>
+    <a class="back" id="back" href="../../FnB/#fnb-04"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span class="lg" data-t="back"></span></a>
+    <div class="hd-r">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="id" aria-pressed="true" title="Bahasa Indonesia">ID</button>
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+      <a class="btn btn-g" data-wa target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg><span data-t="hdCta"></span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1" style="outline:none">
+  <section class="hero dark">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="hero-txt" data-rv-kids>
+          <span class="eyebrow" data-t="eyebrow"></span>
+          <h1 data-t="h1" data-html></h1>
+          <p class="lead" data-t="lead"></p>
+          <div class="hero-cta">
+            <a class="btn btn-l" data-wa target="_blank" rel="noopener" data-t="heroCta"></a>
+            <a class="btn btn-o" href="#kasir" data-t="heroSee"></a>
+          </div>
+        </div>
+        <nav class="hero-mods" id="heroMods" aria-label="Modul" data-rv-kids></nav>
+      </div>
+      <div class="hero-shot" data-rv="zoom">
+        <div class="chip c1"><span class="dot" style="background:var(--g-lite)"></span><div><b>Rp 2.907.817</b><span data-t="chip1"></span></div></div>
+        <div class="chip c2"><span class="dot" style="background:oklch(0.8 0.15 80)"></span><div><b data-t="chip2b"></b><span data-t="chip2"></span></div></div>
+        <div class="chip c3"><span class="dot" style="background:oklch(0.75 0.14 220)"></span><div><b data-t="chip3b"></b><span data-t="chip3"></span></div></div>
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span>omnify · Kopi Senja · Kemang</span></div>
+          <img src="img/ringkasan-md.jpg" srcset="img/ringkasan-md.jpg 1100w, img/ringkasan.jpg 1800w" sizes="(max-width:1200px) 100vw, 1120px" alt="" data-alt="heroAlt" width="1100" height="688" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+    </div>
+    <p class="note-data" data-t="dataNote"></p>
+  </section>
+
+  <nav class="mnav" aria-label="Modul"><ol id="mnav"></ol></nav>
+
+  <section class="flow">
+    <div class="wrap">
+      <div class="sec-h" data-rv><h2 data-t="flowH"></h2><p data-t="flowP"></p></div>
+      <ol class="steps" id="steps" data-rv-kids></ol>
+    </div>
+  </section>
+
+  <div id="mods"></div>
+
+  <section class="addons" id="addon">
+    <div class="wrap">
+      <div class="sec-h" data-rv><span class="tag" data-t="adTag"></span><h2 data-t="adH"></h2><p data-t="adP"></p></div>
+      <div class="ad-grid" id="ads" data-rv-kids></div>
+      <p class="ad-note" data-t="adNote"></p>
+    </div>
+  </section>
+
+  <section class="start">
+    <div class="wrap">
+      <div class="sec-h" data-rv><h2 data-t="stH"></h2><p data-t="stP"></p></div>
+      <div class="start-grid" id="start" data-rv-kids></div>
+      <div class="cta dark" data-rv="zoom">
+        <div><h2 data-t="ctaH"></h2><p data-t="ctaP"></p></div>
+        <div class="cta-b">
+          <a class="btn btn-l" data-wa target="_blank" rel="noopener" data-t="ctaBtn"></a>
+          <small data-t="ctaSmall"></small>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span data-t="foot"></span><a id="back2" href="../../FnB/#fnb-04" data-t="back"></a></div></footer>
+<a class="fab" data-wa target="_blank" rel="noopener" data-t="fab"></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbCap">
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+  <button type="button" class="x" id="lbX" aria-label="Tutup">✕</button>
+  <button type="button" class="pv" id="lbP" aria-label="Sebelumnya">←</button>
+  <button type="button" class="nx" id="lbN" aria-label="Berikutnya">→</button>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var WA = '628977887994';
+  var IC = {
+    kasir: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M16 15h0"/>',
+    dapur: '<path d="M4 11h13a3 3 0 0 1 0 6h-1"/><path d="M4 11v6a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-6"/><path d="M8 4v3M12 4v3"/>',
+    inv: '<path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/>',
+    ops: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    pay: '<rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/>',
+    menu: '<path d="M4 6h16M4 12h16M4 18h10"/>',
+    meja: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><circle cx="17.5" cy="17.5" r="3.5"/>',
+    kds: '<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9h4M7 12h6"/>',
+    recipe: '<path d="M6 3h9l3 3v15H6z"/><path d="M9 10h6M9 14h6M9 18h3"/>',
+    avail: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    stock: '<path d="M4 20V8l8-5 8 5v12"/><path d="M9 20v-6h6v6"/>',
+    audit: '<path d="M9 11l2 2 4-4"/><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+    truck: '<path d="M2 6h12v10H2zM14 10h4l4 4v2h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>',
+    report: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    wallet: '<path d="M3 7h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 7l12-4v4M16 13h2"/>',
+    team: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>',
+    lock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+    wa: '<path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/>',
+    gps: '<path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    po: '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+    book: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 15l2 2 4-4"/>',
+    chk: '<path d="M5 12.5l4.5 4.5L19 7.5"/>'
+  };
+  var svg = function (k, s) { return '<svg width="' + (s || 22) + '" height="' + (s || 22) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + IC[k] + '</svg>'; };
+
+  // Feature item: [title, detail?, addon?]. Shot: [image, title, caption, addon?].
+  var T = {
+    id: {
+      title: 'Omnify — Sistem Manajemen Toko: Kasir, Kitchen, Inventory & Operasional',
+      skip: 'Langsung ke isi', back: 'Kembali ke portofolio', hdCta: 'Konsultasi gratis', fab: 'Tanya via WhatsApp',
+      eyebrow: 'Sistem Manajemen Omnify',
+      h1: 'Toko ramai, <span>kepala tetap tenang.</span>',
+      lead: 'Kasir, dapur, stok, dan laporan bekerja di satu sistem. Setiap pesanan langsung tercatat, bahan berkurang sesuai resep, dan Anda bisa melihat kondisi toko dari mana saja, tanpa rekap manual setiap malam.',
+      heroCta: 'Konsultasi gratis via WhatsApp', heroSee: 'Lihat 4 modul ↓',
+      chip1: 'Penjualan bersih hari ini', chip2b: '35 transaksi', chip2: 'Naik 38% dari kemarin', chip3b: '7 bahan menipis', chip3: 'Siap dibelanjakan',
+      heroAlt: 'Halaman Ringkasan Omnify: penjualan per jam, metode pembayaran, tren 7 hari, dan reservasi berikutnya',
+      dataNote: 'Semua screenshot diambil dari demo Omnify dengan data contoh “Kopi Senja”, sebuah kedai kopi yang sedang beroperasi.',
+      flowH: 'Satu pesanan, empat modul ikut bergerak',
+      flowP: 'Tidak perlu memindahkan data dari satu aplikasi ke aplikasi lain. Begitu kasir menekan Bayar, semuanya tersambung otomatis.',
+      steps: [['kasir', 'Kasir mencatat', 'Pesanan dari kasir, QR meja, atau aplikasi online masuk ke satu daftar.'], ['dapur', 'Dapur menerima tiket', 'Tiket muncul di layar dapur & bar dalam hitungan detik.'], ['inv', 'Stok terpotong', 'Bahan berkurang sesuai resep, lengkap dengan peringatan menipis.'], ['ops', 'Laporan ter-update', 'Penjualan, kas, dan laba langsung terlihat di dashboard owner.']],
+      mod: 'Modul', items: 'fitur', groups: 'kelompok', zoom: 'Perbesar', of: 'dari', addon: 'Add-on',
+      adTag: 'Add-on opsional', adH: 'Tambahkan saat bisnis Anda membutuhkannya',
+      adP: 'Mulai dari empat modul inti, lalu lengkapi dengan add-on kapan saja. Semuanya menyatu dengan data yang sudah ada, tanpa input ulang.',
+      adAsk: 'Tanyakan add-on ini', adDemo: 'Coba contoh aplikasinya',
+      adNote: 'Harga add-on menyesuaikan kebutuhan dan jumlah outlet. Kami jelaskan dengan transparan saat konsultasi.',
+      stH: 'Mulai tanpa ribet', stP: 'Kami dampingi dari awal sampai tim Anda nyaman memakainya. Estimasi 2–6 minggu, tergantung modul yang dipilih.',
+      start: [['01', 'Ngobrol dulu', 'Ceritakan alur toko Anda. Kami bantu memilih modul yang benar-benar dibutuhkan, tanpa paket yang berlebihan.'], ['02', 'Setup & input data', 'Menu, resep, stok awal, karyawan, dan outlet kami siapkan bersama, jadi sistem siap dipakai sejak hari pertama.'], ['03', 'Training & pendampingan', 'Tim kasir dan dapur dilatih langsung. Setelah go-live, kami tetap siap membantu.']],
+      ctaH: 'Ingin melihatnya bekerja dengan alur toko Anda?',
+      ctaP: 'Kami bisa tunjukkan demo langsung lewat video call dan menyesuaikan modul dengan cara kerja tim Anda. Santai saja, tidak ada kewajiban apa pun.',
+      ctaBtn: 'Jadwalkan demo via WhatsApp', ctaSmall: 'Biasanya kami balas di hari yang sama.',
+      foot: '© Omnify. Data di screenshot adalah data contoh.',
+      waMsg: 'Halo Omnify, saya tertarik dengan Sistem Manajemen (Kasir, Kitchen, Inventory & Operasional). Boleh minta demo?',
+      waAd: 'Halo Omnify, saya ingin tahu tentang add-on ',
+      modules: [
+        { id: 'kasir', icon: 'kasir', name: 'Kasir', short: 'Penjualan, menu & meja', h: 'Antrean bergerak lebih cepat, laci kas selalu pas.',
+          lead: 'Dirancang untuk jam sibuk: pilih menu, atur varian, lalu bayar dalam beberapa ketukan. Pesanan dari kasir, QR meja, dan aplikasi online masuk ke satu daftar yang sama.',
+          gain: 'Tutup shift tanpa menebak-nebak. Sistem menghitung uang yang seharusnya ada di laci, Anda cukup mencocokkan.',
+          shots: [['kasir', 'Layar kasir', 'Menu bergambar, varian, dan keranjang pesanan dalam satu layar'], ['produk', 'Tambah produk', 'Foto, harga per outlet, opsi, dan resep sekaligus, HPP terhitung otomatis'], ['meja', 'Denah meja', 'Status meja real-time: kosong, terisi, reservasi, perlu dibersihkan', 1]],
+          g: [
+            { t: 'Penjualan cepat', i: 'kasir', f: [['Checkout dalam beberapa ketukan', 'Menu bergambar, pencarian, tampilan grid atau daftar'], ['Dine-in, take away & online', 'Semua tipe pesanan dari satu layar'], ['Varian, ukuran & catatan', 'Es/panas, tingkat gula, topping, harga tambahan otomatis'], ['Open bill', 'Tamu pesan dulu, bayar belakangan, tagihan tetap aman'], ['Self order lewat QR meja', 'Tamu memesan sendiri, kasir cukup verifikasi']] },
+            { t: 'Pembayaran & promo', i: 'pay', f: [['Tunai, QRIS, EDC, e-wallet & transfer', 'Uang pas dan kembalian dihitung otomatis'], ['Pajak (PB1) & service charge otomatis', 'Total selalu benar, tanpa hitung manual'], ['Diskon & kode promo', 'Persen atau nominal, siap untuk kampanye'], ['Struk & tiket dapur', 'Isi nota bisa disesuaikan dengan brand Anda'], ['Void, refund & ubah harga dengan PIN manajer', 'Celah kecurangan tertutup, semua tercatat']] },
+            { t: 'Menu & produk', i: 'menu', f: [['Tambah produk dalam satu layar', 'Foto, kategori, opsi, dan resep sekaligus'], ['Harga per outlet & per kanal', 'Harga GoFood, GrabFood & ShopeeFood bisa berbeda'], ['HPP & margin terlihat saat mengisi harga', 'Tidak ada lagi menu yang ternyata rugi'], ['Atur menu dijual di outlet mana', 'Satu menu pusat untuk semua cabang']] },
+            { t: 'Meja, reservasi & online', i: 'meja', f: [['Denah meja 2D', 'Kosong · terisi · reservasi · perlu dibersihkan', 1], ['Reservasi tamu dengan DP', 'Jadwal kedatangan tampil di ringkasan harian'], ['Pesanan GoFood, GrabFood & ShopeeFood', 'Tercatat terpisah, lengkap dengan nama driver'], ['Buka & tutup shift kasir', 'Dengan modal awal dan hitung kas di akhir shift']] }
+          ] },
+        { id: 'dapur', icon: 'dapur', name: 'Kitchen', short: 'Layar dapur & resep', h: 'Dapur tahu apa yang harus dibuat, tanpa kertas yang hilang.',
+          lead: 'Tiket muncul di layar dapur begitu pesanan masuk. Tim cukup menggeser status dari Baru ke Diproses lalu Siap, dan kasir langsung tahu kapan pesanan bisa diantar.',
+          gain: 'Tidak ada lagi pesanan terlewat atau teriakan antar meja. Setiap tiket punya timer, jadi kecepatan saji bisa dijaga.',
+          shots: [['dapur', 'Layar dapur (KDS)', 'Tiket Baru, Diproses, dan Siap diambil, lengkap dengan timer'], ['resep', 'Resep & ketersediaan', 'Resep per porsi dan estimasi porsi yang masih bisa dibuat']],
+          g: [
+            { t: 'Layar dapur (KDS)', i: 'kds', f: [['Tiket real-time dari semua kanal', 'Kasir, self order, dan aplikasi online'], ['Alur Baru → Diproses → Siap diambil', 'Satu ketukan untuk pindah status'], ['Timer di setiap tiket', 'Tiket yang lama menunggu langsung terlihat'], ['Centang item satu per satu', 'Cocok untuk pesanan besar dan banyak varian'], ['Kasir tahu saat pesanan siap', 'Tanpa perlu bolak-balik ke dapur']] },
+            { t: 'Resep & HPP', i: 'recipe', f: [['Resep per porsi (bill of material)', 'Takaran setiap bahan untuk setiap menu'], ['Resep pusat, bisa disesuaikan per outlet', 'Standar rasa terjaga di semua cabang'], ['HPP & margin dihitung otomatis', 'Termasuk susut, kemasan, gas & listrik'], ['Salin resep dari menu lain', 'Buat menu baru dalam hitungan menit']] },
+            { t: 'Ketersediaan menu', i: 'avail', f: [['Estimasi porsi yang masih bisa dibuat', 'Dihitung dari stok bahan saat ini'], ['Peringatan bahan habis di menu', 'Ketahuan sebelum tamu memesan'], ['Tandai habis sekali ketuk', 'Langsung hilang dari kasir & self order'], ['Rata-rata waktu tiket', 'Bahan evaluasi kecepatan tim dapur']] }
+          ] },
+        { id: 'inventaris', icon: 'inv', name: 'Inventory', short: 'Stok, opname & pemasok', h: 'Stok berkurang sendiri, Anda cukup memantau.',
+          lead: 'Setiap penjualan memotong bahan sesuai resep. Sistem memberi tanda saat bahan menipis, jadi belanja bisa direncanakan sebelum menu terpaksa habis di tengah jam ramai.',
+          gain: 'Tahu persis nilai stok dan selisih opname dalam rupiah, bukan hanya jumlah barang.',
+          shots: [['inventaris', 'Stok per outlet', 'Status Aman, Menipis, dan Kritis dengan batas minimum per bahan']],
+          g: [
+            { t: 'Stok real-time', i: 'stock', f: [['Stok per outlet', 'Status Aman · Menipis · Kritis'], ['Terpotong otomatis setiap penjualan', 'Mengikuti resep, tanpa input manual'], ['Batas minimum & notifikasi menipis', 'Belanja tepat waktu, menu tidak kosong'], ['Nilai stok dalam rupiah', 'Modal yang tertahan di gudang selalu terlihat']] },
+            { t: 'Kontrol stok', i: 'audit', f: [['Stock opname', 'Hitung fisik, selisih dalam rupiah, stok langsung disesuaikan'], ['Riwayat mutasi stok', 'Setiap perubahan bisa ditelusuri'], ['Catat bahan terbuang (waste)', 'Kebocoran biaya jadi kelihatan'], ['Laporan persediaan', 'Pemakaian bahan per periode']] },
+            { t: 'Pembelian & pemasok', i: 'truck', f: [['Data pemasok', 'Kontak, bahan yang dipasok, dan termin bayar'], ['Terima barang & tambah stok', 'Harga beli terbaru langsung ikut ke HPP'], ['Hutang pemasok dengan termin', 'H+7 · H+14 · H+30, jatuh tempo terpantau'], ['Purchase order ke pemasok', 'Dari bahan menipis jadi PO dalam beberapa klik', 1]] }
+          ] },
+        { id: 'operasional', icon: 'ops', name: 'Operasional', short: 'Keuangan, tim & laporan', h: 'Angka penting dan tim Anda, terpantau dari satu tempat.',
+          lead: 'Kas per shift, pengeluaran, absensi, pengajuan cuti, hingga laba rugi tersusun rapi dan bisa dibuka dari HP. Karyawan clock in sendiri, manajer cukup meninjau.',
+          gain: 'Pantau semua outlet dari satu akun. Setiap aksi penting tercatat atas nama karyawan yang melakukannya.',
+          shots: [['absensi', 'Absensi karyawan', 'Tampilan kasir: clock in dan clock out langsung dari aplikasi'], ['cuti', 'Pengajuan izin & cuti', 'Karyawan mengajukan izin, cuti, atau sakit, lengkap dengan sisa jatah'], ['keuangan', 'Shift & kas', 'Modal, seharusnya, dihitung, dan selisih di setiap shift'], ['laporan', 'Laporan harian', 'Pendapatan bersih, pajak, metode bayar, dan rincian per jam']],
+          g: [
+            { t: 'Karyawan & absensi', i: 'team', f: [['Clock in & clock out dari aplikasi', 'Tidak perlu mesin absen'], ['Jadwal shift', 'Siapa masuk pagi, siapa masuk siang'], ['Pengajuan izin, cuti & sakit', 'Diajukan dari HP, disetujui manajer'], ['Jatah & sisa cuti tahunan', 'Transparan untuk karyawan dan owner'], ['Rekap kehadiran', 'Keterlambatan dan total jam kerja otomatis']] },
+            { t: 'Keuangan', i: 'wallet', f: [['Shift & kas', 'Modal, seharusnya, dihitung, dan selisih'], ['Batas toleransi selisih kas', 'Selisih besar wajib catatan + PIN, ditinjau manajer'], ['Pengeluaran per kategori', 'Sewa, listrik, gaji, marketing, dan lainnya'], ['Hutang & pembayaran', 'Jatuh tempo tidak terlewat'], ['Pencairan platform online', 'Komisi dan dana yang belum cair terlihat jelas']] },
+            { t: 'Ringkasan & laporan', i: 'report', f: [['Dashboard real-time', 'Penjualan, transaksi, kanal & metode bayar'], ['Penjualan per jam & tren 7 hari', 'Tahu jam ramai untuk atur shift'], ['Laporan harian, bulanan & laba rugi', 'Plus laporan shift & kas dan persediaan'], ['Ekspor laporan', 'Siap dikirim ke akuntan'], ['Multi-outlet', 'Lihat gabungan atau per cabang']] },
+            { t: 'Akses & keamanan', i: 'lock', f: [['Peran & hak akses', 'Owner, manajer, kasir, dan dapur melihat yang perlu saja'], ['PIN persetujuan untuk aksi sensitif', 'Void, refund, diskon, dan ubah harga'], ['Log aktivitas', 'Siapa melakukan apa, kapan, tidak bisa diubah'], ['Notifikasi penting', 'Stok menipis, pesanan baru, selisih kas'], ['Aktifkan modul sesuai kebutuhan', 'Bayar untuk yang dipakai saja']] }
+          ] }
+      ],
+      addons: [
+        { icon: 'wa', name: 'Integrasi WhatsApp', p: 'Sapa pelanggan lewat aplikasi yang setiap hari mereka buka. Struk dan pengingat terkirim otomatis, tanpa admin mengetik satu per satu.', f: ['Struk digital ke WhatsApp pelanggan', 'Konfirmasi & pengingat reservasi', 'Ringkasan penjualan harian untuk owner'] },
+        { icon: 'gps', name: 'Absensi Foto + GPS', p: 'Karyawan clock in dari HP dengan foto selfie dan lokasi. Tidak perlu mesin fingerprint, dan titip absen jadi sulit.', f: ['Selfie & lokasi tersimpan bersama jam masuk', 'Tanda otomatis jika di luar radius outlet', 'Langsung masuk ke rekap jam kerja'] },
+        { icon: 'meja', name: 'Denah Meja (Table Management)', p: 'Atur denah meja sesuai layout outlet. Kasir dan pelayan langsung melihat meja mana yang kosong, terisi, atau sudah dipesan.', f: ['Denah sesuai area: indoor, outdoor, lantai', 'Status meja & lama duduk real-time', 'Terhubung ke reservasi & QR self order'] },
+        { icon: 'po', name: 'Purchase Order', p: 'Belanja bahan jadi terencana. Bahan yang menipis langsung bisa dijadikan PO ke pemasok, dan stok bertambah otomatis saat barang diterima.', f: ['Buat PO dari daftar bahan menipis', 'Status Draf → Dikirim → Diterima', 'Termin bayar & hutang pemasok tercatat otomatis'] },
+        { icon: 'book', name: 'Aplikasi Booking', p: 'Pelanggan reservasi sendiri dari HP: pilih tanggal, jam, jumlah tamu, lalu bayar DP. Tim Anda tidak perlu lagi membalas chat satu per satu.', f: ['Pilih tanggal, jam & jumlah tamu', 'DP online via QRIS', 'Masuk langsung ke Reservasi & denah meja'], demo: '../rumah-senja-booking/?view=mobile' }
+      ]
+    },
+    en: {
+      title: 'Omnify — Store Management System: Cashier, Kitchen, Inventory & Operations',
+      skip: 'Skip to content', back: 'Back to portfolio', hdCta: 'Free consultation', fab: 'Ask on WhatsApp',
+      eyebrow: 'Omnify Management System',
+      h1: 'Busy store, <span>calm mind.</span>',
+      lead: 'Cashier, kitchen, stock and reports work in one system. Every order is recorded instantly, ingredients are deducted by recipe, and you can check on your store from anywhere, with no manual tallying every night.',
+      heroCta: 'Free consultation on WhatsApp', heroSee: 'See the 4 modules ↓',
+      chip1: 'Net sales today', chip2b: '35 transactions', chip2: 'Up 38% from yesterday', chip3b: '7 items running low', chip3: 'Ready to restock',
+      heroAlt: 'Omnify Overview page: hourly sales, payment methods, 7-day trend and upcoming reservations',
+      dataNote: 'All screenshots come from the Omnify demo with sample data from “Kopi Senja”, a coffee shop in the middle of a working day.',
+      flowH: 'One order, four modules in motion',
+      flowP: 'No copying data from one app to another. The moment the cashier taps Pay, everything connects on its own.',
+      steps: [['kasir', 'Cashier records it', 'Orders from the cashier, table QR or delivery apps land in one list.'], ['dapur', 'Kitchen gets the ticket', 'Tickets appear on the kitchen & bar screen within seconds.'], ['inv', 'Stock is deducted', 'Ingredients go down by recipe, with low-stock warnings.'], ['ops', 'Reports update', 'Sales, cash and profit show up right away on the owner dashboard.']],
+      mod: 'Module', items: 'features', groups: 'groups', zoom: 'Enlarge', of: 'of', addon: 'Add-on',
+      adTag: 'Optional add-ons', adH: 'Add them when your business needs them',
+      adP: 'Start with the four core modules, then add these any time. They plug into the data you already have, no re-entry needed.',
+      adAsk: 'Ask about this add-on', adDemo: 'Try the sample app',
+      adNote: 'Add-on pricing depends on your needs and number of outlets. We explain it openly during the consultation.',
+      stH: 'Getting started is easy', stP: 'We stay with you until your team is comfortable using it. Usually 2–6 weeks, depending on the modules you choose.',
+      start: [['01', 'Talk first', 'Walk us through how your store runs. We help you pick only the modules you need, no bloated packages.'], ['02', 'Setup & data entry', 'Menu, recipes, opening stock, staff and outlets are prepared together, so the system works from day one.'], ['03', 'Training & support', 'Your cashier and kitchen teams are trained hands-on. After go-live, we are still here to help.']],
+      ctaH: 'Want to see it work with your store’s flow?',
+      ctaP: 'We can walk you through a live demo on a video call and fit the modules to the way your team works. No pressure, no commitment.',
+      ctaBtn: 'Book a demo on WhatsApp', ctaSmall: 'We usually reply the same day.',
+      foot: '© Omnify. Screenshots use sample data.',
+      waMsg: "Hi Omnify, I'm interested in the Management System (Cashier, Kitchen, Inventory & Operations). Could I get a demo?",
+      waAd: "Hi Omnify, I'd like to know more about the add-on ",
+      modules: [
+        { id: 'kasir', icon: 'kasir', name: 'Cashier', short: 'Sales, menu & tables', h: 'Queues move faster, the cash drawer always adds up.',
+          lead: 'Built for rush hour: pick an item, set its options, and take payment in a few taps. Orders from the cashier, table QR and delivery apps all land in the same list.',
+          gain: 'Close shifts without guessing. The system works out how much should be in the drawer, you just count and compare.',
+          shots: [['kasir', 'Cashier screen', 'Menu with photos, options and the order cart on one screen'], ['produk', 'Add a product', 'Photo, price per outlet, options and recipe at once, with cost calculated automatically'], ['meja', 'Floor plan', 'Real-time table status: free, occupied, reserved, needs cleaning', 1]],
+          g: [
+            { t: 'Fast checkout', i: 'kasir', f: [['Checkout in a few taps', 'Menu with photos, search, grid or list view'], ['Dine-in, takeaway & delivery', 'Every order type from one screen'], ['Options, sizes & notes', 'Iced/hot, sweetness, toppings, extra price added automatically'], ['Open bills', 'Guests order first and pay later, the bill stays safe'], ['Self order via table QR', 'Guests order themselves, the cashier just verifies']] },
+            { t: 'Payments & promos', i: 'pay', f: [['Cash, QRIS, card, e-wallet & transfer', 'Exact amount and change calculated for you'], ['Automatic tax (PB1) & service charge', 'Totals are always right, no manual maths'], ['Discounts & promo codes', 'Percentage or fixed, ready for campaigns'], ['Receipts & kitchen tickets', 'Receipt content matches your brand'], ['Void, refund & price changes need a manager PIN', 'Fewer loopholes, everything is logged']] },
+            { t: 'Menu & products', i: 'menu', f: [['Add a product on one screen', 'Photo, category, options and recipe at once'], ['Prices per outlet & per channel', 'GoFood, GrabFood & ShopeeFood prices can differ'], ['Cost & margin shown while you set the price', 'No more items that quietly lose money'], ['Choose which outlets sell each item', 'One central menu for every branch']] },
+            { t: 'Tables, bookings & delivery', i: 'meja', f: [['2D floor plan', 'Free · occupied · reserved · needs cleaning', 1], ['Reservations with deposits', 'Arrivals show up on the daily overview'], ['GoFood, GrabFood & ShopeeFood orders', 'Tracked separately, with the driver’s name'], ['Open & close cashier shifts', 'With opening cash and a count at the end']] }
+          ] },
+        { id: 'dapur', icon: 'dapur', name: 'Kitchen', short: 'Kitchen display & recipes', h: 'The kitchen knows what to make, no more lost paper slips.',
+          lead: 'Tickets appear on the kitchen screen as soon as an order comes in. The team moves them from New to In progress to Ready, and the cashier knows exactly when to serve.',
+          gain: 'No missed orders, no shouting across the room. Every ticket has a timer, so serving speed stays on track.',
+          shots: [['dapur', 'Kitchen display (KDS)', 'New, In progress and Ready tickets with timers'], ['resep', 'Recipes & availability', 'Recipe per serving and how many servings you can still make']],
+          g: [
+            { t: 'Kitchen display (KDS)', i: 'kds', f: [['Real-time tickets from every channel', 'Cashier, self order and delivery apps'], ['New → In progress → Ready', 'One tap to move a ticket'], ['Timer on every ticket', 'Long waits stand out right away'], ['Tick off items one by one', 'Great for big orders with many options'], ['The cashier knows when it’s ready', 'No running back and forth']] },
+            { t: 'Recipes & cost', i: 'recipe', f: [['Recipe per serving (bill of materials)', 'The amount of every ingredient in every item'], ['Central recipe, adjustable per outlet', 'The same taste at every branch'], ['Cost & margin calculated automatically', 'Including shrinkage, packaging, gas & power'], ['Copy a recipe from another item', 'Launch a new item in minutes']] },
+            { t: 'Menu availability', i: 'avail', f: [['Servings you can still make', 'Worked out from current stock'], ['Out-of-ingredient warnings on the menu', 'Spotted before a guest orders'], ['Mark sold out in one tap', 'Hidden from cashier & self order instantly'], ['Average ticket time', 'A clear measure of kitchen speed']] }
+          ] },
+        { id: 'inventaris', icon: 'inv', name: 'Inventory', short: 'Stock, stock take & suppliers', h: 'Stock updates itself, you just keep an eye on it.',
+          lead: 'Every sale deducts ingredients by recipe. The system flags items running low, so you can plan purchases before a menu item runs out in the middle of a rush.',
+          gain: 'Know your exact stock value and stock-take differences in rupiah, not just in units.',
+          shots: [['inventaris', 'Stock per outlet', 'Safe, Low and Critical status with a minimum level per ingredient']],
+          g: [
+            { t: 'Real-time stock', i: 'stock', f: [['Stock per outlet', 'Safe · Low · Critical status'], ['Deducted with every sale', 'Follows the recipe, no manual entry'], ['Minimum levels & low-stock alerts', 'Restock on time, never run out'], ['Stock value in rupiah', 'See the cash sitting in your storeroom']] },
+            { t: 'Stock control', i: 'audit', f: [['Stock take', 'Physical count, difference in rupiah, stock adjusted instantly'], ['Stock movement history', 'Every change can be traced'], ['Record wasted ingredients', 'Hidden losses become visible'], ['Inventory report', 'Ingredient usage per period']] },
+            { t: 'Purchasing & suppliers', i: 'truck', f: [['Supplier records', 'Contacts, what they supply and payment terms'], ['Receive goods & add stock', 'Latest purchase price flows into your costs'], ['Supplier payables with terms', 'D+7 · D+14 · D+30, due dates tracked'], ['Purchase orders to suppliers', 'Turn low stock into a PO in a few clicks', 1]] }
+          ] },
+        { id: 'operasional', icon: 'ops', name: 'Operations', short: 'Finance, team & reports', h: 'Your key numbers and your team, in one place.',
+          lead: 'Cash per shift, expenses, attendance, leave requests and profit & loss, neatly organised and available on your phone. Staff clock in themselves, managers just review.',
+          gain: 'Monitor every outlet from one account. Every important action is logged under the staff member who did it.',
+          shots: [['absensi', 'Staff attendance', 'Cashier view: clock in and clock out right from the app'], ['cuti', 'Leave requests', 'Staff request permission, leave or sick days, with remaining allowance'], ['keuangan', 'Shifts & cash', 'Opening cash, expected, counted and difference for every shift'], ['laporan', 'Daily report', 'Net revenue, tax, payment methods and hourly breakdown']],
+          g: [
+            { t: 'Staff & attendance', i: 'team', f: [['Clock in & out from the app', 'No attendance machine needed'], ['Shift schedule', 'Who works mornings, who works afternoons'], ['Permission, leave & sick requests', 'Sent from a phone, approved by a manager'], ['Annual leave allowance', 'Clear for staff and owners'], ['Attendance summary', 'Late arrivals and total hours, automatically']] },
+            { t: 'Finance', i: 'wallet', f: [['Shifts & cash', 'Opening, expected, counted and difference'], ['Cash difference threshold', 'Big differences need a note + PIN and a manager review'], ['Expenses by category', 'Rent, utilities, wages, marketing and more'], ['Payables & payments', 'Never miss a due date'], ['Delivery platform payouts', 'Commission and pending payouts at a glance']] },
+            { t: 'Overview & reports', i: 'report', f: [['Real-time dashboard', 'Sales, transactions, channels & payment methods'], ['Hourly sales & 7-day trend', 'Know your peak hours to plan shifts'], ['Daily, monthly and profit & loss reports', 'Plus shift & cash and inventory reports'], ['Report export', 'Ready to send to your accountant'], ['Multi-outlet', 'Combined view or one branch at a time']] },
+            { t: 'Access & security', i: 'lock', f: [['Roles & permissions', 'Owner, manager, cashier and kitchen see only what they need'], ['Approval PIN for sensitive actions', 'Voids, refunds, discounts and price changes'], ['Activity log', 'Who did what and when, read-only'], ['Important notifications', 'Low stock, new orders, cash differences'], ['Turn modules on as you need them', 'Pay only for what you use']] }
+          ] }
+      ],
+      addons: [
+        { icon: 'wa', name: 'WhatsApp Integration', p: 'Reach customers on the app they open every day. Receipts and reminders go out automatically, no admin typing them one by one.', f: ['Digital receipts to the customer’s WhatsApp', 'Reservation confirmations & reminders', 'Daily sales summary for the owner'] },
+        { icon: 'gps', name: 'Photo + GPS Attendance', p: 'Staff clock in from their phone with a selfie and location. No fingerprint machine needed, and buddy punching gets hard.', f: ['Selfie & location saved with clock-in time', 'Automatic flag when outside the outlet radius', 'Feeds straight into the hours summary'] },
+        { icon: 'meja', name: 'Floor Plan (Table Management)', p: 'Lay out tables to match your outlet. Cashiers and waiters see at a glance which tables are free, occupied or reserved.', f: ['Floor plan per area: indoor, outdoor, floors', 'Real-time table status & seating time', 'Linked to reservations & QR self order'] },
+        { icon: 'po', name: 'Purchase Order', p: 'Planned purchasing. Items running low become a PO to your supplier, and stock goes up automatically when the goods arrive.', f: ['Create POs from the low-stock list', 'Draft → Sent → Received status', 'Payment terms & supplier payables recorded'] },
+        { icon: 'book', name: 'Booking App', p: 'Customers book from their phone: pick a date, time and party size, then pay a deposit. Your team no longer answers chats one by one.', f: ['Date, time & party-size picker', 'Online deposit via QRIS', 'Goes straight into Reservations & the floor plan'], demo: '../rumah-senja-booking/?view=mobile' }
+      ]
+    }
+  };
+
+  var lang = 'id';
+  try { lang = localStorage.getItem('omnify-lang') === 'en' ? 'en' : 'id'; } catch (e) {}
+
+  // Back link: ?from=<Page>/#<anchor> (added by the portfolio cards), otherwise FnB 04.
+  var SAFE = /^(FnB|Marketplace|Lainnya)\/(#[A-Za-z0-9_-]+)?$/;
+  var from = new URLSearchParams(location.search).get('from') || '';
+  var backHref = '../../' + (SAFE.test(from) ? from : 'FnB/#fnb-04');
+  document.getElementById('back').href = backHref;
+  document.getElementById('back2').href = backHref;
+
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var wa = function (msg) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg); };
+  var count = function (m) { return m.g.reduce(function (a, g) { return a + g.f.length; }, 0); };
+  var shotIdx = {};
+
+  function shotHtml(m, sh, t) {
+    return '<button type="button" class="shot" data-open="' + m.id + '" aria-label="' + esc(t.zoom + ': ' + sh[1]) + '"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>omnify · ' + esc(sh[1]) + '</span></div>' +
+      '<img src="img/' + sh[0] + '-md.jpg" srcset="img/' + sh[0] + '-md.jpg 1100w, img/' + sh[0] + '.jpg 1800w" sizes="(max-width:980px) 100vw, 700px" alt="' + esc(sh[1] + ': ' + sh[2]) + '" width="1100" height="688" loading="lazy" decoding="async"></div>' +
+      '<span class="badge-ad"' + (sh[3] ? '' : ' hidden') + '>' + t.addon + '</span>' +
+      '<span class="zoom" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/></svg>' + t.zoom + '</span></button>';
+  }
+
+  function render() {
+    var t = T[lang], M = t.modules;
+    document.documentElement.lang = lang;
+    document.title = t.title;
+    document.querySelectorAll('[data-t]').forEach(function (el) { var v = t[el.getAttribute('data-t')]; if (v == null) return; if (el.hasAttribute('data-html')) el.innerHTML = v; else el.textContent = v; });
+    document.querySelectorAll('[data-alt]').forEach(function (el) { el.alt = t[el.getAttribute('data-alt')]; });
+    document.querySelectorAll('[data-wa]').forEach(function (el) { el.href = wa(t.waMsg); });
+    document.querySelectorAll('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+    document.getElementById('back').setAttribute('aria-label', t.back);
+    document.getElementById('lbX').setAttribute('aria-label', lang === 'id' ? 'Tutup' : 'Close');
+    document.getElementById('lbP').setAttribute('aria-label', lang === 'id' ? 'Sebelumnya' : 'Previous');
+    document.getElementById('lbN').setAttribute('aria-label', lang === 'id' ? 'Berikutnya' : 'Next');
+
+    document.getElementById('heroMods').innerHTML = M.map(function (m, i) {
+      return '<a class="hm" href="#' + m.id + '"><small>' + t.mod.toUpperCase() + ' 0' + (i + 1) + '</small><strong>' + esc(m.name) + '</strong><span>' + esc(m.short) + ' · ' + count(m) + ' ' + t.items + '</span></a>';
+    }).join('');
+
+    document.getElementById('mnav').innerHTML = M.map(function (m, i) {
+      return '<li><a href="#' + m.id + '" data-spy="' + m.id + '"><span class="n">0' + (i + 1) + '</span>' + esc(m.name) + '</a></li>';
+    }).join('') + '<li class="sp" aria-hidden="true"></li><li><a href="#addon" data-spy="addon"><span class="n">+</span>Add-on</a></li>';
+
+    document.getElementById('steps').innerHTML = t.steps.map(function (s) {
+      return '<li><span class="ic">' + svg(s[0]) + '</span><strong>' + esc(s[1]) + '</strong><span>' + esc(s[2]) + '</span></li>';
+    }).join('');
+
+    document.getElementById('mods').innerHTML = M.map(function (m, i) {
+      var si = Math.min(shotIdx[m.id] || 0, m.shots.length - 1), sh = m.shots[si];
+      var thumbs = m.shots.length > 1 ? '<div class="thumbs" role="tablist" aria-label="Screenshot ' + esc(m.name) + '">' + m.shots.map(function (s, j) {
+        return '<button type="button" role="tab" class="th" data-mod="' + m.id + '" data-i="' + j + '" aria-selected="' + (j === si) + '" tabindex="' + (j === si ? 0 : -1) + '"><img src="img/' + s[0] + '-sm.jpg" alt="" width="64" height="40" loading="lazy" decoding="async"><span>' + esc(s[1]) + '</span></button>';
+      }).join('') + '</div>' : '';
+      var groups = m.g.map(function (g) {
+        return '<div class="grp"><h3><span class="ic">' + svg(g.i, 18) + '</span>' + esc(g.t) + '<small>' + g.f.length + '</small></h3><ul class="cl">' + g.f.map(function (f, j) {
+          return '<li style="--i:' + j + '"><span>' + esc(f[0]) + (f[2] ? '<span class="ad">' + t.addon + '</span>' : '') + (f[1] ? '<small>' + esc(f[1]) + '</small>' : '') + '</span></li>';
+        }).join('') + '</ul></div>';
+      }).join('');
+      return '<section class="mod' + (i % 2 ? ' flip' : '') + '" id="' + m.id + '" aria-labelledby="' + m.id + '-h"><div class="wrap">' +
+        '<div class="mod-top">' +
+          '<div class="txt" data-rv-kids>' +
+            '<span class="tag"><em>0' + (i + 1) + '</em>' + t.mod + ' · ' + esc(m.name) + '</span>' +
+            '<h2 id="' + m.id + '-h">' + esc(m.h) + '</h2>' +
+            '<p class="lead">' + esc(m.lead) + '</p>' +
+            '<div class="gain">' + svg('chk', 20) + '<span>' + esc(m.gain) + '</span></div>' +
+            '<div class="stats"><span>' + count(m) + ' ' + t.items + '</span><span>' + m.g.length + ' ' + t.groups + '</span></div>' +
+          '</div>' +
+          '<div class="gal" data-rv="' + (i % 2 ? 'left' : 'right') + '">' + shotHtml(m, sh, t) + '<span class="cap" aria-live="polite">' + esc(sh[2]) + '</span>' + thumbs + '</div>' +
+        '</div>' +
+        '<div class="fg" data-rv-kids>' + groups + '</div>' +
+      '</div></section>';
+    }).join('');
+
+    document.getElementById('ads').innerHTML = t.addons.map(function (a) {
+      return '<article class="adc"><span class="pill">' + t.addon + '</span><span class="ic">' + svg(a.icon, 24) + '</span><h3>' + esc(a.name) + '</h3><p>' + esc(a.p) + '</p><ul>' + a.f.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+        '<div class="adc-a">' + (a.demo ? '<a class="lnk" href="' + a.demo + '">' + t.adDemo + ' →</a>' : '') + '<a class="lnk" href="' + wa(t.waAd + a.name + '.') + '" target="_blank" rel="noopener">' + t.adAsk + ' →</a></div></article>';
+    }).join('');
+
+    document.getElementById('start').innerHTML = t.start.map(function (s) {
+      return '<div class="st"><b>' + s[0] + '</b><strong>' + esc(s[1]) + '</strong><span>' + esc(s[2]) + '</span></div>';
+    }).join('');
+
+    observe(); spy();
+  }
+
+  // ---- screenshots: thumbnails + lightbox ----
+  function modOf(id) { return T[lang].modules.filter(function (m) { return m.id === id; })[0]; }
+  function pickShot(id, i, focus) {
+    var t = T[lang], m = modOf(id), sh = m.shots[i]; shotIdx[id] = i;
+    var sec = document.getElementById(id), img = sec.querySelector('.shot img');
+    img.style.opacity = '.35';
+    var n = new Image(); n.decoding = 'async';
+    n.onload = n.onerror = function () { img.srcset = 'img/' + sh[0] + '-md.jpg 1100w, img/' + sh[0] + '.jpg 1800w'; img.src = n.src; img.alt = sh[1] + ': ' + sh[2]; img.style.opacity = ''; };
+    n.src = 'img/' + sh[0] + '-md.jpg';
+    sec.querySelector('.shot .bar span').textContent = 'omnify · ' + sh[1];
+    sec.querySelector('.shot').setAttribute('aria-label', t.zoom + ': ' + sh[1]);
+    sec.querySelector('.badge-ad').hidden = !sh[3];
+    sec.querySelector('.cap').textContent = sh[2];
+    sec.querySelectorAll('.th').forEach(function (x, j) { x.setAttribute('aria-selected', String(j === i)); x.tabIndex = j === i ? 0 : -1; if (j === i && focus) x.focus(); });
+  }
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'), lbState = null, lbReturn = null;
+  function lbShow() {
+    var m = modOf(lbState.id), sh = m.shots[lbState.i];
+    lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
+    lbImg.src = 'img/' + sh[0] + '.jpg'; lbImg.alt = sh[1] + ': ' + sh[2];
+    lbCap.innerHTML = '<strong>' + esc(m.name) + ' · ' + esc(sh[1]) + '</strong> <span>— ' + esc(sh[2]) + ' (' + (lbState.i + 1) + ' ' + T[lang].of + ' ' + m.shots.length + ')</span>';
+    var multi = m.shots.length > 1; document.getElementById('lbP').hidden = !multi; document.getElementById('lbN').hidden = !multi;
+  }
+  function lbOpen(id) { lbReturn = document.activeElement; lbState = { id: id, i: shotIdx[id] || 0 }; lbShow(); lb.classList.add('on'); document.body.style.overflow = 'hidden'; document.getElementById('lbX').focus(); }
+  function lbClose() { lb.classList.remove('on'); document.body.style.overflow = ''; if (lbState) pickShot(lbState.id, lbState.i); lbState = null; if (lbReturn) lbReturn.focus(); }
+  function lbStep(d) { var n = modOf(lbState.id).shots.length; lbState.i = (lbState.i + d + n) % n; lbShow(); }
+  document.getElementById('lbX').onclick = lbClose;
+  document.getElementById('lbP').onclick = function () { lbStep(-1); };
+  document.getElementById('lbN').onclick = function () { lbStep(1); };
+  lb.addEventListener('click', function (e) { if (e.target === lb) lbClose(); });
+  document.addEventListener('keydown', function (e) {
+    if (lbState) {
+      if (e.key === 'Escape') lbClose(); else if (e.key === 'ArrowRight') lbStep(1); else if (e.key === 'ArrowLeft') lbStep(-1);
+      else if (e.key === 'Tab') { var f = [].slice.call(lb.querySelectorAll('button')).filter(function (b) { return !b.hidden; }); var k = f.indexOf(document.activeElement); e.preventDefault(); f[(k + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus(); }
+      return;
+    }
+    var th = e.target.closest && e.target.closest('.th'); if (!th) return;
+    var all = [].slice.call(th.parentNode.children), i = all.indexOf(th), n = all.length, j = null;
+    if (e.key === 'ArrowRight') j = (i + 1) % n; else if (e.key === 'ArrowLeft') j = (i - 1 + n) % n; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1;
+    if (j != null) { e.preventDefault(); pickShot(th.getAttribute('data-mod'), j, true); }
+  });
+  document.addEventListener('click', function (e) {
+    var l = e.target.closest('[data-lang]');
+    if (l) { if (l.getAttribute('data-lang') === lang) return; lang = l.getAttribute('data-lang'); try { localStorage.setItem('omnify-lang', lang); } catch (x) {} render(); revealAllInView(); return; }
+    var th = e.target.closest('.th'); if (th) { pickShot(th.getAttribute('data-mod'), +th.getAttribute('data-i')); return; }
+    var op = e.target.closest('[data-open]'); if (op) lbOpen(op.getAttribute('data-open'));
+  });
+
+  // ---- scroll reveal (one observer, unobserves after reveal) + scrollspy ----
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = 'IntersectionObserver' in window && !reduce ? new IntersectionObserver(function (es) {
+    es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 }) : null;
+  function observe() {
+    document.querySelectorAll('[data-rv-kids]').forEach(function (p) { [].forEach.call(p.children, function (c, i) { c.style.setProperty('--i', i); }); });
+    document.querySelectorAll('[data-rv]:not(.in),[data-rv-kids]:not(.in)').forEach(function (el) { if (io) io.observe(el); else el.classList.add('in'); });
+  }
+  function revealAllInView() {
+    document.querySelectorAll('[data-rv],[data-rv-kids]').forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add('in'); });
+  }
+  var spyIo, cur = '';
+  function spy() {
+    if (!('IntersectionObserver' in window)) return;
+    if (spyIo) spyIo.disconnect();
+    cur = '';
+    spyIo = new IntersectionObserver(function (es) {
+      es.forEach(function (x) {
+        if (!x.isIntersecting || x.target.id === cur) return;
+        cur = x.target.id;
+        document.querySelectorAll('[data-spy]').forEach(function (a) {
+          var on = a.getAttribute('data-spy') === cur; a.setAttribute('aria-current', String(on));
+          if (on && window.innerWidth < 900) a.closest('ol').scrollTo({ left: a.offsetLeft - 20, behavior: reduce ? 'auto' : 'smooth' });
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('.mod, #addon').forEach(function (s) { spyIo.observe(s); });
+  }
+
+  render();
+  // Deep link (#kasir, #dapur, #inventaris, #operasional, #addon): sections are built by JS, so jump after render.
+  var h = location.hash.slice(1), tgt = h && document.getElementById(h);
+  if (tgt) requestAnimationFrame(function () { tgt.scrollIntoView(); requestAnimationFrame(revealAllInView); });
+})();
+</script>
+</body>
+</html>
