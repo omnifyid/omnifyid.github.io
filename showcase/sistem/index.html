@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Omnify — Sistem Manajemen Toko: Kasir, Kitchen, Inventory & Operasional</title>
-<meta name="description" content="Kasir, dapur, stok, dan laporan dalam satu sistem. Lihat fitur lengkap 4 modul Sistem Manajemen Omnify beserta add-on.">
+<title>Omnify Lab — Sistem Manajemen Toko: Kasir, Kitchen, Inventory & Operasional</title>
+<meta name="description" content="Kasir, dapur, stok, dan laporan dalam satu sistem. Lihat fitur lengkap 4 modul Sistem Manajemen Omnify Lab beserta add-on.">
 <link rel="canonical" href="https://omnifyid.github.io/showcase/sistem/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Omnify">
-<meta property="og:title" content="Sistem Manajemen Omnify — Kasir, Kitchen, Inventory & Operasional">
+<meta property="og:site_name" content="Omnify Lab">
+<meta property="og:title" content="Sistem Manajemen Omnify Lab — Kasir, Kitchen, Inventory & Operasional">
 <meta property="og:description" content="Kasir, dapur, stok, dan laporan dalam satu sistem.">
 <meta property="og:image" content="https://omnifyid.github.io/showcase/sistem/img/ringkasan.jpg">
-<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -36,8 +36,8 @@ button{font:inherit;color:inherit}
 /* header: solid background, no backdrop blur (cheaper to scroll) */
 .hd{position:sticky;top:0;z-index:30;background:rgba(245,246,243,.98);border-bottom:1px solid var(--line)}
 .hd .wrap{display:flex;align-items:center;gap:12px 20px;height:var(--hd)}
-.logo{font-weight:800;font-size:22px;line-height:1;letter-spacing:-.06em;display:flex;align-items:center;gap:.12em}
-.logo b{color:oklch(0.55 0.16 140)}.logo i{width:.5em;height:.82em;background:oklch(0.62 0.17 140)}
+.logo{display:flex;align-items:center;min-height:44px;flex-shrink:0}
+.logo img{display:block;height:clamp(26px,7vw,32px);width:auto}
 .back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:8px;border:1px solid var(--line2);background:#fff;font-size:14px;font-weight:600}
 .back:hover{border-color:var(--ink)}
 .hd-r{margin-left:auto;display:flex;align-items:center;gap:10px}
@@ -233,7 +233,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
 
 <header class="hd">
   <div class="wrap">
-    <a class="logo" href="../../" aria-label="Omnify"><b>&gt;</b><span>omnify</span><i></i></a>
+    <a class="logo" href="../../" aria-label="Omnify Lab"><img src="../../brand/logo-black.svg" alt="" width="117" height="32"></a>
     <a class="back" id="back" href="../../FnB/#fnb-04"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span class="lg" data-t="back"></span></a>
     <div class="hd-r">
       <div class="lang" role="group" aria-label="Language">
@@ -265,7 +265,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
         <div class="chip c2"><span class="dot" style="background:oklch(0.8 0.15 80)"></span><div><b data-t="chip2b"></b><span data-t="chip2"></span></div></div>
         <div class="chip c3"><span class="dot" style="background:oklch(0.75 0.14 220)"></span><div><b data-t="chip3b"></b><span data-t="chip3"></span></div></div>
         <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span>omnify · Kopi Senja · Kemang</span></div>
+          <div class="bar"><i></i><i></i><i></i><span>Omnify Lab · Kopi Senja · Kemang</span></div>
           <img src="img/ringkasan-md.jpg" srcset="img/ringkasan-md.jpg 1100w, img/ringkasan.jpg 1800w" sizes="(max-width:1200px) 100vw, 1120px" alt="" data-alt="heroAlt" width="1100" height="688" fetchpriority="high" decoding="async">
         </div>
       </div>
@@ -351,15 +351,15 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   // Feature item: [title, detail?, addon?]. Shot: [image, title, caption, addon?].
   var T = {
     id: {
-      title: 'Omnify — Sistem Manajemen Toko: Kasir, Kitchen, Inventory & Operasional',
+      title: 'Omnify Lab — Sistem Manajemen Toko: Kasir, Kitchen, Inventory & Operasional',
       skip: 'Langsung ke isi', back: 'Kembali ke portofolio', hdCta: 'Konsultasi gratis', fab: 'Tanya via WhatsApp',
-      eyebrow: 'Sistem Manajemen Omnify',
+      eyebrow: 'Sistem Manajemen Omnify Lab',
       h1: 'Toko ramai, <span>kepala tetap tenang.</span>',
       lead: 'Kasir, dapur, stok, dan laporan bekerja di satu sistem. Setiap pesanan langsung tercatat, bahan berkurang sesuai resep, dan Anda bisa melihat kondisi toko dari mana saja, tanpa rekap manual setiap malam.',
       heroCta: 'Konsultasi gratis via WhatsApp', heroSee: 'Lihat 4 modul ↓',
       chip1: 'Penjualan bersih hari ini', chip2b: '35 transaksi', chip2: 'Naik 38% dari kemarin', chip3b: '7 bahan menipis', chip3: 'Siap dibelanjakan',
-      heroAlt: 'Halaman Ringkasan Omnify: penjualan per jam, metode pembayaran, tren 7 hari, dan reservasi berikutnya',
-      dataNote: 'Semua screenshot diambil dari demo Omnify dengan data contoh “Kopi Senja”, sebuah kedai kopi yang sedang beroperasi.',
+      heroAlt: 'Halaman Ringkasan Omnify Lab: penjualan per jam, metode pembayaran, tren 7 hari, dan reservasi berikutnya',
+      dataNote: 'Semua screenshot diambil dari demo Omnify Lab dengan data contoh “Kopi Senja”, sebuah kedai kopi yang sedang beroperasi.',
       flowH: 'Satu pesanan, empat modul ikut bergerak',
       flowP: 'Tidak perlu memindahkan data dari satu aplikasi ke aplikasi lain. Begitu kasir menekan Bayar, semuanya tersambung otomatis.',
       steps: [['kasir', 'Kasir mencatat', 'Pesanan dari kasir, QR meja, atau aplikasi online masuk ke satu daftar.'], ['dapur', 'Dapur menerima tiket', 'Tiket muncul di layar dapur & bar dalam hitungan detik.'], ['inv', 'Stok terpotong', 'Bahan berkurang sesuai resep, lengkap dengan peringatan menipis.'], ['ops', 'Laporan ter-update', 'Penjualan, kas, dan laba langsung terlihat di dashboard owner.']],
@@ -373,9 +373,9 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       ctaH: 'Ingin melihatnya bekerja dengan alur toko Anda?',
       ctaP: 'Kami bisa tunjukkan demo langsung lewat video call dan menyesuaikan modul dengan cara kerja tim Anda. Santai saja, tidak ada kewajiban apa pun.',
       ctaBtn: 'Jadwalkan demo via WhatsApp', ctaSmall: 'Biasanya kami balas di hari yang sama.',
-      foot: '© Omnify. Data di screenshot adalah data contoh.',
-      waMsg: 'Halo Omnify, saya tertarik dengan Sistem Manajemen (Kasir, Kitchen, Inventory & Operasional). Boleh minta demo?',
-      waAd: 'Halo Omnify, saya ingin tahu tentang add-on ',
+      foot: '© Omnify Lab. Data di screenshot adalah data contoh.',
+      waMsg: 'Halo Omnify Lab, saya tertarik dengan Sistem Manajemen (Kasir, Kitchen, Inventory & Operasional). Boleh minta demo?',
+      waAd: 'Halo Omnify Lab, saya ingin tahu tentang add-on ',
       modules: [
         { id: 'kasir', icon: 'kasir', name: 'Kasir', short: 'Penjualan, menu & meja', h: 'Antrean bergerak lebih cepat, laci kas selalu pas.',
           lead: 'Dirancang untuk jam sibuk: pilih menu, atur varian, lalu bayar dalam beberapa ketukan. Pesanan dari kasir, QR meja, dan aplikasi online masuk ke satu daftar yang sama.',
@@ -425,15 +425,15 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       ]
     },
     en: {
-      title: 'Omnify — Store Management System: Cashier, Kitchen, Inventory & Operations',
+      title: 'Omnify Lab — Store Management System: Cashier, Kitchen, Inventory & Operations',
       skip: 'Skip to content', back: 'Back to portfolio', hdCta: 'Free consultation', fab: 'Ask on WhatsApp',
-      eyebrow: 'Omnify Management System',
+      eyebrow: 'Omnify Lab Management System',
       h1: 'Busy store, <span>calm mind.</span>',
       lead: 'Cashier, kitchen, stock and reports work in one system. Every order is recorded instantly, ingredients are deducted by recipe, and you can check on your store from anywhere, with no manual tallying every night.',
       heroCta: 'Free consultation on WhatsApp', heroSee: 'See the 4 modules ↓',
       chip1: 'Net sales today', chip2b: '35 transactions', chip2: 'Up 38% from yesterday', chip3b: '7 items running low', chip3: 'Ready to restock',
-      heroAlt: 'Omnify Overview page: hourly sales, payment methods, 7-day trend and upcoming reservations',
-      dataNote: 'All screenshots come from the Omnify demo with sample data from “Kopi Senja”, a coffee shop in the middle of a working day.',
+      heroAlt: 'Omnify Lab Overview page: hourly sales, payment methods, 7-day trend and upcoming reservations',
+      dataNote: 'All screenshots come from the Omnify Lab demo with sample data from “Kopi Senja”, a coffee shop in the middle of a working day.',
       flowH: 'One order, four modules in motion',
       flowP: 'No copying data from one app to another. The moment the cashier taps Pay, everything connects on its own.',
       steps: [['kasir', 'Cashier records it', 'Orders from the cashier, table QR or delivery apps land in one list.'], ['dapur', 'Kitchen gets the ticket', 'Tickets appear on the kitchen & bar screen within seconds.'], ['inv', 'Stock is deducted', 'Ingredients go down by recipe, with low-stock warnings.'], ['ops', 'Reports update', 'Sales, cash and profit show up right away on the owner dashboard.']],
@@ -447,9 +447,9 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       ctaH: 'Want to see it work with your store’s flow?',
       ctaP: 'We can walk you through a live demo on a video call and fit the modules to the way your team works. No pressure, no commitment.',
       ctaBtn: 'Book a demo on WhatsApp', ctaSmall: 'We usually reply the same day.',
-      foot: '© Omnify. Screenshots use sample data.',
-      waMsg: "Hi Omnify, I'm interested in the Management System (Cashier, Kitchen, Inventory & Operations). Could I get a demo?",
-      waAd: "Hi Omnify, I'd like to know more about the add-on ",
+      foot: '© Omnify Lab. Screenshots use sample data.',
+      waMsg: "Hi Omnify Lab, I'm interested in the Management System (Cashier, Kitchen, Inventory & Operations). Could I get a demo?",
+      waAd: "Hi Omnify Lab, I'd like to know more about the add-on ",
       modules: [
         { id: 'kasir', icon: 'kasir', name: 'Cashier', short: 'Sales, menu & tables', h: 'Queues move faster, the cash drawer always adds up.',
           lead: 'Built for rush hour: pick an item, set its options, and take payment in a few taps. Orders from the cashier, table QR and delivery apps all land in the same list.',
@@ -516,7 +516,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   var shotIdx = {};
 
   function shotHtml(m, sh, t) {
-    return '<button type="button" class="shot" data-open="' + m.id + '" aria-label="' + esc(t.zoom + ': ' + sh[1]) + '"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>omnify · ' + esc(sh[1]) + '</span></div>' +
+    return '<button type="button" class="shot" data-open="' + m.id + '" aria-label="' + esc(t.zoom + ': ' + sh[1]) + '"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>Omnify Lab · ' + esc(sh[1]) + '</span></div>' +
       '<img src="img/' + sh[0] + '-md.jpg" srcset="img/' + sh[0] + '-md.jpg 1100w, img/' + sh[0] + '.jpg 1800w" sizes="(max-width:980px) 100vw, 700px" alt="' + esc(sh[1] + ': ' + sh[2]) + '" width="1100" height="688" loading="lazy" decoding="async"></div>' +
       '<span class="badge-ad"' + (sh[3] ? '' : ' hidden') + '>' + t.addon + '</span>' +
       '<span class="zoom" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/></svg>' + t.zoom + '</span></button>';
@@ -593,7 +593,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     var n = new Image(); n.decoding = 'async';
     n.onload = n.onerror = function () { img.srcset = 'img/' + sh[0] + '-md.jpg 1100w, img/' + sh[0] + '.jpg 1800w'; img.src = n.src; img.alt = sh[1] + ': ' + sh[2]; img.style.opacity = ''; };
     n.src = 'img/' + sh[0] + '-md.jpg';
-    sec.querySelector('.shot .bar span').textContent = 'omnify · ' + sh[1];
+    sec.querySelector('.shot .bar span').textContent = 'Omnify Lab · ' + sh[1];
     sec.querySelector('.shot').setAttribute('aria-label', t.zoom + ': ' + sh[1]);
     sec.querySelector('.badge-ad').hidden = !sh[3];
     sec.querySelector('.cap').textContent = sh[2];

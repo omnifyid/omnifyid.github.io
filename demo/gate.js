@@ -34,9 +34,7 @@
       'color:#EAF3E6;font-family:Geist,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow:auto}' +
     '#om-gate *{box-sizing:border-box}' +
     '#om-gate .g-card{width:100%;max-width:400px;display:flex;flex-direction:column;gap:28px;animation:omGateUp .4s ease}' +
-    '#om-gate .g-logo{display:flex;align-items:center;gap:8px;font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:800;font-size:26px;letter-spacing:-0.03em}' +
-    '#om-gate .g-logo b{color:#7ED76A}' +
-    '#om-gate .g-cur{width:12px;height:22px;background:#7ED76A;animation:omGateBlink 1.1s steps(1) infinite}' +
+    '#om-gate .g-logo img{display:block;height:44px;width:auto;max-width:100%}' +
     '#om-gate h1{margin:0 0 8px;font-size:28px;font-weight:600;letter-spacing:-0.02em;line-height:1.15}' +
     '#om-gate p{margin:0;color:#A9B3A5;font-size:15px;line-height:1.5}' +
     '#om-gate .g-boxes{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:10px}' +
@@ -79,7 +77,7 @@
     for (var i = 0; i < LEN; i++) boxes += '<div class="g-box" aria-hidden="true"></div>';
     gate.innerHTML =
       '<div class="g-card">' +
-        '<div class="g-logo"><b>&gt;</b><span>omnify</span><span class="g-cur"></span></div>' +
+        '<div class="g-logo"><img src="../brand/logo-white.svg" alt="Omnify Lab" width="161" height="44"></div>' +
         '<div><h1 id="om-gate-t">Demo privat</h1><p>Masukkan PIN 6 digit untuk membuka demo ini.</p></div>' +
         '<div class="g-boxes">' + boxes +
           '<input id="om-gate-pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="off" aria-label="PIN 6 digit" aria-describedby="om-gate-msg">' +

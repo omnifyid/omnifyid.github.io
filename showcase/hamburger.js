@@ -1,4 +1,4 @@
-/* Omnify landing pages — hamburger menu for mobile (<= 640px).
+/* Omnify Lab landing pages — hamburger menu for mobile (<= 640px).
    Usage: <script src="../hamburger.js" data-site="elevate" defer></script>
    Hides the desktop nav links on small screens and shows a ☰ button that opens a dropdown
    with the same links. Clicking a panel item triggers the original link (so page handlers still run). */

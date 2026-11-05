@@ -25,6 +25,22 @@ Keputusan yang sudah disepakati (jangan dibahas ulang):
 11. Desain mengikuti WCAG AAA (kontras teks ≥ 7:1, target sentuh ≥ 44px, fokus terlihat, konten bergerak bisa dijeda) dan 10 heuristik Nielsen.
 12. Landing page di HP (< 640px) memakai menu **hamburger** (☰ → dropdown). Dikelola satu file `showcase/hamburger.js`, dipasang lewat `<script data-site="…">` di `site.html` tiap landing page (config per situs ada di dalam file itu). Sanurhasta sudah punya tombol Menu + drawer sendiri.
 
+## Brand: Omnify Lab (2026-11-05, sudah di-commit)
+
+Nama brand sekarang **Omnify Lab** (domain omnifylab.com belum dibeli; situs tetap di GitHub Pages). Semua teks "Omnify" → "Omnify Lab" (judul, meta, WA, footer, demo POS).
+Nama file video `Omnify Film - …` dan key `localStorage` (`omnify-lang`, `omnify-pf-paused`, `om-demo-gate`) **sengaja tidak diubah**.
+URL `omnifyid.github.io` (canonical/og) tetap sampai domain baru aktif.
+
+| File | Dipakai untuk |
+|---|---|
+| `brand/logo-black.svg` | logo teks di latar terang (header/footer portofolio, header `showcase/sistem/`, sidebar POS) |
+| `brand/logo-white.svg` | logo teks di latar gelap (login & PIN gate POS, kartu login mobile, gambar `og/*.png`) |
+| `favicon.svg` (= `brand/icon-main.svg`, logo 1) | favicon halaman utama (FnB, Marketplace, Lainnya, root, 404) |
+| `showcase/favicon.svg` (= `brand/icon-second.svg`, logo 2) | favicon semua demo drill-down + `showcase/sistem/` (`href="../favicon.svg"`) |
+| `demo/favicon.svg` (= `brand/icon-third.svg`, logo 3) | favicon POS `demo/` + ikon kotak kecil di dalam aplikasi POS |
+
+Logo dipasang sebagai `<img>` SVG dengan `height` tetap/`clamp()` dan `width:auto` (rasio 461:126). `og/*.png` dibuat ulang dengan logo baru.
+
 ## Peta portofolio (sumber: `data` di tiap halaman + `showcase/demos.js`)
 
 | Halaman | # | Layanan | Contoh (id di `demos.js`) |
@@ -84,7 +100,7 @@ Perbaikan mobile ada di `<style id="om-mobile">` di `site.html`. Jangkar punya `
 | elevate | web | folder `.dc.html` | baru; poster dari screenshot; `overflow-x: clip` agar tidak geser ke samping |
 | first-floor | web | folder `.dc.html` | baru; poster dari screenshot |
 | dapur-awan | web | export | mobile: ticker, nav, galeri swipe |
-| padel-me | web | export | 2026-11-05, belum di-commit. Overlay drawer rusak diperbaiki; hero reveal (`.pm-h`, `.pm-hbg`, kelas `pm-in` lewat IntersectionObserver) + konten hero memudar saat di-scroll; performa: tanpa `backdrop-filter`, marquee pakai CSS animation (dulu rAF baca `scrollWidth` tiap frame), scroll handler baca-lalu-tulis, gambar dikompres 8,6 → 3,9 MB + lazy. Poster dari screenshot |
+| padel-me | web | export | 2026-11-05, di-commit 46b32b4. Overlay drawer rusak diperbaiki; hero reveal (`.pm-h`, `.pm-hbg`, kelas `pm-in` lewat IntersectionObserver) + konten hero memudar saat di-scroll; performa: tanpa `backdrop-filter`, marquee pakai CSS animation (dulu rAF baca `scrollWidth` tiap frame), scroll handler baca-lalu-tulis, gambar dikompres 8,6 → 3,9 MB + lazy. Poster dari screenshot |
 | jangkar | web | export | scroll reveal; 5 tombol booking → `../jangkar-booking/?view=mobile` (`target=_top`) |
 | sanurhasta | web | folder `.dc.html` | file penting saja; card baru Company Profile |
 | pualam | web | export | mobile: header, katalog 2 kolom |
