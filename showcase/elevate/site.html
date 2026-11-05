@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head><title>Elevate Coffee</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<style id="om-mobile">
+/* Omnify mobile fixes */
+/* Images scale from 1.06 before their reveal; clip so the page never scrolls sideways. */
+html, body { overflow-x: clip; }
+</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#EEECE7;color:#151515;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:#5E5A53}
+*{box-sizing:border-box}
+input::placeholder{color:#8C877E}
+@keyframes elevate-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#EEECE7;color:#151515">
+
+  <sc-if value="{{ showAnnouncement }}" hint-placeholder-val="{{ true }}">
+    <a href="#events" style="display:flex;justify-content:center;gap:10px;padding:10px 20px;background:#151515;color:#EEECE7;font-family:inherit;font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-align:center">
+      <span>Cars &amp; Coffee — every Sunday, 7 AM. All machines welcome.</span>
+    </a>
+  </sc-if>
+
+  <header data-screen-label="Hero" style="position:relative;height:min(100vh,960px);min-height:620px;overflow:hidden">
+    <div data-parallax="1" style="position:absolute;inset:0;will-change:transform"><div data-reveal="zoom" style="position:absolute;inset:0">
+      <image-slot id="hero-main" shape="rect" placeholder="Hero photo — cars parked outside at golden hour, people with coffee"></image-slot>
+    </div></div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,10,.45) 0%,rgba(10,10,10,0) 22%,rgba(10,10,10,0) 50%,rgba(10,10,10,.6) 100%)"></div>
+
+    <nav data-reveal="fade" data-delay="400" style="position:absolute;top:0;left:0;right:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:22px clamp(18px,3vw,40px);color:#F4F2EE;font-size:13px;letter-spacing:.06em;text-transform:uppercase;pointer-events:none">
+      <div style="display:flex;gap:clamp(14px,2vw,28px);flex-wrap:wrap;pointer-events:auto">
+        <a href="#menu" style="color:#F4F2EE">Menu</a>
+        <a href="#events" style="color:#F4F2EE">Events</a>
+        <a href="#spaces" style="color:#F4F2EE">Spaces</a>
+      </div>
+      <a href="#" style="pointer-events:auto;color:#F4F2EE;font-weight:800;font-stretch:125%;font-size:22px;letter-spacing:.16em">ELEVATE</a>
+      <div style="display:flex;gap:clamp(14px,2vw,28px);justify-content:flex-end;flex-wrap:wrap;pointer-events:auto">
+        <a href="#about" style="color:#F4F2EE">About</a>
+        <a href="#visit" style="color:#F4F2EE">Visit</a>
+      </div>
+    </nav>
+
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:0 clamp(18px,3vw,40px) clamp(28px,4vw,48px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;color:#F4F2EE;pointer-events:none">
+      <div style="overflow:hidden;max-width:900px;padding-bottom:.08em"><h1 data-reveal="rise" data-delay="150" style="margin:0;font-weight:500;font-size:clamp(40px,6.4vw,96px);line-height:.98;letter-spacing:-.03em;text-wrap:balance">Where machines, movement, and coffee meet.</h1></div>
+      <div data-reveal="up" data-delay="550" style="display:flex;flex-direction:column;gap:18px;max-width:340px;pointer-events:auto">
+        <p style="margin:0;font-size:16px;line-height:1.5;color:#E6E3DD;text-wrap:pretty">A cafe and clubhouse for drivers, riders, and runners. Come for the coffee, stay for the people who get it.</p>
+        <a href="#menu" style="font-family:inherit;font-size:12px;letter-spacing:.1em;color:#F4F2EE;border-bottom:1px solid #F4F2EE;align-self:flex-start;padding-bottom:4px">SEE THE MENU ↳</a>
+      </div>
+    </div>
+  </header>
+
+  <div aria-hidden="true" style="overflow:hidden;padding:18px 0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#5E5A53">
+    <div style="display:flex;width:max-content;animation:elevate-marquee 70s linear infinite;animation-play-state:{{ marqueePlay }}">
+      <div style="display:flex;align-items:center;gap:40px;padding-right:40px;flex-shrink:0"><span>Specialty coffee</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Cars</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Motorbikes</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Bicycles</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Run club</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Race day</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Open kitchen</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span></div>
+      <div style="display:flex;align-items:center;gap:40px;padding-right:40px;flex-shrink:0"><span>Specialty coffee</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Cars</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Motorbikes</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Bicycles</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Run club</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Race day</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span><span>Open kitchen</span><span style="width:5px;height:5px;background:#8C877E;transform:rotate(45deg);flex-shrink:0"></span></div>
+    </div>
+  </div>
+
+  <section data-screen-label="Manifesto" style="padding:clamp(72px,10vw,160px) clamp(18px,3vw,40px);border-top:1px solid #CFCBC3;display:flex;flex-direction:column;align-items:center;gap:36px;text-align:center">
+    <h2 data-reveal="up" style="margin:0;max-width:1000px;font-weight:400;font-size:clamp(28px,3.6vw,52px);line-height:1.12;letter-spacing:-.02em;text-wrap:balance">We believe the best part of any run or ride is the stop in between. A table where the machine starts the conversation and the people keep it going.</h2>
+    <a data-reveal="up" href="#about" style="font-family:inherit;font-size:12px;letter-spacing:.1em;border-bottom:1px solid #151515;padding-bottom:4px">LEARN MORE</a>
+  </section>
+
+  <section id="about" data-screen-label="About" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));border-top:1px solid #CFCBC3">
+    <div data-reveal="img" style="position:relative;min-height:clamp(420px,52vw,760px)">
+      <image-slot id="about-main" shape="rect" placeholder="Interior — bar counter, espresso machine, helmet shelf"></image-slot>
+    </div>
+    <div style="padding:clamp(40px,6vw,96px) clamp(18px,4vw,72px);display:flex;flex-direction:column;justify-content:space-between;gap:56px">
+      <div style="display:flex;flex-direction:column;gap:24px;max-width:520px">
+        <span data-reveal="up" style="font-family:inherit;font-size:11px;letter-spacing:.12em">ABOUT</span>
+        <h2 data-reveal="up" style="margin:0;font-weight:500;font-size:clamp(30px,3.4vw,48px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance">Built for the ones who show up early.</h2>
+        <p data-reveal="up" style="margin:0;font-size:17px;line-height:1.6;color:#3B3833;text-wrap:pretty">ELEVATE is a cafe first. Specialty coffee, an honest kitchen, and room to linger. Around it sits a clubhouse for anyone who measures weekends in kilometres, laps, or lap times: a paddock out front, a lounge inside, and a screen for race day.</p>
+        <p data-reveal="up" style="margin:0;font-size:17px;line-height:1.6;color:#3B3833;text-wrap:pretty">No membership, no dress code. Arrive on four wheels, two wheels, or two feet.</p>
+      </div>
+      <div data-reveal="up" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border-top:1px solid #151515;padding-top:20px">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:clamp(24px,2.4vw,34px);font-weight:500;letter-spacing:-.02em">06:30</span><span style="font-family:inherit;font-size:10.5px;letter-spacing:.08em;color:#5E5A53">DOORS OPEN DAILY</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:clamp(24px,2.4vw,34px);font-weight:500;letter-spacing:-.02em">Cars</span><span style="font-family:inherit;font-size:10.5px;letter-spacing:.08em;color:#5E5A53">BIKES · RUNNERS</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:clamp(24px,2.4vw,34px);font-weight:500;letter-spacing:-.02em">Free</span><span style="font-family:inherit;font-size:10.5px;letter-spacing:.08em;color:#5E5A53">TO JOIN THE CLUB</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="spaces" data-screen-label="Spaces" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:2px;background:#EEECE7">
+    <sc-for list="{{ spaces }}" as="s" hint-placeholder-count="3">
+      <div data-reveal="img" style="position:relative;aspect-ratio:3/4;overflow:hidden">
+        <image-slot id="space-{{ s.id }}" shape="rect" placeholder="{{ s.shot }}"></image-slot>
+        <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,10,0) 55%,rgba(10,10,10,.55) 100%)"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:24px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;color:#F4F2EE;pointer-events:none">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-weight:700;font-stretch:115%;font-size:clamp(20px,1.8vw,26px);letter-spacing:.06em">{{ s.name }}</span>
+            <span style="font-size:14px;color:#E6E3DD;max-width:260px;line-height:1.4">{{ s.line }}</span>
+          </div>
+          <span style="font-family:inherit;font-size:11px;letter-spacing:.1em">{{ s.num }}</span>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <section id="menu" data-screen-label="Menu" style="padding:clamp(64px,9vw,128px) 0 clamp(56px,7vw,96px)">
+    <div style="padding:0 clamp(18px,3vw,40px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px">
+      <div data-reveal="up" style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:inherit;font-size:11px;letter-spacing:.12em">THE MENU</span>
+        <h2 style="margin:0;font-weight:500;font-size:clamp(32px,4vw,56px);letter-spacing:-.025em;line-height:1">Fuel, served daily.</h2>
+      </div>
+      <div data-reveal="up" style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.select }}" style="font-family:inherit;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:9px 16px;border-radius:999px;border:1px solid #151515;background:{{ t.bg }};color:{{ t.fg }};cursor:pointer">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-reveal="up" ref="{{ trackRef }}" onScroll="{{ onScroll }}" style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 clamp(18px,3vw,40px);scroll-padding:0 clamp(18px,3vw,40px)">
+      <sc-for list="{{ items }}" as="item" hint-placeholder-count="4">
+        <article data-card="1" style="flex:0 0 clamp(260px,27vw,380px);scroll-snap-align:start;display:flex;flex-direction:column;gap:16px">
+          <sc-if value="{{ showImages }}" hint-placeholder-val="{{ true }}">
+            <div style="position:relative;aspect-ratio:4/5;background:#E2DFD8">
+              <image-slot id="menu-{{ item.id }}" shape="rect" placeholder="{{ item.shot }}"></image-slot>
+              <sc-if value="{{ item.tag }}" hint-placeholder-val="{{ false }}">
+                <span style="position:absolute;top:14px;left:14px;pointer-events:none;font-family:inherit;font-size:10px;letter-spacing:.1em;background:#EEECE7;padding:6px 10px;border-radius:999px">{{ item.tag }}</span>
+              </sc-if>
+            </div>
+          </sc-if>
+          <div style="display:flex;flex-direction:column;gap:8px;padding-top:2px;border-top:1px solid #151515">
+            <div style="display:flex;justify-content:space-between;gap:12px;padding-top:12px">
+              <h3 style="margin:0;font-weight:500;font-size:19px;letter-spacing:-.01em">{{ item.name }}</h3>
+              <span style="font-size:17px">{{ item.price }}</span>
+            </div>
+            <span style="font-family:inherit;font-size:10.5px;letter-spacing:.08em;color:#5E5A53;text-transform:uppercase;line-height:1.6">{{ item.notes }}</span>
+            <span style="font-family:inherit;font-size:10.5px;letter-spacing:.08em;color:#8C877E;text-transform:uppercase">{{ item.cat }}</span>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+
+    <div data-reveal="fade" style="padding:32px clamp(18px,3vw,40px) 0;display:flex;align-items:center;gap:24px">
+      <span style="font-family:inherit;font-size:11px;letter-spacing:.1em;min-width:64px">{{ counter }}</span>
+      <div style="flex:1;height:1px;background:#CFCBC3;position:relative">
+        <div style="position:absolute;left:0;top:-0.5px;height:2px;background:#151515;width:{{ progressPct }};transition:width .2s"></div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button onClick="{{ prev }}" aria-label="Previous" style="width:44px;height:44px;border-radius:999px;border:1px solid #151515;background:transparent;color:#151515;font-size:16px;cursor:pointer" style-hover="background:#151515;color:#EEECE7">←</button>
+        <button onClick="{{ next }}" aria-label="Next" style="width:44px;height:44px;border-radius:999px;border:1px solid #151515;background:transparent;color:#151515;font-size:16px;cursor:pointer" style-hover="background:#151515;color:#EEECE7">→</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" data-screen-label="Events" style="padding:clamp(64px,9vw,128px) clamp(18px,3vw,40px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px">
+      <div data-reveal="up" style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:inherit;font-size:11px;letter-spacing:.12em">GATHERINGS</span>
+        <h2 style="margin:0;font-weight:500;font-size:clamp(32px,4vw,56px);letter-spacing:-.025em;line-height:1">On the calendar.</h2>
+      </div>
+      <p data-reveal="up" style="margin:0;max-width:360px;font-size:15px;line-height:1.55;color:#5E5A53">Every gathering is free and open. RSVP helps us plan parking and pastries.</p>
+    </div>
+    <div data-reveal="line" style="border-top:1px solid #151515;transform-origin:left">
+      <sc-for list="{{ events }}" as="e" hint-placeholder-count="4">
+        <a data-reveal="up" href="https://wa.me/628977887994" target="_blank" rel="noopener" style="display:grid;grid-template-columns:minmax(90px,140px) minmax(0,1fr) auto;align-items:center;gap:clamp(16px,3vw,48px);padding:24px 0;border-bottom:1px solid #CFCBC3;color:#151515" style-hover="background:#E5E2DB">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:clamp(26px,2.6vw,38px);font-weight:500;letter-spacing:-.02em;line-height:1">{{ e.day }}</span>
+            <span style="font-family:inherit;font-size:10.5px;letter-spacing:.1em;color:#5E5A53">{{ e.month }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+            <span style="font-size:clamp(18px,1.7vw,24px);font-weight:500;letter-spacing:-.01em">{{ e.title }}</span>
+            <span style="font-family:inherit;font-size:10.5px;letter-spacing:.08em;color:#5E5A53;text-transform:uppercase">{{ e.meta }}</span>
+          </div>
+          <span style="font-family:inherit;font-size:11px;letter-spacing:.1em;white-space:nowrap">RSVP ↳</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="visit" data-screen-label="Visit" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));border-top:1px solid #CFCBC3">
+    <div style="padding:clamp(40px,6vw,96px) clamp(18px,3vw,40px);display:flex;flex-direction:column;gap:40px">
+      <div data-reveal="up" style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:inherit;font-size:11px;letter-spacing:.12em">VISIT</span>
+        <h2 style="margin:0;font-weight:500;font-size:clamp(32px,4vw,56px);letter-spacing:-.025em;line-height:1">Pull in.</h2>
+      </div>
+      <div data-reveal="up" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:inherit;font-size:10.5px;letter-spacing:.1em;color:#5E5A53">ADDRESS</span>
+          <span style="font-size:17px;line-height:1.5">Jl. Kemang Raya No. 27, Bangka<br>Mampang Prapatan, Jakarta Selatan 12730</span>
+          <a href="#" style="font-family:inherit;font-size:11px;letter-spacing:.1em;border-bottom:1px solid #151515;align-self:flex-start;padding-bottom:3px">DIRECTIONS ↳</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:inherit;font-size:10.5px;letter-spacing:.1em;color:#5E5A53">HOURS</span>
+          <div style="display:grid;grid-template-columns:auto auto;justify-content:start;column-gap:24px;row-gap:4px;font-size:17px;line-height:1.5">
+            <span>Mon – Fri</span><span>06:30 – 18:00</span>
+            <span>Sat</span><span>07:00 – 20:00</span>
+            <span>Sun</span><span>06:30 – 16:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="img" style="position:relative;min-height:420px">
+      <image-slot id="visit-map" shape="rect" placeholder="Map or exterior — storefront and paddock"></image-slot>
+    </div>
+  </section>
+
+  <footer data-screen-label="Footer" style="background:#151515;color:#EEECE7;padding:clamp(48px,6vw,88px) clamp(18px,3vw,40px) 0;overflow:hidden">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:40px;padding-bottom:clamp(48px,6vw,88px)">
+      <div data-reveal="up" style="display:flex;flex-direction:column;gap:16px;grid-column:span 2;min-width:0">
+        <span style="font-family:inherit;font-size:11px;letter-spacing:.12em;color:#A9A49B">THE CLUB LIST</span>
+        <p style="margin:0;font-size:20px;line-height:1.35;max-width:420px">Event dates, new menu drops, and the occasional road trip. One email a week, at most.</p>
+        <form style="display:flex;gap:12px;border-bottom:1px solid #EEECE7;max-width:420px;padding-bottom:10px" onSubmit="{{ subscribe }}">
+          <input type="email" placeholder="Email" style="flex:1;min-width:0;background:transparent;border:0;outline:none;color:#EEECE7;font-family:inherit;font-size:16px">
+          <button type="submit" style="background:transparent;border:0;color:#EEECE7;font-family:inherit;font-size:11px;letter-spacing:.1em;cursor:pointer">{{ subscribeLabel }}</button>
+        </form>
+      </div>
+      <div data-reveal="up" style="display:flex;flex-direction:column;gap:12px;font-size:15px">
+        <span style="font-family:inherit;font-size:11px;letter-spacing:.12em;color:#A9A49B">CAFE</span>
+        <a href="#menu" style="color:#EEECE7">Menu</a>
+        <a href="#spaces" style="color:#EEECE7">Spaces</a>
+        <a href="#visit" style="color:#EEECE7">Hours &amp; location</a>
+      </div>
+      <div data-reveal="up" style="display:flex;flex-direction:column;gap:12px;font-size:15px">
+        <span style="font-family:inherit;font-size:11px;letter-spacing:.12em;color:#A9A49B">COMMUNITY</span>
+        <a href="#events" style="color:#EEECE7">Events</a>
+        <a href="#about" style="color:#EEECE7">About</a>
+        <a href="#" style="color:#EEECE7">Private hire</a>
+      </div>
+      <div data-reveal="up" style="display:flex;flex-direction:column;gap:12px;font-size:15px">
+        <span style="font-family:inherit;font-size:11px;letter-spacing:.12em;color:#A9A49B">SOCIAL</span>
+        <a href="#" style="color:#EEECE7">Instagram</a>
+        <a href="#" style="color:#EEECE7">Strava</a>
+        <a href="#" style="color:#EEECE7">TikTok</a>
+      </div>
+    </div>
+    <div data-reveal="rise"><div style="font-weight:800;font-stretch:125%;font-size:15vw;line-height:.78;letter-spacing:-.02em;text-align:center;transform:translateY(8%);white-space:nowrap">ELEVATE</div></div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAnnouncement&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;menuStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Image cards&quot;,&quot;Text only&quot;],&quot;default&quot;:&quot;Image cards&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;autoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { cat: 'All', idx: 0, progress: 0, subscribed: false };
+  trackRef = React.createRef();
+
+  menu = [
+    { id: 'flat-white', cat: 'Coffee', name: 'Pit Lane Flat White', notes: 'Double ristretto ● Whole milk ● Velvet', price: '5.5', tag: 'SIGNATURE', shot: 'Flat white, top-down on concrete' },
+    { id: 'espresso', cat: 'Coffee', name: 'Pole Position Espresso', notes: 'Single origin ● Cacao ● Cherry', price: '3.8', shot: 'Espresso cup, side angle' },
+    { id: 'cortado', cat: 'Coffee', name: 'Apex Cortado', notes: 'Americano ● Equal parts', price: '4.5', shot: 'Cortado glass on bar' },
+    { id: 'tonic', cat: 'Cold', name: 'Espresso Tonic', notes: 'Espresso ● Tonic ● Orange peel', price: '6', tag: 'NEW', shot: 'Espresso tonic over ice' },
+    { id: 'coldbrew', cat: 'Cold', name: '18-Hour Cold Brew', notes: 'Ethiopia ● Black tea ● Citrus', price: '5.5', shot: 'Cold brew bottle, condensation' },
+    { id: 'electro', cat: 'Cold', name: 'Recovery Shake', notes: 'Banana ● Oat ● Whey ● Espresso', price: '8', shot: 'Shake in tall glass' },
+    { id: 'toast', cat: 'Kitchen', name: 'Paddock Toast', notes: 'Sourdough ● Egg ● Chili butter', price: '12', tag: 'SIGNATURE', shot: 'Toast on ceramic plate' },
+    { id: 'bowl', cat: 'Kitchen', name: 'Grid Bowl', notes: 'Grains ● Greens ● Soft egg ● Miso', price: '14', shot: 'Grain bowl, overhead' },
+    { id: 'pastry', cat: 'Kitchen', name: 'Morning Bun', notes: 'Laminated ● Cardamom ● Sugar', price: '4.5', shot: 'Pastry close-up' }
+  ];
+
+  componentDidMount() {
+    this.setupAutoplay();
+    window.addEventListener('scroll', this.onWinScroll, { passive: true });
+    requestAnimationFrame(() => this.initMotion());
+  }
+  componentDidUpdate(pp) {
+    if (pp.autoplay !== this.props.autoplay) this.setupAutoplay();
+    if (pp.motion !== this.props.motion) this.initMotion();
+  }
+  componentWillUnmount() { clearInterval(this.timer); this.io?.disconnect(); window.removeEventListener('scroll', this.onWinScroll); }
+  motionOn() { return (this.props.motion ?? true) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  initMotion() {
+    this.io?.disconnect();
+    const els = [...document.querySelectorAll('[data-reveal]')];
+    const show = el => { el.style.opacity = '1'; el.style.transform = 'none'; el.style.clipPath = 'inset(0 0 0% 0)'; };
+    if (!this.motionOn()) { els.forEach(el => { el.style.transition = 'none'; show(el); }); this.onWinScroll(); return; }
+    const init = {
+      up: { opacity: '0', transform: 'translate3d(0,36px,0)' },
+      fade: { opacity: '0' },
+      rise: { transform: 'translate3d(0,105%,0)' },
+      img: { clipPath: 'inset(0 0 100% 0)', transform: 'scale(1.06)' },
+      zoom: { transform: 'scale(1.12)' },
+      line: { transform: 'scaleX(0)' }
+    };
+    const dur = { zoom: 2400, img: 1400, rise: 1200, line: 1400, fade: 1000, up: 1000 };
+    const ease = 'cubic-bezier(.2,.7,.15,1)';
+    const targets = new Map();
+    els.forEach(el => {
+      if (el.dataset.shown) return;
+      const t = el.dataset.reveal;
+      el.style.transition = 'none';
+      Object.assign(el.style, init[t] || init.up);
+      targets.set(t === 'rise' || t === 'img' ? el.parentElement : el, (targets.get(t === 'rise' || t === 'img' ? el.parentElement : el) || []).concat(el));
+    });
+    this.io = new IntersectionObserver(entries => {
+      let i = 0;
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        this.io.unobserve(en.target);
+        (targets.get(en.target) || []).forEach(el => {
+          if (el.dataset.shown) return;
+          el.dataset.shown = '1';
+          const t = el.dataset.reveal, d = dur[t] || 1000;
+          const delay = el.dataset.delay ? +el.dataset.delay : i++ * 90;
+          el.getBoundingClientRect();
+          el.style.transition = ['opacity', 'transform', 'clip-path'].map(p => p + ' ' + d + 'ms ' + ease + ' ' + delay + 'ms').join(',');
+          show(el);
+        });
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    targets.forEach((_, t) => this.io.observe(t));
+    this.setState({ motionTick: Date.now() });
+  }
+  onWinScroll = () => {
+    if (this.raf) return;
+    this.raf = requestAnimationFrame(() => {
+      this.raf = 0;
+      const p = document.querySelector('[data-parallax]'); if (!p) return;
+      const y = window.scrollY;
+      p.style.transform = this.motionOn() && y < window.innerHeight * 1.5 ? 'translate3d(0,' + (y * 0.3).toFixed(1) + 'px,0)' : 'none';
+    });
+  };
+  setupAutoplay() {
+    clearInterval(this.timer);
+    if (this.props.autoplay ?? false) this.timer = setInterval(() => {
+      const el = this.trackRef.current; if (!el) return;
+      if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 4) el.scrollTo({ left: 0, behavior: 'smooth' });
+      else this.step(1);
+    }, 3500);
+  }
+  cardW() {
+    const el = this.trackRef.current;
+    const c = el && el.querySelector('[data-card]');
+    return c ? c.getBoundingClientRect().width + 16 : 300;
+  }
+  step(d) {
+    const el = this.trackRef.current; if (!el) return;
+    const w = this.cardW(), per = Math.max(1, Math.floor((el.clientWidth + 16) / w - 0.1));
+    const target = (Math.round(el.scrollLeft / w) + d * per) * w;
+    el.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+  }
+  onScroll = () => {
+    const el = this.trackRef.current; if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    this.setState({ progress: max > 0 ? el.scrollLeft / max : 1, idx: Math.round(el.scrollLeft / this.cardW()) });
+  };
+
+  renderVals() {
+    const { cat, idx, progress } = this.state;
+    const items = this.menu.filter(m => cat === 'All' || m.cat === cat).map(m => ({ ...m, tag: m.tag || '' }));
+    const pad = n => String(n).padStart(2, '0');
+    const visible = Math.max(1, Math.round((this.trackRef.current?.clientWidth || 1200) / this.cardW()));
+    const pct = Math.min(1, Math.max(visible / items.length, progress));
+    return {
+      showAnnouncement: this.props.showAnnouncement ?? true,
+      marqueePlay: this.motionOn() ? 'running' : 'paused',
+      showImages: (this.props.menuStyle ?? 'Image cards') === 'Image cards',
+      tabs: ['All', 'Coffee', 'Cold', 'Kitchen'].map(l => ({
+        label: l, bg: l === cat ? '#151515' : 'transparent', fg: l === cat ? '#EEECE7' : '#151515',
+        select: () => { this.setState({ cat: l, idx: 0, progress: 0 }); const el = this.trackRef.current; if (el) el.scrollTo({ left: 0 }); }
+      })),
+      items,
+      trackRef: this.trackRef,
+      onScroll: this.onScroll,
+      prev: () => this.step(-1),
+      next: () => this.step(1),
+      counter: `${pad(Math.min(items.length, idx + 1))} / ${pad(items.length)}`,
+      progressPct: `${(pct * 100).toFixed(1)}%`,
+      spaces: [
+        { id: 'paddock', num: '01', name: 'THE PADDOCK', line: 'Reserved parking out front for whatever you drove in on.', shot: 'Lot with cars and motorbikes lined up' },
+        { id: 'lounge', num: '02', name: 'THE LOUNGE', line: 'Long tables, magazines, and a wall of helmets.', shot: 'Lounge seating, low light' },
+        { id: 'screen', num: '03', name: 'THE SCREEN ROOM', line: 'Every race weekend, live, with the sound up.', shot: 'Projector screen showing a race' }
+      ],
+      events: [
+        { day: '08', month: 'NOV · SUN', title: 'Cars & Coffee', meta: '07:00 – 10:00 ● The Paddock ● All marques' },
+        { day: '14', month: 'NOV · SAT', title: 'Saturday Social Ride — 60 km', meta: '06:30 roll-out ● No-drop ● Coffee after' },
+        { day: '22', month: 'NOV · SUN', title: 'Season Finale Screening', meta: 'Doors 13:00 ● The Screen Room ● Free entry' },
+        { day: '29', month: 'NOV · SUN', title: 'Run Club 10K', meta: '07:30 start ● All paces ● Pastries on us' }
+      ],
+      subscribe: e => { e.preventDefault(); this.setState({ subscribed: true }); },
+      subscribeLabel: this.state.subscribed ? 'THANK YOU' : 'JOIN ↳'
+    };
+  }
+}
+</script>
+</body>
+</html>

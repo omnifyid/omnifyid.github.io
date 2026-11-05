@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html><head><title>Vetro Padel</title><script>window.__resources = {"https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "assets/16c8b160.js", "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "assets/950fb4f5.js"};</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="assets/2e98cfe5.js"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://unsplash.com">
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("assets/9bd7eba1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("assets/3ee71603.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("assets/82d537a3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>/* fallback */
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: block;
+  src: url("assets/f1d0f6b1.woff2") format('woff2');
+}
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+</style>
+<style>
+body{margin:0;background:#F1F3F0;color:#0D1726;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#173C8F;text-decoration:underline;text-underline-offset:3px}a:hover{color:#0D1726}
+input,button{font-family:'Archivo',sans-serif}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:{{ rootBg }};display:flex;flex-direction:column">
+
+  <header style="display:{{ L.hdrDisp }};position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(13,23,38,.1);background:#F1F3F0">
+    <div style="max-width:{{ L.maxW }};margin:0 auto;padding:14px {{ L.padX }};box-sizing:border-box;display:flex;align-items:center;gap:12px">
+      <sc-if value="{{ isMain }}" hint-placeholder-val="{{ false }}">
+        <button sc-camel-on-click="{{ back }}" aria-label="Kembali ke pilihan venue" style="width:44px;height:44px;border:none;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 3px rgba(13,23,38,.15);color:#0D1726;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0" style-focus="outline:3px solid #173C8F;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">arrow_back</span></button>
+      </sc-if>
+      <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+        <svg width="44" height="44" sc-camel-view-box="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#173C8F"></rect><circle cx="20" cy="20" r="11" fill="#D6F24A"></circle><path d="M11.6 13.5 Q19 20 11.6 26.5" stroke="#173C8F" stroke-width="2" fill="none"></path><path d="M28.4 13.5 Q21 20 28.4 26.5" stroke="#173C8F" stroke-width="2" fill="none"></path></svg>
+      </sc-if>
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:800;font-stretch:118%;font-size:24px;line-height:1;text-transform:uppercase">{{ title }}</div>
+        <div style="font-size:14px;color:#4B5565;margin-top:4px">{{ subtitle }}</div>
+      </div>
+      <span style="display:{{ L.brandDisp }};font-weight:900;font-stretch:125%;font-size:20px;letter-spacing:.02em;color:#173C8F">VETRO</span>
+    </div>
+  </header>
+
+  <main style="flex:1;display:flex;flex-direction:column">
+    <sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ true }}">
+      <div style="flex:1;display:grid;grid-template-columns:{{ L.welCols }};color:#FFFFFF;background:#0B1B38;min-height:100vh">
+        <div style="position:{{ L.heroPos }};top:0;align-self:start;height:{{ L.heroH }};overflow:hidden;display:flex;flex-direction:column;padding:{{ L.heroPad }};box-sizing:border-box">
+          <img src="assets/689a2a1f.jpg" fetchpriority="high" decoding="async" alt="" style="position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;left:0;top:0;width:100%;height:100%;background:{{ L.heroGrad }}"></div>
+          <div style="position:relative;display:flex;align-items:center;gap:10px">
+            <svg width="44" height="44" sc-camel-view-box="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#D6F24A"></rect><circle cx="20" cy="20" r="11" fill="#0B1B38"></circle><path d="M11.6 13.5 Q19 20 11.6 26.5" stroke="#D6F24A" stroke-width="2" fill="none"></path><path d="M28.4 13.5 Q21 20 28.4 26.5" stroke="#D6F24A" stroke-width="2" fill="none"></path></svg>
+            <span style="display:flex;flex-direction:column;line-height:1"><span style="font-weight:900;font-stretch:125%;font-size:22px;letter-spacing:.02em">VETRO</span><span style="font-size:11px;font-weight:700;letter-spacing:.24em;margin-top:3px">PADEL CLUB</span></span>
+          </div>
+          <div style="position:relative;margin-top:{{ L.heroHeadMt }}">
+            <div style="display:inline-flex;align-items:center;gap:6px;background:#D6F24A;color:#0B1B38;border-radius:99px;padding:6px 12px;font-size:13px;font-weight:700">Happy hour Sen–Jum 06.00–15.00 · mulai Rp250rb/jam</div>
+            <h1 style="font-weight:900;font-stretch:125%;font-size:clamp(52px,6.4vw,112px);line-height:.9;margin:14px 0 0;text-transform:uppercase;letter-spacing:-.01em">Main<br>malam ini?</h1>
+            <p style="font-size:17px;line-height:1.5;margin:14px 0 0;max-width:360px">Pilih venue, cek lapangan kosong, dan sewa raket sekalian. Bayar sekali, tinggal datang.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;padding:{{ L.contPad }};box-sizing:border-box;min-width:0">
+          <div style="width:100%;max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:24px;flex:1">
+            <section aria-labelledby="h-ven" style="display:flex;flex-direction:column;gap:10px">
+              <h2 id="h-ven" style="margin:0;font-size:16px;font-weight:700">Pilih venue</h2>
+              <div role="radiogroup" aria-labelledby="h-ven" style="display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ venueCards }}" as="b" hint-placeholder-count="4">
+                  <button role="radio" aria-checked="{{ b.on }}" sc-camel-on-click="{{ b.onClick }}" style="min-height:68px;text-align:left;cursor:pointer;border-radius:16px;border:1.5px solid {{ b.bd }};background:{{ b.bg }};color:{{ b.fg }};padding:12px 14px;display:flex;align-items:center;gap:12px" style-focus="outline:3px solid #D6F24A;outline-offset:2px">
+                    <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">{{ b.icon }}</span>
+                    <span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:17px">Vetro {{ b.name }}</span><span style="display:block;font-size:14px;margin-top:2px">{{ b.addr }}</span></span>
+                    <span style="text-align:right;flex-shrink:0;font-size:14px"><span style="display:block;font-weight:700">{{ b.dist }}</span><span style="display:block;margin-top:2px">{{ b.courts }} lapangan</span></span>
+                  </button>
+                </sc-for>
+              </div>
+            </section>
+            <section aria-label="Peta dan jam buka" style="border-radius:18px;overflow:hidden;background:#13284F">
+              <iframe title="Peta Vetro {{ venue.name }}" src="{{ mapEmbed }}" loading="lazy" style="width:100%;height:{{ L.mapH }};border:0;display:block;filter:grayscale(.4)"></iframe>
+              <div style="padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.4"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">schedule</span><span><strong>Buka setiap hari</strong> · 06.00 – 24.00<br>Sesi 1–3 jam, hemat 10% untuk 2 jam ke atas</span></div>
+                <a href="{{ mapsUrl }}" target="_blank" style="min-height:44px;display:flex;align-items:center;gap:8px;color:#FFFFFF;font-weight:700;font-size:15px" style-focus="outline:3px solid #D6F24A;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">directions</span>Petunjuk arah</a>
+              </div>
+            </section>
+            <section aria-labelledby="h-fac" style="display:flex;flex-direction:column;gap:10px">
+              <h2 id="h-fac" style="margin:0;font-size:16px;font-weight:700">Fasilitas</h2>
+              <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+                <sc-for list="{{ facilities }}" as="f" hint-placeholder-count="6">
+                  <li style="background:#13284F;border-radius:14px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:14px">
+                    <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1;color:#D6F24A;font-feature-settings:'liga'">{{ f.icon }}</span>
+                    <span>{{ f.label }}</span>
+                  </li>
+                </sc-for>
+              </ul>
+            </section>
+            <div style="position:sticky;bottom:0;margin-top:auto;padding:14px 0 20px;background:linear-gradient(180deg,rgba(11,27,56,0) 0%,#0B1B38 35%)">
+              <button sc-camel-on-click="{{ start }}" style="width:100%;min-height:58px;border:none;border-radius:16px;background:#D6F24A;color:#0B1B38;font-weight:800;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-focus="outline:3px solid #FFFFFF;outline-offset:3px">Cek jadwal di {{ venue.name }}<span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">arrow_forward</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMain }}" hint-placeholder-val="{{ false }}">
+      <div style="width:100%;max-width:{{ L.maxW }};margin:0 auto;padding:{{ L.pagePad }};box-sizing:border-box;display:grid;grid-template-columns:{{ L.mainCols }};gap:40px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:30px;min-width:0">
+
+          <section aria-labelledby="h-date" style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 id="h-date" style="margin:0;font-weight:800;font-stretch:118%;font-size:22px;text-transform:uppercase">1 · Tanggal &amp; durasi</h2><span style="font-size:14px;color:#4B5565">{{ monthLabel }}</span></div>
+            <div role="radiogroup" aria-label="Pilih tanggal" style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:{{ L.bleed }};padding:6px {{ L.bleedX }}">
+              <sc-for list="{{ dates }}" as="d" hint-placeholder-count="7">
+                <button role="radio" aria-checked="{{ d.on }}" aria-label="{{ d.aria }}" disabled="{{ d.dis }}" sc-camel-on-click="{{ d.onClick }}" style="flex-shrink:0;width:62px;min-height:76px;border-radius:14px;cursor:{{ d.cursor }};border:1.5px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px" style-focus="outline:3px solid #173C8F;outline-offset:2px">
+                  <span style="font-size:13px;font-weight:600">{{ d.dow }}</span>
+                  <span style="font-weight:800;font-stretch:118%;font-size:24px;line-height:1">{{ d.num }}</span>
+                  <span style="font-size:12px;font-weight:600">{{ d.note }}</span>
+                </button>
+              </sc-for>
+            </div>
+            <div style="background:#FFFFFF;border-radius:14px;padding:12px 12px 12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 2px rgba(13,23,38,.06)">
+              <span style="flex:1;min-width:0">
+                <span style="display:block;font-size:14px;color:#4B5565">Durasi main</span>
+                <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:2px"><span aria-live="polite" style="font-weight:800;font-stretch:112%;font-size:22px">{{ durTxt }}</span><sc-if value="{{ durDisc }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:700;padding:3px 8px;border-radius:99px;background:#D6F24A;color:#0D1726">Hemat 10%</span></sc-if></span>
+                <span style="display:block;font-size:13px;color:#4B5565;margin-top:3px;line-height:1.4">{{ durNote }}</span>
+              </span>
+              <span style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+                <button sc-camel-on-click="{{ durDec }}" aria-label="Kurangi 30 menit" disabled="{{ durDecDis }}" style="width:48px;height:48px;border-radius:50%;border:1.5px solid {{ durDecBd }};background:#FFFFFF;color:{{ durDecBd }};cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'" style-focus="outline:3px solid #173C8F;outline-offset:2px">remove</button>
+                <button sc-camel-on-click="{{ durInc }}" aria-label="Tambah 30 menit" disabled="{{ durIncDis }}" style="width:48px;height:48px;border-radius:50%;border:none;background:{{ durIncBg }};color:#FFFFFF;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'" style-focus="outline:3px solid #173C8F;outline-offset:2px">add</button>
+              </span>
+            </div>
+          </section>
+
+          <section aria-labelledby="h-time" style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 id="h-time" style="margin:0;font-weight:800;font-stretch:118%;font-size:22px;text-transform:uppercase">2 · Jam main</h2><span style="font-size:14px;color:#4B5565;display:flex;align-items:center;gap:6px"><span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:#B9D82A"></span>Happy hour</span></div>
+            <sc-if value="{{ warn.time }}" hint-placeholder-val="{{ false }}"><div role="alert" style="display:flex;gap:8px;align-items:center;background:#FDECEA;border:1.5px solid #B42318;color:#8A1C12;border-radius:12px;padding:10px 12px;font-size:15px;font-weight:600"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">error</span>Pilih jam main dulu untuk melanjutkan.</div></sc-if>
+            <sc-if value="{{ noSlots }}" hint-placeholder-val="{{ false }}">
+              <div role="status" style="background:#FFFFFF;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.45">
+                <span>Semua lapangan penuh di hari ini untuk durasi {{ durTxt }}.</span>
+                <button sc-camel-on-click="{{ jumpNext }}" style="align-self:flex-start;min-height:44px;padding:0 16px;border-radius:12px;border:none;background:#173C8F;color:#FFFFFF;font-weight:700;font-size:15px;cursor:pointer" style-focus="outline:3px solid #0D1726;outline-offset:2px">{{ jumpLabel }}</button>
+              </div>
+            </sc-if>
+            <sc-for list="{{ slotGroups }}" as="g" hint-placeholder-count="3">
+              <div role="radiogroup" aria-label="Jam {{ g.name }}">
+                <div style="font-size:14px;font-weight:700;margin-bottom:8px">{{ g.name }}</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px">
+                  <sc-for list="{{ g.slots }}" as="t" hint-placeholder-count="6">
+                    <button role="radio" aria-checked="{{ t.on }}" aria-label="{{ t.aria }}" sc-camel-on-click="{{ t.onClick }}" style="position:relative;min-height:56px;border-radius:12px;cursor:pointer;border:1.5px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px" style-focus="outline:3px solid #173C8F;outline-offset:2px">
+                      <span style="font-weight:700;font-size:16px">{{ t.label }}</span><span style="font-size:12px;font-weight:600">{{ t.price }}</span>
+                      <sc-if value="{{ t.happy }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:#B9D82A"></span></sc-if>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+            <sc-if value="{{ hasSlots }}" hint-placeholder-val="{{ true }}"><div style="font-size:14px;color:#4B5565;line-height:1.5">Harga per sesi {{ durTxt }}, mulai dari lapangan termurah. Prime time Sen–Jum 17.00–24.00 dan akhir pekan.</div></sc-if>
+          </section>
+
+          <section aria-labelledby="h-court" style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 id="h-court" style="margin:0;font-weight:800;font-stretch:118%;font-size:22px;text-transform:uppercase">3 · Lapangan</h2><span style="font-size:14px;color:#4B5565">{{ courtHint }}</span></div>
+            <sc-if value="{{ warn.court }}" hint-placeholder-val="{{ false }}"><div role="alert" style="display:flex;gap:8px;align-items:center;background:#FDECEA;border:1.5px solid #B42318;color:#8A1C12;border-radius:12px;padding:10px 12px;font-size:15px;font-weight:600"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">error</span>Pilih salah satu lapangan yang kosong.</div></sc-if>
+            <div role="radiogroup" aria-labelledby="h-court" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:8px">
+              <sc-for list="{{ courtCards }}" as="c" hint-placeholder-count="4">
+                <button role="radio" aria-checked="{{ c.on }}" aria-disabled="{{ c.dis }}" sc-camel-on-click="{{ c.onClick }}" style="text-align:left;cursor:{{ c.cursor }};border-radius:14px;border:1.5px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};padding:14px;display:flex;flex-direction:column;gap:12px;opacity:{{ c.op }}" style-focus="outline:3px solid #173C8F;outline-offset:2px">
+                  <span style="display:flex;align-items:center;gap:12px;width:100%">
+                    <span aria-hidden="true" style="width:40px;height:40px;border-radius:10px;background:{{ c.iconBg }};color:{{ c.iconFg }};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">{{ c.icon }}</span>
+                    <span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:16px;white-space:nowrap">{{ c.name }}</span><span style="display:block;font-size:14px;color:#4B5565;margin-top:2px">{{ c.type }}</span></span>
+                  </span>
+                  <span style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;width:100%;border-top:1px solid rgba(13,23,38,.1);padding-top:10px"><span style="font-size:13px;color:#4B5565">{{ c.priceLabel }}</span><span style="font-weight:700;font-size:15px;white-space:nowrap">{{ c.price }}</span></span>
+                </button>
+              </sc-for>
+            </div>
+          </section>
+
+          <section aria-labelledby="h-gear" style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 id="h-gear" style="margin:0;font-weight:800;font-stretch:118%;font-size:22px;text-transform:uppercase">4 · Sewa perlengkapan</h2><span style="font-size:14px;color:#4B5565">Opsional</span></div>
+            <div style="background:#FFFFFF;border-radius:18px;box-shadow:0 1px 2px rgba(13,23,38,.05),0 6px 20px rgba(13,23,38,.05);overflow:hidden">
+              <sc-for list="{{ addons }}" as="a" hint-placeholder-count="4">
+                <div style="min-height:72px;border-top:{{ a.divider }};padding:12px 14px 12px 16px;display:flex;align-items:center;gap:12px;background:{{ a.bg }}">
+                  <span aria-hidden="true" style="width:40px;height:40px;border-radius:10px;background:#E8EDF7;color:#173C8F;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">{{ a.icon }}</span>
+                  <span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:16px">{{ a.name }}</span><span style="display:block;font-size:14px;color:#4B5565;margin-top:2px">{{ a.desc }} · <strong style="color:#0D1726">{{ a.priceTxt }}</strong></span></span>
+                  <span style="display:flex;align-items:center;gap:4px;flex-shrink:0">
+                    <button sc-camel-on-click="{{ a.dec }}" aria-label="Kurangi {{ a.name }}" disabled="{{ a.decDis }}" style="width:44px;height:44px;border-radius:50%;border:1.5px solid {{ a.decBd }};background:#FFFFFF;color:{{ a.decFg }};cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'" style-focus="outline:3px solid #173C8F;outline-offset:2px">remove</button>
+                    <span aria-live="polite" style="min-width:24px;text-align:center;font-weight:800;font-size:17px">{{ a.qty }}</span>
+                    <button sc-camel-on-click="{{ a.inc }}" aria-label="Tambah {{ a.name }}" disabled="{{ a.incDis }}" style="width:44px;height:44px;border-radius:50%;border:none;background:{{ a.incBg }};color:#FFFFFF;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'" style-focus="outline:3px solid #173C8F;outline-offset:2px">add</button>
+                  </span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="font-size:14px;color:#0D1726;background:#FFFFFF;border-radius:12px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;line-height:1.45"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#173C8F;font-feature-settings:'liga'">info</span><span>Raket diambil di resepsionis dengan menunjukkan kode booking, maksimal 4 raket per lapangan. Wajib sepatu sol karet non-marking.</span></div>
+          </section>
+
+          <section aria-labelledby="h-you" style="display:flex;flex-direction:column;gap:12px">
+            <h2 id="h-you" style="margin:0;font-weight:800;font-stretch:118%;font-size:22px;text-transform:uppercase">5 · Data &amp; pembayaran</h2>
+            <sc-if value="{{ warn.you }}" hint-placeholder-val="{{ false }}"><div role="alert" style="display:flex;gap:8px;align-items:center;background:#FDECEA;border:1.5px solid #B42318;color:#8A1C12;border-radius:12px;padding:10px 12px;font-size:15px;font-weight:600"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">error</span>{{ warnYou }}</div></sc-if>
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+                <label style="display:flex;flex-direction:column;gap:6px">
+                  <span style="font-size:15px;font-weight:700">Nama pemesan</span>
+                  <input value="{{ form.name }}" sc-camel-on-change="{{ onName }}" autocomplete="name" placeholder="cth. Nadia Pratama" style="font-size:17px;min-height:52px;padding:0 14px;border:1.5px solid {{ nameBd }};border-radius:12px;background:#FFFFFF;color:#0D1726;box-sizing:border-box;width:100%" style-focus="outline:3px solid #173C8F;outline-offset:1px;border-color:#173C8F">
+                </label>
+                <label style="display:flex;flex-direction:column;gap:6px">
+                  <span style="font-size:15px;font-weight:700">Nomor WhatsApp</span>
+                  <span style="display:flex;border:1.5px solid {{ phoneBd }};border-radius:12px;background:#FFFFFF;overflow:hidden">
+                    <span style="padding:0 12px;display:flex;align-items:center;font-weight:700;font-size:17px;border-right:1px solid rgba(13,23,38,.2);background:#F1F3F0">+62</span>
+                    <input value="{{ form.phone }}" sc-camel-on-change="{{ onPhone }}" sc-camel-on-blur="{{ onPhoneBlur }}" inputmode="numeric" autocomplete="tel-national" aria-describedby="phone-hint" aria-invalid="{{ phoneErr }}" placeholder="812 3456 7890" style="flex:1;min-width:0;font-size:17px;min-height:52px;padding:0 14px;border:none;background:transparent;color:#0D1726" style-focus="outline:3px solid #173C8F;outline-offset:-3px">
+                  </span>
+                  <span id="phone-hint" style="font-size:14px;color:{{ phoneHintColor }};display:flex;gap:6px;align-items:center"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1;font-feature-settings:'liga'">{{ phoneIcon }}</span>{{ phoneHint }}</span>
+                </label>
+              </div>
+
+              <button role="switch" aria-checked="{{ splitOn }}" sc-camel-on-click="{{ toggleSplit }}" style="min-height:64px;cursor:pointer;border:none;border-radius:14px;background:#FFFFFF;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;color:#0D1726" style-focus="outline:3px solid #173C8F;outline-offset:2px">
+                <span><span style="display:block;font-weight:700;font-size:15px">Patungan 4 pemain</span><span style="display:block;font-size:14px;color:#4B5565;margin-top:2px">{{ splitSub }}</span></span>
+                <span aria-hidden="true" style="width:52px;height:32px;border-radius:99px;background:{{ splitSw.bg }};position:relative;flex-shrink:0"><span style="position:absolute;top:4px;left:{{ splitSw.left }};width:24px;height:24px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:left .15s"></span></span>
+              </button>
+
+              <fieldset style="border:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">
+                <legend style="font-size:15px;font-weight:700;margin-bottom:8px;padding:0">Metode pembayaran</legend>
+                <div role="radiogroup" aria-label="Metode pembayaran" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px">
+                  <sc-for list="{{ payOpts }}" as="p" hint-placeholder-count="3">
+                    <button role="radio" aria-checked="{{ p.on }}" sc-camel-on-click="{{ p.onClick }}" style="min-height:64px;text-align:left;cursor:pointer;border-radius:14px;border:1.5px solid {{ p.bd }};background:{{ p.bg }};color:{{ p.fg }};padding:10px 12px;display:flex;gap:10px;align-items:center" style-focus="outline:3px solid #173C8F;outline-offset:2px">
+                      <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">{{ p.icon }}</span>
+                      <span><span style="display:block;font-weight:700;font-size:15px">{{ p.name }}</span><span style="display:block;font-size:13px">{{ p.sub }}</span></span>
+                    </button>
+                  </sc-for>
+                </div>
+              </fieldset>
+            </div>
+            <div style="font-size:14px;line-height:1.55;color:#0D1726;display:flex;gap:8px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#173C8F;font-feature-settings:'liga'">event_available</span><span>Bayar penuh untuk mengunci lapangan. Batal hingga 24 jam sebelumnya, dana kembali sebagai saldo Vetro. Hujan di lapangan semi-outdoor bisa dijadwalkan ulang gratis. <a href="https://wa.me/6281119072026" target="_blank">Chat venue</a>.</span></div>
+          </section>
+        </div>
+
+        <aside aria-label="Ringkasan booking" style="display:{{ L.asideDisp }};position:sticky;top:96px;background:#FFFFFF;border-radius:18px;box-shadow:0 1px 2px rgba(13,23,38,.05),0 6px 20px rgba(13,23,38,.05);padding:20px;flex-direction:column;gap:16px">
+          <div style="font-weight:800;font-stretch:118%;font-size:22px;line-height:1;text-transform:uppercase">Booking kamu</div>
+          <dl style="margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:15px">
+            <div><dt style="font-size:14px;color:#4B5565">Kapan</dt><dd style="margin:0;font-weight:700">{{ sum.whenTxt }}</dd></div>
+            <div><dt style="font-size:14px;color:#4B5565">Lapangan</dt><dd style="margin:0;font-weight:700">{{ sum.courtTxt }}</dd></div>
+            <div style="grid-column:1/-1"><dt style="font-size:14px;color:#4B5565">Venue</dt><dd style="margin:0;font-weight:700">Vetro {{ venue.name }}</dd></div>
+          </dl>
+          <div style="border-top:1px dashed rgba(13,23,38,.3);padding-top:12px;display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ sum.lines }}" as="l" hint-placeholder-count="2">
+              <div style="display:flex;justify-content:space-between;gap:12px;font-size:15px"><span>{{ l.name }}</span><span style="font-weight:700;flex-shrink:0">{{ l.price }}</span></div>
+            </sc-for>
+          </div>
+          <div aria-live="polite" style="border-top:1px solid rgba(13,23,38,.12);padding-top:12px;display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-weight:700;font-size:15px">Total</span><span style="font-weight:800;font-stretch:118%;font-size:28px;line-height:1">{{ bar.total }}</span></div>
+            <sc-if value="{{ splitOn }}" hint-placeholder-val="{{ true }}"><div style="text-align:right;font-size:14px;color:#4B5565">{{ perPerson }} per orang</div></sc-if>
+          </div>
+          <button sc-camel-on-click="{{ next }}" aria-disabled="{{ bar.dis }}" style="min-height:56px;border:none;border-radius:16px;font-weight:800;font-size:18px;cursor:{{ bar.cursor }};background:{{ bar.bg }};color:{{ bar.fg }}" style-focus="outline:3px solid #173C8F;outline-offset:2px">{{ bar.label }}</button>
+        </aside>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+      <div role="status" style="width:100%;max-width:520px;margin:0 auto;padding:{{ L.donePad }};box-sizing:border-box;display:flex;flex-direction:column;gap:18px">
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px">
+          <span aria-hidden="true" style="width:72px;height:72px;border-radius:50%;background:#D6F24A;color:#0B1B38;box-shadow:0 0 0 8px #E9F3B8;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:40px;line-height:1;font-feature-settings:'liga'">check</span>
+          <div style="font-weight:900;font-stretch:125%;font-size:clamp(34px,5vw,48px);line-height:.95;text-transform:uppercase;margin-top:6px">Lapangan terkunci</div>
+          <div style="font-size:16px;max-width:340px;line-height:1.45">Sampai jumpa {{ sum.dateShort }} pukul {{ sum.start }}, {{ firstName }}. Bukti bayar sudah dikirim ke WhatsApp kamu.</div>
+        </div>
+        <div style="background:#FFFFFF;border-radius:18px;box-shadow:0 1px 2px rgba(13,23,38,.05),0 6px 20px rgba(13,23,38,.05)">
+          <div style="padding:16px 18px;border-bottom:1px dashed rgba(13,23,38,.3);display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <div><div style="font-size:14px;font-weight:600;color:#4B5565">Kode booking</div><div style="font-weight:900;font-stretch:118%;font-size:32px;line-height:1.05;letter-spacing:.03em">{{ code }}</div></div>
+            <div style="font-size:14px;color:#4B5565;text-align:right;max-width:140px">Tunjukkan di resepsionis</div>
+          </div>
+          <dl style="margin:0;padding:14px 18px;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:15px">
+            <div><dt style="font-size:14px;color:#4B5565">Kapan</dt><dd style="margin:0;font-weight:700">{{ sum.dateShort }}, {{ sum.range }}</dd></div>
+            <div><dt style="font-size:14px;color:#4B5565">Lapangan</dt><dd style="margin:0;font-weight:700">{{ sum.courtTxt }}</dd></div>
+            <div><dt style="font-size:14px;color:#4B5565">Perlengkapan</dt><dd style="margin:0;font-weight:700">{{ sum.gearTxt }}</dd></div>
+            <div><dt style="font-size:14px;color:#4B5565">Dibayar</dt><dd style="margin:0;font-weight:700">{{ bar.total }}</dd></div>
+          </dl>
+        </div>
+        <sc-if value="{{ splitOn }}" hint-placeholder-val="{{ true }}">
+          <a href="{{ shareUrl }}" target="_blank" style="min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;background:#173C8F;color:#FFFFFF;font-weight:700;font-size:16px;text-decoration:none" style-focus="outline:3px solid #0D1726;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">group_add</span>Kirim tagihan {{ perPerson }} ke 3 pemain</a>
+        </sc-if>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <a href="{{ calUrl }}" target="_blank" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:14px;background:#FFFFFF;color:#0D1726;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 1px 3px rgba(13,23,38,.15)" style-focus="outline:3px solid #173C8F;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;font-feature-settings:'liga'">calendar_add_on</span>Kalender</a>
+          <a href="{{ mapsUrl }}" target="_blank" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:14px;background:#FFFFFF;color:#0D1726;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 1px 3px rgba(13,23,38,.15)" style-focus="outline:3px solid #173C8F;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;font-feature-settings:'liga'">directions</span>Petunjuk arah</a>
+        </div>
+        <button sc-camel-on-click="{{ restart }}" style="min-height:52px;border:1.5px solid #0D1726;border-radius:14px;background:transparent;color:#0D1726;font-weight:700;font-size:16px;cursor:pointer" style-focus="outline:3px solid #173C8F;outline-offset:2px">Booking lapangan lagi</button>
+      </div>
+    </sc-if>
+  </main>
+
+  <div style="display:{{ L.barDisp }};position:sticky;bottom:0;z-index:20;border-top:1px solid rgba(13,23,38,.12);background:#FFFFFF">
+    <div style="max-width:{{ L.barW }};margin:0 auto;padding:12px {{ L.padX }} 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px">
+      <div aria-live="polite" style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start">
+        <div style="min-width:0"><div style="font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ bar.line1 }}</div><div style="font-size:14px;color:#4B5565;margin-top:2px">{{ bar.line2 }}</div></div>
+        <div style="text-align:right;flex-shrink:0"><div style="font-weight:800;font-stretch:118%;font-size:24px;line-height:1">{{ bar.total }}</div><sc-if value="{{ splitOn }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;color:#4B5565;margin-top:3px">{{ perPerson }}/orang</div></sc-if></div>
+      </div>
+      <button sc-camel-on-click="{{ next }}" aria-disabled="{{ bar.dis }}" style="min-height:56px;border:none;border-radius:16px;font-weight:800;font-size:18px;cursor:{{ bar.cursor }};background:{{ bar.bg }};color:{{ bar.fg }}" style-focus="outline:3px solid #173C8F;outline-offset:2px">{{ bar.label }}</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+const VEN=[
+ {name:'Cilandak',addr:'Jl. TB Simatupang Kav. 18, Jakarta Selatan',dist:'2.1 km'},
+ {name:'BSD',addr:'Jl. BSD Grand Boulevard No. 9, Tangerang Selatan',dist:'17 km'},
+ {name:'Kelapa Gading',addr:'Jl. Boulevard Barat Raya No. 5, Jakarta Utara',dist:'15 km'},
+ {name:'Pluit',addr:'Jl. Pluit Karang Ayu No. 22, Jakarta Utara',dist:'19 km'}];
+const CT=[
+ {name:'Lapangan 1',type:'Panoramic · indoor',adj:50,icon:'panorama_wide_angle'},
+ {name:'Lapangan 2',type:'Indoor',adj:0,icon:'roofing'},
+ {name:'Lapangan 3',type:'Indoor',adj:0,icon:'roofing'},
+ {name:'Lapangan 4',type:'Semi-outdoor',adj:-50,icon:'park'}];
+const AO=[
+ {id:'rs',name:'Raket standar',desc:'Fiberglass, ramah pemula',price:35,icon:'sports_tennis',racket:true,max:4},
+ {id:'rp',name:'Raket pro karbon',desc:'Lebih ringan, kontrol presisi',price:75,icon:'sports_tennis',racket:true,max:4},
+ {id:'ball',name:'Bola baru',desc:'1 tabung isi 3',price:85,icon:'sports_baseball',max:3},
+ {id:'towel',name:'Handuk',desc:'Dikembalikan setelah main',price:15,icon:'dry_cleaning',max:4}];
+const FAC=[['shower','Shower & loker'],['local_parking','Parkir luas'],['storefront','Pro shop'],['local_cafe','Kafe'],['wb_incandescent','Lampu LED'],['mosque','Musala']];
+const DMIN=60,DMAX=180,FEE=5;const disc=dur=>dur>=120?.9:1;
+const WD=['Sen','Sel','Rab','Kam','Jum','Sab','Min'],WDF=['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'],MO=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+const hm=m=>`${String(Math.floor(m/60)%24).padStart(2,'0')}.${String(m%60).padStart(2,'0')}`;
+const durTxt=m=>m<60?`${m} mnt`:`${Math.floor(m/60)} jam${m%60?` ${m%60} mnt`:''}`;
+const rpK=k=>`Rp${k}rb`;
+const rpF=k=>'Rp'+(k*1000).toLocaleString('id-ID');
+const dayAt=di=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+di);return d;};
+const wIdx=d=>(d.getDay()+6)%7;
+const nowMin=()=>{const n=new Date();return n.getHours()*60+n.getMinutes();};
+const tier=(di,m)=>{if(wIdx(dayAt(di))>=5||m>=1020)return{k:'prime',rate:450};if(m<900)return{k:'happy',rate:250};return{k:'reg',rate:350};};
+const priceOf=(ci,di,s,dur)=>Math.round((tier(di,s).rate+CT[ci].adj)*dur/60*disc(dur));
+const booked=(v,ci,di,m)=>{const k=(m-360)/30,busy=tier(di,m).k==='prime'?5:2;return(((v+1)*97+(ci+1)*31+di*17+k*13+(k*k)%7)%10)<busy;};
+function courtFree(v,ci,di,s,dur){
+  if(s+dur>1440)return false;
+  if(di===0&&s<nowMin()+30)return false;
+  for(let m=s;m<s+dur;m+=30)if(booked(v,ci,di,m))return false;
+  return true;
+}
+const SLOTS=[];for(let m=360;m<=1380;m+=30)SLOTS.push(m);
+const freeCts=(v,di,s,dur)=>CT.map((_,i)=>i).filter(i=>courtFree(v,i,di,s,dur));
+const freeCount=(v,di,dur)=>SLOTS.filter(s=>freeCts(v,di,s,dur).length).length;
+const firstDay=(v,dur,from=0)=>{for(let i=from;i<14;i++)if(freeCount(v,i,dur))return i;return -1;};
+const INK='#0D1726',BLUE='#173C8F',MUTED='#4B5565',LIME='#D6F24A';
+const vw=()=>typeof window!=='undefined'?window.innerWidth:390;
+
+function layout(w,step){
+  const bp=w>=1080?'d':w>=720?'t':'m',split=bp!=='m';
+  const padX=bp==='d'?'40px':bp==='t'?'32px':'18px';
+  return{bp,padX,
+    hdrDisp:step>0?'block':'none',brandDisp:split?'block':'none',
+    maxW:bp==='d'?'1160px':bp==='t'?'720px':'100%',barW:bp==='t'?'720px':'100%',
+    welCols:split?'minmax(0,1fr) minmax(0,1fr)':'minmax(0,1fr)',
+    heroPos:split?'sticky':'relative',heroH:split?'100vh':'auto',heroPad:split?'clamp(24px,4vw,56px)':'22px 20px 8px',heroHeadMt:split?'auto':'130px',
+    heroGrad:split?'linear-gradient(180deg,rgba(11,27,56,.3) 0%,rgba(11,27,56,.5) 45%,rgba(11,27,56,.94) 100%)':'linear-gradient(180deg,rgba(11,27,56,.4) 0%,rgba(11,27,56,.7) 45%,#0B1B38 100%)',
+    contPad:split?'clamp(32px,5vw,64px) clamp(24px,4vw,56px) 0':'16px 20px 0',mapH:split?'220px':'180px',
+    pagePad:`${bp==='m'?18:28}px ${padX} ${bp==='m'?28:48}px`,
+    bleed:bp==='d'?'0':`0 -${padX}`,bleedX:bp==='d'?'2px':padX,
+    mainCols:bp==='d'?'minmax(0,1fr) 360px':'minmax(0,1fr)',asideDisp:bp==='d'?'flex':'none',
+    barDisp:step===1&&bp!=='d'?'block':'none',donePad:bp==='m'?'28px 18px':'56px 32px'};
+}
+const noGear={rs:0,rp:0,ball:0,towel:0};
+
+class Component extends DCLogic {
+  state={vw:vw(),step:0,venue:0,dur:90,di:Math.max(0,firstDay(0,90)),time:null,court:null,gear:{...noGear},split:true,name:'',phone:'',phoneTouched:false,pay:'qris',code:'',warn:null,nameTouched:false};
+  flag(key,id){this.setState({warn:key,...(key==='you'?{phoneTouched:true,nameTouched:true}:{})},()=>{const el=document.getElementById(id);if(!el)return;const sec=el.closest('section')||el;window.scrollTo({top:sec.getBoundingClientRect().top+window.scrollY-90,behavior:'smooth'});});}
+  onResize=()=>this.setState({vw:vw()});
+  componentDidMount(){window.addEventListener('resize',this.onResize);}
+  componentWillUnmount(){window.removeEventListener('resize',this.onResize);}
+  nav(o){this.setState(o,()=>{if('step' in o)window.scrollTo(0,0);});}
+  pick(patch){
+    const st={...this.state,...patch};
+    if(st.time!=null){
+      const fc=freeCts(st.venue,st.di,st.time,st.dur);
+      if(!fc.length){patch.time=null;patch.court=null;}
+      else if(st.court==null||!fc.includes(st.court))patch.court=fc.slice().sort((a,b)=>CT[a].adj-CT[b].adj||a-b).find(i=>CT[i].adj===0)??fc[0];
+    }else patch.court=null;
+    this.setState(patch);
+  }
+  renderVals(){
+    const st=this.state,v=VEN[st.venue],L=layout(st.vw,st.step),d=dayAt(st.di),dur=st.dur;
+    const fc=st.time!=null?freeCts(st.venue,st.di,st.time,dur):[];
+    const courtPrice=st.court!=null&&st.time!=null?priceOf(st.court,st.di,st.time,dur):0;
+    const gearLines=AO.filter(a=>st.gear[a.id]).map(a=>({name:`${a.name} × ${st.gear[a.id]}`,price:rpF(a.price*st.gear[a.id])}));
+    const gearTotal=AO.reduce((s,a)=>s+a.price*st.gear[a.id],0);
+    const total=courtPrice?courtPrice+gearTotal+FEE:gearTotal;
+    const per=Math.ceil(total/4);
+    const rackets=st.gear.rs+st.gear.rp;
+    const phoneDigits=st.phone.replace(/\D/g,'').length,phoneOk=phoneDigits>=9&&phoneDigits<=13,phoneErr=st.phoneTouched&&!phoneOk;
+    const valid=st.name.trim().length>1&&phoneOk;
+    const end=st.time!=null?st.time+dur:0;
+    const dateShort=`${st.di===0?'hari ini':st.di===1?'besok':WD[wIdx(d)]} ${d.getDate()} ${MO[d.getMonth()]}`;
+    const dateCap=dateShort.charAt(0).toUpperCase()+dateShort.slice(1);
+
+    const dates=Array.from({length:14},(_,di)=>{const dd=dayAt(di),on=di===st.di,n=freeCount(st.venue,di,dur);
+      return{on,dis:!n&&!on,cursor:n?'pointer':'not-allowed',dow:di===0?'Hari ini':WD[wIdx(dd)],num:dd.getDate(),note:n?`${n} jam`:'Penuh',
+        aria:`${WDF[wIdx(dd)]} ${dd.getDate()} ${MO[dd.getMonth()]}, ${n?n+' jam tersedia':'penuh'}`,
+        bd:on?BLUE:(n?'#8A93A3':'rgba(13,23,38,.15)'),bg:on?BLUE:(n?'#FFFFFF':'transparent'),fg:on?'#FFFFFF':(n?INK:MUTED),
+        onClick:()=>n&&this.pick({di,time:null})};});
+    const canDec=dur>DMIN,canInc=dur<DMAX;
+
+    const groups=[['Pagi',360,660],['Siang',660,900],['Sore',900,1080],['Malam',1080,1440]];
+    const slotGroups=groups.map(([name,a,b])=>({name,slots:SLOTS.filter(s=>s>=a&&s<b).map(s=>({s,f:freeCts(st.venue,st.di,s,dur)})).filter(x=>x.f.length).map(({s,f})=>{
+      const on=st.time===s,mp=Math.min(...f.map(i=>priceOf(i,st.di,s,dur))),happy=tier(st.di,s).k==='happy';
+      return{label:hm(s),price:rpK(mp),happy,on,aria:`${hm(s)}, mulai ${rpK(mp)}, ${f.length} lapangan kosong`,
+        bd:on?BLUE:'#8A93A3',bg:on?BLUE:'#FFFFFF',fg:on?'#FFFFFF':INK,onClick:()=>this.pick({time:s})};})})).filter(g=>g.slots.length);
+    const nextDi=firstDay(st.venue,dur,st.di+1);
+
+    const courtCards=CT.map((c,i)=>{const free=st.time!=null&&fc.includes(i),on=st.court===i;
+      return{name:c.name,type:c.type,icon:c.icon,on,dis:!free,cursor:free?'pointer':'not-allowed',op:st.time==null||free?1:.5,
+        price:st.time==null?(c.adj>0?`+${rpK(c.adj)}/jam`:c.adj<0?`−${rpK(-c.adj)}/jam`:'Harga standar'):free?rpK(priceOf(i,st.di,st.time,dur)):'Terisi',priceLabel:st.time==null?'Tarif':free?`Per sesi ${durTxt(dur)}`:'Jam ini',
+        bd:on?BLUE:'rgba(13,23,38,.18)',bg:on?'#E8EDF7':'#FFFFFF',fg:INK,iconBg:on?BLUE:'#E8EDF7',iconFg:on?'#FFFFFF':BLUE,
+        onClick:()=>free&&this.setState({court:i})};});
+
+    const addons=AO.map((a,i)=>{const q=st.gear[a.id],canInc=a.racket?rackets<4:q<a.max;
+      return{...a,qty:q,priceTxt:`${rpK(a.price)}/sesi`,divider:i?'1px solid rgba(13,23,38,.1)':'none',bg:q?'#F6F9E6':'#FFFFFF',
+        decDis:!q,decBd:q?INK:'rgba(13,23,38,.2)',decFg:q?INK:'#A0A7B3',incDis:!canInc,incBg:canInc?BLUE:'#A0A7B3',
+        dec:()=>q&&this.setState({gear:{...st.gear,[a.id]:q-1}}),inc:()=>canInc&&this.setState({gear:{...st.gear,[a.id]:q+1}})};});
+
+    const sum={dateShort,start:st.time!=null?hm(st.time):'',range:st.time!=null?`${hm(st.time)}–${hm(end)}`:'',
+      whenTxt:st.time!=null?`${dateCap}, ${hm(st.time)}–${hm(end)}`:`${dateCap}, pilih jam`,
+      courtTxt:st.court!=null?`${CT[st.court].name} · ${CT[st.court].type}`:'Belum dipilih',
+      gearTxt:gearLines.length?AO.filter(a=>st.gear[a.id]).map(a=>`${st.gear[a.id]} ${a.name.toLowerCase()}`).join(', '):'Bawa sendiri',
+      lines:[{name:`Sewa lapangan · ${durTxt(dur)}${dur>=120?' (hemat 10%)':''}`,price:courtPrice?rpF(courtPrice):'–'},...gearLines,...(courtPrice?[{name:'Biaya layanan',price:rpF(FEE)}]:[])]};
+
+    const ok=st.time!=null&&st.court!=null&&valid;
+    let bar={line1:st.court!=null?`${CT[st.court].name} · ${durTxt(dur)}${rackets?` · ${rackets} raket`:''}`:`Vetro ${v.name} · ${durTxt(dur)}`,
+      line2:`${dateCap}${st.time!=null?' · '+hm(st.time)+'–'+hm(end):''}`,total:rpF(total),ok,
+      label:ok?`Bayar ${rpF(total)}`:st.time==null?'Pilih jam main':st.court==null?'Pilih lapangan':'Isi nama dan WhatsApp'};
+    bar={...bar,dis:!ok,cursor:'pointer',bg:ok?LIME:'#E1E5EA',fg:INK};
+
+    const ymd=m=>{const x=new Date(d);x.setHours(0,m,0,0);return x.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');};
+    const set=o=>this.nav(o);
+    const shareTxt=`Padel ${dateShort} ${sum.range} di Vetro ${v.name}, ${st.court!=null?CT[st.court].name:''}. Patungan ${rpF(per)} per orang. Kode ${st.code}`;
+    return{
+      L,rootBg:st.step===0?'#0B1B38':'#F1F3F0',
+      isWelcome:st.step===0,isMain:st.step===1,isDone:st.step===2,start:()=>set({step:1}),
+      title:['','Booking lapangan','Booking berhasil'][st.step],subtitle:['',`Vetro ${v.name} · ${CT.length} lapangan`,`Vetro ${v.name}`][st.step],
+      mapEmbed:`https://maps.google.com/maps?q=${encodeURIComponent(v.addr)}&z=15&output=embed`,
+      mapsUrl:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.addr)}`,
+      venueCards:VEN.map((b,i)=>{const on=i===st.venue;return{name:b.name,addr:b.addr,dist:b.dist,courts:CT.length,on,icon:on?'radio_button_checked':'radio_button_unchecked',bd:on?LIME:'rgba(255,255,255,.4)',bg:on?LIME:'rgba(11,27,56,.75)',fg:on?'#0B1B38':'#FFFFFF',onClick:()=>this.setState({venue:i,di:Math.max(0,firstDay(i,st.dur)),time:null,court:null})};}),
+      venue:v,facilities:FAC.map(([icon,label])=>({icon,label})),
+      monthLabel:`${MO[d.getMonth()]} ${d.getFullYear()}`,dates,durTxt:durTxt(dur),durDisc:dur>=120,
+      durNote:dur>=120?'Diskon 10% sewa lapangan sudah dihitung':'Main 2 jam atau lebih, hemat 10% sewa lapangan',
+      durDec:()=>canDec&&this.pick({dur:dur-30}),durInc:()=>canInc&&this.pick({dur:dur+30}),durDecDis:!canDec,durIncDis:!canInc,durDecBd:canDec?INK:'#A0A7B3',durIncBg:canInc?BLUE:'#A0A7B3',
+      warn:{time:st.warn==='time'&&st.time==null,court:st.warn==='court'&&st.court==null,you:st.warn==='you'&&!valid},
+      warnYou:st.name.trim().length<2?'Isi nama pemesan dan nomor WhatsApp yang valid.':'Nomor WhatsApp belum valid, masukkan 9–13 digit.',
+      nameBd:st.nameTouched&&st.name.trim().length<2?'#B42318':'#6B7280',
+      slotGroups,hasSlots:slotGroups.length>0,noSlots:slotGroups.length===0,
+      jumpLabel:nextDi>=0?`Lihat ${WD[wIdx(dayAt(nextDi))]} ${dayAt(nextDi).getDate()} ${MO[dayAt(nextDi).getMonth()]}`:'Coba durasi 60 menit',
+      jumpNext:()=>nextDi>=0?this.pick({di:nextDi,time:null}):this.pick({dur:60}),
+      courtCards,courtHint:st.time==null?'Pilih jam dulu':`${fc.length} kosong jam ${hm(st.time)}`,
+      addons,form:{name:st.name,phone:st.phone},
+      onName:e=>this.setState({name:e.target.value}),onPhone:e=>this.setState({phone:e.target.value.replace(/[^\d ]/g,'')}),onPhoneBlur:()=>this.setState({phoneTouched:true}),
+      phoneErr,phoneBd:phoneErr?'#B42318':'#6B7280',phoneHintColor:phoneErr?'#B42318':MUTED,phoneIcon:phoneErr?'error':'chat',
+      phoneHint:phoneErr?'Masukkan 9–13 digit, cth. 812 3456 7890':'Bukti bayar dan pengingat dikirim ke sini.',
+      splitOn:st.split,splitSw:{bg:st.split?BLUE:'#6B7280',left:st.split?'24px':'4px'},toggleSplit:()=>this.setState({split:!st.split}),
+      splitSub:st.split?`Kamu bayar dulu, lalu kirim tagihan ${rpF(per)} ke teman`:'Bayar sendiri, tanpa bagi tagihan',perPerson:rpF(per),
+      payOpts:[{id:'qris',icon:'qr_code_2',name:'QRIS',sub:'GoPay, OVO, DANA'},{id:'va',icon:'account_balance',name:'Virtual account',sub:'BCA, Mandiri, BNI'},{id:'card',icon:'credit_card',name:'Kartu',sub:'Visa, Mastercard'}].map(p=>{const on=st.pay===p.id;
+        return{...p,on,bd:on?BLUE:'#8A93A3',bg:on?BLUE:'#FFFFFF',fg:on?'#FFFFFF':INK,onClick:()=>this.setState({pay:p.id})};}),
+      sum,bar,firstName:st.name.trim().split(' ')[0]||'Kawan',code:st.code,
+      shareUrl:`https://wa.me/?text=${encodeURIComponent(shareTxt)}`,
+      calUrl:st.time!=null?`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Padel · Vetro '+v.name)}&dates=${ymd(st.time)}/${ymd(end)}&location=${encodeURIComponent(v.addr)}`:'#',
+      back:()=>set({step:0}),
+      next:()=>{if(!ok){const w=st.time==null?['time','h-time']:st.court==null?['court','h-court']:['you','h-you'];this.flag(w[0],w[1]);return;}
+        set({step:2,code:'VTR-'+Math.random().toString(36).slice(2,6).toUpperCase()});},
+      restart:()=>set({step:1,time:null,court:null,gear:{...noGear},code:''})
+    };
+  }
+}
+</script>
+
+
+</body></html>

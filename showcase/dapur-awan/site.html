@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html><head><title>Dapur Awan</title><script>window.__resources = {"wm_Logo_dana_blue_svg": "assets/6fb0731f.svg", "wm_Gopay_logo_svg": "assets/83a109c8.svg", "wm_Logo_ovo_purple_svg": "assets/86eed836.svg", "wm_Shopee_logo_svg": "assets/ab7906a4.svg", "wm_Bank_Central_Asia_svg": "assets/8584784a.svg", "wm_Bank_Mandiri_logo_2016_svg": "assets/b49d5281.svg", "wm_Logo_QRIS_svg": "assets/ffae98b5.svg", "u1496116218417-1a781b1c416c": "assets/05371ada.jpg", "u1529563021893-cc83c992d75d": "assets/f78a2c0b.jpg", "u1617093727343-374698b1b08d": "assets/38c79379.jpg", "u1578985545062-69928b1d9587": "assets/5a1942e6.jpg", "u1512058564366-18510be2db19": "assets/fc67827c.jpg", "u1567620905732-2d1ec7ab7445": "assets/ae8d04cb.jpg", "u1598515214211-89d3c73ae83b": "assets/b8854ee7.jpg", "u1585032226651-759b368d7246": "assets/d7d05476.jpg", "u1604908176997-125f25cc6f3d": "assets/861c9bc0.jpg", "u1546069901-ba9599a7e63c": "assets/4c1e5779.jpg", "u1512621776951-a57141f2eefd": "assets/181e2882.jpg", "u1466978913421-dad2ebd01d17": "assets/76491ac2.jpg", "u1626082927389-6cd097cdc6ec": "assets/734e0416.jpg", "u1563805042-7684c019e1cb": "assets/f5fbd037.jpg", "u1527477396000-e27163b481c2": "assets/2346f028.jpg", "u1569718212165-3a8278d5f624": "assets/bed99ee2.jpg", "u1551024601-bec78aea704b": "assets/184c52b0.jpg", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "assets/023f29c0.js", "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "assets/d9dccf4f.js"};</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>(function(){var s=function(x){return x.replace(/[^A-Za-z0-9]/g,'_')};function map(u){var r=window.__resources;if(!r||typeof u!=='string')return u;var m=u.match(/images\.unsplash\.com\/photo-(\d+-[0-9a-f]+)/);if(m&&r['u'+m[1]])return r['u'+m[1]];m=u.match(/Special:FilePath\/([^?#]+)/);if(m&&r['wm_'+s(decodeURIComponent(m[1]))])return r['wm_'+s(decodeURIComponent(m[1]))];m=u.match(/(?:^|\/)uploads\/([^?#]+)$/);if(m&&r['up_'+s(decodeURIComponent(m[1]))])return r['up_'+s(decodeURIComponent(m[1]))];m=u.match(/wikimedia\.org\/.*\/([^\/?#]+)$/);if(m&&r['wk_'+s(decodeURIComponent(m[1]))])return r['wk_'+s(decodeURIComponent(m[1]))];return u}window.__mapRes=map;var d=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'src');Object.defineProperty(HTMLImageElement.prototype,'src',{configurable:true,enumerable:d.enumerable,get:d.get,set:function(v){d.set.call(this,map(v))}});var sa=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){if(n==='src'||n==='href'||n==='xlink:href')v=map(v);return sa.call(this,n,v)}})();</script>
+<script src="assets/b74019f2.js"></script>
+
+<style id="om-mobile">
+/* Omnify mobile fixes */
+
+@media (max-width: 640px) {
+  .om-tick { font-size: 12px !important; padding: 8px 20px !important; }
+  .om-tick > span:last-child { display: none !important; }
+  .om-dnav { padding: 14px 20px 6px !important; row-gap: 6px !important; column-gap: 12px !important; }
+  .om-dnav svg { width: 38px; height: 38px; }
+  .om-dright { display: contents !important; }
+  .om-bag { order: 2; padding: 10px 16px !important; }
+  .om-dlinks { order: 3; display: flex !important; flex: 1 0 100%; gap: 22px; overflow-x: auto; scrollbar-width: none;
+    margin: 0 -20px; padding: 10px 20px 6px; font-size: 14px; white-space: nowrap; }
+  .om-dlinks::-webkit-scrollbar { display: none; }
+  .om-gal-btn { display: none !important; }
+  .om-gal { padding-left: 0 !important; overflow: visible !important; }
+  .om-gal-track { transform: none !important; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    padding: 0 20px; scroll-padding: 0 20px; gap: 12px !important; }
+  .om-gal-track::-webkit-scrollbar { display: none; }
+  .om-gal-track > div { width: 78vw !important; height: 360px !important; border-radius: 24px !important; scroll-snap-align: start; }
+}
+</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url("assets/437a8575.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url("assets/546e7146.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url("assets/e47052e8.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>body{margin:0;background:#f1eff4;color:#17151f;font-family:'Bricolage Grotesque',system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:#17151f;text-decoration:none}a:hover{color:#8f1d0a}*{box-sizing:border-box}button{font-family:inherit;cursor:pointer}input{font-family:inherit}@keyframes da-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes da-toss{0%,100%{transform:rotate(0) translateY(0)}35%{transform:rotate(-10deg) translateY(-12px)}55%{transform:rotate(4deg) translateY(0)}}@keyframes da-arm{0%,100%{transform:rotate(12deg)}35%{transform:rotate(2deg)}55%{transform:rotate(16deg)}}@keyframes da-hop{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:1}50%{transform:translateY(-56px) scale(1)}85%{opacity:1}100%{transform:translateY(0) scale(.6);opacity:0}}@keyframes da-flick{0%,100%{transform:rotate(-45deg) scale(1)}50%{transform:rotate(-45deg) scale(.72)}}@keyframes da-steam{0%{transform:translateY(0) scale(.6);opacity:0}30%{opacity:.9}100%{transform:translateY(-70px) scale(1.4);opacity:0}}@keyframes da-pop{0%{transform:scale(0)}70%{transform:scale(1.1)}100%{transform:scale(1)}}@keyframes da-leave{0%{transform:translateX(0)}100%{transform:translateX(380px)}}@keyframes da-wave{0%,100%{transform:rotate(-70deg)}50%{transform:rotate(-110deg)}}@keyframes da-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes da-walkin{0%{transform:translateX(140px)}100%{transform:translateX(0)}}@keyframes da-handoff{0%{transform:translate(0,0)}50%{transform:translate(127px,-40px)}100%{transform:translate(254px,30px)}}@keyframes da-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}@keyframes da-lane{0%{transform:translateX(0)}100%{transform:translateX(-56px)}}@keyframes da-spin{100%{transform:rotate(360deg)}}@keyframes da-zip{0%{transform:translateX(0);opacity:1}100%{transform:translateX(-40px);opacity:0}}@keyframes da-blink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}</style>
+</helmet>
+<div style="background:#f1eff4;color:#17151f;font-family:'Bricolage Grotesque',system-ui,sans-serif;overflow:hidden;position:relative">
+
+<div class="om-tick" style="background:#17151f;color:#f1eff4;font-size:15px;letter-spacing:.06em;padding:10px clamp(20px,4vw,56px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <span style="display:flex;gap:10px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#4fd27a"></span>Kitchen open · {{ cooking }} orders on the stove right now</span>
+  <span>Delivering across South Jakarta · avg 22 min</span>
+</div>
+
+<nav class="om-dnav" style="display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,4vw,56px);gap:24px;flex-wrap:wrap;position:relative;z-index:3">
+  <div style="display:flex;align-items:center;gap:12px"><svg width="46" height="46" sc-camel-view-box="0 0 48 48" aria-hidden="true" style="flex:none"><circle cx="15" cy="19.5" r="6" fill="{{ accent }}"></circle><circle cx="24" cy="14" r="8.5" fill="{{ accent }}"></circle><circle cx="33" cy="19.5" r="5.5" fill="{{ accent }}"></circle><rect x="9" y="19" width="30" height="6.5" rx="3.25" fill="{{ accent }}"></rect><path d="M4 28.5 H44 A20 13 0 0 1 4 28.5 Z" fill="#17151f"></path><rect x="17" y="40.5" width="14" height="3.5" rx="1.75" fill="#17151f"></rect></svg><div style="font-weight:800;font-size:26px;letter-spacing:-0.03em">dapur awan</div></div>
+  <div class="om-dright" style="display:flex;gap:32px;font-size:15px;align-items:center;flex-wrap:wrap">
+    <span class="om-dlinks" style="display:contents"><a href="#menu">Menu</a><a href="#kitchens">Our kitchens</a><a href="#story">How it works</a><a href="#gallery">Gallery</a><a href="#zones">Delivery</a></span>
+    <button class="om-bag" sc-camel-on-click="{{ openBag }}" style="background:#17151f;color:#f1eff4;border:0;padding:12px 20px;border-radius:999px;font-size:15px;font-weight:600;display:flex;gap:10px;align-items:center" style-hover="background:#8f1d0a">{{ bagLabel }} <span style="background:#f1eff4;color:#17151f;border-radius:999px;min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-family:'DM Mono',monospace">{{ bagCount }}</span></button>
+  </div>
+</nav>
+
+<section style="position:relative;padding:0 clamp(20px,4vw,56px);min-height:820px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));align-items:center">
+  <div ref="{{ stageRef }}" style="position:absolute;inset:0;z-index:1;cursor:grab;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 88%,transparent 100%)"></div>
+  <div style="position:relative;z-index:2;padding:40px 0 80px">
+    <div style="font-size:15px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:28px;color:#45414f">One cloud kitchen · Four restaurants · One rider</div>
+    <h1 style="font-weight:800;font-size:clamp(68px,8.6vw,148px);line-height:.86;letter-spacing:-0.055em;margin:0">Comfort food,<br>falling from<br><span style="color:{{ accent }};transition:color .6s">the clouds.</span></h1>
+    <p style="font-size:20px;line-height:1.5;max-width:460px;margin:32px 0 36px;color:#45414f;font-weight:400;text-wrap:pretty">Mix dishes from four Indonesian kitchens in a single order. Cooked to order, sealed hot, at your door before the rain does.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+      <sc-for list="{{ brands }}" as="b" hint-placeholder-count="4">
+        <button sc-camel-on-click="{{ b.select }}" style="border:1.5px solid #17151f;background:{{ b.bg }};color:{{ b.fg }};padding:12px 18px;border-radius:999px;font-size:15px;font-weight:600;transition:all .3s;display:flex;gap:8px;align-items:center"><sc-if value="{{ b.k0 }}" hint-placeholder-val="{{ false }}"><span style="position:relative;width:24px;height:20px;display:inline-block"><span style="position:absolute;left:0;bottom:0;width:24px;height:11px;border-radius:0 0 12px 12px;background:#ff6b4a"></span><span style="position:absolute;left:2px;bottom:8px;width:8px;height:8px;border-radius:50%;background:#ff6b4a"></span><span style="position:absolute;left:7px;bottom:10px;width:10px;height:10px;border-radius:50%;background:#ff6b4a"></span><span style="position:absolute;left:14px;bottom:8px;width:8px;height:8px;border-radius:50%;background:#ff6b4a"></span></span></sc-if><sc-if value="{{ b.k1 }}" hint-placeholder-val="{{ false }}"><span style="width:24px;height:24px;border-radius:50%;background:#f5b82e;border:1.5px solid #17151f;display:inline-flex;align-items:center;justify-content:center"><span style="width:10px;height:15px;background:#17151f;clip-path:polygon(60% 0,8% 58%,45% 58%,35% 100%,92% 40%,55% 40%)"></span></span></sc-if><sc-if value="{{ b.k2 }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;gap:2px;align-items:flex-end"><span style="width:9px;height:9px;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:#ff4d6d;display:inline-block"></span><span style="width:13px;height:13px;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:#ff4d6d;display:inline-block"></span></span></sc-if><sc-if value="{{ b.k3 }}" hint-placeholder-val="{{ false }}"><span style="position:relative;width:26px;height:13px;display:inline-block;overflow:hidden"><span style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;border:4px solid #e85d9e"></span><span style="position:absolute;left:4px;top:4px;width:18px;height:18px;border-radius:50%;border:4px solid #f4b400"></span><span style="position:absolute;left:8px;top:8px;width:10px;height:10px;border-radius:50%;border:4px solid #3aa57a"></span></span></sc-if>{{ b.name }}</button>
+      </sc-for>
+    </div>
+    <div style="font-size:15px;color:#45414f">↑ Pick a kitchen. The bowl changes with it.</div>
+  </div>
+  <div style="position:relative;z-index:2;height:760px;min-width:0;pointer-events:none">
+    <div style="position:absolute;right:4%;bottom:8%;pointer-events:auto;background:#fff;border-radius:22px;padding:18px 20px;box-shadow:0 20px 60px rgba(23,21,31,.12);display:flex;gap:16px;align-items:center;max-width:320px">
+      <div style="min-width:0">
+        <div style="font-size:15px;color:#45414f;text-transform:uppercase;letter-spacing:.1em">{{ brand.tag }}</div>
+        <div style="font-weight:600;font-size:19px;line-height:1.2;margin-top:4px">{{ hero.name }}</div>
+        <div style="font-size:14px;margin-top:6px">{{ hero.priceLabel }}</div>
+      </div>
+      <button sc-camel-on-click="{{ hero.add }}" style="flex:none;width:52px;height:52px;border-radius:50%;border:0;background:{{ accent }};color:#fff;font-size:24px;transition:transform .2s,background .6s" style-active="transform:scale(.9)">+</button>
+    </div>
+  </div>
+</section>
+
+<section id="kitchens" style="padding:120px clamp(20px,4vw,56px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px;align-items:end;margin-bottom:48px">
+    <div>
+      <div style="font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#45414f;margin-bottom:14px">The brand house</div>
+      <h2 style="font-weight:800;font-size:clamp(48px,5.4vw,92px);line-height:.9;letter-spacing:-0.05em;margin:0">Four kitchens.<br>One cloud.</h2>
+    </div>
+    <p style="max-width:440px;color:#45414f;font-size:18px;line-height:1.6;margin:0">Each kitchen has its own chef, its own recipes and its own look, from the logo on the lid to the sticker that seals the bag.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:20px">
+
+    <div style="background:#8f1d0a;color:#ffffff;border-radius:40px;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;gap:32px;min-height:560px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-6px)">
+      <div style="display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap">
+        <div style="position:relative;width:104px;height:84px;flex:none"><span style="position:absolute;left:0;bottom:0;width:104px;height:48px;border-radius:0 0 52px 52px;background:#ffffff"></span><span style="position:absolute;left:8px;bottom:38px;width:34px;height:34px;border-radius:50%;background:#ffffff"></span><span style="position:absolute;left:32px;bottom:44px;width:40px;height:40px;border-radius:50%;background:#ffffff"></span><span style="position:absolute;left:62px;bottom:38px;width:34px;height:34px;border-radius:50%;background:#ffffff"></span><span style="position:absolute;left:0;bottom:20px;width:104px;height:5px;background:#8f1d0a"></span></div>
+        <div><div style="font-weight:800;font-size:clamp(44px,4.4vw,68px);line-height:.85;letter-spacing:-0.03em;text-transform:uppercase">Nasi<br>Mega</div></div>
+      </div>
+      <p style="font-size:19px;line-height:1.55;margin:0;max-width:420px">Rice bowls piled high like cumulus clouds. Named after <em>mega mendung</em>, the cloud batik of Cirebon.</p>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="width:200px;height:132px;background:#fffdf8;border-radius:14px 14px 22px 22px;position:relative;box-shadow:0 24px 40px rgba(0,0,0,.3);flex:none">
+          <div style="height:30px;background:#ff6b4a;border-radius:14px 14px 0 0"></div>
+          <div style="position:absolute;left:50%;top:62%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:#8f1d0a;font-weight:800;font-size:16px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap"><span style="position:relative;width:40px;height:32px;display:inline-block"><span style="position:absolute;left:0;bottom:0;width:40px;height:18px;border-radius:0 0 20px 20px;background:#8f1d0a"></span><span style="position:absolute;left:3px;bottom:14px;width:13px;height:13px;border-radius:50%;background:#8f1d0a"></span><span style="position:absolute;left:12px;bottom:17px;width:16px;height:16px;border-radius:50%;background:#8f1d0a"></span><span style="position:absolute;left:24px;bottom:14px;width:13px;height:13px;border-radius:50%;background:#8f1d0a"></span></span>Nasi Mega</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end">
+          <div style="display:flex;gap:8px"><span style="width:30px;height:30px;border-radius:50%;background:#ff6b4a;border:2px solid #fff"></span><span style="width:30px;height:30px;border-radius:50%;background:#fffdf8;border:2px solid #fff"></span><span style="width:30px;height:30px;border-radius:50%;background:#3d0b02;border:2px solid #fff"></span></div>
+          <button sc-camel-on-click="{{ pick.n0 }}" style="border:0;background:#ffffff;color:#8f1d0a;padding:16px 24px;border-radius:999px;font-size:16px;font-weight:700" style-hover="background:#17151f;color:#ffffff">Order Nasi Mega</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#f5b82e;color:#17151f;border-radius:40px;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;gap:32px;min-height:560px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-6px)">
+      <div style="display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap">
+        <div style="width:96px;height:96px;border-radius:50%;background:#17151f;display:flex;align-items:center;justify-content:center;flex:none"><span style="width:42px;height:64px;background:#f5b82e;clip-path:polygon(60% 0,8% 58%,45% 58%,35% 100%,92% 40%,55% 40%)"></span></div>
+        <div style="font-weight:800;font-size:clamp(48px,4.8vw,76px);line-height:.85;letter-spacing:-0.05em;transform:skewX(-12deg);transform-origin:bottom left">mie<br>petir!</div>
+      </div>
+      <p style="font-size:19px;line-height:1.55;margin:0;max-width:420px">Hand-pulled noodles from a wok that roars like thunder. Loud flavours, louder chili oil.</p>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="width:200px;height:132px;background:#17151f;border-radius:14px 14px 22px 22px;position:relative;box-shadow:0 24px 40px rgba(0,0,0,.25);flex:none">
+          <div style="height:30px;background:#ffffff;border-radius:14px 14px 0 0;display:flex;align-items:center;justify-content:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#17151f"></span><span style="width:8px;height:8px;border-radius:50%;background:#17151f"></span><span style="width:8px;height:8px;border-radius:50%;background:#17151f"></span></div>
+          <div style="position:absolute;left:50%;top:62%;transform:translate(-50%,-50%) skewX(-12deg);color:#f5b82e;font-weight:800;font-size:30px;letter-spacing:-0.04em;white-space:nowrap">mie petir!</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end">
+          <div style="display:flex;gap:8px"><span style="width:30px;height:30px;border-radius:50%;background:#f5b82e;border:2px solid #17151f"></span><span style="width:30px;height:30px;border-radius:50%;background:#17151f;border:2px solid #17151f"></span><span style="width:30px;height:30px;border-radius:50%;background:#ffffff;border:2px solid #17151f"></span></div>
+          <button sc-camel-on-click="{{ pick.n1 }}" style="border:0;background:#17151f;color:#ffffff;padding:16px 24px;border-radius:999px;font-size:16px;font-weight:700" style-hover="background:#ffffff;color:#17151f">Order Mie Petir</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#8c1230;color:#ffffff;border-radius:40px;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;gap:32px;min-height:560px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-6px)">
+      <div style="display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap">
+        <div style="display:flex;gap:8px;align-items:flex-end;height:96px;padding:0 0 10px 6px;flex:none"><span style="width:26px;height:26px;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:#ffd1da;display:inline-block"></span><span style="width:40px;height:40px;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:#ffffff;display:inline-block;margin-bottom:22px"></span><span style="width:32px;height:32px;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:#ff4d6d;display:inline-block"></span></div>
+        <div style="font-weight:800;font-stretch:75%;font-size:clamp(52px,5.2vw,84px);line-height:.82;letter-spacing:-0.01em;text-transform:uppercase">Sambal<br>Hujan</div>
+      </div>
+      <p style="font-size:19px;line-height:1.55;margin:0;max-width:420px">Crackling ayam goreng under a downpour of sambal, smashed to order in a stone cobek.</p>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="width:200px;height:132px;background:#fffdf8;border-radius:14px 14px 22px 22px;position:relative;box-shadow:0 24px 40px rgba(0,0,0,.3);flex:none;overflow:hidden">
+          <div style="height:30px;background:#ff4d6d"></div>
+          <div style="position:absolute;left:0;right:0;top:46px;display:flex;justify-content:center;gap:10px"><span style="width:12px;height:12px;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:#8c1230"></span><span style="width:12px;height:12px;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:#8c1230"></span><span style="width:12px;height:12px;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:#8c1230"></span></div>
+          <div style="position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#8c1230;font-weight:800;font-stretch:75%;font-size:26px;text-transform:uppercase">Sambal Hujan</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end">
+          <div style="display:flex;gap:8px"><span style="width:30px;height:30px;border-radius:50%;background:#ff4d6d;border:2px solid #fff"></span><span style="width:30px;height:30px;border-radius:50%;background:#ffd1da;border:2px solid #fff"></span><span style="width:30px;height:30px;border-radius:50%;background:#3b0614;border:2px solid #fff"></span></div>
+          <button sc-camel-on-click="{{ pick.n2 }}" style="border:0;background:#ffffff;color:#8c1230;padding:16px 24px;border-radius:999px;font-size:16px;font-weight:700" style-hover="background:#17151f;color:#ffffff">Order Sambal Hujan</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#17573b;color:#ffffff;border-radius:40px;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;gap:32px;min-height:560px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-6px)">
+      <div style="display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap">
+        <div style="position:relative;width:112px;height:56px;overflow:hidden;flex:none;margin-bottom:8px"><span style="position:absolute;left:0;top:0;width:112px;height:112px;border-radius:50%;border:14px solid #ff8fc0"></span><span style="position:absolute;left:14px;top:14px;width:84px;height:84px;border-radius:50%;border:14px solid #ffd23f"></span><span style="position:absolute;left:28px;top:28px;width:56px;height:56px;border-radius:50%;border:14px solid #8be3b8"></span></div>
+        <div style="font-weight:700;font-size:clamp(46px,4.6vw,72px);line-height:.85;letter-spacing:-0.04em">manis<br>pelangi</div>
+      </div>
+      <p style="font-size:19px;line-height:1.55;margin:0;max-width:420px">Pandan, palm sugar and coconut in every colour of the rainbow, made fresh each morning.</p>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="width:200px;height:132px;background:#fffdf8;border-radius:14px 14px 22px 22px;position:relative;box-shadow:0 24px 40px rgba(0,0,0,.3);flex:none;overflow:hidden">
+          <div style="height:30px;display:flex"><span style="flex:1;background:#ff8fc0"></span><span style="flex:1;background:#ffd23f"></span><span style="flex:1;background:#8be3b8"></span></div>
+          <div style="position:absolute;left:0;right:0;top:62%;transform:translateY(-50%);text-align:center;color:#17573b;font-weight:700;font-size:28px;letter-spacing:-0.04em">manis pelangi</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end">
+          <div style="display:flex;gap:8px"><span style="width:30px;height:30px;border-radius:50%;background:#ff8fc0;border:2px solid #fff"></span><span style="width:30px;height:30px;border-radius:50%;background:#ffd23f;border:2px solid #fff"></span><span style="width:30px;height:30px;border-radius:50%;background:#8be3b8;border:2px solid #fff"></span></div>
+          <button sc-camel-on-click="{{ pick.n3 }}" style="border:0;background:#ffffff;color:#17573b;padding:16px 24px;border-radius:999px;font-size:16px;font-weight:700" style-hover="background:#17151f;color:#ffffff">Order Manis Pelangi</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="menu" style="padding:0 clamp(20px,4vw,56px) 120px">
+  <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px">
+    <div>
+      <div style="font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:{{ accent }};margin-bottom:14px;transition:color .6s">{{ brand.name }} · {{ brand.tag }}</div>
+      <h2 style="font-weight:800;font-size:clamp(48px,5.4vw,92px);line-height:.9;letter-spacing:-0.05em;margin:0">{{ brand.line }}</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start;max-width:380px"><p style="color:#45414f;font-size:17px;line-height:1.55;margin:0;font-weight:400">{{ brand.desc }}</p><button sc-camel-on-click="{{ openMenu }}" style="border:1.5px solid #17151f;background:transparent;color:#17151f;padding:14px 22px;border-radius:999px;font-size:15px;font-weight:600" style-hover="background:#17151f;color:#fff">See the full menu · {{ menuCount }} dishes</button></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+    <sc-for list="{{ dishes }}" as="d" hint-placeholder-count="4">
+      <div style="background:#fff;border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:16px;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s" style-hover="transform:translateY(-6px);box-shadow:0 24px 60px rgba(23,21,31,.12)">
+        <div style="aspect-ratio:1;border-radius:20px;overflow:hidden;background:#e4e0ea"><img src="{{ d.img }}" alt="{{ d.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px;flex:1">
+          <div style="font-weight:600;font-size:21px;letter-spacing:-0.02em">{{ d.name }}</div>
+          <div style="font-size:14px;color:#45414f;line-height:1.45;font-weight:400">{{ d.desc }}</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:0 0 0 8px">
+          <span style="font-size:15px">{{ d.priceLabel }}</span>
+          <button sc-camel-on-click="{{ d.add }}" style="border:0;background:#17151f;color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:600;transition:transform .15s" style-hover="background:#8f1d0a" style-active="transform:scale(.94)">{{ d.cta }}</button>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="story" style="margin:0 clamp(10px,2vw,24px);background:#17151f;color:#f1eff4;border-radius:44px;padding:120px clamp(20px,4vw,56px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:64px;align-items:end;margin-bottom:80px">
+    <h2 style="font-weight:800;font-size:clamp(52px,6vw,104px);line-height:.88;letter-spacing:-0.055em;margin:0">No dining room.<br><span style="color:#ffb09a">All kitchen.</span></h2>
+    <p style="font-size:19px;line-height:1.6;color:#cdc8d6;margin:0;font-weight:400;max-width:520px;text-wrap:pretty">We skipped the chandeliers and spent it on the stoves. Four chefs share one spotless kitchen in Kemang, each cooking the food they grew up on, all leaving in one insulated bag.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(241,239,244,.14);border-radius:24px;overflow:hidden">
+    <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+      <div style="background:#17151f;padding:36px 28px;display:flex;flex-direction:column;gap:56px;min-height:260px">
+        <span style="font-size:15px;color:#cdc8d6">{{ st.n }}</span>
+        <div><div style="font-weight:600;font-size:26px;letter-spacing:-0.02em;margin-bottom:10px">{{ st.t }}</div><div style="color:#cdc8d6;font-size:15px;line-height:1.55;font-weight:400">{{ st.d }}</div></div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="gallery" style="padding:140px 0 120px">
+  <div style="padding:0 clamp(20px,4vw,56px);display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px">
+    <h2 style="font-weight:800;font-size:clamp(48px,5.4vw,92px);line-height:.9;letter-spacing:-0.05em;margin:0">Straight off<br>the pass.</h2>
+    <div style="display:flex;gap:8px">
+      <button class="om-gal-btn" sc-camel-on-click="{{ galPrev }}" style="width:56px;height:56px;border-radius:50%;border:1.5px solid #17151f;background:transparent;font-size:20px" style-hover="background:#17151f;color:#fff">←</button>
+      <button class="om-gal-btn" sc-camel-on-click="{{ galNext }}" style="width:56px;height:56px;border-radius:50%;border:1.5px solid #17151f;background:transparent;font-size:20px" style-hover="background:#17151f;color:#fff">→</button>
+    </div>
+  </div>
+  <div class="om-gal" style="padding-left:clamp(20px,4vw,56px);overflow:hidden">
+    <div class="om-gal-track" style="display:flex;gap:20px;transform:translateX({{ galShift }});transition:transform .8s cubic-bezier(.2,.8,.2,1)">
+      <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="7">
+        <div style="flex:none;width:{{ g.w }};height:480px;border-radius:32px;overflow:hidden;background:#e4e0ea;position:relative">
+          <img src="{{ g.src }}" alt="{{ g.alt }}" style="width:100%;height:100%;object-fit:cover;display:block">
+          <span style="position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.92);border-radius:999px;padding:8px 14px;font-size:15px;font-weight:600">{{ g.alt }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 clamp(20px,4vw,56px) 140px">
+  <div style="font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#45414f;margin-bottom:32px">4.9 average from 18,400 orders</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+    <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+      <div style="background:{{ r.bg }};color:{{ r.fg }};border-radius:32px;padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:320px">
+        <p style="font-size:26px;line-height:1.25;letter-spacing:-0.02em;margin:0;font-weight:400;text-wrap:pretty">“{{ r.text }}”</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span style="font-weight:600">{{ r.who }}</span><span style="">{{ r.order }}</span></div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="zones" style="padding:0 clamp(20px,4vw,56px) 100px">
+  <div style="background:#fff;border-radius:44px;padding:clamp(36px,5vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:56px">
+    <div>
+      <h2 style="font-weight:800;font-size:clamp(44px,4.6vw,76px);line-height:.92;letter-spacing:-0.05em;margin:0 0 24px">Do we reach you?</h2>
+      <p style="color:#45414f;font-size:17px;line-height:1.55;font-weight:400;margin:0 0 32px">Tap your area to see delivery time and fee.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <sc-for list="{{ zones }}" as="z" hint-placeholder-count="6">
+          <button sc-camel-on-click="{{ z.select }}" style="border:1.5px solid #17151f;background:{{ z.bg }};color:{{ z.fg }};padding:12px 18px;border-radius:999px;font-size:15px;font-weight:500;transition:all .25s">{{ z.name }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;justify-content:space-between">
+      <div style="background:#f1eff4;border-radius:28px;padding:32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px">
+        <div><div style="font-size:15px;color:#45414f;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Arrives in</div><div style="font-weight:800;font-size:56px;letter-spacing:-0.04em;line-height:1">{{ zone.eta }}</div></div>
+        <div><div style="font-size:15px;color:#45414f;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Delivery fee</div><div style="font-weight:800;font-size:56px;letter-spacing:-0.04em;line-height:1">{{ zone.fee }}</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;font-size:16px;line-height:1.5">
+        <div><div style="font-size:15px;color:#45414f;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Kitchen hours</div>Daily 10:00 — 02:00<br>Late menu after 22:00</div>
+        <div><div style="font-size:15px;color:#45414f;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Pickup</div>Jl. Kemang Raya 88B<br>Ring the cloud bell</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:0 clamp(20px,4vw,56px) 36px;display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+  <div style="font-weight:800;font-size:clamp(80px,15vw,240px);line-height:.8;letter-spacing:-0.07em">dapur awan</div>
+  <div style="display:flex;gap:24px;font-size:14px;color:#45414f;padding-bottom:14px"><a href="#">Instagram</a><a href="#">Partner with us</a><span>© 2026</span></div>
+</footer>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div ref="{{ menuRef }}" style="position:fixed;inset:0;z-index:45;background:#f1eff4;overflow-y:auto">
+    <div style="background:{{ mb.color }};color:{{ mb.fg }};padding:20px clamp(20px,4vw,56px) 44px;transition:background .4s">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+        <div style="display:flex;gap:28px;overflow-x:auto;min-width:0">
+          <sc-for list="{{ menuTabs }}" as="mt" hint-placeholder-count="4">
+            <button sc-camel-on-click="{{ mt.select }}" style="flex:none;border:0;background:transparent;color:inherit;font-size:16px;font-weight:{{ mt.weight }};padding:10px 0;border-bottom:3px solid {{ mt.line }}">{{ mt.name }}</button>
+          </sc-for>
+        </div>
+        <button sc-camel-on-click="{{ closeMenu }}" style="flex:none;width:48px;height:48px;border-radius:50%;border:0;background:#ffffff;color:#17151f;font-size:17px">✕</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px;align-items:end;margin-top:64px">
+        <div>
+          <div style="font-size:15px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px">{{ mb.tag }} · {{ mb.count }} dishes</div>
+          <h2 style="font-weight:800;font-size:clamp(56px,7vw,112px);line-height:.86;letter-spacing:-0.05em;margin:0">{{ mb.name }}</h2>
+        </div>
+        <p style="font-size:18px;line-height:1.55;margin:0;max-width:440px;text-wrap:pretty">{{ mb.desc }}</p>
+      </div>
+    </div>
+    <div style="position:sticky;top:0;z-index:2;background:#f1eff4;border-bottom:1px solid #e4e0ea;padding:14px clamp(20px,4vw,56px);display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+      <input value="{{ q }}" sc-camel-on-change="{{ onQ }}" placeholder="Search this kitchen" style="width:min(100%,300px);border:1.5px solid #d8d4df;border-radius:999px;padding:13px 18px;font-size:16px;color:#17151f;outline:none;background:#fff" style-focus="border-color:#17151f">
+      <div style="display:flex;gap:24px;overflow-x:auto;flex:1;min-width:0">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+          <button sc-camel-on-click="{{ c.go }}" style="flex:none;border:0;background:transparent;padding:8px 0;font-size:15px;font-weight:600;color:#17151f;display:flex;gap:6px;align-items:baseline" style-hover="color:#8f1d0a">{{ c.name }}<span style="font-family:'DM Mono',monospace;font-size:12px;color:#45414f">{{ c.n }}</span></button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="padding:36px clamp(20px,4vw,56px) 160px;display:flex;flex-direction:column;gap:56px">
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}"><div style="font-size:18px;color:#45414f">Nothing matches “{{ q }}” here. Try another kitchen above.</div></sc-if>
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="3">
+        <div id="{{ c.id }}" style="display:flex;flex-direction:column;gap:18px">
+          <h3 style="font-weight:800;font-size:34px;letter-spacing:-0.04em;margin:0">{{ c.name }}</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:12px">
+            <sc-for list="{{ c.items }}" as="d" hint-placeholder-count="4">
+              <div style="background:#fff;border-radius:24px;padding:12px;display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px">
+                <div style="width:112px;height:112px;border-radius:16px;overflow:hidden;background:#e4e0ea"><img src="{{ d.img }}" alt="{{ d.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="display:flex;flex-direction:column;gap:6px;min-width:0;padding-top:4px">
+                  <span style="font-weight:600;font-size:18px;letter-spacing:-0.01em;line-height:1.2">{{ d.name }}</span>
+                  <span style="font-size:14px;color:#45414f;line-height:1.45">{{ d.desc }}</span>
+                  <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px">
+                    <span style="font-size:15px">{{ d.priceLabel }}</span>
+                    <sc-if value="{{ d.none }}" hint-placeholder-val="{{ true }}"><button sc-camel-on-click="{{ d.add }}" style="border:0;background:#17151f;color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600" style-hover="background:#8f1d0a" style-active="transform:scale(.94)">Add</button></sc-if>
+                    <sc-if value="{{ d.some }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;background:#f1eff4;border-radius:999px;padding:4px"><button sc-camel-on-click="{{ d.dec }}" style="width:34px;height:34px;border-radius:50%;border:0;background:#fff;color:#17151f;font-size:16px">−</button><span style="font-family:'DM Mono',monospace;font-size:14px;min-width:14px;text-align:center">{{ d.qty }}</span><button sc-camel-on-click="{{ d.inc }}" style="width:34px;height:34px;border-radius:50%;border:0;background:#17151f;color:#fff;font-size:16px">+</button></div></sc-if>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <sc-if value="{{ hasBag }}" hint-placeholder-val="{{ false }}">
+    <button sc-camel-on-click="{{ openBag }}" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:46;background:#17151f;color:#fff;border:0;border-radius:999px;padding:18px 18px 18px 28px;font-size:16px;font-weight:600;display:flex;gap:18px;align-items:center;box-shadow:0 16px 40px rgba(23,21,31,.3);white-space:nowrap" style-hover="background:#8f1d0a">View bag · {{ bagCount }} items<span style="background:#ffffff;color:#17151f;border-radius:999px;padding:8px 14px;font-size:15px">{{ total }}</span></button>
+  </sc-if>
+</sc-if>
+
+<sc-if value="{{ bagOpen }}" hint-placeholder-val="{{ false }}">
+  <div sc-camel-on-click="{{ closeBag }}" style="position:fixed;inset:0;z-index:59;background:rgba(23,21,31,.4)"></div>
+  <aside style="position:fixed;top:12px;right:12px;bottom:12px;z-index:60;width:min(460px,calc(100% - 24px));background:#f1eff4;border-radius:32px;overflow:hidden;box-shadow:0 30px 80px rgba(23,21,31,.25)">
+
+    <sc-if value="{{ co.isCheckout }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;inset:0;overflow-y:auto;padding-bottom:150px">
+        <div style="background:#17151f;color:#fff;padding:18px 22px 28px;border-radius:0 0 28px 28px;display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><button sc-camel-on-click="{{ co.addMore }}" style="border:0;background:transparent;color:#fff;font-size:15px;padding:0" style-hover="text-decoration:underline">+ Add more food</button><button sc-camel-on-click="{{ closeBag }}" style="width:40px;height:40px;border-radius:50%;border:0;background:#2a2733;color:#fff;font-size:15px">✕</button></div>
+          <div style="display:flex;flex-direction:column;gap:8px"><h2 style="font-weight:800;font-size:46px;line-height:.9;letter-spacing:-0.05em;margin:0">Checkout</h2><span style="font-size:15px;color:#cdc8d6">{{ co.kitchensLine }}</span></div>
+        </div>
+        <div style="padding:0 22px;display:flex;flex-direction:column">
+          <div style="padding:24px 0;border-bottom:1.5px dashed #d8d4df;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-size:13px;color:#8f1d0a">01</span><span style="font-weight:700;font-size:20px;letter-spacing:-0.02em">Bag</span></div>
+            <sc-if value="{{ co.empty }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start"><span style="font-size:15px;color:#45414f">Nothing here yet.</span><button sc-camel-on-click="{{ co.addMore }}" style="border:0;background:#17151f;color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:600">Browse the menu</button></div></sc-if>
+            <sc-for list="{{ co.items }}" as="it" hint-placeholder-count="2">
+              <div style="display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center">
+                <div style="width:48px;height:48px;border-radius:14px;overflow:hidden;background:#e4e0ea"><img src="{{ it.img }}" alt="{{ it.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;line-height:1.2">{{ it.name }}</span><span style="display:flex;gap:6px;align-items:center;font-size:13px;color:#45414f"><span style="width:8px;height:8px;border-radius:50%;background:{{ it.brandColor }};flex:none"></span>{{ it.brand }} · {{ it.lineLabel }}</span></div>
+                <div style="display:flex;align-items:center;gap:8px"><button sc-camel-on-click="{{ it.dec }}" style="width:30px;height:30px;border-radius:50%;border:1.5px solid #d8d4df;background:transparent;color:#17151f">−</button><span style="font-family:'DM Mono',monospace;font-size:14px">{{ it.qty }}</span><button sc-camel-on-click="{{ it.inc }}" style="width:30px;height:30px;border-radius:50%;border:1.5px solid #d8d4df;background:transparent;color:#17151f">+</button></div>
+              </div>
+            </sc-for>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <sc-for list="{{ co.addons }}" as="ad" hint-placeholder-count="5"><button sc-camel-on-click="{{ ad.toggle }}" style="border:1.5px solid #17151f;background:{{ ad.chipBg }};color:{{ ad.chipFg }};padding:8px 12px;border-radius:999px;font-size:13px">{{ ad.mark }} {{ ad.name }} · {{ ad.short }}</button></sc-for>
+            </div>
+            <button sc-camel-on-click="{{ co.toggleCutlery }}" style="border:0;background:transparent;padding:0;display:flex;gap:10px;align-items:center;font-size:14px;color:#17151f"><span style="width:22px;height:22px;border-radius:7px;border:1.5px solid #17151f;background:{{ co.cutBg }};color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px">{{ co.cutMark }}</span>Include cutlery and napkins</button>
+          </div>
+          <div style="padding:24px 0;border-bottom:1.5px dashed #d8d4df;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-size:13px;color:#8f1d0a">02</span><span style="font-weight:700;font-size:20px;letter-spacing:-0.02em">Deliver to</span></div>
+            <input value="{{ co.address }}" sc-camel-on-change="{{ co.onAddress }}" placeholder="Street and number" style="border:1.5px solid #d8d4df;border-radius:14px;padding:14px;font-size:16px;color:#17151f;outline:none;background:#fff" style-focus="border-color:#17151f">
+            <div style="display:flex;gap:6px;overflow-x:auto;margin:0 -22px;padding:0 22px">
+              <sc-for list="{{ zones }}" as="z" hint-placeholder-count="6"><button sc-camel-on-click="{{ z.select }}" style="flex:none;border:1.5px solid #17151f;background:{{ z.bg }};color:{{ z.fg }};padding:8px 12px;border-radius:999px;font-size:14px">{{ z.name }}</button></sc-for>
+            </div>
+            <input value="{{ co.note }}" sc-camel-on-change="{{ co.onNote }}" placeholder="Note for the rider: gate, floor, landmark" style="border:1.5px solid #d8d4df;border-radius:14px;padding:14px;font-size:15px;color:#17151f;outline:none;background:#fff" style-focus="border-color:#17151f">
+            <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px">
+              <sc-for list="{{ co.times }}" as="tm" hint-placeholder-count="4"><button sc-camel-on-click="{{ tm.select }}" style="border:2px solid {{ tm.bd }};background:#fff;border-radius:14px;padding:10px 8px;text-align:left;display:flex;flex-direction:column;gap:2px;color:#17151f"><span style="font-weight:600;font-size:14px">{{ tm.short }}</span><span style="font-size:12px;color:#45414f">{{ tm.sub }}</span></button></sc-for>
+            </div>
+          </div>
+          <div style="padding:24px 0;border-bottom:1.5px dashed #d8d4df;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-size:13px;color:#8f1d0a">03</span><span style="font-weight:700;font-size:20px;letter-spacing:-0.02em">Contact</span><span style="font-size:13px;color:#45414f;margin-left:auto">No account needed</span></div>
+            <input value="{{ co.name }}" sc-camel-on-change="{{ co.onName }}" placeholder="Your name" style="border:1.5px solid #d8d4df;border-radius:14px;padding:14px;font-size:16px;color:#17151f;outline:none;background:#fff" style-focus="border-color:#17151f">
+            <div style="display:flex;border:1.5px solid #d8d4df;border-radius:14px;background:#fff;overflow:hidden"><span style="padding:14px 10px 14px 14px;font-size:16px;color:#45414f">+62</span><input value="{{ co.phone }}" sc-camel-on-change="{{ co.onPhone }}" sc-camel-input-mode="tel" placeholder="WhatsApp number" style="flex:1;min-width:0;border:0;padding:14px 10px;font-size:16px;color:#17151f;outline:none;background:transparent"></div>
+          </div>
+          <div style="padding:24px 0;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-size:13px;color:#8f1d0a">04</span><span style="font-weight:700;font-size:20px;letter-spacing:-0.02em">Pay</span></div>
+            <button sc-camel-on-click="{{ co.openSheet }}" style="border:1.5px solid #17151f;background:#fff;border-radius:18px;padding:12px;display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;color:#17151f">
+              <span style="width:64px;height:42px;border-radius:10px;background:#fff;border:1px solid #e4e0ea;display:flex;align-items:center;justify-content:center;padding:6px;overflow:hidden"><sc-if value="{{ co.payHasLogo }}" hint-placeholder-val="{{ true }}"><img src="{{ co.payLogo }}" alt="{{ co.payName }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block"></sc-if><sc-if value="{{ co.payNoLogo }}" hint-placeholder-val="{{ false }}"><span style="font-family:'DM Mono',monospace;font-size:13px">Rp</span></sc-if></span>
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-weight:600;font-size:15px">{{ co.payName }}</span><span style="font-size:13px;color:#45414f">{{ co.paySub }}</span></span>
+              <span style="font-size:14px;font-weight:600;text-decoration:underline">Change</span>
+            </button>
+            <sc-if value="{{ co.promoOn }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#17573b"><span><span style="font-family:'DM Mono',monospace">{{ co.promoCode }}</span> · {{ co.discountLabel }} off</span><button sc-camel-on-click="{{ co.removePromo }}" style="border:0;background:transparent;font-size:14px;text-decoration:underline;color:#17151f">Remove</button></div></sc-if>
+            <sc-if value="{{ co.promoOff }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;border:1.5px solid #d8d4df;border-radius:14px;background:#fff;overflow:hidden"><input value="{{ co.promoIn }}" sc-camel-on-change="{{ co.onPromo }}" placeholder="Promo code" style="flex:1;min-width:0;border:0;padding:14px;font-size:15px;color:#17151f;outline:none;background:transparent;text-transform:uppercase;font-family:'DM Mono',monospace"><button sc-camel-on-click="{{ co.applyPromo }}" style="border:0;background:transparent;padding:0 16px;font-size:15px;font-weight:700;color:#8f1d0a">Apply</button></div>
+              <span style="font-size:13px;color:#8c1230">{{ co.promoErr }}</span>
+            </sc-if>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;color:#45414f;padding-top:6px">
+              <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span>{{ co.subLabel }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span>Delivery · {{ co.zoneName }} · {{ co.zoneEta }}</span><span>{{ co.feeLabel }}</span></div>
+              <sc-if value="{{ co.promoOn }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;color:#17573b"><span>Promo</span><span>− {{ co.discountLabel }}</span></div></sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;left:12px;right:12px;bottom:12px;display:flex;flex-direction:column;gap:8px">
+        <sc-if value="{{ co.hasErr }}" hint-placeholder-val="{{ false }}"><div style="background:#8c1230;color:#fff;border-radius:14px;padding:10px 14px;font-size:14px">{{ co.err }}</div></sc-if>
+        <div style="background:#17151f;color:#fff;border-radius:28px;padding:10px 10px 10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 16px 40px rgba(23,21,31,.3)">
+          <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#cdc8d6;text-transform:uppercase;letter-spacing:.1em">Total</span><span style="font-weight:700;font-size:20px;letter-spacing:-0.02em">{{ co.totalLabel }}</span></span>
+          <button sc-camel-on-click="{{ co.pay }}" style="border:0;background:#8f1d0a;color:#fff;padding:16px 24px;border-radius:999px;font-size:16px;font-weight:700" style-active="transform:scale(.96)">{{ co.payCta }}</button>
+        </div>
+      </div>
+      <sc-if value="{{ co.sheet }}" hint-placeholder-val="{{ false }}">
+        <div sc-camel-on-click="{{ co.closeSheet }}" style="position:absolute;inset:0;background:rgba(23,21,31,.45)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;max-height:88%;overflow-y:auto;background:#fff;border-radius:32px 32px 0 0;padding:12px 16px 24px;display:flex;flex-direction:column;gap:16px">
+          <span style="width:40px;height:5px;border-radius:5px;background:#d8d4df;align-self:center"></span>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px"><span style="font-weight:800;font-size:26px;letter-spacing:-0.04em">Pay with</span><button sc-camel-on-click="{{ co.closeSheet }}" style="width:40px;height:40px;border-radius:50%;border:0;background:#f1eff4;color:#17151f">✕</button></div>
+          <sc-for list="{{ co.payGroups }}" as="g" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#45414f;padding:0 4px 4px">{{ g.title }}</div>
+              <sc-for list="{{ g.list }}" as="pm" hint-placeholder-count="2">
+                <button sc-camel-on-click="{{ pm.pick }}" style="border:0;background:{{ pm.sheetBg }};border-radius:16px;padding:10px;display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;color:#17151f" style-hover="background:#f1eff4">
+                  <span style="width:64px;height:42px;border-radius:10px;background:#fff;border:1px solid #e4e0ea;display:flex;align-items:center;justify-content:center;padding:6px;overflow:hidden"><sc-if value="{{ pm.hasLogo }}" hint-placeholder-val="{{ true }}"><img src="{{ pm.logo }}" alt="{{ pm.name }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block"></sc-if><sc-if value="{{ pm.noLogo }}" hint-placeholder-val="{{ false }}"><span style="font-family:'DM Mono',monospace;font-size:13px">Rp</span></sc-if></span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-weight:600;font-size:15px">{{ pm.name }}</span><span style="font-size:12px;color:#45414f">{{ pm.sub }}</span></span>
+                  <span style="font-size:16px;color:#8f1d0a">{{ pm.check }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </sc-if>
+
+    <sc-if value="{{ co.isConfirmed }}" hint-placeholder-val="{{ false }}">
+      <div sc-camel-on-click="{{ co.goCook }}" style="position:absolute;inset:0;background:#17151f;color:#fff;padding:32px 28px;display:flex;flex-direction:column;justify-content:center;gap:22px;cursor:pointer">
+        <span style="width:104px;height:104px;border-radius:50%;background:#8f1d0a;display:flex;align-items:center;justify-content:center;font-size:48px">✓</span>
+        <span style="font-family:'DM Mono',monospace;font-size:14px;color:#cdc8d6">Order {{ co.orderNo }} · {{ co.totalLabel }}</span>
+        <h2 style="font-weight:800;font-size:54px;line-height:.88;letter-spacing:-0.055em;margin:0">Got it.<br><span style="color:#ffb09a">Cooking starts now.</span></h2>
+        <p style="font-size:17px;line-height:1.5;color:#cdc8d6;margin:0">{{ co.payNote }}</p>
+        <span style="font-size:14px;color:#cdc8d6;margin-top:24px">Heading to the kitchen…</span>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ co.isCooking }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;overflow-y:auto;padding:14px 12px 24px;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 4px"><span style="background:#17151f;color:#fff;border-radius:999px;padding:10px 16px;font-size:14px;font-weight:600">{{ co.orderNo }}</span><button sc-camel-on-click="{{ closeBag }}" style="width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#17151f;font-size:15px">✕</button></div>
+        {{ co.scene }}
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px">
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#45414f">{{ co.etaCaption }}</span><span style="font-weight:800;font-size:28px;line-height:1;letter-spacing:-0.04em">{{ co.trackHead }}</span></div>
+            <span style="font-weight:800;font-size:44px;line-height:.9;letter-spacing:-0.05em;color:#8f1d0a;flex:none">{{ co.etaBig }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px">
+            <sc-for list="{{ co.segs }}" as="sg" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:6px"><div style="height:6px;border-radius:6px;background:{{ sg.bg }};transition:background .3s"></div><span style="font-size:12px;color:{{ sg.fg }}">{{ sg.label }}</span></div></sc-for>
+          </div>
+          <sc-if value="{{ co.showRider }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;background:#fff;border-radius:20px;padding:12px">
+              <span style="width:44px;height:44px;border-radius:50%;background:#17151f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px">BS</span>
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-weight:600;font-size:15px">Budi Santoso</span><span style="font-size:13px;color:#45414f">Scooter · B 4521 KZ</span></span>
+              <span style="display:flex;gap:6px"><button style="height:40px;border-radius:999px;border:1.5px solid #17151f;background:#fff;padding:0 14px;font-size:13px;font-weight:600;color:#17151f">Chat</button><button style="height:40px;border-radius:999px;border:0;background:#17151f;padding:0 14px;font-size:13px;font-weight:600;color:#fff">Call</button></span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ co.atDoor }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fff;border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:12px">
+              <span style="font-weight:700;font-size:17px">Rate your order</span>
+              <div style="display:flex;gap:4px">
+                <sc-for list="{{ co.stars }}" as="sr" hint-placeholder-count="5"><button sc-camel-on-click="{{ sr.set }}" style="width:44px;height:44px;border-radius:50%;border:0;background:transparent;font-size:30px;color:{{ sr.fg }};padding:0">★</button></sc-for>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <sc-for list="{{ co.tags }}" as="tg" hint-placeholder-count="5"><button sc-camel-on-click="{{ tg.toggle }}" style="border:1.5px solid #17151f;background:{{ tg.bg }};color:{{ tg.fg }};padding:7px 12px;border-radius:999px;font-size:13px">{{ tg.name }}</button></sc-for>
+              </div>
+            </div>
+            <div style="background:#fff;border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px">
+              <span style="font-weight:700;font-size:17px">Tip Budi <span style="font-weight:400;font-size:13px;color:#45414f">· all of it goes to him</span></span>
+              <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px">
+                <sc-for list="{{ co.tips }}" as="tp" hint-placeholder-count="4"><button sc-camel-on-click="{{ tp.select }}" style="border:1.5px solid #17151f;background:{{ tp.bg }};color:{{ tp.fg }};padding:11px 0;border-radius:999px;font-size:13px;font-weight:600">{{ tp.label }}</button></sc-for>
+              </div>
+            </div>
+            <button sc-camel-on-click="{{ co.done }}" style="border:0;background:#8f1d0a;color:#fff;padding:18px;border-radius:999px;font-size:16px;font-weight:700">{{ co.doneLabel }}</button>
+          </sc-if>
+          <sc-if value="{{ co.showSkip }}" hint-placeholder-val="{{ false }}"><button sc-camel-on-click="{{ co.skip }}" style="border:0;background:transparent;font-size:13px;color:#45414f;text-decoration:underline;align-self:center">Skip ahead (demo)</button></sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+  </aside>
+</sc-if>
+
+<sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:70;background:#17151f;color:#fff;padding:14px 22px;border-radius:999px;font-size:15px;box-shadow:0 16px 40px rgba(23,21,31,.3)">Added {{ toast }} to your bag</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;trackSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.5,&quot;max&quot;:4,&quot;step&quot;:0.5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Order demo&quot;},&quot;demoControls&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Order demo&quot;}}">
+const BRANDS = [
+  { name: 'Nasi Mega', tag: 'Rice bowls', color: '#8f1d0a', glaze: 0xd9472b, line: 'Rice, piled high like cumulus.', desc: 'Fragrant jasmine rice from Cianjur, crowned with slow-cooked toppings and three kinds of sambal on the side.', pool: ['1512058564366-18510be2db19', '1604908176997-125f25cc6f3d', '1546069901-ba9599a7e63c', '1512621776951-a57141f2eefd'], menu: [
+    ['Popular', [['Nasi Rendang Mega', 'Beef rendang, coconut urap, fried shallot, egg', 68000], ['Nasi Ayam Betutu', 'Balinese spiced chicken, sambal matah, long beans', 58000], ['Nasi Cakalang', 'Smoked skipjack, Manado chili, kemangi', 62000], ['Nasi Tempe Bacem', 'Sweet-braised tempeh, tofu, peanut sambal', 45000]]],
+    ['More bowls', [['Nasi Gudeg Mega', 'Young jackfruit stew, krecek, egg', 52000], ['Nasi Iga Bakar', 'Grilled beef ribs, kecap glaze, sambal terasi', 78000], ['Nasi Cumi Hitam', 'Squid in its own ink, green chili', 60000], ['Nasi Liwet Teri', 'Coconut rice, anchovies, petai', 48000]]],
+    ['Small plates', [['Perkedel Kentang', 'Two potato fritters', 15000], ['Telur Balado', 'Egg in red chili sauce', 14000], ['Tempe Mendoan', 'Thin battered tempeh, soy chili', 18000]]],
+    ['Drinks', [['Es Teh Manis', 'Sweet iced jasmine tea', 8000], ['Es Jeruk Peras', 'Fresh-squeezed citrus', 12000]]]] },
+  { name: 'Mie Petir', tag: 'Noodles', color: '#5a3a00', glaze: 0xe0a420, line: 'Noodles with a thunderclap.', desc: 'Hand-pulled egg noodles tossed in a roaring wok, finished with chili oil that crackles like a storm.', pool: ['1569718212165-3a8278d5f624', '1585032226651-759b368d7246', '1617093727343-374698b1b08d', '1496116218417-1a781b1c416c'], menu: [
+    ['Popular', [['Mie Goreng Petir', 'Wok-fried noodles, prawn, choy sum, chili crunch', 55000], ['Mie Ayam Jamur', 'Chicken and mushroom, pork-free bone broth', 48000], ['Kwetiau Siram', 'Flat rice noodles in seafood gravy', 59000], ['Pangsit Kuah', 'Pork-free dumplings, garlic broth, scallion', 42000]]],
+    ['Wok specials', [['Mie Nyemek Petir', 'Saucy wok noodles, egg, cabbage', 50000], ['Bihun Goreng Kampung', 'Rice vermicelli, fish ball, sambal', 46000], ['Mie Aceh Kepiting', 'Spiced noodles with crab', 72000], ['Kwetiau Siram Sapi', 'Beef, gravy, mustard greens', 62000]]],
+    ['Soups', [['Mie Kocok Bandung', 'Beef tendon broth, bean sprouts', 54000], ['Wonton Mie Kuah', 'Pork-free wontons, clear broth', 46000]]],
+    ['Add-ons', [['Chili Oil Jar', 'Take the thunder home, 150 ml', 25000], ['Pangsit Goreng', 'Five fried dumplings', 18000], ['Extra Telur', 'Fried egg, runny yolk', 6000]]]] },
+  { name: 'Sambal Hujan', tag: 'Fried chicken', color: '#8c1230', glaze: 0xb0243a, line: 'It pours sambal here.', desc: 'Crackling ayam goreng in a turmeric crust, smashed fresh in the cobek with your choice of five sambals.', pool: ['1626082927389-6cd097cdc6ec', '1598515214211-89d3c73ae83b', '1527477396000-e27163b481c2', '1529563021893-cc83c992d75d'], menu: [
+    ['Popular', [['Ayam Geprek Hujan', 'Smashed fried chicken, sambal bawang, rice', 52000], ['Ayam Bakar Madu', 'Honey-glazed grilled chicken, lalapan', 56000], ['Sayap Pedas', 'Six wings, sambal ijo glaze, lime', 49000], ['Sate Ayam Arang', 'Ten charcoal skewers, peanut sauce', 47000]]],
+    ['Ayam', [['Ayam Penyet Kremes', 'Smashed chicken, crispy crumbs', 54000], ['Ayam Pop Padang', 'Steamed then fried, pale and tender', 55000], ['Ayam Rica-Rica', 'Manado chili, basil, lemongrass', 56000]]],
+    ['Sambal bar', [['Sambal Matah', 'Raw shallot, lemongrass, lime', 6000], ['Sambal Ijo', 'Green chili, anchovy', 6000], ['Sambal Terasi', 'Shrimp paste, red chili', 6000], ['Sambal Bawang', 'Garlic, bird\'s eye chili', 6000]]],
+    ['Sides', [['Lalapan', 'Cucumber, cabbage, basil', 8000], ['Tahu Tempe Goreng', 'Fried tofu and tempeh', 14000]]]] },
+  { name: 'Manis Pelangi', tag: 'Desserts', color: '#17573b', glaze: 0x3aa57a, line: 'Sweet things after the storm.', desc: 'Pandan, palm sugar and coconut in every colour of the rainbow, made fresh every morning.', pool: ['1551024601-bec78aea704b', '1563805042-7684c019e1cb', '1567620905732-2d1ec7ab7445', '1578985545062-69928b1d9587'], menu: [
+    ['Popular', [['Klepon Lava', 'Pandan rice balls, molten gula Jawa, coconut', 32000], ['Es Teler Awan', 'Avocado, jackfruit, young coconut, condensed milk', 38000], ['Martabak Manis Mini', 'Chocolate, cheese, toasted peanut', 45000], ['Lapis Legit Slice', 'Thousand-layer spice cake, butter', 36000]]],
+    ['Kue', [['Kue Lumpur', 'Potato coconut custard cakes, 3 pcs', 28000], ['Dadar Gulung', 'Pandan crepe, coconut, palm sugar', 26000], ['Serabi Kuah Kinca', 'Rice pancakes, palm sugar syrup', 30000], ['Kue Pukis', 'Half-moon cakes, chocolate', 27000]]],
+    ['Es', [['Es Cendol', 'Pandan jelly, coconut milk, gula Jawa', 28000], ['Es Campur Pelangi', 'Shaved ice, fruit, jelly, syrup', 34000], ['Es Doger', 'Coconut ice, tape, avocado', 30000]]],
+    ['Boxes', [['Pelangi Box', 'Twelve kue, a mix of everything', 95000]]]] }
+];
+BRANDS.forEach(b => { let n = 0; b.dishes = b.menu.flatMap(([cat, list]) => list.map(([nm, ds, pr]) => [nm, ds, pr, b.pool[n++ % b.pool.length], cat])); });
+const CARD = [['#8f1d0a', '#ffffff'], ['#f5b82e', '#17151f'], ['#8c1230', '#ffffff'], ['#17573b', '#ffffff']];
+const ADDONS = [['Es teh manis', 8000], ['Kerupuk udang', 6000], ['Extra sambal', 5000], ['Nasi tambahan', 7000], ['Es jeruk', 10000]];
+const WM = f => 'https://commons.wikimedia.org/wiki/Special:FilePath/' + f;
+const PAYS = [
+  { title: 'QR and e-wallets', list: [['qris', 'QRIS', 'Logo_QRIS.svg', 'Scan with any bank or wallet app'], ['gopay', 'GoPay', 'Gopay_logo.svg', 'Approve in your Gojek app'], ['ovo', 'OVO', 'Logo_ovo_purple.svg', 'Approve in your OVO app'], ['dana', 'DANA', 'Logo_dana_blue.svg', 'Approve in your DANA app'], ['spay', 'ShopeePay', 'Shopee_logo.svg', 'Approve in your Shopee app']] },
+  { title: 'Bank transfer', list: [['bca', 'BCA Virtual Account', 'Bank_Central_Asia.svg', 'Number shown after you order'], ['mdr', 'Mandiri Virtual Account', 'Bank_Mandiri_logo_2016.svg', 'Number shown after you order']] },
+  { title: 'Cash', list: [['cod', 'Cash on delivery', '', 'Pay the rider. Exact change helps.']] }
+];
+const ALLPAY = PAYS.flatMap(g => g.list);
+const END = 24;
+const CO0 = { co: 'checkout', address: 'Jl. Kemang Raya 12', note: '', time: 0, name: '', phone: '', promoIn: '', promo: '', promoErr: '', pay: 'gopay', err: '', sheet: false, t: 0, rating: 0, tags: {}, tip: 0, orderNo: '', addons: {}, cutlery: false, placedMin: 0 };
+const clock = m => String(Math.floor(m / 60) % 24).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+const ZONES = [['Kemang', '15 min', 'Free', 0], ['Senopati', '20 min', 'Rp 5K', 5000], ['Cipete', '18 min', 'Rp 5K', 5000], ['Pondok Indah', '28 min', 'Rp 9K', 9000], ['Blok M', '22 min', 'Rp 7K', 7000], ['Kuningan', '32 min', 'Rp 12K', 12000]];
+const rp = n => 'Rp ' + n.toLocaleString('id-ID');
+class Component extends DCLogic {
+  state = { brand: 0, bag: {}, bagOpen: false, zone: 0, gal: 0, toast: '', cooking: 23, menuOpen: false, menuBrand: 0, q: '', ...CO0 };
+  stageRef = React.createRef();
+  menuRef = React.createRef();
+  componentDidMount() { window.__da = this; if (!/nothree/.test(location.search)) this.initThree(); this.iv = setInterval(() => this.setState(s => ({ cooking: Math.max(14, Math.min(34, s.cooking + (Math.random() > .5 ? 1 : -1))) })), 3000); this.tk = setInterval(() => { if (window.__daExt) return; const s = this.state; if (s.co === 'cooking' && s.t < END) this.setState({ t: Math.min(END, s.t + .25 * (this.props.trackSpeed ?? 1)) }); }, 250); }
+  componentWillUnmount() { this.dead = true; clearInterval(this.iv); clearInterval(this.tk); clearTimeout(this.to); clearTimeout(this.tt); cancelAnimationFrame(this.raf); this.ro && this.ro.disconnect(); this.renderer && this.renderer.dispose(); }
+  setBrand(i) { this.setState({ brand: i }); this.pop = 0; }
+  add(bi, di) {
+    const k = bi + '-' + di;
+    this.setState(s => ({ bag: { ...s.bag, [k]: (s.bag[k] || 0) + 1 }, toast: BRANDS[bi].dishes[di][0] }));
+    clearTimeout(this.tt); this.tt = setTimeout(() => this.setState({ toast: '' }), 1800);
+  }
+  async initThree() {
+    const B = 'https://esm.sh/three@0.160.0';
+    const THREE = await import(B);
+    const [{ RoomEnvironment }, { RoundedBoxGeometry }, { mergeGeometries, mergeVertices }] = await Promise.all([
+      import(B + '/examples/jsm/environments/RoomEnvironment.js'), import(B + '/examples/jsm/geometries/RoundedBoxGeometry.js'), import(B + '/examples/jsm/utils/BufferGeometryUtils.js')]);
+    const el = this.stageRef.current; if (!el || this.dead) return;
+    const R3 = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true }); this.renderer = R3;
+    R3.setPixelRatio(Math.min(2, devicePixelRatio)); R3.toneMapping = THREE.ACESFilmicToneMapping; R3.toneMappingExposure = 1.05;
+    R3.shadowMap.enabled = true; R3.shadowMap.type = THREE.PCFSoftShadowMap; el.appendChild(R3.domElement);
+    const scene = new THREE.Scene(); scene.environment = new THREE.PMREMGenerator(R3).fromScene(new RoomEnvironment(), .04).texture;
+    const cam = new THREE.PerspectiveCamera(30, 1, .1, 100); cam.position.set(0, 3.9, 10); cam.lookAt(0, .75, 0);
+    const key = new THREE.DirectionalLight(0xfff4ea, 2.4); key.position.set(3, 8, 4); key.castShadow = true; key.shadow.mapSize.set(2048, 2048); key.shadow.radius = 8; key.shadow.bias = -.0004; key.shadow.normalBias = .02;
+    Object.assign(key.shadow.camera, { left: -5, right: 5, top: 5, bottom: -5 });
+    const rim = new THREE.DirectionalLight(0xffe2c8, 1.3); rim.position.set(-4, 3, -5);
+    scene.add(key, rim, new THREE.HemisphereLight(0xf4f0ff, 0xc9b8d8, .7));
+    const V2 = (x, y) => new THREE.Vector2(x, y), V3 = (x, y, z) => new THREE.Vector3(x, y, z), up = V3(0, 1, 0);
+    let sd = 11; const rnd = (a = 0, b = 1) => a + (b - a) * ((sd = (sd * 16807) % 2147483647) / 2147483647);
+    const noise = (x, y, z) => Math.sin(x * 1.7 + Math.sin(y * 2.3)) * Math.cos(y * 1.9 + Math.sin(z * 1.4)) * Math.sin(z * 2.1 + Math.cos(x * 1.2));
+    const lumpy = (geo, amp, freq, c1, c2, seed = 0) => {
+      if (geo.attributes.uv) geo.deleteAttribute('uv'); geo.deleteAttribute('normal'); geo = mergeVertices(geo, 1e-4);
+      const p = geo.attributes.position, v = V3(0, 0, 0), col = [], a = new THREE.Color(c1), b = new THREE.Color(c2), t = new THREE.Color();
+      for (let i = 0; i < p.count; i++) {
+        v.fromBufferAttribute(p, i); const d = v.clone().normalize();
+        const n = noise(v.x * freq + seed, v.y * freq - seed, v.z * freq + seed * .5) + .5 * noise(v.x * freq * 2.7 - seed, v.y * freq * 2.7 + seed, v.z * freq * 2.7);
+        v.addScaledVector(d, n * amp); p.setXYZ(i, v.x, v.y, v.z);
+        t.copy(a).lerp(b, Math.min(1, Math.max(0, n * .55 + .5))); col.push(t.r, t.g, t.b);
+      }
+      geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); geo.computeVertexNormals(); return geo;
+    };
+    const mat = (c, r = .5, o = {}) => new THREE.MeshPhysicalMaterial({ color: c, roughness: r, ...o });
+    const vmat = (r = .5, o = {}) => new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: r, ...o });
+    const mesh = (g, m, p = [0, 0, 0], s, r) => { const o = new THREE.Mesh(g, m); o.position.set(...p); if (s) o.scale.set(...s); if (r) o.rotation.set(...r); o.castShadow = o.receiveShadow = true; return o; };
+    const inst = (g, m, n, fn) => { const im = new THREE.InstancedMesh(g, m, n), d = new THREE.Object3D(), c = new THREE.Color(); for (let i = 0; i < n; i++) { d.position.set(0, 0, 0); d.rotation.set(0, 0, 0); d.scale.setScalar(1); fn(d, c, i); d.updateMatrix(); im.setMatrixAt(i, d.matrix); im.setColorAt(i, c); } im.castShadow = im.receiveShadow = true; return im; };
+    const grp = (...ch) => { const g = new THREE.Group(); ch.forEach(c => g.add(c)); return g; };
+    const R = 1.36, cy = .95, H = .58;
+    const surf = (x, z) => cy + H * Math.sqrt(Math.max(0, 1 - (x * x + z * z) / (R * R)));
+    const nrm = (x, z) => V3(x / (R * R), (surf(x, z) - cy) / (H * H), z / (R * R)).normalize();
+    const sit = (o, x, z, lift = 0, spin = 0) => { o.position.set(x, surf(x, z) + lift, z); o.quaternion.setFromUnitVectors(up, nrm(x, z)); o.rotateY(spin); return o; };
+    const wob = (r, amp, n, seed) => { const s = new THREE.Shape(); for (let i = 0; i <= 72; i++) { const a = i / 72 * Math.PI * 2, rr = r * (1 + amp * (Math.sin(a * n + seed) * .6 + Math.sin(a * (n + 3) + seed * 2) * .4)); i ? s.lineTo(Math.cos(a) * rr, Math.sin(a) * rr) : s.moveTo(Math.cos(a) * rr, Math.sin(a) * rr); } return s; };
+    const flat = (shape, depth, bevel) => { const g = new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: true, bevelThickness: bevel, bevelSize: bevel, bevelSegments: 3, curveSegments: 8 }); g.rotateX(-Math.PI / 2); return g; };
+    const leafGeo = (L = .5, W = .16, curl = .4) => { const s = new THREE.Shape(); s.moveTo(0, 0); s.quadraticCurveTo(W, L * .45, 0, L); s.quadraticCurveTo(-W, L * .45, 0, 0); const g = flat(s, .006, .004); const p = g.attributes.position; for (let i = 0; i < p.count; i++) { const z = p.getZ(i), x = p.getX(i); p.setY(i, p.getY(i) + curl * z * z + 1.2 * x * x); } g.computeVertexNormals(); return g; };
+    const tex = (draw, n = 256) => { const c = document.createElement('canvas'); c.width = c.height = n; draw(c.getContext('2d'), n); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; };
+    const limeTex = tex((g, n) => { g.fillStyle = '#f2f9cf'; g.fillRect(0, 0, n, n); g.translate(n / 2, n / 2); for (let i = 0; i < 10; i++) { g.rotate(Math.PI * 2 / 10); g.beginPath(); g.moveTo(10, 0); g.quadraticCurveTo(70, -34, 112, -8); g.lineTo(112, 8); g.quadraticCurveTo(70, 34, 10, 0); g.fillStyle = '#b9dc4c'; g.fill(); } g.beginPath(); g.arc(0, 0, 122, 0, Math.PI * 2); g.lineWidth = 10; g.strokeStyle = '#f6fbe2'; g.stroke(); });
+    const leafTex = tex((g, n) => { g.fillStyle = '#3d7d2a'; g.fillRect(0, 0, n, n); for (let i = 0; i < n; i += 7) { g.fillStyle = i % 14 ? '#468a31' : '#356f24'; g.fillRect(0, i, n, 3); } g.fillStyle = '#9fc46a'; g.fillRect(0, n / 2 - 4, n, 8); });
+    const riceMat = mat(0xffffff, .5, { clearcoat: .35, sheen: .4 });
+    const riceMound = g => {
+      g.add(mesh(new THREE.SphereGeometry(R * .97, 64, 32, 0, Math.PI * 2, 0, Math.PI / 2), mat(0xf1ebdd, .9), [0, cy, 0], [1, H / R, 1]));
+      g.add(inst(new THREE.CapsuleGeometry(.028, .07, 2, 6), riceMat, 1700, (d, c) => { const a = rnd(0, 6.283), r = R * Math.sqrt(rnd()) * .97, x = Math.cos(a) * r, z = Math.sin(a) * r; d.position.set(x, surf(x, z) - .012 + rnd(0, .02), z); d.rotation.set(rnd(0, 6.28), rnd(0, 6.28), rnd(0, 6.28)); d.scale.setScalar(rnd(.85, 1.15)); c.setHSL(.11, .3, rnd(.9, .98)); }));
+    };
+    const shallots = (g, n, hfn) => g.add(inst(new THREE.TorusGeometry(.034, .011, 5, 10, Math.PI * 1.3), mat(0xffffff, .6), n, (d, c) => { const a = rnd(0, 6.283), r = rnd(0, 1.2), x = Math.cos(a) * r, z = Math.sin(a) * r; d.position.set(x, hfn(x, z) + .015, z); d.rotation.set(rnd(-.6, .6) + Math.PI / 2, rnd(0, 6.28), 0); c.setHSL(.07, .75, rnd(.28, .45)); }));
+    const cucumber = () => mesh(new THREE.CylinderGeometry(.15, .15, .035, 32), [mat(0x2c6a1e, .35, { clearcoat: .6 }), mat(0xdcefbe, .3, { clearcoat: .6 }), mat(0xdcefbe, .3)]);
+    const limeHalf = (s = 1) => grp(mesh(new THREE.SphereGeometry(.18 * s, 32, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2), mat(0x5aa52a, .25, { clearcoat: 1 })), mesh(new THREE.CircleGeometry(.175 * s, 40), mat(0xffffff, .2, { map: limeTex, clearcoat: 1 }), [0, .001, 0], null, [-Math.PI / 2, 0, 0]));
+    const chiliM = mat(0xc81e0e, .18, { clearcoat: 1 }), greenStem = mat(0x3e7a24, .5);
+    const fills = BRANDS.map(() => new THREE.Group());
+
+    // 0 — Nasi Rendang
+    const f0 = fills[0]; riceMound(f0);
+    f0.add(sit(mesh(lumpy(new THREE.SphereGeometry(.62, 48, 24), .05, 5, 0x3e1606, 0x8a3a12, 2), vmat(.3, { clearcoat: .9, clearcoatRoughness: .2 }), undefined, [1, .2, .9]), .45, -.2, -.03));
+    [[.2, -.4, 0], [.66, -.1, 0], [.42, .18, 0], [.76, -.5, 0], [.14, 0, 0], [.47, -.24, .17]].forEach(([x, z, l], i) =>
+      f0.add(sit(mesh(lumpy(new RoundedBoxGeometry(.36, .26, .32, 5, .09), .035, 7, 0x2a0d04, 0x7c3214, i * 3.1), vmat(.38, { clearcoat: .9, clearcoatRoughness: .3 })), x, z, .1 + l, i * 1.3)));
+    f0.add(inst(new THREE.DodecahedronGeometry(.02, 0), mat(0xffffff, .85), 160, (d, c) => { const a = rnd(0, 6.28), r = rnd(0, .55), x = .45 + Math.cos(a) * r, z = -.2 + Math.sin(a) * r * .9; d.position.set(x, surf(x, z) + rnd(.05, .2), z); d.rotation.set(rnd(0, 6), rnd(0, 6), 0); d.scale.setScalar(rnd(.6, 1.5)); c.setHSL(.07, .6, rnd(.16, .34)); }));
+    f0.add(inst(new THREE.TorusGeometry(.045, .017, 8, 18), mat(0xffffff, .2, { clearcoat: 1 }), 9, (d, c, i) => { const a = i * .7, x = .45 + Math.cos(a) * .3, z = -.2 + Math.sin(a) * .3; d.position.set(x, surf(x, z) + .26, z); d.rotation.set(Math.PI / 2 + rnd(-.4, .4), 0, rnd(0, 3)); c.setHex(i % 3 ? 0xd2240f : 0x3e8a2a); }));
+    const bay = mesh(leafGeo(.42, .13, .6), mat(0x4a7a2e, .4, { clearcoat: .5, side: THREE.DoubleSide })); f0.add(sit(bay, .78, .12, .18, 2.4));
+    const egg = grp(mesh(flat(wob(.5, .09, 7, 1), .012, .01), mat(0xc4843a, .75)), mesh(flat(wob(.44, .05, 5, 2), .03, .028), mat(0xfffdf8, .22, { clearcoat: .7 }), [0, .012, 0]), mesh(new THREE.SphereGeometry(.17, 32, 16), mat(0xf59a12, .1, { clearcoat: 1 }), [.05, .06, .04], [1, .62, 1]));
+    f0.add(sit(egg, -.5, .22, .02, .5));
+    const urapH = (x, z) => surf(x, z) + .03;
+    f0.add(inst(new THREE.BoxGeometry(.014, .008, .13), mat(0xffffff, .5), 110, (d, c) => { const a = rnd(0, 6.28), r = rnd(0, .3), x = -.32 + Math.cos(a) * r, z = -.6 + Math.sin(a) * r; d.position.set(x, urapH(x, z) + .13 * (1 - r / .3) + rnd(0, .03), z); d.rotation.set(rnd(-.5, .5), rnd(0, 6.28), rnd(-.5, .5)); c.setHSL(.27, .55, rnd(.22, .4)); }));
+    f0.add(inst(new THREE.BoxGeometry(.03, .006, .012), mat(0xffffff, .7), 80, (d, c) => { const a = rnd(0, 6.28), r = rnd(0, .3), x = -.32 + Math.cos(a) * r, z = -.6 + Math.sin(a) * r; d.position.set(x, urapH(x, z) + .14 * (1 - r / .3) + .02, z); d.rotation.set(0, rnd(0, 6.28), 0); c.setHex(0xfbf6ea); }));
+    for (let i = 0; i < 5; i++) { const x = -.55 + i * .12, z = -.35 - (i % 2) * .1; f0.add(sit(mesh(new THREE.CylinderGeometry(.028, .028, .24, 12), mat(0x4e8f2a, .35, { clearcoat: .5 }), undefined, null), x, z, .05, i).rotateZ(Math.PI / 2)); }
+    const sm = sit(mesh(lumpy(new THREE.SphereGeometry(.2, 32, 16), .03, 9, 0x8e1206, 0xe23a1a, 4), vmat(.15, { clearcoat: 1 }), undefined, [1, .5, 1]), -.05, .68, .02); f0.add(sm);
+    f0.add(inst(new THREE.SphereGeometry(.012, 6, 4), mat(0xffffff, .4), 24, (d, c) => { const a = rnd(0, 6.28), r = rnd(0, .16); d.position.set(sm.position.x + Math.cos(a) * r, sm.position.y + .08, sm.position.z + Math.sin(a) * r); d.scale.set(1, .5, 1.4); c.setHex(0xf2d27a); }));
+    const cu = cucumber(); cu.position.set(-.95, 1.32, .72); cu.rotation.set(1.05, .5, 0); f0.add(cu);
+    const cu2 = cucumber(); cu2.position.set(-.75, 1.33, .95); cu2.rotation.set(1.15, .2, .2); f0.add(cu2);
+    const kr = g => { const p = g.attributes.position; for (let i = 0; i < p.count; i++) p.setY(i, p.getY(i) + .03 * Math.sin(p.getX(i) * 11) * Math.cos(p.getZ(i) * 9) + .012 * Math.sin(p.getX(i) * 37 + p.getZ(i) * 29)); g.computeVertexNormals(); return g; };
+    f0.add(mesh(kr(new THREE.CylinderGeometry(.46, .46, .022, 96, 24)), mat(0xfaf0d8, .85, { sheen: .5 }), [-.55, 1.62, -.95], null, [-1.05, .3, .15]));
+    f0.add(mesh(kr(new THREE.CylinderGeometry(.34, .34, .022, 80, 20)), mat(0xf6e6c2, .85, { sheen: .5 }), [.05, 1.6, -1.1], null, [-1.15, -.2, -.1]));
+    shallots(f0, 70, surf);
+
+    // 1 — Mie
+    const f1 = fills[1], nH = (x, z) => 1.1 + .32 * Math.max(0, 1 - Math.hypot(x, z) / 1.25);
+    f1.add(mesh(new THREE.CircleGeometry(1.5, 64), mat(0xb5561a, .06, { clearcoat: 1 }), [0, 1.08, 0], null, [-Math.PI / 2, 0, 0]));
+    const spot = new THREE.CircleGeometry(.05, 16); spot.rotateX(-Math.PI / 2);
+    f1.add(inst(spot, mat(0xffffff, .05, { clearcoat: 1 }), 50, (d, c, i) => { const a = rnd(0, 6.28), r = rnd(.9, 1.4); d.position.set(Math.cos(a) * r, 1.083, Math.sin(a) * r); d.scale.setScalar(rnd(.4, 1.6)); c.setHex(i % 3 ? 0xe8952e : 0xa3180a); }));
+    const tubes = [];
+    for (let i = 0; i < 30; i++) { const pts = []; let a = rnd(0, 6.28), r0 = rnd(0, .9), x = Math.cos(a) * r0, z = Math.sin(a) * r0, dir = rnd(0, 6.28);
+      for (let k = 0; k < 16; k++) { dir += rnd(-1, 1); x += Math.cos(dir) * .13; z += Math.sin(dir) * .13; const rr = Math.hypot(x, z); if (rr > 1.15) { x *= 1.15 / rr; z *= 1.15 / rr; dir += 2; } pts.push(V3(x, nH(x, z) + rnd(-.02, .06), z)); }
+      tubes.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 100, .026, 6)); }
+    f1.add(mesh(mergeGeometries(tubes), mat(0xf2c55c, .32, { clearcoat: .6 })));
+    for (let i = 0; i < 7; i++) { const a = i * .9, r = .2 + (i % 3) * .14, x = .1 + Math.cos(a) * r, z = -.1 + Math.sin(a) * r; f1.add(mesh(lumpy(new RoundedBoxGeometry(.2, .14, .18, 4, .05), .02, 9, 0x6a2c0c, 0xc27a38, i), vmat(.35, { clearcoat: .8 }), [x, nH(x, z) + .08, z], null, [rnd(0, .6), rnd(0, 6), rnd(0, .6)])); }
+    const choy = (x, z, ry) => { const g = grp(mesh(new THREE.CylinderGeometry(.05, .085, .42, 16), mat(0xe8f1cf, .35, { clearcoat: .5 }), [.21, 0, 0], [1, 1, .5], [0, 0, Math.PI / 2])); const lf = mesh(leafGeo(.6, .26, .5), mat(0x2d6b25, .4, { clearcoat: .5, side: THREE.DoubleSide }), [.38, .02, 0]); lf.rotation.y = -Math.PI / 2; g.add(lf); g.position.set(x, nH(x, z) + .06, z); g.rotation.set(0, ry, .12); return g; };
+    f1.add(choy(.35, .55, -.4), choy(.25, .8, -.1));
+    const egg2 = (x, z, ry) => grp(mesh(new THREE.SphereGeometry(.19, 32, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2), mat(0xfffcf4, .3, { clearcoat: .5 }), [0, 0, 0], [1, .9, 1.25]), mesh(new THREE.CircleGeometry(.19, 32), mat(0xfffcf4, .3), [0, 0, 0], [1, 1.25, 1], [-Math.PI / 2, 0, 0]), mesh(new THREE.SphereGeometry(.1, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2), mat(0xf29a12, .12, { clearcoat: 1 }), [0, 0, .01], [1, .3, 1.1]));
+    [[-.55, -.3, .4], [-.25, -.62, -.3]].forEach(([x, z, r]) => { const e2 = egg2(); e2.position.set(x, nH(x, z) + .06, z); e2.rotation.set(.15, r, -.1); f1.add(e2); });
+    f1.add(inst(new THREE.TorusGeometry(.03, .011, 6, 14), mat(0xffffff, .35, { clearcoat: .5 }), 60, (d, c) => { const a = rnd(0, 6.28), r = rnd(0, 1.1), x = Math.cos(a) * r, z = Math.sin(a) * r; d.position.set(x, nH(x, z) + .07, z); d.rotation.set(Math.PI / 2 + rnd(-.5, .5), 0, rnd(-.5, .5)); c.setHSL(.28, .6, rnd(.3, .55)); }));
+    shallots(f1, 40, (x, z) => nH(x, z) + .05);
+    const wood = mat(0xb88a55, .45, { clearcoat: .3 });
+    f1.add(mesh(new THREE.CylinderGeometry(.022, .036, 3.3, 14), wood, [.15, 1.52, -.25], null, [0, .55, Math.PI / 2 + .06]), mesh(new THREE.CylinderGeometry(.022, .036, 3.3, 14), wood, [.15, 1.55, -.05], null, [0, .62, Math.PI / 2 + .04]));
+    [[-.8, .35], [-.95, -.05]].forEach(([x, z], i) => f1.add(mesh(lumpy(new THREE.SphereGeometry(.22, 32, 16), .04, 8, 0x9a5418, 0xe7ad54, i + 7), vmat(.6), [x, 1.4, z], [1.2, .35, .9], [.5, i, -.4])));
+
+    // 2 — Ayam Geprek
+    const f2 = fills[2]; riceMound(f2);
+    const crisp = i => lumpy(new THREE.IcosahedronGeometry(.42, 5), .055, 9, 0x7a3a0c, 0xe8ae52, i * 5);
+    const ch1 = sit(mesh(crisp(1), vmat(.8), undefined, [1.15, .5, 1]), .22, -.18, .13, .4), ch2 = sit(mesh(crisp(2), vmat(.8), undefined, [1, .45, .85]), -.42, .3, .1, 1.7);
+    f2.add(ch1, ch2);
+    [ch1, ch2].forEach((c, i) => { const sb = mesh(lumpy(new THREE.SphereGeometry(.3, 40, 20), .06, 6, 0x8a1206, 0xe8461e, i + 3), vmat(.15, { clearcoat: 1 }), [c.position.x, c.position.y + .17, c.position.z], [1.1, .28, 1]); f2.add(sb);
+      f2.add(inst(new THREE.BoxGeometry(.03, .02, .025), mat(0xffffff, .5), 30, (d, cc, k) => { const a = rnd(0, 6.28), r = rnd(0, .28); d.position.set(sb.position.x + Math.cos(a) * r, sb.position.y + .07 + rnd(0, .03), sb.position.z + Math.sin(a) * r); d.rotation.set(rnd(0, 3), rnd(0, 3), 0); cc.setHex(k % 3 ? 0xf3e2b8 : 0xffffff); })); });
+    const cab = mesh(lumpy(new THREE.SphereGeometry(.42, 40, 20, 0, Math.PI * 2, 0, Math.PI / 2.1), .04, 5, 0x9cc46a, 0xe2f2c4, 9), vmat(.45, { side: THREE.DoubleSide, clearcoat: .4 }), undefined, [1, .45, 1]);
+    cab.position.set(-.6, 1.12, -.6); cab.rotation.set(Math.PI + .5, 0, .2); f2.add(cab);
+    [[-.55, -.55, .9], [-.8, -.4, .7], [-.4, -.8, 1.1]].forEach(([x, z, r]) => { const c = cucumber(); c.position.set(x, 1.5, z); c.rotation.set(r, .3, .2); f2.add(c); });
+    f2.add(inst(leafGeo(.15, .06, .3), mat(0xffffff, .4, { side: THREE.DoubleSide }), 14, (d, c) => { const a = rnd(-1, 1), x = .75 + Math.cos(a) * .2, z = .45 + Math.sin(a) * .2; d.position.set(x, surf(x, z) + .02, z); d.rotation.set(rnd(-.4, .4), rnd(0, 6.28), rnd(-.4, .4)); c.setHSL(.3, .5, rnd(.2, .32)); }));
+    const lh = limeHalf(); lh.position.set(.85, 1.35, .55); lh.rotation.set(.5, 0, -.3); f2.add(lh);
+    shallots(f2, 40, surf);
+
+    // 3 — Klepon
+    const f3 = fills[3];
+    const lg = new THREE.CircleGeometry(1.4, 64); lg.rotateX(-Math.PI / 2); { const p = lg.attributes.position; for (let i = 0; i < p.count; i++) p.setY(i, .04 * Math.sin(p.getX(i) * 3) * Math.cos(p.getZ(i) * 2.5) + .03 * Math.hypot(p.getX(i), p.getZ(i))); lg.computeVertexNormals(); }
+    f3.add(mesh(lg, mat(0xffffff, .3, { map: leafTex, clearcoat: .7, side: THREE.DoubleSide }), [0, 1.02, 0]));
+    const kMat = mat(0x3a9a3c, .5, { sheen: .6, sheenColor: new THREE.Color(0xc8f0b0) });
+    const kl = [[0, 0], ...Array.from({ length: 6 }, (_, i) => [Math.cos(i / 6 * Math.PI * 2) * .5, Math.sin(i / 6 * Math.PI * 2) * .5])].slice(0, 6).map(([x, z]) => V3(x, 1.27, z));
+    kl.forEach((c, i) => f3.add(mesh(lumpy(new THREE.SphereGeometry(.21, 40, 20), .012, 6, 0x2e8a32, 0x4fb04a, i), vmat(.5, { sheen: .5 }), [c.x, c.y, c.z])));
+    f3.add(inst(new THREE.BoxGeometry(.055, .007, .007), mat(0xffffff, .6), kl.length * 80, (d, c, i) => { const b = kl[Math.floor(i / 80)], th = rnd(0, 6.28), ph = Math.acos(rnd(-.2, 1)), n = V3(Math.sin(ph) * Math.cos(th), Math.cos(ph), Math.sin(ph) * Math.sin(th)); d.position.copy(b).addScaledVector(n, .215); d.lookAt(b); d.rotateZ(rnd(0, 6.28)); c.setHSL(.12, .3, rnd(.92, 1)); }));
+    const cut = V3(.42, 1.12, .62);
+    f3.add(mesh(new THREE.SphereGeometry(.21, 40, 20, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2), kMat, [cut.x, cut.y + .1, cut.z]));
+    f3.add(mesh(lumpy(new THREE.SphereGeometry(.2, 32, 16), .03, 6, 0x4a1a04, 0x9a4a10, 8), vmat(.08, { clearcoat: 1 }), [cut.x + .05, cut.y + .11, cut.z + .05], [1.5, .3, 1.3]));
+    f3.add(mesh(new THREE.TorusKnotGeometry(.17, .035, 160, 8, 2, 3), mat(0x2f7f35, .3, { clearcoat: .8 }), [-.75, 1.22, .55], [1, .4, 1]));
+    f3.add(inst(new THREE.BoxGeometry(.06, .006, .01), mat(0xffffff, .6), 80, (d, c) => { const a = rnd(0, 6.28), r = rnd(.6, 1.2); d.position.set(Math.cos(a) * r, 1.07 + rnd(0, .02), Math.sin(a) * r); d.rotation.set(0, rnd(0, 6.28), 0); c.setHex(0xfffbf0); }));
+
+    // bowl
+    const rig = new THREE.Group(); scene.add(rig);
+    const glaze = new THREE.MeshPhysicalMaterial({ color: BRANDS[0].glaze, roughness: .25, clearcoat: 1, clearcoatRoughness: .08 });
+    const porcelain = mat(0xfbf8f4, .2, { clearcoat: 1, side: THREE.DoubleSide });
+    const bowl = mesh(new THREE.LatheGeometry([V2(0, 0), V2(.7, 0), V2(.74, .08), V2(.68, .14), V2(1.1, .4), V2(1.5, .95), V2(1.68, 1.3), V2(1.72, 1.36)], 128), glaze);
+    const inner = mesh(new THREE.LatheGeometry([V2(1.72, 1.36), V2(1.64, 1.36), V2(1.42, .98), V2(.9, .42), V2(0, .3)], 128), porcelain);
+    const band = mesh(new THREE.TorusGeometry(1.69, .035, 12, 128), porcelain, [0, 1.36, 0], null, [Math.PI / 2, 0, 0]);
+    rig.add(bowl, inner, band);
+    fills.forEach((f, i) => { f.visible = i === 0; rig.add(f); });
+
+    // clouds + floaters
+    const cloudM = mat(0xffffff, .95, { sheen: 1, sheenColor: new THREE.Color(0xe8e0ff) }), clouds = [];
+    const puffs = [[0, 0, 0, 1], [.9, -.15, .1, .78], [-.9, -.2, 0, .72], [.45, .5, -.1, .72], [-.42, .38, .12, .62], [1.62, -.32, 0, .48], [-1.6, -.32, .1, .45], [.1, -.35, .45, .6], [1.1, .2, -.3, .5]];
+    const cloud = (x, y, z, s) => { const g = grp(...puffs.map(([a, b, c, r]) => mesh(new THREE.SphereGeometry(r, 32, 20), cloudM, [a, b, c]))); g.position.set(x, y, z); g.scale.setScalar(s); g.userData = { x, y, ph: rnd(0, 6) }; scene.add(g); clouds.push(g); };
+    cloud(-2.9, -.25, .8, .6); cloud(2.6, .05, .2, .5); cloud(-2.7, 2.7, -2, .4); cloud(2.4, 3, -2.5, .36); cloud(0, -.75, -1.6, .82);
+    const floaters = [], fl = (m, p) => { m.userData = { p, ph: rnd(0, 6) }; scene.add(m); floaters.push(m); };
+    const chili = () => { const g = new THREE.CapsuleGeometry(.075, .62, 8, 20), p = g.attributes.position; for (let i = 0; i < p.count; i++) { const t = (p.getY(i) + .385) / .77, s = .22 + .78 * Math.min(1, t * 1.6); p.setX(i, p.getX(i) * s + .3 * (1 - t) * (1 - t)); p.setZ(i, p.getZ(i) * s); } g.computeVertexNormals(); return grp(mesh(g, chiliM), mesh(new THREE.CylinderGeometry(.08, .06, .06, 16), greenStem, [0, .4, 0]), mesh(new THREE.CylinderGeometry(.015, .02, .14, 8), greenStem, [-.02, .48, 0], null, [0, 0, .4])); };
+    fl(chili(), [-2.1, 2.1, 1]);
+    fl(limeHalf(1.3), [2.15, 2.3, .8]);
+    fl(grp(...Array.from({ length: 8 }, (_, i) => { const a = i / 8 * Math.PI * 2; return mesh(new THREE.SphereGeometry(.06, 16, 10), mat(0x6a2e14, .65), [Math.cos(a) * .1, 0, Math.sin(a) * .1], [2.2, .7, 1], [0, -a, 0]); }), mesh(new THREE.SphereGeometry(.03, 10, 8), mat(0xc89a5a, .5))), [1.7, 1.1, 1.7]);
+    fl(mesh(leafGeo(.5, .15, .8), mat(0x4f7a32, .35, { clearcoat: .6, side: THREE.DoubleSide })), [-1.9, 1.05, 1.8]);
+    fl(grp(mesh(lumpy(new THREE.SphereGeometry(.14, 32, 16), .01, 6, 0x9a3a56, 0xd88a90, 3), vmat(.35, { clearcoat: .6 }), undefined, [1, 1.2, 1]), mesh(new THREE.ConeGeometry(.04, .12, 10), mat(0xc9a07a, .6), [0, .2, 0])), [2.5, 1.4, .4]);
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.ShadowMaterial({ opacity: .12 })); ground.rotation.x = -Math.PI / 2; ground.position.y = -1.2; ground.receiveShadow = true; scene.add(ground);
+
+    let tx = 0, ty = 0, drag = false, lx = 0, spin = 0, vel = .004, cur = 0, pop = 1;
+    el.addEventListener('pointerdown', e => { drag = true; lx = e.clientX; el.setPointerCapture(e.pointerId); el.style.cursor = 'grabbing'; });
+    el.addEventListener('pointerup', () => { drag = false; el.style.cursor = 'grab'; });
+    el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); tx = (e.clientX - r.left) / r.width - .5; ty = (e.clientY - r.top) / r.height - .5; if (drag) { vel = (e.clientX - lx) * .005; spin += vel; lx = e.clientX; } });
+    const size = () => { const w = el.clientWidth, h = el.clientHeight; if (!w || !h) return; R3.setSize(w, h); cam.aspect = w / h; const wide = w > 1000; cam.position.set(0, 3.9, 10).multiplyScalar(wide ? 1 : 1.5); cam.lookAt(0, .75, 0); cam.setViewOffset(w, h, wide ? -w * .25 : 0, wide ? 0 : -h * .22, w, h); cam.updateProjectionMatrix(); };
+    this.ro = new ResizeObserver(size); this.ro.observe(el); size();
+    const clock = new THREE.Clock(), col = new THREE.Color();
+    const loop = () => {
+      if (this.dead) return; this.raf = requestAnimationFrame(loop);
+      const vr = el.getBoundingClientRect(); if (vr.bottom < 0 || vr.top > innerHeight || this.state.menuOpen || this.state.bagOpen) return;
+      const t = clock.getElapsedTime(), b = this.state.brand;
+      if (b !== cur) { cur = b; pop = 0; fills.forEach((f, i) => f.visible = i === b); spin += 1.2; }
+      pop = Math.min(1, pop + .035); const e = 1 + Math.sin(pop * Math.PI) * .16 * (1 - pop);
+      fills[b].scale.setScalar(.6 + .4 * (1 - Math.pow(1 - pop, 3))); fills[b].position.y = (1 - pop) * 1.2;
+      glaze.color.lerp(col.setHex(BRANDS[b].glaze), .08);
+      if (!drag) { vel += (.004 - vel) * .03; spin += vel; }
+      rig.rotation.y = spin; rig.rotation.x += (.24 + ty * .3 - rig.rotation.x) * .05; rig.rotation.z += (-tx * .12 - rig.rotation.z) * .05;
+      rig.position.y = Math.sin(t * 1.1) * .07; rig.scale.setScalar(e);
+      clouds.forEach(c => { c.position.x = c.userData.x + Math.sin(t * .25 + c.userData.ph) * .3; c.position.y = c.userData.y + Math.sin(t * .6 + c.userData.ph) * .08; });
+      floaters.forEach(f => { const [x, y, z] = f.userData.p; f.position.set(x + Math.sin(t * .5 + f.userData.ph) * .15, y + Math.sin(t * .9 + f.userData.ph) * .2, z); f.rotation.x = t * .5 + f.userData.ph; f.rotation.z = t * .35; });
+      R3.render(scene, cam);
+    };
+    loop();
+  }
+  chefScene(cur, accent) {
+    const h = React.createElement, b = (style, ...k) => h('div', { style }, ...k);
+    const P = (left, bottom, width, height, x) => ({ position: 'absolute', left, bottom, width, height, ...x });
+    const A = (n, d, delay = 0, tf = 'ease-in-out', it = 'infinite') => n + ' ' + d + 's ' + tf + ' ' + delay + 's ' + it;
+    const ink = '#17151f', skin = '#c98d5f', bd = '3px solid ' + ink, jacket = '#17573b', helm = '#f5b82e';
+    const frame = (bg, under, ...kids) => b({ position: 'relative', height: 320, overflow: 'hidden', borderRadius: 28, flex: 'none', ...bg }, ...under, b({ position: 'absolute', left: '50%', bottom: 0, width: 400, height: 320, marginLeft: -200 }, ...kids));
+    const bubble = (l, bt, w, text) => b({ ...P(l, bt, w, 'auto'), background: '#fff', border: bd, borderRadius: 18, padding: '10px 14px', font: "700 17px 'Bricolage Grotesque',sans-serif", color: ink, textAlign: 'center', animation: A('da-pop', .4, 0, 'ease-out', '1 both') }, text);
+    const bag = (l, bt, anim) => b({ ...P(l, bt, 58, 70), background: '#d9b58a', border: bd, borderRadius: '8px 8px 4px 4px', animation: anim || 'none' }, b(P(0, 52, '100%', 12, { background: '#b88f60' })), b(P(15, 16, 22, 22, { borderRadius: '50%', background: accent, border: '2px solid #fff' })));
+    const cloud = (l, bt, s, c, anim) => b({ ...P(l, bt, 90 * s, 52 * s), animation: anim || 'none' }, b(P(8 * s, 0, 74 * s, 24 * s, { borderRadius: '0 0 ' + 37 * s + 'px ' + 37 * s + 'px', background: c })), b(P(8 * s, 14 * s, 26 * s, 26 * s, { borderRadius: '50%', background: c })), b(P(28 * s, 20 * s, 32 * s, 32 * s, { borderRadius: '50%', background: c })), b(P(52 * s, 14 * s, 26 * s, 26 * s, { borderRadius: '50%', background: c })));
+    const rider = (l, bt, anim) => b({ ...P(l, bt, 60, 170), animation: anim || 'none' },
+      b(P(14, 0, 14, 60, { background: ink, borderRadius: 6 })), b(P(32, 0, 14, 60, { background: ink, borderRadius: 6 })),
+      b(P(6, 54, 48, 68, { background: jacket, border: bd, borderRadius: '20px 20px 8px 8px' })),
+      b(P(-18, 84, 36, 13, { background: jacket, border: bd, borderRadius: 7, transform: 'rotate(-14deg)', transformOrigin: '100% 50%' })),
+      b(P(12, 116, 36, 36, { borderRadius: '50%', background: skin, border: bd }), b(P(6, 12, 5, 6, { borderRadius: '50%', background: ink })), b(P(8, 4, 10, 5, { borderBottom: '2px solid ' + ink, borderRadius: '0 0 8px 8px' }))),
+      b(P(8, 138, 44, 26, { background: helm, border: bd, borderRadius: '22px 22px 6px 6px' })));
+    const wheel = (l, spin) => b({ ...P(l, 0, 42, 42), borderRadius: '50%', background: '#45414f', border: '6px solid ' + ink, animation: spin ? A('da-spin', .45, 0, 'linear') : 'none' }, b({ position: 'absolute', left: '50%', top: 0, bottom: 0, width: 4, marginLeft: -2, background: '#cdc8d6' }), b({ position: 'absolute', top: '50%', left: 0, right: 0, height: 4, marginTop: -2, background: '#cdc8d6' }));
+    const scooter = (l, bt, moving, withRider, scale = 1) => b({ ...P(l, bt, 170, 160), transform: 'scale(' + scale + ')', transformOrigin: '0 100%' },
+      b({ position: 'absolute', inset: 0, animation: moving ? A('da-bob', .35) : 'none' },
+        ...(moving ? [0, 1, 2].map(i => b({ ...P(-46 + i * 6, 44 + i * 20, 34, 4), background: ink, borderRadius: 2, animation: A('da-zip', .6, i * .2, 'linear') })) : []),
+        b(P(0, 58, 56, 52, { background: '#fffdf8', border: bd, borderRadius: 8 }), b(P(14, 12, 22, 22, { borderRadius: '50%', background: accent }))),
+        b(P(130, 20, 8, 60, { background: ink, borderRadius: 4, transform: 'rotate(-18deg)' })),
+        b(P(122, 76, 28, 8, { background: ink, borderRadius: 4 })),
+        b(P(10, 24, 132, 36, { background: '#8f1d0a', border: bd, borderRadius: '20px 40px 12px 12px' })),
+        b(P(142, 44, 14, 14, { background: '#f5b82e', border: bd, borderRadius: '50%' })),
+        b(P(40, 58, 52, 10, { background: ink, borderRadius: 5 })),
+        ...(withRider ? [
+          b(P(66, 46, 50, 16, { background: ink, borderRadius: 8 })),
+          b(P(48, 64, 40, 58, { background: jacket, border: bd, borderRadius: '18px 18px 6px 6px', transform: 'rotate(8deg)' })),
+          b(P(74, 98, 50, 12, { background: jacket, border: bd, borderRadius: 6, transform: 'rotate(16deg)', transformOrigin: '0 50%' })),
+          b(P(52, 118, 36, 36, { borderRadius: '50%', background: skin, border: bd })),
+          b(P(48, 138, 46, 26, { background: helm, border: bd, borderRadius: '22px 22px 6px 6px' })),
+          b(P(80, 140, 16, 12, { background: ink, borderRadius: '0 8px 4px 0' }))] : []),
+        wheel(16, moving), wheel(122, moving)));
+    if (cur === 4) {
+      const strip = (c, hs, w, gap, bt, dur) => b({ position: 'absolute', left: 0, bottom: bt, display: 'flex', alignItems: 'flex-end', width: 'max-content', animation: A('da-scroll', dur, 0, 'linear') }, ...[...hs, ...hs].map(hh => b({ width: w, height: hh, marginRight: gap, background: c, borderRadius: '6px 6px 0 0', flex: 'none' })));
+      return frame({ background: '#f1eff4' }, [
+        strip('#dcd8e3', [90, 130, 70, 150, 100, 120, 80, 140], 54, 16, 72, 14),
+        strip('#c9c4d2', [60, 90, 50, 110, 70, 40, 100, 80], 70, 30, 72, 7),
+        b(P(0, 62, '100%', 10, { background: '#45414f' })), b(P(0, 0, '100%', 64, { background: ink })),
+        b({ position: 'absolute', left: 0, bottom: 28, width: '200%', height: 4, backgroundImage: 'repeating-linear-gradient(90deg,#f1eff4 0 28px,transparent 28px 56px)', animation: A('da-lane', .35, 0, 'linear') })],
+        cloud(50, 248, .8, '#ffffff', A('da-float', 5)), cloud(292, 226, .6, accent, A('da-float', 6, 1)),
+        scooter(118, 38, true, true));
+    }
+    if (cur === 5) {
+      return frame({ background: '#f1eff4' }, [b(P(0, 62, '100%', 10, { background: '#c9c4d2' })), b(P(0, 0, '100%', 64, { background: ink }))],
+        cloud(30, 252, .7, '#ffffff', A('da-float', 5)),
+        b(P(100, 206, 230, 80, { background: accent, clipPath: 'polygon(50% 0,100% 100%,0 100%)' })),
+        b(P(120, 72, 190, 138, { background: '#fffdf8', border: bd })),
+        b(P(140, 126, 36, 36, { background: '#dcd8e3', border: bd })), b(P(198, 168, 36, 30, { background: '#dcd8e3', border: bd })),
+        b(P(190, 72, 52, 88, { background: ink, borderRadius: '26px 26px 0 0' }), b(P(38, 38, 7, 7, { borderRadius: '50%', background: '#f5b82e' }))),
+        b(P(144, 92, 34, 20, { background: '#fff', border: '2px solid ' + ink, borderRadius: 4, font: "700 12px 'DM Mono',monospace", textAlign: 'center', lineHeight: '16px', color: ink }), '12'),
+        scooter(-24, 34, false, false, .72),
+        bag(250, 78), rider(318, 72, A('da-walkin', .9, 0, 'ease-out', '1 both')),
+        bubble(236, 250, 160, 'Permisi, Dapur Awan!'));
+    }
+    const wave = cur === 2, armAnim = wave ? A('da-wave', 1) : cur === 1 ? A('da-arm', 1.2) : 'none';
+    return frame({ background: '#fbf3e8', backgroundImage: 'linear-gradient(#f2e3d2 2px,transparent 2px),linear-gradient(90deg,#f2e3d2 2px,transparent 2px)', backgroundSize: '40px 28px' },
+      [b(P(0, 86, '100%', 12, { background: '#2a2733' })), b(P(0, 0, '100%', 88, { background: ink })), b(P(0, 26, '100%', 'auto', { textAlign: 'center', color: '#cdc8d6', font: "800 22px 'Bricolage Grotesque',sans-serif", letterSpacing: '-0.03em' }), 'dapur awan')],
+      b(P(290, 296, 100, 4, { background: ink, borderRadius: 2 })),
+      ...[0, 1].map(i => b(P(304 + i * 44, 252, 30, 42, { background: '#fff', border: '2px solid ' + ink, borderTop: (i === 1 ? 7 : 2) + 'px solid ' + (i === 1 ? accent : ink), transform: 'rotate(' + [-4, 3][i] + 'deg)', transformOrigin: 'top center', paddingTop: 6 }), b({ margin: '0 5px 5px', height: 2, background: '#c9c4d2' }), b({ margin: '0 5px', height: 2, width: 12, background: '#c9c4d2' }))),
+      cloud(184, 252, 1, accent, A('da-float', 5)),
+      ...(cur === 1 ? [0, 1, 2].map(i => b({ ...P(262 + i * 26, 168, 18, 18), borderRadius: '50%', background: '#e7dccd', animation: A('da-steam', 2.4, i * .7, 'ease-out') })) : []),
+      ...(cur === 1 ? [0, 1, 2].map(i => b({ ...P(250 + i * 28, 98, 22, 22), borderRadius: '50% 0 50% 50%', background: i % 2 ? '#f5b82e' : '#ff6b2c', transform: 'rotate(-45deg)', animation: A('da-flick', .5, i * .15) })) : []),
+      b(P(226, 98, 120, 6, { background: '#45414f', borderRadius: 3 })),
+      b({ ...P(40, 92, 150, 200), animation: A('da-bob', 1.2) },
+        b(P(15, 0, 120, 96, { background: '#fff', border: bd, borderRadius: '56px 56px 10px 10px' }),
+          b(P(42, 46, 8, 8, { borderRadius: '50%', background: ink })), b(P(64, 46, 8, 8, { borderRadius: '50%', background: ink })),
+          b(P(42, 24, 8, 8, { borderRadius: '50%', background: ink })), b(P(64, 24, 8, 8, { borderRadius: '50%', background: ink }))),
+        b({ ...P(118, 52, 74, 22), background: '#fff', border: bd, borderRadius: 11, transformOrigin: '8px 50%', transform: wave ? 'rotate(-80deg)' : 'rotate(12deg)', animation: armAnim },
+          b(P(56, -3, 20, 20, { borderRadius: '50%', background: skin, border: bd }))),
+        b(P(55, 84, 40, 18, { background: accent, border: bd, borderRadius: '4px 4px 20px 20px' })),
+        b(P(43, 96, 64, 64, { borderRadius: '50%', background: skin, border: bd }),
+          b({ ...P(15, 28, 7, 9), borderRadius: '50%', background: ink, animation: A('da-blink', 4) }),
+          b({ ...P(36, 28, 7, 9), borderRadius: '50%', background: ink, animation: A('da-blink', 4) }),
+          b(P(7, 16, 9, 6, { borderRadius: '50%', background: '#e8806a' })), b(P(42, 16, 9, 6, { borderRadius: '50%', background: '#e8806a' })),
+          b(P(20, 10, 18, 9, { borderBottom: bd, borderRadius: '0 0 12px 12px' }))),
+        b(P(34, 152, 34, 34, { borderRadius: '50%', background: '#fff', border: bd })),
+        b(P(54, 162, 42, 42, { borderRadius: '50%', background: '#fff', border: bd })),
+        b(P(82, 152, 32, 32, { borderRadius: '50%', background: '#fff', border: bd })),
+        b(P(46, 148, 58, 22, { background: '#fff', border: bd, borderRadius: 6 }))),
+      b({ ...P(216, 112, 130, 60), transformOrigin: '0% 60%', animation: cur === 1 ? A('da-toss', 1.2) : 'none' },
+        b(P(-14, 30, 44, 9, { background: '#8a5a33', border: '2px solid ' + ink, borderRadius: 5 })),
+        b(P(38, 38, 80, 14, { background: accent, borderRadius: '40px 40px 0 0' })),
+        b(P(24, 0, 106, 46, { background: '#2a2733', border: bd, borderRadius: '0 0 54px 54px' }))),
+      ...(cur === 1 ? [accent, '#f5b82e', '#4fa35a', '#fffdf8', '#e85d4a'].map((c, i) => b({ ...P(258 + i * 16, 158, 10 + (i % 3) * 2, 10 + (i % 3) * 2), borderRadius: '50%', background: c, border: '2px solid ' + ink, animation: A('da-hop', 1.2, i * .18) })) : []),
+      cur === 3 ? rider(322, 0, A('da-walkin', .9, 0, 'ease-out', '1 both')) : null,
+      cur === 2 ? bag(14, 96, A('da-pop', .5, 0, 'ease-out', '1 both')) : null,
+      cur === 3 ? bag(14, 96, A('da-handoff', 1.2, .9, 'ease-in-out', '1 forwards')) : null,
+      wave ? bubble(196, 150, 150, 'Selamat makan!') : null);
+  }
+  renderVals() {
+    const s = this.state, br = BRANDS[s.brand], u = id => `https://images.unsplash.com/photo-${id}?w=700&q=80`;
+    const dish = (bi, di) => { const [name, desc, price, id] = BRANDS[bi].dishes[di], k = bi + '-' + di, q = s.bag[k] || 0; return { name, desc, price, priceLabel: rp(price), img: u(id), qty: q, none: !q, some: q > 0, cta: q ? `In bag · ${q}` : 'Add', add: () => this.add(bi, di), inc: () => this.add(bi, di), dec: () => this.setState(x => ({ bag: { ...x.bag, [k]: Math.max(0, (x.bag[k] || 0) - 1) } })) }; };
+    const items = Object.entries(s.bag).filter(([, q]) => q > 0).map(([k, qty]) => { const [bi, di] = k.split('-').map(Number), d = dish(bi, di); return { ...d, qty, brand: BRANDS[bi].name, brandColor: CARD[bi][0], lineLabel: rp(d.price * qty) }; });
+    const count = items.reduce((a, i) => a + i.qty, 0), kitchens = new Set(items.map(i => i.brand)).size;
+    const itemSub = items.reduce((a, i) => a + i.price * i.qty, 0), addSub = ADDONS.reduce((a, [, p], i) => a + (s.addons[i] ? p : 0), 0), sub = itemSub + addSub;
+    const z = ZONES[s.zone], fee = count ? z[3] : 0, off = s.promo ? Math.min(25000, Math.round(sub * .2 / 100) * 100) : 0, total = Math.max(0, sub + fee - off);
+    const pay = ALLPAY.find(p => p[0] === s.pay), cod = s.pay === 'cod', va = s.pay === 'bca' || s.pay === 'mdr';
+    const mins = parseInt(z[1]), t = s.t, cur = t < 5 ? 1 : t < 8 ? 2 : t < 11 ? 3 : t < END - .5 ? 4 : 5;
+    const set = p => this.setState(p);
+    const missing = !count ? 'Your bag is empty.' : !s.address.trim() ? 'Add a delivery address.' : !s.name.trim() ? 'Add your name so the rider knows who to look for.' : s.phone.replace(/\D/g, '').length < 9 ? 'Add a WhatsApp number so the rider can reach you.' : '';
+    const place = () => {
+      if (missing) return set({ err: missing });
+      const n = new Date();
+      set({ co: 'confirmed', orderNo: 'DA-' + (4100 + Math.floor(Math.random() * 800)), t: 0, err: '', sheet: false, placedMin: n.getHours() * 60 + n.getMinutes() });
+      clearTimeout(this.to); if (!window.__daExt) this.to = setTimeout(() => { if (this.state.co === 'confirmed') this.setState({ co: 'cooking' }); }, 2600);
+    };
+    const openMenu = i => { this.setBrand(i); this.setState({ menuOpen: true, menuBrand: i, q: '' }); setTimeout(() => this.menuRef.current && this.menuRef.current.scrollTo({ top: 0 }), 0); };
+    const mi = s.menuBrand, mB = BRANDS[mi], ql = s.q.trim().toLowerCase();
+    const cats = mB.menu.map(([cname], ci) => ({ name: cname, id: 'mcat-' + ci, items: mB.dishes.map((d, di) => [d, di]).filter(([d]) => d[4] === cname && (!ql || (d[0] + ' ' + d[1]).toLowerCase().includes(ql))).map(([, di]) => dish(mi, di)) }))
+      .filter(c => c.items.length).map(c => ({ ...c, n: c.items.length, go: () => { const box = this.menuRef.current, el = document.getElementById(c.id); box && el && box.scrollTo({ top: el.offsetTop - 84, behavior: 'smooth' }); } }));
+    const nowM = new Date().getHours() * 60 + new Date().getMinutes(), slot0 = Math.ceil((nowM + 45) / 30) * 30;
+    const eta = clock(s.placedMin + mins);
+    const gal = [['1604908176997-125f25cc6f3d', 'Nasi Ayam Betutu', 360], ['1569718212165-3a8278d5f624', 'Mie Goreng Petir', 520], ['1626082927389-6cd097cdc6ec', 'Ayam Geprek', 380], ['1563805042-7684c019e1cb', 'Es Teler Awan', 420], ['1466978913421-dad2ebd01d17', 'The kitchen at 7pm', 560], ['1529563021893-cc83c992d75d', 'Sate Ayam Arang', 380], ['1512058564366-18510be2db19', 'Nasi Rendang', 460]];
+    return {
+      stageRef: this.stageRef, cooking: s.cooking, accent: br.color, brand: br,
+      brands: BRANDS.map((b, i) => ({ name: b.name, k0: i === 0, k1: i === 1, k2: i === 2, k3: i === 3, bg: i === s.brand ? '#17151f' : 'transparent', fg: i === s.brand ? '#fff' : '#17151f', select: () => this.setBrand(i) })),
+      pick: Object.fromEntries([0, 1, 2, 3].map(i => ['n' + i, () => openMenu(i)])),
+      hero: dish(s.brand, 0), dishes: br.dishes.slice(0, 4).map((_, di) => dish(s.brand, di)),
+      menuCount: br.dishes.length, openMenu: () => openMenu(s.brand),
+      steps: [{ n: '01', t: 'You order', d: 'Mix dishes from all four kitchens in a single bag.' }, { n: '02', t: 'We fire it', d: 'Nothing is pre-cooked. Each wok and grill starts when you tap.' }, { n: '03', t: 'Sealed hot', d: 'Compostable bowls with steam vents, so crisp stays crisp.' }, { n: '04', t: 'One rider', d: 'A single courier carries everything, straight to you.' }],
+      gallery: gal.map(([id, alt, w]) => ({ src: `https://images.unsplash.com/photo-${id}?w=1200&q=80`, alt, w: w + 'px' })),
+      galShift: `-${s.gal * 400}px`, galPrev: () => this.setState(x => ({ gal: Math.max(0, x.gal - 1) })), galNext: () => this.setState(x => ({ gal: Math.min(4, x.gal + 1) })),
+      reviews: [{ text: 'Ordered rendang and klepon from two different kitchens and they arrived together, still steaming. Witchcraft.', who: 'Nadia P.', order: 'Kemang', bg: '#fff', fg: '#17151f' }, { text: 'Mie Petir is the only thing I want after a 2am deploy.', who: 'Arief S.', order: 'Senopati', bg: br.color, fg: '#fff' }, { text: 'The geprek is properly spicy. The packaging is properly good. I am properly hooked.', who: 'Tasya W.', order: 'Cipete', bg: '#17151f', fg: '#f1eff4' }],
+      zones: ZONES.map((zz, i) => ({ name: zz[0], bg: i === s.zone ? '#17151f' : 'transparent', fg: i === s.zone ? '#fff' : '#17151f', select: () => this.setState({ zone: i }) })),
+      zone: { name: z[0], eta: z[1], fee: z[2] },
+      bagCount: count, bagLabel: s.co === 'checkout' ? 'Bag' : 'Order', total: rp(total),
+      bagOpen: s.bagOpen, openBag: () => set({ bagOpen: true }), closeBag: () => set({ bagOpen: false, sheet: false }),
+      menuOpen: s.menuOpen, menuRef: this.menuRef, closeMenu: () => set({ menuOpen: false }),
+      menuTabs: BRANDS.map((b, i) => ({ name: b.name, weight: i === mi ? 800 : 500, line: i === mi ? CARD[mi][1] : 'transparent', select: () => openMenu(i) })),
+      mb: { name: mB.name, tag: mB.tag, desc: mB.desc, count: mB.dishes.length, color: CARD[mi][0], fg: CARD[mi][1] },
+      q: s.q, onQ: e => set({ q: e.target.value }), cats, noResults: !cats.length, hasBag: count > 0,
+      co: {
+        isCheckout: s.co === 'checkout', isConfirmed: s.co === 'confirmed', isCooking: s.co === 'cooking',
+        items, empty: !count, count,
+        kitchensLine: count ? `${count} items from ${kitchens} ${kitchens === 1 ? 'kitchen' : 'kitchens'} · one rider, one bag` : 'Nothing in your bag yet',
+        addMore: () => { set({ bagOpen: false }); openMenu(s.brand); },
+        addons: ADDONS.map(([name, p], i) => { const on = !!s.addons[i]; return { name, short: '+' + p / 1000 + 'K', mark: on ? '✓' : '+', chipBg: on ? '#17151f' : 'transparent', chipFg: on ? '#fff' : '#17151f', toggle: () => this.setState(x => ({ addons: { ...x.addons, [i]: !x.addons[i] } })) }; }),
+        cutBg: s.cutlery ? '#17151f' : 'transparent', cutMark: s.cutlery ? '✓' : '', toggleCutlery: () => this.setState(x => ({ cutlery: !x.cutlery })),
+        address: s.address, onAddress: e => set({ address: e.target.value, err: '' }), note: s.note, onNote: e => set({ note: e.target.value }),
+        name: s.name, onName: e => set({ name: e.target.value, err: '' }), phone: s.phone, onPhone: e => set({ phone: e.target.value.replace(/[^\d ]/g, ''), err: '' }),
+        times: [0, 1, 2, 3].map(i => ({ short: i ? clock(slot0 + (i - 1) * 30) : 'ASAP', sub: i ? 'Scheduled' : '~' + z[1], bd: i === s.time ? '#17151f' : '#fff', select: () => set({ time: i }) })),
+        promoOn: !!s.promo, promoOff: !s.promo, promoIn: s.promoIn, promoCode: s.promo, promoErr: s.promoErr,
+        onPromo: e => set({ promoIn: e.target.value, promoErr: '' }),
+        applyPromo: () => { const c = s.promoIn.trim().toUpperCase(); if (!c) return; c === 'AWAN20' ? set({ promo: c, promoErr: '' }) : set({ promoErr: `${c} isn't a valid code. Try AWAN20.` }); },
+        removePromo: () => set({ promo: '', promoIn: '' }),
+        payName: pay[1], payLogo: pay[2] ? WM(pay[2]) : '', payHasLogo: !!pay[2], payNoLogo: !pay[2], paySub: pay[3],
+        sheet: s.sheet, openSheet: () => set({ sheet: true }), closeSheet: () => set({ sheet: false }),
+        payGroups: PAYS.map(g => ({ title: g.title, list: g.list.map(([id, name, logo, sub2]) => { const on = id === s.pay; return { name, sub: sub2, logo: logo ? WM(logo) : '', hasLogo: !!logo, noLogo: !logo, sheetBg: on ? '#f1eff4' : 'transparent', check: on ? '✓' : '', pick: () => set({ pay: id, sheet: false }) }; }) })),
+        subLabel: rp(sub), feeLabel: fee ? rp(fee) : 'Free', discountLabel: rp(off), totalLabel: rp(total), zoneName: z[0], zoneEta: z[1],
+        hasErr: !!s.err, err: s.err, pay: place, payCta: cod ? 'Place order' : 'Pay now',
+        orderNo: s.orderNo,
+        payNote: cod ? `Pay ${rp(total)} in cash when the rider arrives.` : va ? `Transfer ${rp(total)} to ${pay[1]} 8808 0812 ${s.orderNo.slice(3)} within 15 minutes. Cooking starts the moment it lands.` : `Paid ${rp(total)} with ${pay[1]}.`,
+        goCook: () => set({ co: 'cooking' }),
+        scene: this.chefScene(cur, br.color),
+        trackHead: ['', 'Chef Rani is cooking', 'Sealed hot. Selamat makan!', 'Budi is picking it up', 'Budi is on the way', 'Budi is at your door'][cur],
+        etaCaption: cur === 5 ? 'Arrived ' + eta : 'Arriving around ' + eta,
+        etaBig: cur === 5 ? 'Here' : Math.max(1, Math.round(mins * (1 - t / END))) + ' min',
+        segs: ['Cooking', 'Sealed', 'Picked up', 'On the way', 'Arrived'].map((l, i) => ({ label: l, bg: i + 1 <= cur ? '#8f1d0a' : '#e4e0ea', fg: i + 1 === cur ? '#17151f' : '#45414f' })),
+        showRider: cur >= 3 && cur < 5, atDoor: cur === 5, showSkip: (this.props.demoControls ?? true) && !window.__daExt && cur < 5, skip: () => set({ t: END }),
+        address2: s.address,
+        stars: [1, 2, 3, 4, 5].map(n => ({ fg: n <= s.rating ? '#f5b82e' : '#c9c4d2', set: () => set({ rating: n }) })),
+        tags: ['Still hot', 'Well packed', 'Quick rider', 'Spicy enough', 'Generous portions'].map(n => { const on = !!s.tags[n]; return { name: n, bg: on ? '#17151f' : 'transparent', fg: on ? '#fff' : '#17151f', toggle: () => this.setState(x => ({ tags: { ...x.tags, [n]: !x.tags[n] } })) }; }),
+        tips: [0, 5000, 10000, 20000].map(v => ({ label: v ? v / 1000 + 'K' : 'None', bg: v === s.tip ? '#17151f' : 'transparent', fg: v === s.tip ? '#fff' : '#17151f', select: () => set({ tip: v }) })),
+        doneLabel: s.tip ? `Send ${rp(s.tip)} tip and finish` : 'Finish',
+        done: () => this.setState({ ...CO0, bag: {}, bagOpen: false })
+      },
+      toastOn: !!s.toast, toast: s.toast
+    };
+  }
+}
+</script>
+
+
+</body></html>

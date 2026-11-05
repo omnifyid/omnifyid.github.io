@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+<head><title>Sanurhasta Mitra</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ext-resource-dependency" content="assets/web/hotel-01-beachfront-resort.jpg" data-resource-id="r-hotel-01-beachfront-resort">
+<meta name="ext-resource-dependency" content="assets/web/hotel-03-mountain-wellness-retreat.jpg" data-resource-id="r-hotel-03-mountain-wellness-retreat">
+<meta name="ext-resource-dependency" content="assets/web/hotel-05-oceanfront-pool.jpg" data-resource-id="r-hotel-05-oceanfront-pool">
+<meta name="ext-resource-dependency" content="assets/web/new-resort-property-01-island-destination.jpg" data-resource-id="r-new-resort-property-01-island-destination">
+<meta name="ext-resource-dependency" content="assets/web/villa-04-hillside-estate.jpg" data-resource-id="r-villa-04-hillside-estate">
+<meta name="ext-resource-dependency" content="assets/web/hotel-04-grand-arrival.jpg" data-resource-id="r-hotel-04-grand-arrival">
+<meta name="ext-resource-dependency" content="assets/web/performance-review-property-team-meeting.jpg" data-resource-id="r-performance-review-property-team-meeting">
+<meta name="ext-resource-dependency" content="assets/web/property-community-02-community-life.jpg" data-resource-id="r-property-community-02-community-life">
+<meta name="ext-resource-dependency" content="assets/web/new-resort-property-02-hillside-retreat.jpg" data-resource-id="r-new-resort-property-02-hillside-retreat">
+<meta name="ext-resource-dependency" content="assets/web/hotel-02-urban-landmark.jpg" data-resource-id="r-hotel-02-urban-landmark">
+<meta name="ext-resource-dependency" content="assets/web/villa-02-coastal-retreat.jpg" data-resource-id="r-villa-02-coastal-retreat">
+<meta name="ext-resource-dependency" content="assets/web/property-community-01-landscaped-neighborhood.jpg" data-resource-id="r-property-community-01-landscaped-neighborhood">
+<meta name="ext-resource-dependency" content="assets/web/villa-01-tropical-pool-residence.jpg" data-resource-id="r-villa-01-tropical-pool-residence">
+<meta name="ext-resource-dependency" content="assets/web/land-bank-01-coastal-development-parcel.jpg" data-resource-id="r-land-bank-01-coastal-development-parcel">
+<meta name="ext-resource-dependency" content="assets/web/beach-conservation-community-cleanup.jpg" data-resource-id="r-beach-conservation-community-cleanup">
+<meta name="ext-resource-dependency" content="assets/web/tentang-kami.jpg" data-resource-id="r-tentang-kami">
+<meta name="ext-resource-dependency" content="assets/web/bisnis-kami.jpg" data-resource-id="r-bisnis-kami">
+<meta name="ext-resource-dependency" content="assets/web/hubungan-investor.jpg" data-resource-id="r-hubungan-investor">
+<meta name="ext-resource-dependency" content="assets/web/tata-kelola-gcg.jpg" data-resource-id="r-tata-kelola-gcg">
+<meta name="ext-resource-dependency" content="assets/web/keberlanjutan.jpg" data-resource-id="r-keberlanjutan">
+<meta name="ext-resource-dependency" content="assets/web/berita-media.jpg" data-resource-id="r-berita-media">
+<meta name="ext-resource-dependency" content="assets/web/kontak.jpg" data-resource-id="r-kontak">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" data-bg-color="#F8F5EF"><rect width="100" height="100" fill="#F8F5EF"/><text x="50" y="66" text-anchor="middle" font-family="Georgia,serif" font-size="46" fill="#8A6A2A">S</text></svg></template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#FFFFFF;color:#141414;font-family:'Hanken Grotesk',system-ui,sans-serif;line-height:24px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+:focus-visible{outline:2px solid #5E4A1E;outline-offset:4px}
+#properti :focus-visible,[data-dark] :focus-visible{outline-color:#E6D3A3}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+a{color:#5E4A1E;text-decoration:none}
+a:hover{color:#141414}
+*{box-sizing:border-box}
+</style>
+<script src="./page-transition.js"></script>
+</helmet>
+<div ref="{{ rootRef }}" style="overflow-x:clip;position:relative">
+<a href="#tentang" style="position:fixed;left:16px;top:-80px;z-index:100;display:inline-flex;align-items:center;min-height:44px;padding:8px 20px;background:#141414;color:#FFFFFF;border-radius:999px;font-size:16px;line-height:24px;font-weight:500" style-focus="top:16px;color:#FFFFFF">{{ t.skip }}</a>
+
+<nav aria-label="Primary" ref="{{ navRef }}" onMouseLeave="{{ megaLeave }}" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));color:#141414;transition:transform .6s cubic-bezier(.2,.7,.2,1),background .4s,box-shadow .4s">
+  <a href="#top" style="display:flex;align-items:center;min-height:44px;flex:none"><img src="assets/logo-color.svg" alt="Sanurhasta home" style="height:32px;width:auto;display:block"></a>
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;align-items:center;gap:round(clamp(16px,1.875vw,32px),4px)">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+        <a href="{{ n.href }}" data-nav-i="{{ $index }}" onMouseEnter="{{ n.enter }}" onFocus="{{ n.enter }}" style="position:relative;color:inherit;font-size:16px;line-height:24px;font-weight:500;white-space:nowrap;padding:12px 0;transition:color .25s" style-hover="color:#5E4A1E">{{ n.label }}<span data-ul="" style="position:absolute;left:0;right:0;bottom:2px;height:1px;background:#8A6A2A;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)"></span></a>
+      </sc-for>
+      <div style="display:flex;align-items:center;gap:8px;padding-left:20px;border-left:1px solid rgba(20,20,20,.24);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.08em">
+        <button onClick="{{ setID }}" style="{{ idBtn }}"><svg viewBox="0 0 3 2" preserveAspectRatio="none" aria-hidden="true" style="width:24px;height:16px;flex:none;display:block;border-radius:3px;box-shadow:0 0 0 1px rgba(20,20,20,.15)"><rect width="3" height="1" fill="#CE1126"></rect><rect y="1" width="3" height="1" fill="#FFFFFF"></rect></svg>ID</button>
+        <span style="color:rgba(20,20,20,.35)">/</span>
+        <button onClick="{{ setEN }}" style="{{ enBtn }}"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="width:24px;height:16px;flex:none;display:block;border-radius:3px;box-shadow:0 0 0 1px rgba(20,20,20,.15)"><clipPath id="ukS"><path d="M0,0 v30 h60 v-30 z"></path></clipPath><clipPath id="ukT"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"></path></clipPath><g clip-path="url(#ukS)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"></path><path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFFFFF" stroke-width="6"></path><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukT)" stroke="#C8102E" stroke-width="4"></path><path d="M30,0 v30 M0,15 h60" stroke="#FFFFFF" stroke-width="10"></path><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"></path></g></svg>EN</button>
+      </div>
+    </div>
+    <div ref="{{ megaRef }}" onMouseEnter="{{ megaKeep }}" style="position:absolute;top:calc(100% - 12px);left:max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));right:max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));height:0;background:#FFFFFF;border-radius:24px;overflow:hidden;opacity:0;pointer-events:none;transform:translate3d(0,-10px,0);box-shadow:0 40px 80px -32px rgba(20,20,20,.28),0 0 0 1px rgba(20,20,20,.06);transition:height .5s cubic-bezier(.2,.8,.2,1),opacity .3s ease,transform .5s cubic-bezier(.2,.8,.2,1);will-change:height,opacity,transform;contain:layout paint">
+      <sc-for list="{{ megas }}" as="m" hint-placeholder-count="0">
+        <div data-panel="{{ $index }}" style="position:absolute;top:0;left:0;right:0;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:round(clamp(32px,4vw,64px),4px);padding:round(clamp(32px,3vw,48px),4px);opacity:0;pointer-events:none;transform:translate3d(0,8px,0);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)">
+          <div style="display:flex;flex-direction:column;gap:20px">
+                        <span style="font-weight:400;font-size:round(clamp(28px,3vw,48px),4px);line-height:calc(1em + 8px);letter-spacing:-.025em;color:#141414">{{ m.title }}</span>
+            <span style="font-size:16px;line-height:24px;color:#4A4A4A">{{ m.desc }}</span>
+            <div style="aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:#EFEAE0;margin-top:8px"><span style="{{ m.img }}"></span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));column-gap:40px;align-content:start">
+            <sc-for list="{{ m.links }}" as="l" hint-placeholder-count="0">
+              <div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(20,20,20,.12)">
+                <a href="{{ l.href }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;font-size:16px;line-height:24px;color:#141414;transition:color .2s,padding .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#5E4A1E;padding-left:8px">{{ l.t }}<span style="color:#8A6A2A;font-size:16px;line-height:24px"><span aria-hidden="true">→</span></span></a>
+                <sc-if value="{{ l.hasSub }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:2px;padding:0 0 16px 16px;border-left:1px solid rgba(168,132,58,.4);margin:0 0 4px 2px">
+                    <sc-for list="{{ l.sub }}" as="s" hint-placeholder-count="0">
+                      <a href="{{ s.href }}" style="display:flex;align-items:center;min-height:44px;font-size:16px;line-height:24px;color:#4A4A4A;padding:0;transition:color .2s" style-hover="color:#5E4A1E">{{ s.t }}</a>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+  <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;align-items:center;gap:12px">
+      <button onClick="{{ toggleLang }}" style="background:none;border:0;color:inherit;font:500 16px/24px 'Hanken Grotesk',sans-serif;letter-spacing:.06em;cursor:pointer;min-height:44px;min-width:44px">{{ lang }}</button>
+      <button onClick="{{ openMenu }}" style="background:none;border:1px solid #141414;color:#141414;border-radius:1000px;padding:12px 20px;font:500 16px/24px 'Hanken Grotesk',sans-serif;cursor:pointer">{{ t.menu }}</button>
+    </div>
+  </sc-if>
+</nav>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:60;background:#FFFFFF;display:flex;flex-direction:column;padding:24px 24px 40px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <img src="assets/logo-color.svg" alt="Sanurhasta" style="height:32px;width:auto">
+      <button onClick="{{ closeMenu }}" style="background:none;border:1px solid #141414;color:#141414;border-radius:1000px;padding:12px 20px;font:500 16px/24px 'Hanken Grotesk',sans-serif;cursor:pointer">{{ t.close }}</button>
+    </div>
+    <div style="display:flex;flex-direction:column;margin-top:48px">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+        <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="font-size:round(clamp(28px,3vw,48px),4px);line-height:calc(1em + 8px);font-weight:400;letter-spacing:-.03em;color:#141414;padding:12px 0;border-bottom:1px solid rgba(20,20,20,.12)">{{ n.label }}</a>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+
+<section id="top" data-sp="pin" data-screen-label="01 Hero" style="position:relative;height:220vh;background:#FFFFFF">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;--e:clamp(0, calc(var(--p,0) * 1.4), 1)">
+    <img src="assets/s-mark.svg" alt="" aria-hidden="true" style="position:absolute;right:clamp(-80px,-2vw,0px);top:-6vh;height:78vh;width:auto;opacity:.07;pointer-events:none;user-select:none;transform:translate3d(0,calc(var(--e) * -10vh),0) rotate(-6deg)">
+    <div style="position:absolute;left:0;right:0;top:round(clamp(80px,12vh,120px),4px);height:calc(52vh - round(clamp(80px,12vh,120px),4px));display:flex;flex-direction:column;justify-content:flex-end;gap:round(clamp(16px,2.4vh,24px),4px);padding:0 max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) 3vh;transform:translate3d(0,calc(var(--e) * -8vh),0);opacity:calc(1 - var(--e) * 1.6)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:stretch;gap:28px">
+        <div style="display:flex;flex-direction:column;gap:round(clamp(16px,2.4vh,24px),4px)">
+          <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>PT Sanurhasta Mitra Tbk</div>
+          <h1 style="margin:0;font-weight:400;font-size:round(min(clamp(40px,5vw,80px),9vh),4px);line-height:calc(1em + 4px);letter-spacing:-.035em;color:#141414">{{ t.h1a }}<br>{{ t.h1b }} <span style="color:#8A6A2A;font-weight:500">{{ t.h1c }}</span></h1>
+        </div>
+        <div style="display:flex;flex-direction:column;max-width:360px;padding-top:calc(16px + round(clamp(16px,2.4vh,24px),4px))">
+          <div style="display:{{ heroPDisplay }};flex:1;flex-direction:column;justify-content:space-between;gap:16px">
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="display:flex">
+              <sc-for list="{{ heroThumbs }}" as="t" hint-placeholder-count="5">
+                <button onClick="{{ t.go }}" aria-label="{{ t.name }}" style="{{ t.style }}"><span style="{{ t.imgStyle }}"></span></button>
+              </sc-for>
+            </div>
+            <span style="font-size:16px;line-height:24px;color:#4A4A4A">{{ slideName }}<br><span style="color:#5E4A1E">{{ slideLoc1 }}, {{ slideLoc2 }}</span></span>
+          </div>
+          <p style="margin:0;font-size:16px;line-height:24px;color:#3A3A3A;font-weight:400">{{ t.heroP }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;inset:0;clip-path:inset(calc((1 - var(--e)) * 52vh) calc((1 - var(--e)) * max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2))) calc((1 - var(--e)) * 4vh) calc((1 - var(--e)) * max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2))) round calc((1 - var(--e)) * 24px));background:linear-gradient(160deg,#6B604C,#3B362C);color:#E6D3A3" data-dark="">
+      <div style="position:absolute;left:0;right:0;bottom:0;top:calc((1 - var(--e)) * 52vh);transform:scale(calc(1.14 - var(--e) * .14))">
+        <sc-for list="{{ slides }}" as="sl" hint-placeholder-count="1">
+          <div style="{{ sl.style }}"><image-slot id="{{ sl.slot }}" src="{{ sl.src }}" shape="rect" placeholder="Resort photo — full-bleed"></image-slot></div>
+        </sc-for>
+      </div>
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(15,14,12,.3) 0%,rgba(15,14,12,0) 22%,rgba(15,14,12,.55) 50%,rgba(15,14,12,.9) 100%);opacity:var(--e)"></div>
+      <div style="position:absolute;left:max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));right:max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));bottom:round(clamp(32px,7vh,72px),4px);display:flex;flex-direction:column;gap:round(clamp(28px,5vh,56px),4px);color:#FFFFFF;pointer-events:none;opacity:clamp(0, calc(var(--p,0) * 3 - 1.7), 1);transform:translate3d(0,calc((1 - clamp(0, calc(var(--p,0) * 3 - 1.7), 1)) * 40px),0)">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px">
+          <div style="display:flex;flex-direction:column;gap:20px;max-width:820px">
+            <div style="font-size:16px;line-height:24px;letter-spacing:.2em;text-transform:uppercase;color:#E6D3A3;font-weight:600">{{ t.featE }}</div>
+            <h2 style="margin:0;font-weight:400;font-size:round(clamp(32px,3.75vw,56px),4px);line-height:calc(1em + 4px);letter-spacing:-.03em">{{ t.featA }} <span style="color:#E6D3A3;font-weight:500">{{ t.featB }}</span></h2>
+          </div>
+          <a href="#bisnis" style="pointer-events:auto;display:inline-flex;align-items:center;gap:12px;padding:16px 28px;background:#FFFFFF;color:#141414;border-radius:1000px;font-size:16px;line-height:24px;font-weight:500" style-hover="background:#E6D3A3;color:#141414">{{ t.explore }}<span aria-hidden="true" style="margin-left:8px">→</span></a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:round(clamp(24px,4vw,64px),4px);padding-top:28px;border-top:1px solid rgba(255,255,255,.22)">
+          <div style="display:flex;flex-direction:column;gap:16px;width:min(100%,300px)">
+            <div style="display:flex;align-items:center;gap:12px;min-height:36px">
+              <span style="display:flex;flex-direction:column;gap:8px"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF;font-weight:600">{{ t.nowFeat }}</span><span style="font-size:round(clamp(20px,1.875vw,24px),4px);line-height:calc(1em + 8px);font-weight:400;letter-spacing:-.01em">{{ slideName }}</span></span>
+              <span style="width:1px;height:24px;background:#E6D3A3"></span>
+              <span style="font-size:12px;line-height:16px;letter-spacing:.14em;text-transform:uppercase;color:#E6D3A3;font-weight:600">{{ slideLoc1 }}<br>{{ slideLoc2 }}</span>
+            </div>
+            <div style="position:relative;height:4px;background:rgba(255,255,255,.3);border-radius:1000px;overflow:hidden"><div style="{{ slideBar }}"></div></div>
+          </div>
+          <span style="font-size:round(clamp(28px,2.6vw,40px),4px);font-weight:400;line-height:calc(1em + 4px);font-variant-numeric:tabular-nums">{{ slideNum }}<span style="font-size:16px;line-height:24px;color:rgba(255,255,255,.88)"> / {{ slideTotal }}</span></span>
+          <div style="display:flex;gap:12px;pointer-events:auto">
+            <button onClick="{{ prevSlide }}" aria-label="{{ t.prev }}" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.8);background:transparent;color:#FFFFFF;font-size:20px;line-height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#E6D3A3;color:#141414">←</button>
+            <button onClick="{{ nextSlide }}" aria-label="{{ t.next }}" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.8);background:transparent;color:#FFFFFF;font-size:20px;line-height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#E6D3A3;color:#141414"><span aria-hidden="true">→</span></button>
+            <button onClick="{{ togglePause }}" aria-label="{{ pauseLabel }}" aria-pressed="{{ paused }}" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.8);background:transparent;color:#FFFFFF;font-size:20px;line-height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#E6D3A3;color:#141414"><span aria-hidden="true" style="font-size:12px;line-height:16px;letter-spacing:.04em">{{ pauseGlyph }}</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tentang" data-sp="slow" data-screen-label="02 About Us" style="position:relative;overflow:hidden;background:#FFFFFF;padding:round(clamp(96px,10vw,160px),4px) max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) 0">
+  <img src="assets/s-mark.svg" alt="" aria-hidden="true" style="position:absolute;left:-8vw;bottom:-18vh;height:80vh;width:auto;opacity:.06;pointer-events:none;user-select:none;transform:translate3d(0,calc((1 - var(--p,1)) * 12vh),0) rotate(8deg)">
+  <div style="position:relative;display:flex;flex-wrap:wrap;gap:round(clamp(40px,6.25vw,96px),4px)">
+    <div style="flex:0 1 200px;display:flex;align-items:center;gap:16px;align-self:flex-start;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>{{ t.about }}</div>
+    <div style="flex:1 1 600px;display:flex;flex-direction:column;gap:56px">
+      <p style="margin:0;font-weight:400;font-size:round(clamp(28px,3vw,48px),4px);line-height:calc(1em + 8px);letter-spacing:-.022em;display:flex;flex-wrap:wrap;column-gap:.25em">
+        <sc-for list="{{ words }}" as="w" hint-placeholder-count="20"><span style="{{ w.style }}">{{ w.t }}</span></sc-for>
+      </p>
+      <p style="margin:-32px 0 0;max-width:620px;font-size:round(clamp(16px,1.5625vw,20px),4px);line-height:calc(1em + 8px);color:#3A3A3A;text-wrap:pretty">{{ t.aboutP }}</p>
+      <div ref="{{ statsRef }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,192px),1fr));gap:0;border-top:1px solid rgba(20,20,20,.12)">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+          <div style="{{ s.style }}">
+            <span style="font-weight:300;font-size:round(clamp(48px,4.4vw,64px),4px);line-height:calc(1em + 4px);letter-spacing:-.04em;font-variant-numeric:tabular-nums">{{ s.v }}<span style="font-size:24px;line-height:32px;font-weight:400;color:#5E4A1E;letter-spacing:0">{{ s.u }}</span></span>
+            <span style="font-size:16px;line-height:24px;color:#4A4A4A">{{ s.l }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <a href="#" style="align-self:flex-start;font-size:16px;line-height:24px;font-weight:500;color:#141414;padding-bottom:8px;border-bottom:1px solid #8A6A2A" style-hover="color:#5E4A1E">{{ t.profile }}<span aria-hidden="true" style="margin-left:8px">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="bisnis" data-sp="pin" data-screen-label="03 Business Segments" style="position:relative;height:240vh;background:#FFFFFF">
+  <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:{{ portDir }};align-items:center;justify-content:center;gap:round(clamp(16px,3.125vw,32px),4px);padding:80px max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) 40px;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(138,106,42,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(138,106,42,.09) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 68% 50%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 68% 50%,#000 0%,transparent 75%)"></div>
+    <img src="assets/s-mark.svg" alt="" aria-hidden="true" style="position:absolute;right:-6vw;top:-12vh;height:64vh;width:auto;opacity:.05;pointer-events:none;user-select:none;transform:rotate(-10deg) translate3d(0,calc(var(--p,0) * 10vh),0)">
+    <div style="flex:0 1 440px;min-width:0;display:flex;flex-direction:column;gap:28px;z-index:2">
+      <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>{{ t.segE }}</div>
+      <h2 style="margin:0;font-weight:400;font-size:round(clamp(32px,3.75vw,56px),4px);line-height:calc(1em + 4px);letter-spacing:-.03em">{{ t.segA }} <span style="color:#8A6A2A;font-weight:500">{{ t.segB }}</span></h2>
+      <div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(20,20,20,.12)">
+        <sc-for list="{{ legend }}" as="l" hint-placeholder-count="3">
+          <div style="{{ l.style }}">
+            <span style="{{ l.sw }}"></span>
+            <div style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:400;font-size:round(clamp(20px,1.875vw,24px),4px);line-height:calc(1em + 8px);letter-spacing:-.01em">{{ l.t }}</span><span style="font-size:16px;color:#4A4A4A;line-height:24px">{{ l.d }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex:1 1 0;min-width:0;align-self:stretch;min-height:300px;display:flex;align-items:center;justify-content:center;perspective:2200px">
+      <div style="width:560px;height:560px;flex:none;transform:scale({{ sceneScale }})">
+        <div style="position:relative;width:560px;height:560px;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(calc(-52deg + var(--p,1) * 44deg));--n:{{ sceneN }}">
+          <div style="position:absolute;inset:-60px;background-color:#FBF9F5;background-image:linear-gradient(rgba(20,20,20,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(20,20,20,.05) 1px,transparent 1px);background-size:40px 40px;border:1px solid rgba(168,132,58,.25)"></div>
+          <sc-for list="{{ floors }}" as="f" hint-placeholder-count="0">
+            <div style="{{ f.style }}">
+              <div style="position:absolute;inset:0;background:var(--c1);transform:translateZ(var(--h));opacity:var(--a)"></div>
+              <div style="position:absolute;left:0;top:100%;width:100%;height:var(--h);transform-origin:top;transform:rotateX(90deg);background-color:var(--c2);background-image:var(--pa);opacity:var(--a)"></div>
+              <div style="position:absolute;left:0;top:0;width:100%;height:var(--h);transform-origin:top;transform:rotateX(90deg);background-color:var(--c3);background-image:var(--pa);opacity:var(--a)"></div>
+              <div style="position:absolute;left:100%;top:0;width:var(--h);height:100%;transform-origin:left;transform:rotateY(-90deg);background-color:var(--c3);background-image:var(--pb);opacity:var(--a)"></div>
+              <div style="position:absolute;left:0;top:0;width:var(--h);height:100%;transform-origin:left;transform:rotateY(-90deg);background-color:var(--c2);background-image:var(--pb);opacity:var(--a)"></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nilai" data-sp="slow" data-screen-label="04 Value & Awards" style="background:#F8F5EF;padding:round(clamp(96px,10vw,160px),4px) 0;overflow:hidden">
+  <div style="display:flex;flex-wrap:wrap;gap:round(clamp(40px,6.25vw,96px),4px);padding:0 max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2))">
+    <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:28px;opacity:clamp(0, calc(var(--p,1) * 2), 1);transform:translate3d(0,calc((1 - clamp(0, calc(var(--p,1) * 2), 1)) * 40px),0)">
+      <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>{{ t.valE }}</div>
+      <h2 style="margin:0;font-weight:400;font-size:round(clamp(32px,3.75vw,56px),4px);line-height:calc(1em + 4px);letter-spacing:-.03em">{{ t.valA }} <span style="color:#8A6A2A;font-weight:500">{{ t.valB }}</span></h2>
+    </div>
+    <div style="flex:1 1 420px;display:flex;flex-direction:column;justify-content:flex-end">
+      <sc-for list="{{ values }}" as="v" hint-placeholder-count="4">
+        <div style="{{ v.style }}">
+          <span style="flex:none;width:32px;height:32px;border-radius:50%;background:#5E4A1E;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:24px;font-weight:600" aria-hidden="true">✓</span>
+          <span style="font-size:round(clamp(16px,1.5625vw,20px),4px);line-height:calc(1em + 8px);color:#141414">{{ v.t }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:28px;margin-top:round(clamp(64px,6.25vw,96px),4px);opacity:clamp(0, calc(var(--p,1) * 2 - .5), 1)">
+    <div style="display:flex;align-items:center;gap:16px;padding:0 max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>{{ t.awards }}</div>
+    <div onMouseEnter="{{ mqPause }}" onMouseLeave="{{ mqPlay }}" onFocus="{{ mqPause }}" onBlur="{{ mqPlay }}" style="overflow:hidden">
+      <div ref="{{ mqRef }}" style="display:flex;gap:32px;width:max-content;padding:16px 0 16px max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));will-change:transform">
+        <sc-for list="{{ awardsLoop }}" as="w" hint-placeholder-count="6">
+          <a href="#" aria-label="{{ w.aria }}" style="width:320px;height:192px;flex:none;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0 72px;color:#141414;text-align:center;transition:transform .5s cubic-bezier(.2,.8,.2,1),color .3s" style-hover="transform:translateY(-4px);color:#5E4A1E">
+            <img src="{{ laurel }}" alt="" aria-hidden="true" style="position:absolute;left:0;top:16px;width:72px;height:160px;pointer-events:none">
+            <img src="{{ laurel }}" alt="" aria-hidden="true" style="position:absolute;right:0;top:16px;width:72px;height:160px;transform:scaleX(-1);pointer-events:none">
+            <span style="font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#5E4A1E">{{ t.winner }}</span>
+            <span style="font-size:16px;line-height:20px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;text-wrap:balance">{{ w.t }}</span>
+            <span style="font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#4A4A4A;text-wrap:balance">{{ w.by }}</span>
+            <span style="margin-top:4px;font-size:20px;line-height:24px;font-weight:500;font-variant-numeric:tabular-nums">{{ w.y }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="properti" ref="{{ propRef }}" data-sp="pin" data-hs="" data-hold="0.12" aria-label="{{ t.props }}" data-screen-label="04b Property Gallery" style="position:relative;height:{{ galH }};background:#1C1711">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 50% 55%,#2E2619 0%,#1C1711 75%)">
+    <div aria-hidden="true" style="position:absolute;left:0;bottom:-4vh;white-space:nowrap;font-weight:300;font-size:24vw;line-height:1;letter-spacing:-.05em;color:rgba(230,211,163,.05);pointer-events:none;transform:translate3d(calc(var(--p,0) * -60vw),0,0)">{{ t.dest }}</div>
+    <div data-track="" style="position:relative;height:100%;width:{{ galW }};will-change:transform">
+      <div style="{{ galIntro }}">
+        <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#E6D3A3;font-weight:600"><span style="width:32px;height:1px;background:#E6D3A3"></span>{{ t.props }}</div>
+        <h2 style="margin:0;font-weight:400;font-size:round(clamp(32px,3.75vw,56px),4px);line-height:calc(1em + 4px);letter-spacing:-.03em;color:#FFFFFF;text-wrap:pretty">{{ t.galA }} <span style="color:#D6BA7A;font-weight:500">{{ t.galB }}</span></h2>
+        <span style="display:flex;align-items:center;gap:12px;font-size:16px;line-height:24px;color:rgba(255,255,255,.9)">{{ t.scroll }} <span style="width:40px;height:1px;background:rgba(255,255,255,.5)"></span><span aria-hidden="true">→</span></span>
+      </div>
+      <sc-for list="{{ props }}" as="c" hint-placeholder-count="7">
+        <a href="{{ c.href }}" data-card="{{ c.idx }}" aria-label="{{ c.name }}" onMouseEnter="{{ c.enter }}" onMouseLeave="{{ c.leave }}" onFocus="{{ c.enter }}" onBlur="{{ c.leave }}" style="{{ c.wrap }}">
+          <div style="display:flex;justify-content:space-between;gap:12px;font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;color:#E6D3A3;font-weight:600"><span>{{ c.loc }}</span><span style="color:#E6D3A3">{{ c.num }}</span></div>
+          <div style="{{ c.inner }}">
+            <div style="position:absolute;inset:0 -10%;transform:translate3d(calc(var(--d,0) * -9%),0,0)"><image-slot id="{{ c.slot }}" src="{{ c.src }}" shape="rect" placeholder="{{ c.ph }}"></image-slot></div>
+            <div style="{{ c.veil }}"></div>
+            <div style="{{ c.label }}">
+              <span style="font-size:round(clamp(20px,1.875vw,24px),4px);line-height:calc(1em + 8px);font-weight:400;letter-spacing:-.01em;color:#FFFFFF;min-width:0">{{ c.name }}</span>
+              <span style="flex:none;width:40px;height:40px;border-radius:50%;background:#E6D3A3;color:#1C1711;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:24px"><span aria-hidden="true">→</span></span>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+      <a href="#" style="{{ galEnd }}" style-hover="background:#E6D3A3;color:#1C1711">{{ t.viewAll }}<span aria-hidden="true" style="margin-left:8px">→</span></a>
+    </div>
+    <div style="position:absolute;left:max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));right:max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2));bottom:round(clamp(24px,4vh,40px),4px);display:flex;align-items:center;gap:20px;color:#FFFFFF;pointer-events:none">
+      <span data-counter="" style="font-size:16px;line-height:24px;font-variant-numeric:tabular-nums;letter-spacing:.06em">01</span>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,.2);position:relative"><div style="position:absolute;left:0;top:-2px;height:4px;width:calc(var(--p,0) * 100%);background:#E6D3A3;border-radius:1000px"></div></div>
+      <span style="font-size:16px;line-height:24px;color:rgba(255,255,255,.88);letter-spacing:.06em">07</span>
+    </div>
+  </div>
+</section>
+
+<section id="investor" data-sp="slow" data-screen-label="05 Investor Relations" style="background:#F8F5EF;padding:round(clamp(96px,10vw,160px),4px) max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2))">
+  <div style="display:flex;flex-wrap:wrap;gap:round(clamp(40px,6.25vw,96px),4px)">
+    <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:32px;opacity:clamp(0, calc(var(--p,1) * 2), 1);transform:translate3d(0,calc((1 - clamp(0, calc(var(--p,1) * 2), 1)) * 50px),0)">
+      <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>{{ t.ir }}</div>
+      <h2 style="margin:0;font-weight:400;font-size:round(clamp(32px,3.75vw,56px),4px);line-height:calc(1em + 4px);letter-spacing:-.03em">{{ t.irA }} <span style="color:#8A6A2A;font-weight:500">{{ t.irB }}</span></h2>
+      <div style="background:#FFFFFF;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:20px;box-shadow:0 32px 64px -32px rgba(60,48,20,.2)">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12px;line-height:16px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#4A4A4A"><span style="white-space:nowrap">MINA · <abbr title="{{ t.idxT }}" style="text-decoration:none">{{ t.idx }}</abbr></span><span style="white-space:nowrap">{{ t.priceDate }} <abbr title="{{ t.wibT }}" style="text-decoration:none">WIB</abbr></span></div>
+        <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap">
+          <span style="font-size:round(clamp(40px,3.75vw,56px),4px);font-weight:300;line-height:calc(1em + 4px);letter-spacing:-.04em">{{ t.price }}</span>
+          <span style="font-size:16px;line-height:24px;font-weight:600;color:#22604A"><span aria-hidden="true">▲</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">{{ t.up }} </span> {{ t.chg }}</span>
+        </div>
+        <svg role="img" aria-label="{{ t.chartAria }}" viewBox="0 0 400 80" preserveAspectRatio="none" style="width:100%;height:80px;display:block"><polyline points="0,62 30,58 60,64 90,50 120,54 150,40 180,44 210,36 240,42 270,28 300,32 330,22 360,26 400,14" fill="none" stroke="#8A6A2A" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <div style="display:flex;gap:28px;flex-wrap:wrap;font-size:16px;line-height:24px;color:#4A4A4A"><span>{{ t.mcap }} <strong style="color:#141414;font-weight:500">{{ t.mcapV }}</strong></span><span>Volume <strong style="color:#141414;font-weight:500">{{ t.volV }}</strong></span></div>
+      </div>
+    </div>
+    <div style="flex:1 1 380px;display:flex;flex-direction:column;justify-content:flex-end;gap:32px">
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ reports }}" as="r" hint-placeholder-count="4">
+          <a href="#" style="{{ r.style }}" style-hover="color:#5E4A1E;padding-left:12px">
+            <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:12px;line-height:16px;color:#4A4A4A;letter-spacing:.06em">{{ r.type }}</span><span style="font-size:round(clamp(20px,1.875vw,24px),4px);line-height:calc(1em + 8px);font-weight:400;letter-spacing:-.01em">{{ r.title }}</span></div>
+            <span style="flex:none;width:44px;height:44px;border:1px solid #8A6A2A;border-radius:50%;display:flex;align-items:center;justify-content:center"><span aria-hidden="true">↓</span></span>
+          </a>
+        </sc-for>
+      </div>
+      <a href="#" style="align-self:flex-start;display:inline-flex;padding:16px 28px;background:#141414;color:#FFFFFF;border-radius:1000px;font-size:16px;line-height:24px;font-weight:500" style-hover="background:#5E4A1E;color:#FFFFFF">{{ t.irCenter }}<span aria-hidden="true" style="margin-left:8px">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="gcg" data-screen-label="06 Governance & Sustainability" style="background:#FFFFFF;padding:round(clamp(96px,10vw,160px),4px) max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2))">
+  <div style="display:flex;flex-wrap:wrap;gap:24px">
+    <div data-sp="slow" style="flex:1 1 380px;display:flex;flex-direction:column;justify-content:space-between;gap:48px;min-height:580px;padding:round(clamp(24px,4vw,56px),4px);border-radius:24px;border:1px solid rgba(20,20,20,.12);opacity:clamp(0, calc(var(--p,1) * 2), 1);transform:translate3d(0,calc((1 - clamp(0, calc(var(--p,1) * 2), 1)) * 60px),0)">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>{{ t.gcgE }}</div>
+        <h2 style="margin:0;font-weight:400;font-size:round(clamp(28px,3vw,48px),4px);line-height:calc(1em + 8px);letter-spacing:-.03em">{{ t.gcgH }}</h2>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ gcg }}" as="g" hint-placeholder-count="5">
+          <a href="#" style="display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid rgba(20,20,20,.12);color:#141414;font-size:16px;line-height:24px" style-hover="color:#5E4A1E">{{ g }}<span><span aria-hidden="true">→</span></span></a>
+        </sc-for>
+      </div>
+    </div>
+    <div data-sp="slow" data-dark="" style="flex:1.3 1 420px;position:relative;border-radius:24px;overflow:hidden;min-height:580px;background:linear-gradient(160deg,#5E6B52,#36402F);color:#D8E3C8;opacity:clamp(0, calc(var(--p,1) * 2), 1);transform:translate3d(0,calc((1 - clamp(0, calc(var(--p,1) * 2 - .2), 1)) * 100px),0)">
+      <image-slot id="e-sustain" src="{{ sustainSrc }}" shape="rect" placeholder="Photo — green landscape / sustainable development"></image-slot>
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(15,14,12,0) 25%,rgba(15,14,12,.6) 55%,rgba(15,14,12,.9) 100%)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:round(clamp(24px,4vw,56px),4px);display:flex;flex-direction:column;gap:20px;color:#FFFFFF;pointer-events:none">
+        <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;font-weight:600"><span style="width:32px;height:1px;background:#E6D3A3"></span>{{ t.sus }}</div>
+        <h2 style="margin:0;font-weight:400;font-size:round(clamp(28px,3vw,48px),4px);line-height:calc(1em + 8px);letter-spacing:-.03em;max-width:560px">{{ t.susH }}</h2>
+        <a href="#" style="pointer-events:auto;align-self:flex-start;color:#FFFFFF;font-size:16px;line-height:24px;font-weight:500;padding-bottom:4px;border-bottom:1px solid #E6D3A3" style-hover="color:#E6D3A3">{{ t.susR }}<span aria-hidden="true" style="margin-left:8px">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="berita" data-screen-label="07 News & Media" style="background:#FFFFFF;padding:0 max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) round(clamp(96px,10vw,160px),4px)">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:56px;padding-top:round(clamp(64px,6.25vw,96px),4px);border-top:1px solid rgba(20,20,20,.12)">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>{{ t.news }}</div>
+      <h2 style="margin:0;font-weight:400;font-size:round(clamp(32px,3.75vw,56px),4px);line-height:calc(1em + 4px);letter-spacing:-.03em">{{ t.newsH }}</h2>
+    </div>
+    <a href="#" style="color:#141414;font-size:16px;line-height:24px;font-weight:500;padding-bottom:8px;border-bottom:1px solid #8A6A2A" style-hover="color:#5E4A1E">{{ t.newsAll }}<span aria-hidden="true" style="margin-left:8px">→</span></a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:32px">
+    <sc-for list="{{ news }}" as="n" hint-placeholder-count="3">
+      <a href="#" data-sp="slow" style="{{ n.style }}" style-hover="color:#5E4A1E">
+        <div style="display:flex;align-items:center;gap:16px;height:20px"><span style="{{ n.dotStyle }}"></span><span style="{{ n.lineStyle }}"></span></div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px">
+          <div style="display:flex;align-items:baseline;gap:12px">
+            <span style="font-weight:300;font-size:round(clamp(40px,3.75vw,56px),4px);line-height:calc(1em + 4px);letter-spacing:-.04em;color:#141414;font-variant-numeric:tabular-nums">{{ n.day }}</span>
+            <span style="font-size:16px;line-height:24px;letter-spacing:.14em;text-transform:uppercase;color:#4A4A4A;font-weight:500">{{ n.my }}</span>
+          </div>
+          <sc-if value="{{ n.latest }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF;background:#5E4A1E;padding:4px 12px;border-radius:1000px;font-weight:600">{{ t.latest }}</span></sc-if>
+        </div>
+        <div style="position:relative;aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#EFEAE0;color:#5E4A1E"><image-slot id="{{ n.slot }}" src="{{ n.src }}" shape="rect" placeholder="News photo"></image-slot></div>
+        <div style="font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:#5E4A1E;font-weight:600">{{ n.cat }}</div>
+        <h3 style="margin:0;font-weight:400;font-size:round(clamp(20px,1.875vw,24px),4px);line-height:calc(1em + 8px);letter-spacing:-.01em;text-wrap:pretty">{{ n.title }}</h3>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<footer id="kontak" data-sp="through" data-screen-label="08 Contact" style="position:relative;background:#F8F5EF;overflow:hidden;padding:round(clamp(96px,10vw,160px),4px) max(round(clamp(24px,5vw,96px),4px),calc((100% - 1728px) / 2)) 40px">
+  <div style="display:flex;align-items:center;gap:16px;font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:#5E4A1E;font-weight:600"><span style="width:32px;height:1px;background:#8A6A2A"></span>{{ t.contact }}</div>
+  <h2 style="margin:28px 0 0;font-weight:400;font-size:round(clamp(40px,5vw,80px),4px);line-height:calc(1em + 4px);letter-spacing:-.04em;margin-left:-.06em;opacity:clamp(0, calc(var(--p,1) * 2 - .2), 1)">{{ t.ctA }}<br><span style="color:#8A6A2A;font-weight:500">{{ t.ctB }}</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px;margin-top:80px;padding-top:40px;border-top:1px solid rgba(20,20,20,.12)">
+    <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:#5E4A1E;font-weight:600">{{ t.hq }}</span><span style="font-size:16px;line-height:24px;color:#2A2A2A">Sanurhasta Tower, {{ t.floor }}<br>Jl. Jend. Sudirman Kav. 00<br>Jakarta 12190, Indonesia</span></div>
+    <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:#5E4A1E;font-weight:600">{{ t.touch }}</span><a href="#" style="display:flex;align-items:center;min-height:44px;margin:-10px 0;font-size:16px;line-height:24px;color:#2A2A2A">+62 21 0000 0000</a><a href="#" style="display:flex;align-items:center;min-height:44px;margin:-10px 0;font-size:16px;line-height:24px;color:#2A2A2A">corsec@sanurhasta.co.id</a></div>
+    <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:#5E4A1E;font-weight:600">{{ t.investors }}</span><a href="#" style="display:flex;align-items:center;min-height:44px;margin:-10px 0;font-size:16px;line-height:24px;color:#2A2A2A">ir@sanurhasta.co.id</a></div>
+    <div><a href="#" style="display:inline-flex;padding:16px 28px;background:#141414;color:#FFFFFF;border-radius:1000px;font-size:16px;line-height:24px;font-weight:500" style-hover="background:#5E4A1E;color:#FFFFFF">{{ t.send }}<span aria-hidden="true" style="margin-left:8px">→</span></a></div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:96px;font-size:16px;line-height:24px;color:#4A4A4A">
+    <img src="assets/logo-color.svg" alt="Sanurhasta" style="height:32px;width:auto">
+    <span>© 2026 PT Sanurhasta Mitra Tbk. {{ t.rights }}</span>
+    <div style="display:flex;gap:24px"><a href="#" style="display:flex;align-items:center;min-height:44px;color:inherit">{{ t.privacy }}</a><a href="#" style="display:flex;align-items:center;min-height:44px;color:inherit">Whistleblowing</a></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;smoothing&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.1,&quot;min&quot;:0.04,&quot;max&quot;:0.4,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;monoOffCenter&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Property Gallery&quot;}}">
+class Component extends DCLogic {
+  state = { lang: (() => { try { return localStorage.getItem('sh-lang') || 'EN'; } catch (e) { return 'EN'; } })(), narrow: window.innerWidth < 1440, paused: !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches), vw: window.innerWidth, menuOpen: false, hov: null };
+  rootRef = React.createRef();
+  propRef = React.createRef();
+  m = { x: 0, y: 0, tx: 0, ty: 0 };
+  navRef = React.createRef();
+  mqRef = React.createRef();
+  mqX = 0;
+
+  statsRef = React.createRef();
+  countT = -1;
+  runCount() {
+    const dur = 2000, t0 = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - t0) / dur);
+      this.countT = t;
+      this.forceUpdate();
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  countVal(str, i) {
+    const t = this.countT;
+    if (t < 0) return str.replace(/\d/g, '0');
+    if (t >= 1) return str;
+    const target = parseInt(str.replace(/[.,]/g, ''), 10);
+    const lt = Math.max(0, Math.min(1, (t - i * 0.08) / (1 - i * 0.08)));
+    const e = 1 - Math.pow(1 - lt, 3);
+    const n = Math.round(target * e);
+    let s = String(n).padStart(String(target).length, '0');
+    const settled = Math.floor(e * s.length * 1.1);
+    s = s.split('').map((c, k) => k < settled ? c : String(Math.floor(Math.random() * 10))).join('');
+    return /[.,]/.test(str) ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s;
+  }
+  slideData = [
+    ['Hasta Beach', 'Sanur', 'Bali', ((window.__resources||{})['r-hotel-01-beachfront-resort']||'assets/web/hotel-01-beachfront-resort.jpg'), 'e-hero'],
+    ['Hasta Retreat', 'Ubud', 'Bali', ((window.__resources||{})['r-hotel-03-mountain-wellness-retreat']||'assets/web/hotel-03-mountain-wellness-retreat.jpg'), 'e-hero-2'],
+    ['Hasta Ocean', 'Nusa Dua', 'Bali', ((window.__resources||{})['r-hotel-05-oceanfront-pool']||'assets/web/hotel-05-oceanfront-pool.jpg'), 'e-hero-3'],
+    ['Hasta Island', 'Lombok', 'NTB', ((window.__resources||{})['r-new-resort-property-01-island-destination']||'assets/web/new-resort-property-01-island-destination.jpg'), 'e-hero-4'],
+    ['Hasta Villas', 'Uluwatu', 'Bali', ((window.__resources||{})['r-villa-04-hillside-estate']||'assets/web/villa-04-hillside-estate.jpg'), 'e-hero-5']
+  ];
+  startAuto() {
+    clearInterval(this.slideTimer);
+    if (this.state.paused) return;
+    this.slideTimer = setInterval(() => this.setState(s => ({ slide: ((s.slide || 0) + 1) % this.slideData.length })), 5500);
+  }
+  goSlide(d) {
+    const N = this.slideData.length;
+    this.setState(s => ({ slide: ((s.slide || 0) + d + N) % N }));
+    this.startAuto();
+  }
+  megaRef = React.createRef();
+  megaData = (() => {
+    const U = f => (window.__resources||{})['r-'+f.replace(/[^a-z0-9]+/gi,'-').toLowerCase().replace(/^-|-$/g,'')] || `assets/web/${f.replace(/[^a-z0-9]+/gi,'-').toLowerCase().replace(/^-|-$/g,'')}.jpg`;
+    const D = [
+      ['About Us', 'Our profile, structure, and leadership', 'Tentang Kami', ['Company Profile', 'Vision & Mission', 'Milestones', 'Organizational Structure', 'Shareholders', 'Ownership Structure & Group Companies', 'Board of Commissioners', 'Board of Directors', 'Corporate Secretary', 'Awards & Achievements']],
+      ['Our Business', 'Our core business lines', 'Bisnis Kami', ['Hospitality', 'Property Development', 'Land Banking']],
+      ['Investor Relations', 'Investor data and capital market disclosures', 'Hubungan Investor', ['Financial Highlights', 'Annual Reports', 'Financial Statements', 'Public Offering Prospectus', 'Share Information', 'Dividend Information', ['General Meeting of Shareholders (GMS)', ['Announcements & Notices', 'Agenda Materials', 'GMS Rules of Conduct', 'Power of Attorney', 'Summary of GMS Minutes']], 'Corporate Actions / Disclosures', 'Investor Calendar', 'Investor Relations Contact']],
+      ['Corporate Governance', 'Governance policies and compliance', 'Tata Kelola (GCG)', ['Board Manual', 'Board of Commissioners Charter', 'Board of Directors Charter', 'Internal Audit Charter', 'Code of Conduct', ['Committees', ['Audit Committee', 'Nomination & Remuneration Committee', 'Committee Charters']], 'Risk Management Policy', 'Whistleblowing System', 'Anti-Corruption Policy', 'Capital Market Supporting Professionals', 'Articles of Association']],
+      ['Sustainability', 'ESG and sustainability reporting', 'Keberlanjutan', ['Sustainability Reports', 'ESG Policy', 'Environmental Programs', 'Social & Employment Programs']],
+      ['News & Media', 'Publications and latest updates', 'Berita & Media', ['Press Releases', 'Announcements & Publications']],
+      ['Contact', 'Official communication channels', 'Kontak', ['Head Office', 'Location Map', 'Investor Inquiry Form']]
+    ];
+    const DI = [
+      ['Tentang Kami', 'Profil, struktur, dan kepemimpinan kami', 'Tentang Kami', ['Profil Perusahaan', 'Visi & Misi', 'Jejak Langkah', 'Struktur Organisasi', 'Pemegang Saham', 'Struktur Kepemilikan & Grup Perusahaan', 'Dewan Komisaris', 'Direksi', 'Sekretaris Perusahaan', 'Penghargaan & Prestasi']],
+      ['Bisnis Kami', 'Lini bisnis utama kami', 'Bisnis Kami', ['Perhotelan', 'Pengembangan Properti', 'Bank Tanah']],
+      ['Hubungan Investor', 'Data investor dan keterbukaan informasi pasar modal', 'Hubungan Investor', ['Ikhtisar Keuangan', 'Laporan Tahunan', 'Laporan Keuangan', 'Prospektus Penawaran Umum', 'Informasi Saham', 'Informasi Dividen', ['Rapat Umum Pemegang Saham (RUPS)', ['Pengumuman & Pemanggilan', 'Materi Mata Acara', 'Tata Tertib RUPS', 'Surat Kuasa', 'Ringkasan Risalah RUPS']], 'Aksi Korporasi / Keterbukaan Informasi', 'Kalender Investor', 'Kontak Hubungan Investor']],
+      ['Tata Kelola Perusahaan', 'Kebijakan tata kelola dan kepatuhan', 'Tata Kelola (GCG)', ['Pedoman Dewan (Board Manual)', 'Piagam Dewan Komisaris', 'Piagam Direksi', 'Piagam Audit Internal', 'Kode Etik', ['Komite', ['Komite Audit', 'Komite Nominasi & Remunerasi', 'Piagam Komite']], 'Kebijakan Manajemen Risiko', 'Sistem Pelaporan Pelanggaran', 'Kebijakan Antikorupsi', 'Profesi Penunjang Pasar Modal', 'Anggaran Dasar']],
+      ['Keberlanjutan', 'Laporan keberlanjutan dan LST', 'Keberlanjutan', ['Laporan Keberlanjutan', 'Kebijakan LST', 'Program Lingkungan', 'Program Sosial & Ketenagakerjaan']],
+      ['Berita & Media', 'Publikasi dan informasi terbaru', 'Berita & Media', ['Siaran Pers', 'Pengumuman & Publikasi']],
+      ['Kontak', 'Saluran komunikasi resmi', 'Kontak', ['Kantor Pusat', 'Peta Lokasi', 'Formulir Pertanyaan Investor']]
+    ];
+    const SL = [['profil-perusahaan','visi-misi','milestone','struktur-organisasi','pemegang-saham','struktur-perusahaan','dewan-komisaris','direksi','sekretaris-perusahaan','penghargaan'],['perhotelan','pengembangan-properti','perbankan-tanah'],['ikhtisar-keuangan','laporan-tahunan','laporan-keuangan','prospektus','informasi-saham','informasi-dividen','rups','rups-pengumuman','rups-materi','rups-tata-tertib','rups-surat-kuasa','rups-risalah','keterbukaan-informasi','kalender-investor','kontak-ir'],['board-manual','piagam-dekom','piagam-direksi','piagam-audit','kode-etik','komite','komite-audit','komite-nomrem','piagam-komite','manajemen-risiko','wbs','antikorupsi','profesi-penunjang','anggaran-dasar'],['laporan-keberlanjutan','kebijakan-lst','program-lingkungan','program-sosial'],['siaran-pers','pengumuman'],['kantor-pusat','peta-lokasi','formulir-investor']];
+    const build = X => X.map((d, i) => ({
+      num: String(i + 1).padStart(2, '0'), title: d[0], desc: d[1],
+      img: { display: 'block', width: '100%', height: '100%', backgroundImage: `url("${U(d[2])}")`, backgroundSize: 'cover', backgroundPosition: 'center' },
+      links: (() => { const S = SL[i]; let k = 0; const H = () => 'subpages.html#/' + S[k++]; return d[3].map(l => Array.isArray(l) ? { t: l[0], href: H(), hasSub: true, sub: l[1].map(s => ({ t: s, href: H() })) } : { t: l, href: H(), hasSub: false, sub: [] }); })()
+    }));
+    return { EN: build(D), ID: build(DI) };
+  })();
+  openMega(i) {
+    clearTimeout(this.megaT);
+    const box = this.megaRef.current, nav = this.navRef.current;
+    if (!box) return;
+    const panels = box.querySelectorAll('[data-panel]');
+    panels.forEach(p => {
+      const on = +p.dataset.panel === i;
+      p.style.opacity = on ? '1' : '0';
+      p.style.transform = on ? 'translate3d(0,0,0)' : 'translate3d(0,8px,0)';
+      p.style.pointerEvents = on ? 'auto' : 'none';
+      p.style.transitionDelay = on && this.megaOpen ? '.08s' : '0s';
+    });
+    if (panels[i]) box.style.height = panels[i].offsetHeight + 'px';
+    box.style.opacity = '1';
+    box.style.transform = 'translate3d(0,0,0)';
+    box.style.pointerEvents = 'auto';
+    if (nav) nav.querySelectorAll('[data-nav-i]').forEach(a => {
+      const on = +a.dataset.navI === i;
+      a.style.color = on ? '#5E4A1E' : '';
+      const u = a.querySelector('[data-ul]'); if (u) u.style.transform = on ? 'scaleX(1)' : 'scaleX(0)';
+    });
+    this.megaOpen = true;
+  }
+  closeMega() {
+    clearTimeout(this.megaT);
+    const box = this.megaRef.current, nav = this.navRef.current;
+    if (!box || !this.megaOpen) return;
+    box.style.opacity = '0';
+    box.style.transform = 'translate3d(0,-10px,0)';
+    box.style.pointerEvents = 'none';
+    box.querySelectorAll('[data-panel]').forEach(p => { p.style.pointerEvents = 'none'; });
+    if (nav) nav.querySelectorAll('[data-nav-i]').forEach(a => {
+      a.style.color = '';
+      const u = a.querySelector('[data-ul]'); if (u) u.style.transform = 'scaleX(0)';
+    });
+    this.megaOpen = false;
+  }
+  componentDidMount() {
+    this.rm = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    document.documentElement.lang = this.state.lang.toLowerCase();
+    this.onScrollClose = () => { if (this.megaOpen && Math.abs(window.scrollY - (this.megaY ?? window.scrollY)) > 60) this.closeMega(); };
+    window.addEventListener('scroll', this.onScrollClose, { passive: true });
+    this.onKeyClose = e => { if (e.key === 'Escape') this.closeMega(); };
+    window.addEventListener('keydown', this.onKeyClose);
+    this.startAuto();
+    const se = this.statsRef.current;
+    if (se && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((ents) => {
+        if (ents.some(x => x.isIntersecting)) { io.disconnect(); this.runCount(); }
+      }, { threshold: 0.4 });
+      io.observe(se);
+    } else this.countT = 1;
+    this.vals = new WeakMap();
+    this.lastY = window.scrollY;
+    this.navHidden = false;
+    this.onResize = () => this.setState({ narrow: window.innerWidth < 1440, vw: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    this.onMove = e => { this.cx = e.clientX; this.cy = e.clientY; this.m.tx = (e.clientX / window.innerWidth) * 2 - 1; this.m.ty = (e.clientY / window.innerHeight) * 2 - 1; };
+    window.addEventListener('mousemove', this.onMove);
+    const loop = () => { this.tick(); this.raf = requestAnimationFrame(loop); };
+    loop();
+  }
+  componentDidUpdate() { const ps = this._prev || { lang: this.state.lang, paused: this.state.paused }; this._prev = { lang: this.state.lang, paused: this.state.paused }; if (ps.lang !== this.state.lang) document.documentElement.lang = this.state.lang.toLowerCase(); if (ps.paused !== this.state.paused) { if (this.state.paused) clearInterval(this.slideTimer); else this.startAuto(); } }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScrollClose); window.removeEventListener('keydown', this.onKeyClose); clearTimeout(this.megaT); clearInterval(this.slideTimer); cancelAnimationFrame(this.raf); window.removeEventListener('resize', this.onResize); window.removeEventListener('mousemove', this.onMove); }
+
+  tick() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    const mq = this.mqRef.current;
+    if (mq) {
+      const now = performance.now(), dt = Math.min(50, now - (this.mqT || now));
+      this.mqT = now;
+      if (!this.mqHold && !this.state.paused) this.mqX += dt * 0.04;
+      const k = mq.children.length / 2, half = k >= 1 ? mq.children[k].offsetLeft - mq.children[0].offsetLeft : 0;
+      if (half > 0) mq.style.transform = `translate3d(${-(this.mqX % half)}px,0,0)`;
+    }
+    const vh = window.innerHeight;
+    const k = this.state.paused && this.rm ? 1 : (this.props.smoothing ?? 0.1);
+    const c = x => (!(x > 0) ? 0 : x > 1 ? 1 : x);
+    root.querySelectorAll('[data-sp]').forEach(el => {
+      const r = el.getBoundingClientRect();
+      const m = el.dataset.sp;
+      let t;
+      if (m === 'pin') t = c(-r.top / Math.max(1, r.height - vh));
+      else if (m === 'slow') t = c((vh - r.top) / (vh * 0.8));
+      else t = c((vh - r.top) / (vh + r.height));
+      let p = this.vals.get(el);
+      if (p === undefined) p = t;
+      p += (t - p) * k;
+      if (Math.abs(t - p) < 0.0003) p = t;
+      this.vals.set(el, p);
+      const hold = +(el.dataset.hold || 0);
+      const q = hold ? c((p - hold) / (1 - 2 * hold)) : p;
+      el.style.setProperty('--p', q.toFixed(4));
+      if (el.dataset.hs !== undefined) {
+        const tr = el.querySelector('[data-track]');
+        if (tr) tr.style.transform = `translate3d(${(-q * (tr.scrollWidth - tr.parentElement.clientWidth)).toFixed(1)}px,0,0)`;
+      }
+    });
+    const ps = this.propRef.current;
+    if (ps) {
+      const sr = ps.getBoundingClientRect();
+      if (sr.top < vh && sr.bottom > 0) {
+        const tr = ps.querySelector('[data-track]');
+        const m = tr && /translate3d\((-?[\d.]+)px/.exec(tr.style.transform);
+        const tx = m ? +m[1] : 0, vw = window.innerWidth, mono = this.props.monoOffCenter ?? true;
+        let near = 0, nd = Infinity;
+        ps.querySelectorAll('[data-card]').forEach(el => {
+          const d = (el.offsetLeft + el.offsetWidth / 2 + tx - vw / 2) / vw;
+          const ad = Math.min(1, Math.abs(d) * 1.4);
+          el.style.setProperty('--d', d.toFixed(3));
+          el.style.setProperty('--ad', (mono ? ad : 0).toFixed(3));
+          if (Math.abs(d) < nd) { nd = Math.abs(d); near = +el.dataset.card; }
+        });
+        const cn = ps.querySelector('[data-counter]');
+        if (cn) cn.textContent = String(near + 1).padStart(2, '0');
+      }
+    }
+    const nav = this.navRef.current;
+    if (nav) {
+      const y = window.scrollY;
+      if (y > this.lastY + 3 && y > 240) this.navHidden = true;
+      else if (y < this.lastY - 3 || y < 240) this.navHidden = false;
+      this.lastY = y;
+      nav.style.transform = this.navHidden ? 'translateY(-110%)' : 'translateY(0)';
+      const s = y > 40;
+      nav.style.background = s ? 'rgba(255,255,255,.9)' : 'transparent';
+      nav.style.backdropFilter = s ? 'blur(14px)' : 'none';
+      nav.style.boxShadow = s ? '0 1px 0 rgba(20,20,20,.08)' : 'none';
+    }
+  }
+
+  buildScene() {
+    const F = [];
+    let o = 0;
+    const T = {
+      grass: { c1: '#B7CFA0', c2: '#8FAE7A', c3: '#7C9B68' },
+      tree: { c1: '#6F9460', c2: '#56794A', c3: '#4A6A40' },
+      villa: { c1: '#FFFFFF', c2: '#E9E3D8', c3: '#D5CCBD' },
+      roof: { c1: '#3B362E', c2: '#E9E3D8', c3: '#D5CCBD' },
+      pool: { c1: '#A9D2E0', c2: '#D5CCBD', c3: '#C7BEAE' },
+      hotel: { c1: '#EFE4C8', c2: '#CDB27A', c3: '#AB8F55' },
+      hotel2: { c1: '#F5EEDC', c2: '#DCC79A', c3: '#BBA06A' }
+    };
+    const pa = 'repeating-linear-gradient(90deg, rgba(255,255,255,0) 0 8px, rgba(255,255,255,.38) 8px 9px)';
+    const pb = 'repeating-linear-gradient(180deg, rgba(255,255,255,0) 0 8px, rgba(255,255,255,.38) 8px 9px)';
+    const glass = 'repeating-linear-gradient(90deg, rgba(60,70,80,.0) 0 6px, rgba(60,70,80,.22) 6px 14px)';
+    const glassB = 'repeating-linear-gradient(180deg, rgba(60,70,80,.0) 0 6px, rgba(60,70,80,.22) 6px 14px)';
+    const add = (x, y, w, d, z, h, kind, step = 1) => {
+      const t = T[kind];
+      const win = kind.startsWith('hotel');
+      const vil = kind === 'villa';
+      F.push({ style: {
+        position: 'absolute', left: x + 'px', top: y + 'px', width: w + 'px', height: d + 'px', transformStyle: 'preserve-3d',
+        '--o': o, '--h': h + 'px', '--c1': t.c1, '--c2': t.c2, '--c3': t.c3,
+        '--pa': win ? pa : vil ? glass : 'none', '--pb': win ? pb : vil ? glassB : 'none',
+        '--a': 'clamp(0, calc((var(--p,1) * .85 + .15) * var(--n) - var(--o)), 1)',
+        transform: `translateZ(calc(${z}px + (1 - var(--a)) * 160px))`
+      } });
+      o += step;
+    };
+    add(20, 300, 220, 230, 0, 6, 'grass');
+    add(20, 40, 150, 230, 0, 6, 'grass');
+    [[50, 330], [100, 360], [170, 330], [60, 430], [140, 450], [200, 480], [50, 90], [110, 150], [60, 210], [130, 70]].forEach(p => add(p[0], p[1], 14, 14, 6, 20, 'tree', 0.4));
+    this.mark1 = Math.ceil(o);
+    [[270, 400], [350, 400], [430, 400], [270, 470], [350, 470], [430, 470]].forEach(p => {
+      add(p[0] + 34, p[1] + 6, 26, 40, 0, 2, 'pool', 0.3);
+      add(p[0], p[1], 34, 52, 0, 14, 'villa', 0.5);
+      add(p[0] - 3, p[1] - 3, 40, 58, 14, 3, 'roof', 0.5);
+    });
+    this.mark2 = Math.ceil(o);
+    for (let i = 0; i < 2; i++) add(200, 60, 300, 200, i * 16, 16, 'hotel2');
+    for (let i = 0; i < 13; i++) add(220, 90, 100, 100, 32 + i * 16, 16, 'hotel');
+    for (let i = 0; i < 9; i++) add(350, 120, 120, 80, 32 + i * 16, 16, 'hotel2', 0.7);
+    for (let i = 0; i < 5; i++) add(230, 205, 220, 40, 32 + i * 16, 16, 'hotel', 0.4);
+    this.total = o;
+    return F;
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const L = lang === 'ID'
+      ? ['Tentang Kami', 'Bisnis Kami', 'Hubungan Investor', 'Tata Kelola (GCG)', 'Keberlanjutan', 'Berita & Media', 'Kontak']
+      : ['About Us', 'Our Business', 'Investor Relations', 'Governance (GCG)', 'Sustainability', 'News & Media', 'Contact'];
+    const ID = lang === 'ID';
+    const t = ID ? {"skip":"Langsung ke konten","menu":"Menu","close":"Tutup","h1a":"Membangun ruang,","h1b":"menumbuhkan","h1c":"nilai.","heroP":"Perusahaan terbuka di bidang perhotelan, pengembangan properti, dan bank tanah strategis di Indonesia, yang membangun destinasi terhubung di Bali, Lombok, dan sekitarnya.","featE":"Properti Unggulan di Seluruh Indonesia","featA":"Aset yang dibangun untuk bertahan","featB":"dan terus bertumbuh nilainya.","explore":"Jelajahi Bisnis Kami","nowFeat":"Sedang ditampilkan","prev":"Sebelumnya","next":"Berikutnya","about":"Tentang Kami","aboutP":"Kami menciptakan nilai jangka panjang bagi pemegang saham, masyarakat, dan pelanggan melalui produk dan layanan berkualitas, dengan keberlanjutan sebagai inti demi generasi mendatang.","profile":"Profil Perusahaan","segE":"Segmen Bisnis","segA":"Tiga segmen,","segB":"satu portofolio terintegrasi.","valE":"Nilai Kami","valA":"Apa yang","valB":"kami tawarkan.","awards":"Penghargaan & Pengakuan","winner":"Pemenang","props":"Properti","dest":"Destinasi Sanurhasta","galA":"Dari pesisir hingga perkotaan,","galB":"setiap aset punya cerita.","scroll":"Gulir untuk menjelajah","viewAll":"Lihat Semua Properti","ir":"Hubungan Investor","irA":"Transparansi untuk setiap","irB":"pemegang saham.","idx":"BEI","idxT":"Bursa Efek Indonesia","priceDate":"27 Sep 2026, 16.00","wibT":"Waktu Indonesia Barat","price":"Rp1.245","up":"Naik","chg":"2,47%","chartAria":"Tren harga saham, naik","mcap":"Kapitalisasi pasar","mcapV":"Rp8,4 T","volV":"12,3 jt","irCenter":"Pusat Informasi Investor","gcgE":"Tata Kelola Perusahaan","gcgH":"Integritas sebagai landasan setiap keputusan.","sus":"Keberlanjutan","susH":"Tumbuh bersama lingkungan dan masyarakat.","susR":"Laporan Keberlanjutan 2025","news":"Berita & Media","newsH":"Berita terbaru.","newsAll":"Lihat semua berita","latest":"Terbaru","contact":"Kontak","ctA":"Mari membangun","ctB":"bersama.","hq":"Kantor Pusat","floor":"Lantai 20","touch":"Hubungi Kami","investors":"Investor","send":"Kirim Pesan","rights":"Hak cipta dilindungi undang-undang.","privacy":"Kebijakan Privasi"} : {"skip":"Skip to content","menu":"Menu","close":"Close","h1a":"Building spaces,","h1b":"growing","h1c":"value.","heroP":"A publicly listed company in hotels, property development, and strategic land banking in Indonesia, building connected destinations across Bali, Lombok, and beyond.","featE":"Featured Properties Across Indonesia","featA":"Assets built to endure","featB":"and grow in value.","explore":"Explore Our Business","nowFeat":"Now featuring","prev":"Previous","next":"Next","about":"About Us","aboutP":"We create lasting value for our shareholders, communities, and customers through quality products and services, with sustainability at the core for generations to come.","profile":"Company Profile","segE":"Business Segments","segA":"Three segments,","segB":"one integrated portfolio.","valE":"Our Value","valA":"What we bring","valB":"to the table.","awards":"Awards & Recognition","winner":"Winner","props":"Properties","dest":"Sanurhasta Destinations","galA":"From the coast to the city,","galB":"every asset has a story.","scroll":"Scroll to explore","viewAll":"View All Properties","ir":"Investor Relations","irA":"Transparency for every","irB":"shareholder.","idx":"IDX","idxT":"Indonesia Stock Exchange","priceDate":"27 Sep 2026, 16:00","wibT":"Western Indonesia Time","price":"Rp 1,245","up":"Up","chg":"2.47%","chartAria":"Share price trend, rising","mcap":"Market cap","mcapV":"Rp 8.4T","volV":"12.3M","irCenter":"Investor Information Center","gcgE":"Corporate Governance","gcgH":"Integrity at the foundation of every decision.","sus":"Sustainability","susH":"Growing together with the environment and our communities.","susR":"2025 Sustainability Report","news":"News & Media","newsH":"Latest news.","newsAll":"View all news","latest":"Latest","contact":"Contact","ctA":"Let’s build","ctB":"together.","hq":"Head Office","floor":"20th Floor","touch":"Get in Touch","investors":"Investors","send":"Send a Message","rights":"All rights reserved.","privacy":"Privacy Policy"};
+    const hrefs = ['profil-perusahaan', 'perhotelan', 'ikhtisar-keuangan', 'board-manual', 'laporan-keberlanjutan', 'siaran-pers', 'kantor-pusat'].map(s => 'subpages.html#/' + s);
+    const vw = this.state.vw;
+    const btn = on => ({ display: 'inline-flex', alignItems: 'center', gap: '8px', opacity: 1, background: 'none', border: 0, minHeight: '44px', padding: '0 4px', cursor: 'pointer', font: 'inherit', letterSpacing: 'inherit', color: on ? '#5E4A1E' : '#4A4A4A', borderBottom: on ? '1px solid #8A6A2A' : '1px solid transparent' });
+
+    const statement = ID ? 'Tercatat di Jakarta sejak 2016, Sanurhasta Mitra Tbk (MINA) berinvestasi dan mengembangkan aset perhotelan, real estat, dan bank tanah di seluruh Indonesia.' : 'Listed in Jakarta since 2016, Sanurhasta Mitra Tbk (MINA) invests in and develops hospitality, real estate, and land bank assets across Indonesia.';
+    const gold = new Set(ID ? ['perhotelan,', 'real', 'estat,', 'bank', 'tanah'] : ['hospitality,', 'real', 'estate,', 'land', 'bank']);
+    const ws = statement.split(' ');
+    const N = ws.length;
+    const words = ws.map((t, i) => ({ t, style: {
+      opacity: `clamp(.22, calc(var(--p,1) * ${(N * 2.2).toFixed(1)} - ${i}), 1)`,
+      color: gold.has(t) ? '#8A6A2A' : '#141414'
+    } }));
+    const stats = (ID ? [['12', '', 'Hotel & resor'], ['28', '', 'Proyek properti'], ['1,240', ' ha', 'Bank tanah']] : [['12', '', 'Hotels & resorts'], ['28', '', 'Property projects'], ['1,240', ' ha', 'Land bank']]).map((s, i) => {
+      const a = `clamp(0, calc(var(--p,1) * 2 - ${0.7 + i * 0.15}), 1)`;
+      return { v: ID ? this.countVal(s[0], i).replace(/,/g, '.') : this.countVal(s[0], i), u: s[1], l: s[2], style: { display: 'flex', flexDirection: 'column', gap: '16px', padding: '32px 24px 0 0', borderLeft: i ? '1px solid rgba(20,20,20,.12)' : 'none', paddingLeft: i ? '24px' : '0', opacity: a, transform: `translate3d(0, calc((1 - ${a}) * 30px), 0)` } };
+    });
+
+    if (!this._floors) this._floors = this.buildScene();
+    const n = (this.total / 0.85).toFixed(1);
+    const legend = [
+      { t: ID ? 'Bank Tanah' : 'Land Banking', c: '#8FAE7A', d: ID ? 'Lahan strategis yang diamankan sejak dini di koridor pertumbuhan.' : 'Strategic land secured early in growth corridors.', o: 0 },
+      { t: ID ? 'Real Estat' : 'Real Estate', c: '#D5CCBD', d: ID ? 'Vila dan hunian yang direncanakan sebagai satu komunitas.' : 'Villas and residences planned as one community.', o: this.mark1 },
+      { t: ID ? 'Perhotelan' : 'Hospitality', c: '#CDB27A', d: ID ? 'Hotel dan resor yang dikelola sesuai standar internasional.' : 'Hotels and resorts run to international standards.', o: this.mark2 }
+    ].map(l => ({ ...l, style: { display: 'flex', gap: '16px', alignItems: 'flex-start', padding: '20px 0', borderTop: '1px solid rgba(20,20,20,.12)', }, sw: { width: '16px', height: '16px', flex: 'none', borderRadius: '4px', background: l.c, transform: `translateY(4px) scale(calc(.5 + .5 * clamp(0, calc((var(--p,1) * .85 + .15) * ${n} - ${l.o}), 1)))`, transition: 'transform .3s' } }));
+
+    const reports = (ID ? [['Laporan Tahunan', 'Laporan Tahunan 2025'], ['Laporan Keuangan', 'Laporan Keuangan Triwulan II 2026'], ['Paparan Publik', 'Paparan Publik 2026'], ['RUPS', 'Hasil RUPS Tahunan 2026']] : [['Annual Report', '2025 Annual Report'], ['Financial Statements', 'Q2 2026 Financial Statements'], ['Public Expose', '2026 Public Expose'], ['GMS', '2026 Annual GMS Results']]).map((d, i) => {
+      const a = `clamp(0, calc(var(--p,1) * 2.2 - ${0.4 + i * 0.18}), 1)`;
+      return { type: d[0], title: d[1], style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '20px', padding: '24px 0', borderTop: '1px solid rgba(20,20,20,.12)', color: '#141414', opacity: a, transform: `translate3d(calc((1 - ${a}) * 50px), 0, 0)`, transition: 'padding .3s, color .3s' } };
+    });
+    const news = (ID ? [
+      ['Korporasi', '18 Sep 2026', 'Sanurhasta umumkan pengembangan resor baru di pesisir timur Bali'],
+      ['Investor', '02 Sep 2026', 'Kinerja Semester I 2026: pendapatan perhotelan tumbuh dua digit'],
+      ['Keberlanjutan', '21 Agu 2026', 'Program konservasi pesisir bersama masyarakat lokal memasuki tahun ketiga']
+    ] : [
+      ['Corporate', '18 Sep 2026', 'Sanurhasta announces a new resort development on Bali’s east coast'],
+      ['Investors', '02 Sep 2026', 'H1 2026 results: hospitality revenue posts double-digit growth'],
+      ['Sustainability', '21 Aug 2026', 'Coastal conservation program with local communities enters its third year']
+    ]).map((d, i, arr) => ({ cat: d[0], date: d[1], day: d[1].split(' ')[0], my: d[1].split(' ').slice(1).join(' '), title: d[2], latest: i === 0,
+      dotStyle: { width: '12px', height: '12px', borderRadius: '50%', flexShrink: 0, boxSizing: 'border-box', background: i === 0 ? '#8A6A2A' : '#FFFFFF', border: '2px solid #8A6A2A', boxShadow: i === 0 ? '0 0 0 4px rgba(168,132,58,.18)' : 'none' },
+      lineStyle: { flex: 1, height: '1px', marginRight: i === arr.length - 1 ? '0' : '-32px', background: i === arr.length - 1 ? 'linear-gradient(90deg, rgba(168,132,58,.6), rgba(168,132,58,0))' : 'rgba(168,132,58,.6)' }, slot: 'e-news-' + (i + 1), src: [((window.__resources||{})['r-hotel-04-grand-arrival']||'assets/web/hotel-04-grand-arrival.jpg'),((window.__resources||{})['r-performance-review-property-team-meeting']||'assets/web/performance-review-property-team-meeting.jpg'),((window.__resources||{})['r-property-community-02-community-life']||'assets/web/property-community-02-community-life.jpg')][i], style: { display: 'flex', flexDirection: 'column', gap: '16px', color: '#141414', opacity: 'clamp(0, calc(var(--p,1) * 2), 1)', transform: `translate3d(0, calc((1 - var(--p,1)) * ${60 + i * 30}px), 0)` } }));
+
+    const hov = this.state.hov;
+    const P = [
+      { name: 'Sanurhasta Resort Nusa Dua', loc: 'Nusa Dua, Bali', slug: 'resort-nusa-dua', x: 40, y: 14, w: 21, ar: '3/4', r: '999px 999px 24px 24px', sp: -4, dy: 3, rot: -1.5 },
+      { name: 'The Hasta Ubud', loc: 'Ubud, Bali', slug: 'hasta-ubud', x: 66, y: 50, w: 15, ar: '4/5', r: '24px', sp: 7, dy: -5, rot: 2 },
+      { name: 'Hasta Suites Labuan Bajo', loc: 'Labuan Bajo, NTT', slug: 'hasta-suites-labuan-bajo', x: 87, y: 12, w: 30, ar: '4/3', r: '24px', sp: -2, dy: 2, rot: 0 },
+      { name: 'Hasta Residences Jakarta', loc: 'Jakarta', slug: 'hasta-residences-jakarta', x: 124, y: 46, w: 17, ar: '1', r: '50%', sp: 9, dy: -7, rot: 0 },
+      { name: 'Villa Seminyak Estate', loc: 'Seminyak, Bali', slug: 'villa-seminyak-estate', x: 146, y: 10, w: 19, ar: '4/5', r: '24px', sp: -5, dy: 4, rot: -2 },
+      { name: 'Hasta Grand Bandung', loc: 'Bandung', slug: 'hasta-grand-bandung', x: 171, y: 38, w: 30, ar: '4/3', r: '24px', sp: 3, dy: -3, rot: 1 },
+      { name: ID ? 'Kawasan Lombok Selatan' : 'South Lombok Estate', loc: 'Lombok', slug: 'kawasan-lombok-selatan', x: 207, y: 14, w: 18, ar: '3/4', r: '999px 999px 24px 24px', sp: -6, dy: 5, rot: 1.5 }
+    ];
+    const gf = vw < 768 ? 2.6 : vw < 1280 ? 1.5 : 1;
+    const galTotal = 250 * gf;
+    const galW = galTotal + 'vw', galH = (100 + galTotal * 0.75 / 0.76) + 'vh';
+    const galIntro = { position: 'absolute', left: '6vw', top: '50%', transform: 'translateY(-50%)', width: Math.min(88, 30 * gf) + 'vw', display: 'flex', flexDirection: 'column', gap: '28px' };
+    const galEnd = { position: 'absolute', right: '6vw', top: '50%', transform: 'translateY(-50%)', display: 'inline-flex', whiteSpace: 'nowrap', padding: '16px 28px', border: '1px solid #E6D3A3', color: '#E6D3A3', borderRadius: '999px', fontSize: '16px', lineHeight: '24px', fontWeight: 500, transition: 'background .3s, color .3s' };
+    const props = P.map((c, i) => {
+      const on = hov === i;
+      const dim = hov !== null && !on;
+      const x = i === 0 ? c.x : 40 + (c.x - 40) * gf;
+      return {
+        name: c.name, loc: c.loc, num: String(i + 1).padStart(2, '0'), href: 'properti/' + c.slug + '.html', slot: 'e-prop-' + (i + 1), src: [((window.__resources||{})['r-new-resort-property-01-island-destination']||'assets/web/new-resort-property-01-island-destination.jpg'),((window.__resources||{})['r-villa-04-hillside-estate']||'assets/web/villa-04-hillside-estate.jpg'),((window.__resources||{})['r-new-resort-property-02-hillside-retreat']||'assets/web/new-resort-property-02-hillside-retreat.jpg'),((window.__resources||{})['r-hotel-02-urban-landmark']||'assets/web/hotel-02-urban-landmark.jpg'),((window.__resources||{})['r-villa-02-coastal-retreat']||'assets/web/villa-02-coastal-retreat.jpg'),((window.__resources||{})['r-hotel-03-mountain-wellness-retreat']||'assets/web/hotel-03-mountain-wellness-retreat.jpg'),((window.__resources||{})['r-property-community-01-landscaped-neighborhood']||'assets/web/property-community-01-landscaped-neighborhood.jpg')][i], ph: 'Property photo',
+        idx: i,
+        enter: () => this.setState({ hov: i }),
+        leave: () => this.setState(s => (s.hov === i ? { hov: null } : null)),
+        wrap: { position: 'absolute', left: (gf > 1 ? 6 + 30 * gf + 6 + (c.x - 40) * gf : c.x) + 'vw', top: c.y + 'vh', width: `min(${c.w * gf}vw, ${c.w * 2.1}vh)`, display: 'flex', flexDirection: 'column', gap: '16px', zIndex: on ? 5 : 1, color: '#FFFFFF',
+          transform: `translate3d(calc(var(--d,0) * ${c.sp}vw), calc(var(--d,0) * ${c.dy}vh), 0) rotate(calc(var(--d,0) * ${c.rot * 4}deg))` },
+        inner: { position: 'relative', width: '100%', aspectRatio: c.ar, borderRadius: c.r, overflow: 'hidden', background: '#2A2219', color: '#E6D3A3',
+          boxShadow: on ? '0 40px 80px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(230,211,163,.7)' : '0 24px 48px -24px rgba(0,0,0,.5)',
+          transform: on ? 'scale(1.04)' : 'scale(calc(1 - var(--ad,0) * .08))',
+          filter: on ? 'none' : 'grayscale(calc(var(--ad,0) * .85)) sepia(calc(var(--ad,0) * .35)) brightness(calc(1 - var(--ad,0) * .25))',
+          opacity: dim ? 0.5 : 1, transition: 'box-shadow .5s, opacity .5s' },
+        veil: { position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(180deg,rgba(15,12,8,0) 40%,rgba(15,12,8,.88) 100%)', opacity: on ? 1 : 0, transition: 'opacity .5s' },
+        label: { position: 'absolute', left: 0, right: 0, bottom: 0, padding: c.r === '50%' ? '0 18% 18%' : 'round(clamp(16px,1.6vw,24px),4px)', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '12px', pointerEvents: 'none',
+          opacity: on ? 1 : 0, transform: on ? 'translateY(0)' : 'translateY(16px)', transition: 'opacity .45s, transform .6s cubic-bezier(.2,.7,.2,1)' }
+      };
+    });
+    return {
+      rootRef: this.rootRef, navRef: this.navRef, propRef: this.propRef, props,
+      galW, galH, galIntro, galEnd,
+      lang,
+      wide: !this.state.narrow, narrow: this.state.narrow, menuOpen: this.state.menuOpen,
+      navItems: L.map((label, i) => ({ label, href: hrefs[i], enter: () => { this.megaY = window.scrollY; this.openMega(i); } })),
+      megaRef: this.megaRef, megas: this.megaData[lang], t,
+      megaKeep: () => clearTimeout(this.megaT),
+      megaLeave: () => { clearTimeout(this.megaT); this.megaT = setTimeout(() => this.closeMega(), 160); },
+      idBtn: btn(lang === 'ID'), enBtn: btn(lang === 'EN'),
+      setID: () => { try { localStorage.setItem('sh-lang', 'ID'); } catch (e) {} this.setState({ lang: 'ID' }); },
+      setEN: () => { try { localStorage.setItem('sh-lang', 'EN'); } catch (e) {} this.setState({ lang: 'EN' }); },
+      toggleLang: () => this.setState(s => { const l = s.lang === 'ID' ? 'EN' : 'ID'; try { localStorage.setItem('sh-lang', l); } catch (e) {} return { lang: l }; }),
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      ...(() => {
+        const cur = this.state.slide || 0, N = this.slideData.length, d = this.slideData[cur];
+        return {
+          slides: this.slideData.map((x, i) => ({ src: x[3], slot: x[4], style: { position: 'absolute', inset: 0, opacity: i === cur ? 1 : 0, transform: i === cur ? 'scale(1)' : 'scale(1.06)', transition: 'opacity 1.4s ease, transform 6s ease-out', zIndex: i === cur ? 1 : 0 } })),
+          slideName: d[0], slideLoc1: d[1], slideLoc2: d[2],
+          slideNum: String(cur + 1).padStart(2, '0'), slideTotal: String(N).padStart(2, '0'),
+          slideBar: { position: 'absolute', left: 0, top: 0, bottom: 0, width: ((cur + 1) / N * 100) + '%', background: '#E6D3A3', transition: 'width .8s cubic-bezier(.2,.7,.2,1)' },
+          heroThumbs: this.slideData.map((x, i) => ({ imgStyle: { display: 'block', width: '100%', height: '100%', backgroundImage: `url(${x[3]})`, backgroundSize: 'cover', backgroundPosition: 'center' }, name: x[0], go: () => { this.setState({ slide: i }); this.startAuto(); }, style: { width: '44px', height: '44px', padding: 0, borderRadius: '50%', overflow: 'hidden', cursor: 'pointer', marginLeft: i ? '-12px' : 0, border: '2px solid #FFFFFF', boxShadow: i === cur ? '0 0 0 2px #8A6A2A' : '0 0 0 1px rgba(20,20,20,.12)', position: 'relative', zIndex: i === cur ? 2 : 1, transform: i === cur ? 'translateY(-4px)' : 'none', transition: 'transform .4s ease, box-shadow .4s ease', background: '#EFEAE0' } })),
+          prevSlide: () => this.goSlide(-1), nextSlide: () => this.goSlide(1)
+        };
+      })(),
+      statsRef: this.statsRef, words, stats, legend, reports, news,
+      floors: this._floors, sceneN: n,
+      sceneScale: vw < 768 ? 0.5 : vw < 1280 ? 0.62 : vw < 1440 ? 0.85 : 1,
+      portDir: vw < 768 ? 'column' : 'row',
+      heroPDisplay: (vw < 1000 && window.innerHeight < 700) ? 'none' : 'flex',
+      values: (ID ? ['Tercatat sebagai perusahaan terbuka di Jakarta sejak 2016.', 'Lahan, hunian, dan hotel dikembangkan dalam satu ekosistem.', 'Produk dan layanan berstandar internasional.', 'Pertumbuhan yang direncanakan untuk masyarakat dan generasi mendatang.'] : ['Publicly listed in Jakarta since 2016.', 'Land, homes, and hotels developed as one ecosystem.', 'Products and services held to international standards.', 'Growth planned for communities and future generations.']).map((t, i) => {
+        const a = 'clamp(0, calc(var(--p,1) * 2.4 - ' + (0.5 + i * 0.2) + '), 1)';
+        return { t, style: { display: 'flex', alignItems: 'center', gap: '16px', padding: '24px 0', borderTop: '1px solid rgba(20,20,20,.12)', opacity: a, transform: 'translate3d(calc((1 - ' + a + ') * 40px),0,0)' } };
+      }),
+      laurel: this._laurel || (this._laurel = (() => {
+        const cx = 76, cy = 80, R = 56, N = 9, L = [];
+        for (let i = 0; i < N; i++) {
+          const t = 0.06 + i * (0.86 / (N - 1)), th = Math.PI / 2 + t * Math.PI;
+          const px = cx + R * Math.cos(th), py = cy + R * Math.sin(th);
+          const tg = Math.atan2(Math.cos(th), -Math.sin(th)), sc = 1 - i * 0.035;
+          [-0.62, 0.62].forEach(o => { const a = tg + o, d = 9 * sc; L.push('<ellipse cx="' + (px + Math.cos(a) * d).toFixed(1) + '" cy="' + (py + Math.sin(a) * d).toFixed(1) + '" rx="' + (9 * sc).toFixed(1) + '" ry="' + (3.4 * sc).toFixed(1) + '" transform="rotate(' + (a * 180 / Math.PI).toFixed(1) + ' ' + (px + Math.cos(a) * d).toFixed(1) + ' ' + (py + Math.sin(a) * d).toFixed(1) + ')"/>'); });
+        }
+        const e = th => [cx + R * Math.cos(th), cy + R * Math.sin(th)].map(v => v.toFixed(1)).join(' ');
+        const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 160"><path d="M' + e(Math.PI / 2 + 0.04 * Math.PI) + ' A' + R + ' ' + R + ' 0 0 1 ' + e(Math.PI / 2 + 0.94 * Math.PI) + '" fill="none" stroke="#5E4A1E" stroke-width="1.5"/><g fill="#5E4A1E">' + L.join('') + '</g></svg>';
+        return 'data:image/svg+xml,' + encodeURIComponent(svg);
+      })()),
+      awardsLoop: (() => { const A = (ID ? [
+        ['2025', 'Pengembangan Resor Terbaik, Bali', 'Indonesia Property Awards'],
+        ['2025', 'Hotel Berkelanjutan Terbaik', 'Asia Hospitality Awards'],
+        ['2024', 'Pengembangan Terpadu Terbaik', 'Bali Property Awards'],
+        ['2023', 'Emiten Terbaik, Sektor Properti', 'Indonesia Investor Awards'],
+        ['2023', 'Keunggulan Layanan Tamu', 'Indonesia Tourism Awards']
+      ] : [
+        ['2025', 'Best Resort Development, Bali', 'Indonesia Property Awards'],
+        ['2025', 'Sustainable Hotel of the Year', 'Asia Hospitality Awards'],
+        ['2024', 'Best Integrated Development', 'Bali Property Awards'],
+        ['2023', 'Top Listed Company, Property', 'Indonesia Investor Awards'],
+        ['2023', 'Excellence in Guest Service', 'Indonesia Tourism Awards']
+      ]).map(w => ({ y: w[0], t: w[1], by: w[2], aria: (ID ? 'Pemenang, ' : 'Winner, ') + w[1] + ', ' + w[2] + ', ' + w[0] })); return A.concat(A); })(),
+      mqRef: this.mqRef, paused: !!this.state.paused, pauseGlyph: this.state.paused ? '▶' : '❚❚', pauseText: this.state.paused ? 'Play' : 'Pause', pauseLabel: ID ? (this.state.paused ? 'Putar animasi' : 'Jeda animasi') : (this.state.paused ? 'Play motion' : 'Pause motion'), togglePause: () => this.setState(s => ({ paused: !s.paused })), mqPause: () => { this.mqHold = true; }, mqPlay: () => { this.mqHold = false; },
+      sustainSrc: ((window.__resources||{})['r-beach-conservation-community-cleanup']||'assets/web/beach-conservation-community-cleanup.jpg'),
+      gcg: ID ? ['Dewan Komisaris & Direksi', 'Komite Audit', 'Kode Etik', 'Anggaran Dasar', 'Sistem Pelaporan Pelanggaran'] : ['Board of Commissioners & Directors', 'Audit Committee', 'Code of Conduct', 'Articles of Association', 'Whistleblowing System']
+    };
+  }
+}
+</script>
+</body>
+</html>

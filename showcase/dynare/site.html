@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html><head><title>Dynare</title><script>window.__resources = {"assets/v/mat-maroon-life.jpg": "assets/1c94f40c.jpg", "https://images.unsplash.com/photo-1713201673819-122ab540f947?w=700&q=75&auto=format&fit=crop": "assets/f62869a9.jpg", "https://images.unsplash.com/photo-1713201673819-122ab540f947?w=200&q=75&auto=format&fit=crop": "assets/acb89ba0.jpg", "https://images.unsplash.com/photo-1713201435382-bb915a39be16?w=700&q=75&auto=format&fit=crop": "assets/539b57fd.jpg", "https://images.unsplash.com/photo-1697060739671-586c21fa5e30?w=700&q=75&auto=format&fit=crop": "assets/b0b3034c.jpg", "https://images.unsplash.com/photo-1697060739671-586c21fa5e30?w=200&q=75&auto=format&fit=crop": "assets/be5d48e5.jpg", "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=700&q=75&auto=format&fit=crop": "assets/07abfc25.jpg", "https://images.unsplash.com/photo-1593164842264-854604db2260?w=700&q=75&auto=format&fit=crop": "assets/e0fe2186.jpg", "https://images.unsplash.com/photo-1480179087180-d9f0ec044897?w=700&q=75&auto=format&fit=crop": "assets/3c7e4c37.jpg", "https://images.unsplash.com/photo-1480179087180-d9f0ec044897?w=200&q=75&auto=format&fit=crop": "assets/fdd90c9a.jpg", "https://images.unsplash.com/photo-1645318800862-0d343ebd4e6a?w=700&q=75&auto=format&fit=crop": "assets/ffaad97b.jpg", "https://images.unsplash.com/photo-1645318800862-0d343ebd4e6a?w=200&q=75&auto=format&fit=crop": "assets/7acc7cf4.jpg", "https://images.unsplash.com/photo-1645318800735-737d3a422de6?w=700&q=75&auto=format&fit=crop": "assets/5a2bb162.jpg", "https://images.unsplash.com/photo-1645318800735-737d3a422de6?w=200&q=75&auto=format&fit=crop": "assets/eda7901f.jpg", "https://images.unsplash.com/photo-1645318801217-143533cb559f?w=700&q=75&auto=format&fit=crop": "assets/94751ff4.jpg", "https://images.unsplash.com/photo-1470468969717-61d5d54fd036?w=700&q=75&auto=format&fit=crop": "assets/60a373c1.jpg", "https://images.unsplash.com/photo-1470468969717-61d5d54fd036?w=200&q=75&auto=format&fit=crop": "assets/eb36b47d.jpg", "https://images.unsplash.com/photo-1645318801217-143533cb559f?w=200&q=75&auto=format&fit=crop": "assets/10bb3d1c.jpg", "https://images.unsplash.com/photo-1645207803533-e2cfe1382f2c?w=200&q=75&auto=format&fit=crop": "assets/f0592d1b.jpg", "https://images.unsplash.com/photo-1645207803533-e2cfe1382f2c?w=700&q=75&auto=format&fit=crop": "assets/d8d3d268.jpg", "https://images.unsplash.com/photo-1599447332412-6bc6830c815a?w=700&q=75&auto=format&fit=crop": "assets/472c26b6.jpg", "https://images.unsplash.com/photo-1599447332412-6bc6830c815a?w=200&q=75&auto=format&fit=crop": "assets/d8046cd3.jpg", "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=200&q=75&auto=format&fit=crop": "assets/2733e410.jpg", "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=700&q=75&auto=format&fit=crop": "assets/d485f0c2.jpg", "https://images.unsplash.com/photo-1584863495140-a320b13a11a8?w=200&q=75&auto=format&fit=crop": "assets/8a7f49f5.jpg", "https://images.unsplash.com/photo-1584863495140-a320b13a11a8?w=700&q=75&auto=format&fit=crop": "assets/3a16d5af.jpg", "https://images.unsplash.com/photo-1591258370814-01609b341790?w=700&q=75&auto=format&fit=crop": "assets/25f412a1.jpg", "https://images.unsplash.com/photo-1651786095999-a0ed2b65981a?w=200&q=75&auto=format&fit=crop": "assets/8cb78ab1.jpg", "https://images.unsplash.com/photo-1591258370814-01609b341790?w=200&q=75&auto=format&fit=crop": "assets/9b38750d.jpg", "https://images.unsplash.com/photo-1791212420653-233f6bf4f8bb?w=700&q=75&auto=format&fit=crop": "assets/fafdf33a.jpg", "https://images.unsplash.com/photo-1651786095999-a0ed2b65981a?w=700&q=75&auto=format&fit=crop": "assets/5382d00a.jpg", "https://images.unsplash.com/photo-1697060598741-7ca9b696febb?w=700&q=75&auto=format&fit=crop": "assets/c708e682.jpg", "https://images.unsplash.com/photo-1791212420653-233f6bf4f8bb?w=200&q=75&auto=format&fit=crop": "assets/68c6873b.jpg", "https://images.unsplash.com/photo-1697060598741-7ca9b696febb?w=200&q=75&auto=format&fit=crop": "assets/b4c455ba.jpg", "https://images.unsplash.com/photo-1678985854460-94df3afe13f4?w=700&q=75&auto=format&fit=crop": "assets/0affdf18.jpg", "https://images.unsplash.com/photo-1678985854460-94df3afe13f4?w=200&q=75&auto=format&fit=crop": "assets/95f56f2c.jpg", "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&q=75&auto=format&fit=crop": "assets/d6cafd5d.jpg", "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=700&q=75&auto=format&fit=crop": "assets/a43845de.jpg", "https://images.unsplash.com/photo-1579566538101-636bbaed1b05?w=1200&q=75&auto=format&fit=crop": "assets/9e275eb9.jpg", "https://images.unsplash.com/photo-1645318800862-0d343ebd4e6a?w=500&q=75&auto=format&fit=crop": "assets/9e4dbb5f.jpg", "https://images.unsplash.com/photo-1579566538101-636bbaed1b05?w=2000&q=75&auto=format&fit=crop": "assets/94ea86a8.jpg", "https://images.unsplash.com/photo-1593419528756-3cdfa1615b86?w=1200&q=75&auto=format&fit=crop": "assets/ba7e9a91.jpg", "https://images.unsplash.com/photo-1768929096297-ba9fde63f58f?w=1200&q=75&auto=format&fit=crop": "assets/4dd77804.jpg", "https://images.unsplash.com/photo-1713201435382-bb915a39be16?w=1200&q=75&auto=format&fit=crop": "assets/1f07c791.jpg", "https://images.unsplash.com/photo-1560233075-4c1e2007908e?w=1200&q=75&auto=format&fit=crop": "assets/029facdd.jpg", "https://images.unsplash.com/photo-1593419528756-3cdfa1615b86?w=2000&q=75&auto=format&fit=crop": "assets/21f7bc72.jpg", "https://images.unsplash.com/photo-1768929096297-ba9fde63f58f?w=2000&q=75&auto=format&fit=crop": "assets/b0b5a429.jpg", "https://images.unsplash.com/photo-1560233075-4c1e2007908e?w=2000&q=75&auto=format&fit=crop": "assets/8ebdc6f7.jpg", "./LoopCardRWD.dc.html": "assets/3f87a7fb.html", "assets/v/bra-sage-detail.jpg": "assets/d1f0ea6d.jpg", "assets/v/mat-maroon.jpg": "assets/93c40b25.jpg", "assets/v/bra-rose.jpg": "assets/08e65ee9.jpg", "assets/v/yoga-bloom-pink.jpg": "assets/5cc40214.jpg", "assets/v/mat-indigo.jpg": "assets/b4bf0ffa.jpg", "assets/v/bra-black.jpg": "assets/fa9f3900.jpg", "assets/v/bra-black-detail.jpg": "assets/e859a939.jpg", "assets/v/flex-teal.jpg": "assets/f8c8cbc3.jpg", "assets/v/yoga-calm-grey.jpg": "assets/a84dad5b.jpg", "assets/v/mat-slate-life.jpg": "assets/86558aa8.jpg", "assets/v/bra-blush.jpg": "assets/3648603e.jpg", "assets/v/bra-sage.jpg": "assets/ec7c58ea.jpg", "assets/v/outer-black.jpg": "assets/c31938fd.jpg", "assets/v/outer-lilac-life.jpg": "assets/a66a357f.jpg", "assets/v/mat-slate.jpg": "assets/2b2f428f.jpg", "assets/v/yoga-sol-black-2.jpg": "assets/593072eb.jpg", "assets/v/outer-pink.jpg": "assets/1b4f7761.jpg", "assets/v/outer-black-life.jpg": "assets/56c8c234.jpg", "assets/v/mat-pink.jpg": "assets/f6a3be11.jpg", "assets/v/bra-blush-detail.jpg": "assets/0d48a6ce.jpg", "assets/v/flex-plum.jpg": "assets/2524a724.jpg", "assets/v/flex-olive.jpg": "assets/75387cdf.jpg", "assets/v/yoga-sol-black.jpg": "assets/e0e13182.jpg", "assets/v/outer-lilac.jpg": "assets/2961e1c1.jpg", "assets/v/outer-sage.jpg": "assets/e4b3d6a5.jpg", "assets/v/outer-sage-life.jpg": "assets/399a266a.jpg", "assets/v/bra-bow-nude.jpg": "assets/ccf04ae3.jpg", "assets/v/bra-rib-pink.jpg": "assets/51f5998f.jpg", "assets/v/bra-ruffle-plum.jpg": "assets/d016e20b.jpg", "assets/v/bra-bow-nude-detail.jpg": "assets/f6882f97.jpg", "assets/v/mat-pink-life.jpg": "assets/c4dee10c.jpg", "assets/v/bra-rose-detail.jpg": "assets/0c599df1.jpg", "assets/v/bra-rib-pink-detail.jpg": "assets/e268ccac.jpg", "assets/v/mat-indigo-life.jpg": "assets/c6f07ab4.jpg", "assets/v/flex-mauve.jpg": "assets/f2ac4ea3.jpg", "assets/v/outer-pink-life.jpg": "assets/ce1fd547.jpg", "assets/v/bra-ruffle-plum-detail.jpg": "assets/fcbc1451.jpg", "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "assets/3d791ecc.js", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "assets/8fc271e6.js"};</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="assets/1b3216d4.js"></script>
+</head>
+<body>
+
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("assets/61600d8e.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("assets/823af72d.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("assets/3ef5743f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("assets/42841c7e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/8aaae976.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/0f6cf81e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/588f471e.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/5f8a4662.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>body{margin:0;background:#E8E4DB}a{color:inherit;text-decoration:none}a:hover{opacity:.75}button{font:inherit;cursor:pointer}input{font:inherit}html{scroll-behavior:smooth}section{scroll-margin-top:24px}</style>
+</helmet>
+<div style="display:{{ v.stD }};justify-content:safe center;align-items:flex-start;min-height:{{ v.stMinH }};box-sizing:border-box;padding:{{ v.stPad }};background:{{ v.stBg }}">
+<div style="position:relative;flex-shrink:0;width:{{ v.fW }};height:{{ v.fH }};transform:{{ v.fT }};overflow:{{ v.fOv }};border-radius:{{ v.fR }};box-shadow:{{ v.fSh }};background:#E8E4DB">
+<div ref="{{ scRef }}" style="height:{{ v.sH }};overflow:{{ v.sOv }};scrollbar-width:{{ v.sbw }};scroll-behavior:smooth;scroll-padding-top:{{ v.spt }};overscroll-behavior:contain">
+<div id="top" style="width:100%;min-width:{{ v.minW }};position:relative;background:#E8E4DB;color:#22281F;font-family:'Hanken Grotesk',sans-serif">
+<sc-if value="{{ v.isD }}" hint-placeholder-val="{{ false }}">
+<div style="position:sticky;top:0;z-index:20;background:#E8E4DB;border-bottom:1px solid rgba(34,40,31,.08);display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;padding:20px 48px">
+<span style="font-family:'Instrument Serif',serif;font-size:36px;line-height:1">dynaré</span>
+<nav style="display:flex;justify-content:center;gap:28px;font-size:14px;white-space:nowrap"><a href="#d-yoga">Yoga</a><a href="#d-flex">Flexibility</a><a href="#d-run">Run</a><a href="#d-outer">Outer</a><a href="#d-mats">Mats &amp; props</a><a href="#d-bras">Sports bras</a><a href="#d-black">Essentials</a><a href="#c-look">Shop the look</a></nav>
+<div style="display:flex;justify-content:flex-end;align-items:center;gap:20px;font-size:14px"><span>Search</span><button sc-camel-on-click="{{ bag.toggle }}" style="display:flex;align-items:center;gap:8px;border:none;background:#22281F;color:#E8E4DB;padding:10px 18px;border-radius:40px;font-size:13px">Bag <span style="background:#E8E4DB;color:#22281F;border-radius:20px;padding:1px 8px;font-size:12px;font-weight:700">{{ bag.count }}</span></button></div>
+</div>
+</sc-if>
+<sc-if value="{{ v.notD }}" hint-placeholder-val="{{ true }}">
+<div style="position:sticky;top:0;z-index:20;background:#E8E4DB;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:{{ v.hdrPad }}">
+<a href="#top" style="font-family:'Instrument Serif',serif;font-size:{{ v.logo }};line-height:1">dynaré</a>
+<div style="display:flex;align-items:center;gap:8px">
+<button sc-camel-on-click="{{ menu.open }}" aria-label="Open menu" style="height:44px;display:flex;align-items:center;gap:10px;border:1px solid rgba(34,40,31,.3);background:transparent;color:#22281F;padding:0 16px;border-radius:40px;font-size:14px"><span style="display:flex;flex-direction:column;gap:4px"><span style="display:block;width:16px;height:1.5px;background:#22281F"></span><span style="display:block;width:16px;height:1.5px;background:#22281F"></span></span>Menu</button>
+<button sc-camel-on-click="{{ bag.toggle }}" aria-label="Open bag" style="height:44px;display:flex;align-items:center;gap:8px;border:none;background:#22281F;color:#E8E4DB;padding:0 16px;border-radius:40px;font-size:14px">Bag <span style="background:#E8E4DB;color:#22281F;border-radius:20px;padding:1px 8px;font-size:12px;font-weight:700">{{ bag.count }}</span></button>
+</div>
+</div>
+</sc-if>
+
+<section data-screen-label="01 Hero" sc-camel-on-touch-start="{{ heroTS }}" sc-camel-on-touch-end="{{ heroTE }}" style="position:relative;margin:{{ v.heroM }};height:{{ v.heroH }};min-height:{{ v.heroMinH }};border-radius:{{ v.r }};overflow:hidden;background:#22281F">
+<sc-for list="{{ heroSlides }}" as="s" hint-placeholder-count="1">
+<div style="position:absolute;inset:0;opacity:{{ s.op }};transition:opacity 1s ease;pointer-events:{{ s.pe }}">
+<img src="{{ s.src }}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:{{ s.pos }};display:block;transform:scale({{ s.scale }});transition:transform 7s ease-out">
+<div style="position:absolute;inset:0;background:{{ v.heroGrad }}"></div>
+<div style="position:absolute;left:{{ v.heroL }};right:{{ v.heroTR }};bottom:{{ v.heroB }};max-width:{{ v.heroMaxW }};display:flex;flex-direction:column;gap:{{ v.heroGap }};color:#F4F1EA">
+<span style="font-size:{{ v.eyebrow }};letter-spacing:.18em;font-weight:600">{{ s.eyebrow }}</span>
+<h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h1 }};line-height:.9;letter-spacing:-.025em;text-wrap:balance">{{ s.t1 }} <span style="font-style:italic">{{ s.t2 }}</span></h1>
+<p style="margin:0;max-width:420px;font-size:{{ v.heroBody }};line-height:1.5;text-wrap:pretty">{{ s.body }}</p>
+<div style="display:flex;flex-direction:{{ v.ctaDir }};gap:10px;margin-top:8px"><a href="{{ s.href }}" style="background:#F4F1EA;color:#22281F;padding:18px 30px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">{{ s.cta }}</a><a href="#d-best" style="border:1px solid rgba(244,241,234,.7);color:#F4F1EA;padding:17px 28px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Browse bestsellers</a></div>
+</div>
+</div>
+</sc-for>
+<div style="position:absolute;inset:0;background:{{ v.topScrim }};pointer-events:none"></div>
+<img src="assets/305763e7.png" alt="" style="position:absolute;top:{{ v.monoT }};left:{{ v.monoL }};width:{{ v.monoS }};height:{{ v.monoS }};opacity:.95">
+<div style="position:absolute;top:{{ v.ctlT }};right:{{ v.ctlR }};bottom:{{ v.ctlB }};display:flex;align-items:center;gap:{{ v.ctlGap }};color:#F4F1EA">
+<span style="font-size:13px;font-weight:600;letter-spacing:.08em">{{ heroNo }} / 04</span>
+<div style="display:flex;gap:6px"><sc-for list="{{ heroSlides }}" as="s" hint-placeholder-count="4"><button sc-camel-on-click="{{ s.go }}" aria-label="Go to slide" style="width:{{ s.w }};height:{{ v.dotH }};padding:{{ v.dotP }};box-sizing:border-box;background-clip:content-box;border:none;border-radius:2px;background-color:{{ s.dot }};transition:width .3s"></button></sc-for></div>
+<div style="display:{{ v.arrows }};gap:8px"><button sc-camel-on-click="{{ heroPrev }}" aria-label="Previous" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(244,241,234,.6);background:transparent;color:#F4F1EA;font-size:16px">←</button><button sc-camel-on-click="{{ heroNext }}" aria-label="Next" style="width:48px;height:48px;border-radius:50%;border:none;background:#F4F1EA;color:#22281F;font-size:16px">→</button></div>
+</div>
+</section>
+
+<section data-screen-label="02 Shop by practice" style="padding:{{ v.secPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:8px 24px;margin-bottom:{{ v.hMb }}"><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h2 }};line-height:1;letter-spacing:-.02em">How do you <span style="font-style:italic">move?</span></h2><span style="font-size:15px;color:#5C6356">Shop by practice</span></div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(6,minmax(0,1fr));gap:{{ v.pracGap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ practices }}" as="c" hint-placeholder-count="6">
+<a href="{{ c.href }}" style="position:relative;display:block;flex:{{ v.pracFlex }};scroll-snap-align:start;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#DAD5CA"><img src="{{ c.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;background:rgba(246,244,239,.94);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600"><span>{{ c.label }}</span><span style="font-weight:400;color:#5C6356">{{ c.count }}</span></span></a>
+</sc-for>
+</div>
+</section>
+
+<section id="d-best" data-screen-label="03 Bestsellers" style="padding:{{ v.secPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;margin-bottom:{{ v.hMb }}"><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h2 }};line-height:1;letter-spacing:-.02em">Most <span style="font-style:italic">loved.</span></h2><a href="#d-best" style="border:1px solid #22281F;border-radius:40px;padding:10px 20px;font-size:14px">View all bestsellers</a></div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(4,minmax(0,1fr));gap:{{ v.gap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ best }}" as="p" hint-placeholder-count="4"><div style="flex:{{ v.cardFlex }};min-width:0;scroll-snap-align:start"><dc-import name="LoopCardRWD" p="{{ p }}" hint-size="100%,480px"></dc-import></div></sc-for>
+</div>
+</section>
+
+<section id="d-yoga" data-screen-label="04 Yoga banner" style="position:relative;margin:{{ v.banM }};height:{{ v.banH }};border-radius:{{ v.r }};overflow:hidden;background:#2A2A28">
+<img src="assets/7b53bfc2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%">
+<div style="position:absolute;inset:0;background:{{ v.gYoga }}"></div>
+<div style="position:absolute;left:{{ v.banL }};right:{{ v.banTR }};bottom:{{ v.banB }};max-width:560px;color:#fff;display:flex;flex-direction:column;gap:{{ v.banGap }}">
+<span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase">Yoga · 38 styles</span>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.ban }};line-height:.9;letter-spacing:-.03em">Made for<br><span style="font-style:italic">the mat.</span></h2>
+<p style="margin:0;font-size:{{ v.banBody }};line-height:1.5;max-width:420px">Buttery-soft layers that stay put from your first sun salutation to the last savasana.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><a href="#d-yoga-p" style="background:#fff;color:#22281F;padding:17px 28px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop yoga</a><a href="#d-yoga-p" style="border:1.5px solid #fff;color:#fff;padding:15.5px 26px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop leggings</a></div>
+</div>
+</section>
+<section id="d-yoga-p" data-screen-label="05 Yoga products" style="padding:{{ v.pPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:{{ v.pMb }};gap:8px 24px">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px"><h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h3 }};line-height:1">Yoga essentials</h3><div style="display:flex;gap:8px"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="0"><button sc-camel-on-click="{{ t.pick }}" style="border:1px solid {{ t.bd }};border-radius:40px;padding:9px 18px;font-size:14px;background:{{ t.bg }};color:{{ t.fg }}">{{ t.label }}</button></sc-for></div></div>
+<a href="#d-yoga-p" style="font-size:14px;border-bottom:1px solid #22281F;padding-bottom:2px;white-space:nowrap">View all 38 styles</a>
+</div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(4,minmax(0,1fr));gap:{{ v.gap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ yoga }}" as="p" hint-placeholder-count="4"><div style="flex:{{ v.cardFlex }};min-width:0;scroll-snap-align:start"><dc-import name="LoopCardRWD" p="{{ p }}" hint-size="100%,480px"></dc-import></div></sc-for>
+</div>
+</section>
+
+<section id="c-look" data-screen-label="05b Shop the look" style="margin:{{ v.lookM }};background:#F6F4EF;color:#22281F;border-radius:{{ v.r }};display:grid;grid-template-columns:{{ v.lookCols }};overflow:hidden">
+<div style="position:relative;height:{{ v.lookImgH }}">
+<img src="{{ look.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+<sc-for list="{{ spots }}" as="h" hint-placeholder-count="3">
+<button sc-camel-on-click="{{ h.pick }}" aria-label="Show piece {{ h.n }}" style="position:absolute;left:{{ h.x }};top:{{ h.y }};transform:translate(-50%,-50%);width:{{ h.size }};height:{{ h.size }};border-radius:50%;border:2px solid #fff;background:{{ h.bg }};color:{{ h.fg }};font-size:13px;font-weight:700;box-shadow:0 0 0 8px rgba(255,255,255,.22)">{{ h.n }}</button>
+</sc-for>
+</div>
+<div style="padding:{{ v.lookP }};display:flex;flex-direction:column;gap:{{ v.lookGap }}">
+<span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#5C6356">Shop the look · The Sage Ritual</span>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.lookH2 }};line-height:.95;letter-spacing:-.02em">One palette,<br><span style="font-style:italic">three pieces.</span></h2>
+<div style="display:grid;grid-template-columns:{{ v.spotCols }};gap:{{ v.spotGap }};background:rgba(34,40,31,.08);border-radius:18px;padding:16px">
+<img src="{{ spot.src }}" alt="" style="width:{{ v.spotW }};height:{{ v.spotH }};object-fit:cover;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:10px;justify-content:center;min-width:0">
+<span style="font-size:12px;color:#5C6356">{{ spot.n }} of 3</span>
+<span style="font-size:{{ v.spotName }};font-weight:600;line-height:1.25">{{ spot.name }}</span>
+<span style="font-size:14px;color:#3E443A">{{ spot.color }} · {{ spot.feel }}</span>
+<span style="font-size:16px">{{ spot.now }}</span>
+<div style="display:flex;gap:4px"><sc-for list="{{ spot.sizes }}" as="z" hint-placeholder-count="5"><button sc-camel-on-click="{{ z.add }}" style="flex:1;min-width:0;height:{{ spot.tapH }};border:1px solid rgba(34,40,31,.3);border-radius:8px;background:transparent;color:#22281F;font-size:12px;padding:0" style-hover="background:#22281F;color:#E8E4DB">{{ z.s }}</button></sc-for></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ spots }}" as="h" hint-placeholder-count="3"><button sc-camel-on-click="{{ h.pick }}" style="display:flex;justify-content:space-between;gap:12px;text-align:left;background:transparent;border:none;border-bottom:1px solid rgba(34,40,31,.15);padding:{{ v.rowPad }};color:#22281F;font-size:{{ v.rowFs }};opacity:{{ h.op }}"><span>{{ h.n }}  {{ h.name }}</span><span style="white-space:nowrap">{{ h.priceL }}</span></button></sc-for>
+</div>
+<div style="margin-top:auto;display:flex;flex-direction:{{ v.ctaDir }};justify-content:space-between;align-items:{{ v.lookAI }};gap:{{ v.lookCtaGap }}">
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;color:#5C6356;text-decoration:line-through">{{ look.full }}</span><span style="font-size:24px;font-weight:600">{{ look.bundle }}</span></div>
+<button sc-camel-on-click="{{ look.add }}" style="background:#22281F;color:#E8E4DB;border:none;border-radius:40px;padding:20px 30px;font-size:15px;font-weight:700">Add the full look, save 10%</button>
+</div>
+</div>
+</section>
+
+<section id="d-flex" data-screen-label="06 Flexibility banner" style="margin:{{ v.banM }};display:grid;grid-template-columns:{{ v.gFlex }};gap:{{ v.sp }};background:#F6F4EF;border-radius:{{ v.r }};padding:{{ v.sp }};height:{{ v.splitH }};min-height:{{ v.splitMinH }};box-sizing:border-box">
+<div style="padding:{{ v.splitTP }};display:flex;flex-direction:column;justify-content:center;gap:{{ v.splitGap }}">
+<span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#5C6356">New series</span>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.banFlex }};line-height:.9;letter-spacing:-.03em">The Flexibility<br><span style="font-style:italic">series.</span></h2>
+<p style="margin:0;font-size:{{ v.splitBody }};line-height:1.55;max-width:420px;color:#3E443A">Our stretchiest knit, cut for splits, deep backbends and long holds. It moves further, then springs back.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><span style="background:#E8E4DB;border-radius:40px;padding:8px 14px;font-size:13px">4-way stretch</span><span style="background:#E8E4DB;border-radius:40px;padding:8px 14px;font-size:13px">Full recovery</span><span style="background:#E8E4DB;border-radius:40px;padding:8px 14px;font-size:13px">Flat seams</span></div>
+<a href="#d-flex-p" style="align-self:flex-start;background:#22281F;color:#E8E4DB;padding:17px 28px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop the series</a>
+</div>
+<div style="border-radius:{{ v.imgR }};overflow:hidden;height:{{ v.splitImgH }};order:{{ v.imgOrd }}"><img src="assets/f2d8c44e.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</section>
+<section id="d-flex-p" data-screen-label="07 Flexibility products" style="padding:{{ v.pPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;margin-bottom:{{ v.pMb }}"><div style="display:flex;align-items:baseline;gap:14px"><h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h3 }};line-height:1">Flexibility series</h3><span style="font-size:14px;color:#5C6356">14 styles</span></div><a href="#d-flex-p" style="font-size:14px;border-bottom:1px solid #22281F;padding-bottom:2px">View all flexibility</a></div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(4,minmax(0,1fr));gap:{{ v.gap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ flex }}" as="p" hint-placeholder-count="4"><div style="flex:{{ v.cardFlex }};min-width:0;scroll-snap-align:start"><dc-import name="LoopCardRWD" p="{{ p }}" hint-size="100%,480px"></dc-import></div></sc-for>
+</div>
+</section>
+
+<section id="d-promo" data-screen-label="12 Promo banner" style="position:relative;margin:{{ v.banM }};height:{{ v.promoH }};border-radius:{{ v.r }};overflow:hidden;background:#22281F">
+<img src="assets/19bbc24b.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%">
+<div style="position:absolute;inset:0;background:rgba(24,28,22,.64)"></div>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:{{ v.banGap }};color:#fff;padding:{{ v.promoP }}">
+<span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase">Set &amp; save · This week only</span>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.ban }};line-height:.9;letter-spacing:-.03em;text-wrap:balance">Any bra + legging,<br><span style="font-style:italic">15% off.</span></h2>
+<p style="margin:0;font-size:{{ v.banBody }};max-width:520px;line-height:1.5">Pick a bra and a legging in the same colour. The discount applies automatically in your bag.</p>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px"><a href="#d-bras" style="background:#fff;color:#22281F;padding:17px 28px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Build a set</a><a href="#d-yoga-p" style="border:1.5px solid #fff;color:#fff;padding:15.5px 26px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop ready-made sets</a></div>
+<span style="font-size:12px;color:#E4E1D8">Ends Sunday 23:59 WIB. Not combinable with other offers.</span>
+</div>
+</section>
+
+<section id="d-bras" data-screen-label="12b Sports bras" style="padding:{{ v.brasPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:{{ v.pMb }};gap:8px 24px">
+<div style="display:flex;flex-direction:column;gap:4px"><h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h3 }};line-height:1">Sports bras</h3><span style="font-size:14px;color:#5C6356">Pair one with any legging for 15% off</span></div>
+<a href="#d-bras" style="font-size:14px;border-bottom:1px solid #22281F;padding-bottom:2px;white-space:nowrap">View all 24 bras</a>
+</div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(4,minmax(0,1fr));gap:{{ v.gap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ bras }}" as="p" hint-placeholder-count="4"><div style="flex:{{ v.cardFlex }};min-width:0;scroll-snap-align:start"><dc-import name="LoopCardRWD" p="{{ p }}" hint-size="100%,480px"></dc-import></div></sc-for>
+</div>
+</section>
+
+<section id="d-outer" data-screen-label="13 Outer Series banner" style="position:relative;margin:{{ v.banM }};height:{{ v.banH }};border-radius:{{ v.r }};overflow:hidden;background:#2A2A28">
+<img src="assets/5adc881a.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%">
+<div style="position:absolute;inset:0;background:{{ v.gOuter }}"></div>
+<div style="position:absolute;left:{{ v.outL }};right:{{ v.banL }};bottom:{{ v.banB }};max-width:540px;color:#fff;display:flex;flex-direction:column;align-items:{{ v.outAI }};text-align:{{ v.outTA }};gap:{{ v.banGap }}">
+<span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase">New · The Outer series</span>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.ban }};line-height:.9;letter-spacing:-.03em">One layer<br><span style="font-style:italic">for every weather.</span></h2>
+<p style="margin:0;font-size:{{ v.banBody }};line-height:1.5;max-width:420px">Water-resistant shells and windbreakers for rainy-season commutes and over-chilled studios.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><a href="#d-outer-p" style="border:1.5px solid #fff;color:#fff;padding:15.5px 26px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop windbreakers</a><a href="#d-outer-p" style="background:#fff;color:#22281F;padding:17px 28px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop outer</a></div>
+</div>
+</section>
+<section id="d-outer-p" data-screen-label="14 Outer Series products" style="padding:{{ v.pPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;margin-bottom:{{ v.pMb }}"><div style="display:flex;align-items:baseline;gap:14px"><h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h3 }};line-height:1">The Outer series</h3><span style="font-size:14px;color:#5C6356">16 styles</span></div><a href="#d-outer-p" style="font-size:14px;border-bottom:1px solid #22281F;padding-bottom:2px">View all outerwear</a></div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(4,minmax(0,1fr));gap:{{ v.gap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ outer }}" as="p" hint-placeholder-count="4"><div style="flex:{{ v.cardFlex }};min-width:0;scroll-snap-align:start"><dc-import name="LoopCardRWD" p="{{ p }}" hint-size="100%,480px"></dc-import></div></sc-for>
+</div>
+</section>
+
+<section id="d-run" data-screen-label="08 Pace Club banner" style="position:relative;margin:{{ v.banM }};height:{{ v.banH }};border-radius:{{ v.r }};overflow:hidden;background:#2A2A28">
+<img src="assets/0608a918.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,22,18,0) 30%,rgba(20,22,18,.78) 100%)"></div>
+<div style="position:absolute;top:{{ v.runCT }};right:{{ v.runCT }};background:rgba(246,244,239,.95);border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;gap:4px;color:#22281F"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#5C6356">Next group run</span><span style="font-size:15px;font-weight:600">Sat 05:30 · GBK Senayan, 5K</span><span style="font-size:13px">Free, all paces welcome</span></div>
+<div style="position:absolute;left:{{ v.banL }};right:{{ v.banL }};bottom:{{ v.banB }};display:flex;flex-direction:{{ v.runDir }};justify-content:space-between;align-items:{{ v.runAI }};gap:{{ v.runGap }};color:#fff">
+<div style="display:flex;flex-direction:column;gap:{{ v.banGap }};max-width:640px"><span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase">Run · Pace Club</span><h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.ban }};line-height:.9;letter-spacing:-.03em">Run the city<br><span style="font-style:italic">before it wakes.</span></h2><p style="margin:0;font-size:{{ v.banBody }};line-height:1.5;max-width:460px">Featherweight, quick-dry kit for humid 5am runs. Same soft fabrics, cut to move faster.</p></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;flex-shrink:0"><a href="#d-run-p" style="background:#fff;color:#22281F;padding:17px 28px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop run</a><a href="#d-run" style="border:1.5px solid #fff;color:#fff;padding:15.5px 26px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Join the club</a></div>
+</div>
+</section>
+<section id="d-run-p" data-screen-label="09 Pace Club products" style="padding:{{ v.pPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;margin-bottom:{{ v.pMb }}"><div style="display:flex;align-items:baseline;gap:14px"><h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h3 }};line-height:1">Pace Club</h3><span style="font-size:14px;color:#5C6356">28 styles</span></div><a href="#d-run-p" style="font-size:14px;border-bottom:1px solid #22281F;padding-bottom:2px">View all run</a></div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(4,minmax(0,1fr));gap:{{ v.gap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ run }}" as="p" hint-placeholder-count="4"><div style="flex:{{ v.cardFlex }};min-width:0;scroll-snap-align:start"><dc-import name="LoopCardRWD" p="{{ p }}" hint-size="100%,480px"></dc-import></div></sc-for>
+</div>
+</section>
+
+<section id="d-mats" data-screen-label="10 Mats &amp; Props banner" style="margin:{{ v.banM }};display:grid;grid-template-columns:{{ v.gMats }};gap:{{ v.sp }};background:#D9CBB2;border-radius:{{ v.r }};padding:{{ v.sp }};height:{{ v.splitH }};min-height:{{ v.splitMinH }};box-sizing:border-box">
+<div style="border-radius:{{ v.imgR }};overflow:hidden;height:{{ v.splitImgH }}"><img src="assets/1c94f40c.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:72% 20%;display:block"></div>
+<div style="padding:{{ v.splitTP }};display:flex;flex-direction:column;justify-content:center;gap:{{ v.splitGap }}">
+<span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase">Mats &amp; props</span>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.banMats }};line-height:.9;letter-spacing:-.03em">Grip that holds<br><span style="font-style:italic">when you sweat.</span></h2>
+<p style="margin:0;font-size:{{ v.splitBody }};line-height:1.55;max-width:400px">Natural cork and rubber mats, blocks and straps. Built for hot rooms and humid shalas.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><a href="#d-mats-p" style="background:#22281F;color:#E8E4DB;padding:17px 28px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop mats</a><a href="#d-mats-p" style="border:1.5px solid #22281F;padding:15.5px 26px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop props</a></div>
+</div>
+</section>
+<section id="d-mats-p" data-screen-label="11 Mats &amp; Props products" style="padding:{{ v.pPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;margin-bottom:{{ v.pMb }}"><div style="display:flex;align-items:baseline;gap:14px"><h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h3 }};line-height:1">Mats &amp; props</h3><span style="font-size:14px;color:#5C6356">12 styles</span></div><a href="#d-mats-p" style="font-size:14px;border-bottom:1px solid #22281F;padding-bottom:2px">View all mats &amp; props</a></div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(4,minmax(0,1fr));gap:{{ v.gap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ mats }}" as="p" hint-placeholder-count="4"><div style="flex:{{ v.cardFlex }};min-width:0;scroll-snap-align:start"><dc-import name="LoopCardRWD" p="{{ p }}" hint-size="100%,480px"></dc-import></div></sc-for>
+</div>
+</section>
+
+<section id="d-black" data-screen-label="15 Essentials Black banner" style="margin:{{ v.banM }};display:grid;grid-template-columns:{{ v.gFlex }};gap:{{ v.sp }};background:#22281F;color:#F6F4EF;border-radius:{{ v.r }};padding:{{ v.sp }};height:{{ v.splitH }};min-height:{{ v.splitMinH }};box-sizing:border-box">
+<div style="padding:{{ v.splitTP }};display:flex;flex-direction:column;justify-content:center;gap:{{ v.splitGap }}">
+<span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase">New · The Essentials</span>
+<h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.banBlack }};line-height:.9;letter-spacing:-.03em">All black.<br><span style="font-style:italic">Nothing to match.</span></h2>
+<p style="margin:0;font-size:{{ v.splitBody }};line-height:1.55;max-width:420px">Five core pieces dyed in one true black, so every top works with every bottom. Build your week in one order.</p>
+<a href="#d-black-p" style="align-self:flex-start;background:#F6F4EF;color:#22281F;padding:17px 28px;border-radius:40px;font-size:14px;font-weight:600;text-align:center">Shop the Essentials</a>
+</div>
+<div style="border-radius:{{ v.imgR }};overflow:hidden;height:{{ v.splitImgH }};order:{{ v.imgOrd }}"><img src="assets/08808703.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</section>
+<section id="d-black-p" data-screen-label="16 Essentials Black products" style="padding:{{ v.blackPad }}">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;margin-bottom:{{ v.pMb }}"><div style="display:flex;align-items:baseline;gap:14px"><h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ v.h3 }};line-height:1">The Essentials in black</h3><span style="font-size:14px;color:#5C6356">12 styles</span></div><a href="#d-black-p" style="font-size:14px;border-bottom:1px solid #22281F;padding-bottom:2px">View all essentials</a></div>
+<div style="display:{{ v.railD }};grid-template-columns:repeat(4,minmax(0,1fr));gap:{{ v.gap }};overflow-x:{{ v.railOv }};scroll-snap-type:{{ v.snap }};margin:{{ v.railM }};padding:{{ v.railP }};scroll-padding:{{ v.railSP }};scrollbar-width:none">
+<sc-for list="{{ black }}" as="p" hint-placeholder-count="4"><div style="flex:{{ v.cardFlex }};min-width:0;scroll-snap-align:start"><dc-import name="LoopCardRWD" p="{{ p }}" hint-size="100%,480px"></dc-import></div></sc-for>
+</div>
+</section>
+
+<div style="padding:{{ v.footPad }};display:flex;flex-direction:{{ v.footDir }};justify-content:space-between;align-items:{{ v.footAI }};gap:24px;border-top:1px solid rgba(34,40,31,.12)">
+<span style="font-family:'Instrument Serif',serif;font-size:{{ v.footMark }};line-height:.8;letter-spacing:-.03em">dynaré</span>
+<div style="display:flex;flex-wrap:wrap;gap:{{ v.footGap }};font-size:13px;color:#5C6356"><span>Shipping</span><span>Returns</span><span>Size guide</span><span>Pace Club runs</span><span>© 2026</span></div>
+</div>
+</div>
+</div>
+
+<sc-if value="{{ bag.sheetOpen }}" hint-placeholder-val="{{ false }}"><div sc-camel-on-click="{{ bag.close }}" style="position:fixed;inset:0;background:rgba(20,24,18,.42);z-index:29"></div></sc-if>
+<sc-if value="{{ bag.open }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-label="Your bag" style="position:fixed;top:{{ v.bagT }};right:{{ v.bagR }};bottom:{{ v.bagB }};left:{{ v.bagL }};width:{{ v.bagW }};max-height:{{ v.bagMaxH }};overflow:auto;background:#F6F4EF;color:#22281F;font-family:'Hanken Grotesk',sans-serif;border-radius:{{ v.bagRad }};box-shadow:0 30px 80px rgba(34,40,31,.28);z-index:30;padding:{{ v.bagP }};display:flex;flex-direction:column;gap:16px">
+<sc-if value="{{ v.isM }}" hint-placeholder-val="{{ false }}"><span style="align-self:center;width:40px;height:4px;border-radius:2px;background:rgba(34,40,31,.22)"></span></sc-if>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Instrument Serif',serif;font-size:30px">Your bag</span><button sc-camel-on-click="{{ bag.close }}" style="border:none;background:#E8E4DB;border-radius:20px;padding:{{ v.closeP }};font-size:12px;color:#22281F">Close</button></div>
+<sc-if value="{{ bag.empty }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:13px;color:#5C6356">Nothing yet. Tap a size or add a whole look.</p></sc-if>
+<sc-for list="{{ bag.items }}" as="it" hint-placeholder-count="1">
+<div style="display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center"><div style="position:relative;width:52px;height:64px;border-radius:10px;overflow:hidden;background:#E8E4DB;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#8A8F84" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"></path><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"></path></svg><img src="{{ it.src }}" alt="" sc-camel-on-error="{{ it.hide }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></div><div style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:13px;font-weight:600">{{ it.name }}</span><span style="font-size:12px;color:#5C6356">{{ it.meta }}</span></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span style="font-size:13px;white-space:nowrap">{{ it.price }}</span><button sc-camel-on-click="{{ it.remove }}" style="border:none;background:transparent;font-size:{{ v.rmFs }};color:#5C6356;text-decoration:underline;padding:{{ v.rmP }}">Remove</button></div></div>
+</sc-for>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:12px">{{ bag.ship }}</span><div style="height:6px;background:#E8E4DB;border-radius:4px"><div style="height:6px;border-radius:4px;background:#22281F;width:{{ bag.pct }}"></div></div></div>
+<div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600"><span>Subtotal</span><span>{{ bag.subtotal }}</span></div>
+<button style="background:#22281F;color:#E8E4DB;border:none;padding:16px;border-radius:40px;font-size:14px;font-weight:600">Checkout</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ menu.isOpen }}" hint-placeholder-val="{{ false }}">
+<div sc-camel-on-click="{{ menu.close }}" style="position:fixed;inset:0;background:rgba(20,24,18,.42);z-index:39"></div>
+<div role="dialog" aria-label="Menu" style="position:fixed;top:0;left:0;bottom:0;width:min(86%, 380px);background:#E8E4DB;color:#22281F;z-index:40;display:flex;flex-direction:column;padding:12px 20px 28px;box-sizing:border-box;overflow:auto;font-family:'Hanken Grotesk',sans-serif">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;min-height:44px"><span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1">dynaré</span><button sc-camel-on-click="{{ menu.close }}" style="height:44px;border:1px solid rgba(34,40,31,.3);background:transparent;color:#22281F;padding:0 18px;border-radius:40px;font-size:14px">Close</button></div>
+<nav style="display:flex;flex-direction:column">
+<sc-for list="{{ menu.items }}" as="n" hint-placeholder-count="8"><a href="{{ n.href }}" sc-camel-on-click="{{ n.go }}" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid rgba(34,40,31,.14);font-family:'Instrument Serif',serif;font-size:30px;line-height:1.1">{{ n.label }}<span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:#5C6356">{{ n.count }}</span></a></sc-for>
+</nav>
+<div style="margin-top:auto;padding-top:28px;display:flex;flex-wrap:wrap;gap:12px 20px;font-size:14px;color:#5C6356"><span>Search</span><span>Shipping</span><span>Returns</span><span>Size guide</span></div>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;viewport&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Auto&quot;,&quot;Desktop&quot;,&quot;Tablet&quot;,&quot;Mobile&quot;],&quot;default&quot;:&quot;Auto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Responsive&quot;},&quot;scrollReveal&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+const U0=(id,w)=>String(id).startsWith('assets/')?id:String(id).startsWith('px')?`https://images.pexels.com/photos/${id.slice(2)}/pexels-photo-${id.slice(2)}.jpeg?auto=compress&cs=tinysrgb&w=${w||700}`:`https://images.unsplash.com/photo-${id}?w=${w||700}&q=75&auto=format&fit=crop`;
+const U=(id,w)=>{const u=U0(id,w);return (window.__resources&&window.__resources[u])||u;};
+const R=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+const HEX={Sage:'#A9B49B',Black:'#1D1D1B',Mocha:'#8A6F5C',Bone:'#ECE7DC',Blush:'#E8C6C2',Lagoon:'#3F7F80',Olive:'#7C7B52',Stone:'#B9B5AC',Cork:'#C7A57A',Charcoal:'#45464A',Signal:'#C8402E',Navy:'#2B3A55',Rose:'#D98FA0',Coral:'#E07A4F'};
+const FREE=750000;
+const P={
+ sanctum:{n:'Sanctum High-Rise Legging 25"',cat:'Leggings',price:849000,off:20,tag:'NEW',badge:'4-WAY',desc:'Second-skin softness that holds through every long pose.',c:[['Sage','1697060598741-7ca9b696febb'],['Black','1599447332412-6bc6830c815a'],['Olive','1678985854460-94df3afe13f4']]},
+ halo:{n:'Halo Cross-Back Bra',cat:'Bras',price:549000,tag:'NEW',desc:'Light support with a back that stays put in every twist.',c:[['Stone','1651786095999-a0ed2b65981a'],['Black','1791212420653-233f6bf4f8bb']]},
+ drift:{n:'Drift Ribbed Set',cat:'Sets',price:1190000,off:15,tag:'SET',desc:'A ribbed bra and legging pair, priced together.',c:[['Sage','1713201673819-122ab540f947','1713201435382-bb915a39be16'],['Olive','1697060739671-586c21fa5e30']]},
+ still:{n:'Still Wide-Leg Pant',cat:'Leggings',price:789000,tag:'NEW',desc:'Relaxed through the leg for studio-to-street days.',c:[['Sage','1713201435382-bb915a39be16'],['Mocha','1593164842264-854604db2260']]},
+ breathe:{n:'Breathe Scoop Bra',cat:'Bras',price:499000,off:20,tag:'BEST',desc:'Our lightest bra, for slow flows and yin.',c:[['Black','1552196563-55cd4e45efb3'],['Bone','1573384666979-2b1e160d2d08']]},
+ serene:{n:'Serene Seamless Tank',cat:'Tops',price:459000,badge:'DRY',desc:'A seamless knit with no seams to rub on the mat.',c:[['Black','1510894347713-fc3ed6fdf539'],['Bone','1573384666979-2b1e160d2d08']]},
+ ease:{n:'Ease Wrap Top',cat:'Tops',price:579000,tag:'NEW',desc:'A soft wrap layer for the walk home from class.',c:[['Bone','1603988363607-e1e4a66962c6'],['Sage','1575052814086-f385e2e2ad1b']]},
+ flexsplit:{n:'Flex Split Legging 28"',cat:'Flex',price:899000,tag:'NEW',badge:'4-WAY',desc:'Gives in every direction, so splits feel unrestricted.',c:[['Charcoal','1651786039465-d0580bb22ab7'],['Black','1640262653851-103cbaf802d5']]},
+ flexbra:{n:'Flex Open-Back Bra',cat:'Flex',price:529000,desc:'Low-profile straps that stay flat through backbends.',c:[['Stone','1593431763017-c689a61b729a']]},
+ flexuni:{n:'Flex Long Unitard',cat:'Flex',price:1290000,tag:'NEW',desc:'One piece, nothing to adjust mid-flow.',c:[['Bone','1649888381057-d5d03c105f82']]},
+ flexshort:{n:'Flex 5" Bike Short',cat:'Flex',price:499000,tag:'BEST',badge:'4-WAY',desc:'Stays in place through deep lunges and wide-legged folds.',c:[['Black','1758599879024-7379d769f664']]},
+ flexls:{n:'Flex Cropped Long Sleeve',cat:'Flex',price:599000,off:10,desc:'Thumbholes and a cropped hem that won\'t ride up.',c:[['Bone','1758272421829-7028296dee8f']]},
+ tempo:{n:'Tempo 4" Run Short',cat:'Run',price:529000,tag:'NEW',badge:'DRY',desc:'Built-in liner and a zip pocket that fits a phone.',c:[['Black','1480179087180-d9f0ec044897'],['Blush','1645318800862-0d343ebd4e6a']]},
+ aero:{n:'Aero Seamless Long Sleeve',cat:'Run',price:689000,off:20,badge:'DRY',desc:'Mesh-mapped knit for airflow where you heat up.',c:[['Lagoon','1645207803533-e2cfe1382f2c']]},
+ stride:{n:'Stride 7/8 Legging',cat:'Run',price:799000,tag:'BEST',desc:'High waist that doesn\'t slip on hill repeats.',c:[['Blush','1645318800735-737d3a422de6'],['Black','1645318801217-143533cb559f']]},
+ pace:{n:'Pace Olive Two-Piece',cat:'Run',price:1090000,off:15,tag:'SET',desc:'Matching bra and short, priced as a set.',c:[['Olive','1597297260448-3cc8d0a38388']]},
+ lift:{n:'Lift Racerback Bra',cat:'Run',price:549000,badge:'DRY',desc:'Medium support that stays still on fast intervals.',c:[['Bone','1470468969717-61d5d54fd036']]},
+ rooted:{n:'Rooted Cork Mat 6mm',cat:'Mats',price:899000,tag:'BEST',badge:'GRIP',desc:'Natural cork that grips harder as you sweat.',sizes:['4mm','6mm'],c:[['Cork','1601925260368-ae2f83cf8b7f']]},
+ travel:{n:'Grounded Travel Mat 1.5mm',cat:'Mats',price:649000,off:10,desc:'Folds into a tote. Built for Bali retreats.',sizes:['One size'],c:[['Charcoal','1592432678016-e910b452f9a2']]},
+ studio:{n:'Studio Mat 5mm',cat:'Mats',price:749000,badge:'GRIP',desc:'Dense rubber cushioning for knees and wrists.',sizes:['Standard','Long'],c:[['Lagoon','1676686055281-5a3cfc218a6d']]},
+ block:{n:'Cork Block, Set of 2',cat:'Props',price:349000,tag:'NEW',desc:'Rounded edges, firm enough for standing balances.',sizes:['Set of 2'],c:[['Cork','1646239646963-b0b9be56d6b5']]},
+ everyday:{n:'Everyday Mat 4mm',cat:'Mats',price:599000,desc:'Light enough to carry to class every day.',sizes:['Standard'],c:[['Sage','1767605545968-a102fc151b08']]},
+ shell:{n:'Monsoon Packable Shell',cat:'Outer',price:1190000,tag:'NEW',badge:'WR',desc:'Water-resistant and packs into its own pocket.',c:[['Black','px6778713']]},
+ ridge:{n:'Ridge Wind Jacket',cat:'Outer',price:1090000,badge:'WR',desc:'Blocks wind on open-road runs, vents under the arms.',c:[['Black','px32087014']]},
+ summit:{n:'Summit Half-Zip Anorak',cat:'Outer',price:1150000,tag:'NEW',desc:'Pull-on shell with a kangaroo pocket for keys and phone.',c:[['Navy','1644225450138-9f4f9e2d4582']]},
+ city:{n:'City Run Jacket',cat:'Outer',price:989000,off:15,desc:'Reflective trims for early runs before sunrise.',c:[['Lagoon','px9502482']]},
+ signal:{n:'Signal Windbreaker',cat:'Outer',price:949000,tag:'BEST',desc:'Bright enough to be seen on rainy commutes.',c:[['Signal','px11435389']]},
+ brasage:{n:'Pulse Medium-Support Bra',cat:'Bra',sup:'Medium',price:529000,tag:'NEW',desc:'Bonded band that stays flat under tanks.',c:[['Sage','1682523426986-92746735ccc2']]},
+ brablush:{n:'Bloom Longline Bra',cat:'Bra',sup:'Light',price:499000,desc:'Longline cut that doubles as a crop top.',c:[['Blush','1606902965551-dce093cda6e7'],['Rose','1759476530926-f80b01cb6c27']]},
+ brabone:{n:'Anchor High-Support Bra',cat:'Bra',sup:'High',price:649000,tag:'BEST',badge:'HIGH',desc:'Moulded cups and adjustable straps for running and HIIT.',c:[['Bone','1594730036615-a0f77497536f']]},
+ bracoral:{n:'Sprint Racerback Bra',cat:'Bra',sup:'High',price:599000,badge:'DRY',desc:'Racerback for full arm swing on fast intervals.',c:[['Coral','1635863637085-caaf8653938b']]},
+ bramocha:{n:'Still Scoop Bra',cat:'Bra',sup:'Light',price:469000,off:20,desc:'Soft and wire-free for yin and pilates.',c:[['Mocha','1597299001669-6454fec8ac25']]},
+ eleg:{n:'Essential Legging 25"',cat:'Black',price:799000,tag:'CORE',badge:'4-WAY',desc:'The legging everything else is built around.',c:[['Black','1599447332412-6bc6830c815a']]},
+ ebra:{n:'Essential Scoop Bra',cat:'Black',price:459000,tag:'CORE',desc:'Light support with a clean, low scoop.',c:[['Black','1552196563-55cd4e45efb3']]},
+ eset:{n:'Essential Bra & Legging Set',cat:'Black',price:1150000,off:15,tag:'SET',desc:'Both pieces, priced as a set.',c:[['Black','1584863495140-a320b13a11a8']]},
+ etank:{n:'Essential Fitted Tank',cat:'Black',price:429000,desc:'Close fit that stays tucked in every inversion.',c:[['Black','1591258370814-01609b341790']]},
+ elong:{n:'Essential Longline Bra',cat:'Black',price:499000,desc:'Extra coverage that stays put through lifts.',c:[['Black','1571731956672-f2b94d7dd0cb']]}
+};
+const BRA_IDS=['contour','bow','ruffle','rib'];
+Object.assign(HEX,{Nude:'#D9C2A7',Plum:'#6E2F86',Pink:'#E9A6B5'});
+Object.assign(P,{
+ contour:{n:'Contour Racerback Bra',cat:'Bra',sup:'High',price:599000,tag:'NEW',badge:'HIGH',desc:'Seamed cups and a racerback that stays put on fast intervals.',c:[['Sage','assets/v/bra-sage.jpg','assets/v/bra-sage-detail.jpg'],['Black','assets/v/bra-black.jpg','assets/v/bra-black-detail.jpg'],['Rose','assets/v/bra-rose.jpg','assets/v/bra-rose-detail.jpg'],['Blush','assets/v/bra-blush.jpg','assets/v/bra-blush-detail.jpg']]},
+ bow:{n:'Ballet Bow Scoop Bra',cat:'Bra',sup:'Light',price:519000,tag:'NEW',desc:'Ruched front, double straps and a small satin bow.',c:[['Nude','assets/v/bra-bow-nude.jpg','assets/v/bra-bow-nude-detail.jpg']]},
+ ruffle:{n:'Frill Strappy Bra',cat:'Bra',sup:'Light',price:549000,tag:'NEW',desc:'Ruffle trims and a criss-cross neckline for studio days.',c:[['Plum','assets/v/bra-ruffle-plum.jpg','assets/v/bra-ruffle-plum-detail.jpg']]},
+ rib:{n:'Rib Keyhole Bra',cat:'Bra',sup:'Medium',price:529000,desc:'Ribbed knit with a keyhole cut-out above the band.',c:[['Pink','assets/v/bra-rib-pink.jpg','assets/v/bra-rib-pink-detail.jpg']]}
+});
+const YOGA_IDS=['drift','ysol','ycalm','ybloom'];
+Object.assign(HEX,{Grey:'#7E8288'});
+Object.assign(P,{
+ ysol:{n:'Sol Crop Tank & Bike Short',cat:'Sets',price:1090000,tag:'NEW',badge:'4-WAY',desc:'A cropped tank and side-pocket short, priced as a set.',c:[['Black','assets/v/yoga-sol-black.jpg','assets/v/yoga-sol-black-2.jpg']]},
+ ycalm:{n:'Calm Cami & Pocket Short',cat:'Sets',price:990000,tag:'NEW',desc:'Thin-strap cami with a contour-seamed short.',c:[['Grey','assets/v/yoga-calm-grey.jpg']]},
+ ybloom:{n:'Bloom Racer Tank & Legging',cat:'Sets',price:1190000,off:15,tag:'SET',desc:'Relaxed racer tank over a high-rise pocket legging.',c:[['Blush','assets/v/yoga-bloom-pink.jpg']]}
+});
+const FLEX_IDS=['fxdance','fxlunge','fxrib','fxsplit'];
+Object.assign(HEX,{Mauve:'#8E5A63',Teal:'#2F5F73'});
+Object.assign(P,{
+ fxdance:{n:'Flex Sculpt Crop & Legging',cat:'Flex',price:1190000,tag:'NEW',badge:'4-WAY',desc:'Moves with you into deep backbends and dancer pose.',c:[['Plum','assets/v/flex-plum.jpg']]},
+ fxlunge:{n:'Flex Split Legging 28" Set',cat:'Flex',price:1150000,tag:'BEST',badge:'4-WAY',desc:'Gives in every direction, so splits feel unrestricted.',c:[['Teal','assets/v/flex-teal.jpg','1603988363607-e1e4a66962c6']]},
+ fxrib:{n:'Flex Rib Tank & Legging',cat:'Flex',price:1090000,off:10,desc:'Soft ribbed knit for slow stretches and seated holds.',c:[['Mauve','assets/v/flex-mauve.jpg','1593164842264-854604db2260']]},
+ fxsplit:{n:'Flex Open-Back Tank & Legging',cat:'Flex',price:1050000,tag:'NEW',desc:'Low-profile straps that stay flat through side bends.',c:[['Olive','assets/v/flex-olive.jpg']]}
+});
+const MAT_IDS=['matmaroon','matindigo','matslate','matpink'];
+Object.assign(HEX,{Maroon:'#7A2E3A',Indigo:'#3B4A8C',Slate:'#4A6683',Pink:'#E9A6B5'});
+Object.assign(P,{
+ matmaroon:{n:'Grip & Comfort Mat 5mm',cat:'Mats',price:699000,tag:'NEW',badge:'GRIP',desc:'Textured top for grip, 5mm cushioning for knees and wrists.',sizes:['5mm'],c:[['Maroon','assets/v/mat-maroon.jpg','assets/v/mat-maroon-life.jpg']]},
+ matindigo:{n:'Gentle Grip Mat 5mm',cat:'Mats',price:749000,tag:'BEST',badge:'GRIP',desc:'Soft-touch surface with embossed alignment waves.',sizes:['5mm'],c:[['Indigo','assets/v/mat-indigo.jpg','assets/v/mat-indigo-life.jpg']]},
+ matslate:{n:'Everyday Align Mat 4mm',cat:'Mats',price:599000,desc:'Light enough to carry to class, with a centre alignment line.',sizes:['4mm'],c:[['Slate','assets/v/mat-slate.jpg','assets/v/mat-slate-life.jpg']]},
+ matpink:{n:'Blush Align Mat 5mm',cat:'Mats',price:699000,tag:'NEW',badge:'GRIP',desc:'Same grip and cushioning, in a soft blush tone.',sizes:['5mm'],c:[['Pink','assets/v/mat-pink.jpg','assets/v/mat-pink-life.jpg']]}
+});
+const OUTER_IDS=['oblack','opink','olilac','osage'];
+Object.assign(HEX,{Lilac:'#9A86C9'});
+Object.assign(P,{
+ oblack:{n:'Define Zip Jacket',cat:'Outer',price:899000,tag:'BEST',desc:'Fitted full-zip with thumbholes and zip hand pockets.',c:[['Black','assets/v/outer-black.jpg','assets/v/outer-black-life.jpg']]},
+ opink:{n:'Define Zip Jacket',cat:'Outer',price:899000,tag:'NEW',desc:'Fitted full-zip with thumbholes and zip hand pockets.',c:[['Blush','assets/v/outer-pink.jpg','assets/v/outer-pink-life.jpg']]},
+ olilac:{n:'Define Zip Jacket',cat:'Outer',price:899000,tag:'NEW',desc:'Fitted full-zip with thumbholes and zip hand pockets.',c:[['Lilac','assets/v/outer-lilac.jpg','assets/v/outer-lilac-life.jpg']]},
+ osage:{n:'Define Zip Jacket',cat:'Outer',price:899000,desc:'Fitted full-zip with thumbholes and zip hand pockets.',c:[['Sage','assets/v/outer-sage.jpg','assets/v/outer-sage-life.jpg']]}
+});
+const SUPPORT=['All','Light','Medium','High'];
+P.halo.sup='Light';P.breathe.sup='Light';
+
+const BEST_IDS=['contour','drift','fxlunge','oblack','matmaroon'];
+
+const RUN_IDS=['tempo','stride','aero','lift','pace'];
+
+
+const BLACK_IDS=['eleg','ebra','eset','etank','elong'];
+const TABS=[];
+const PRACTICES=[['Vinyasa','assets/v/yoga-sol-black.jpg','38','#d-yoga'],['Flexibility','assets/v/flex-plum.jpg','14','#d-flex'],['Pilates','assets/v/flex-mauve.jpg','17','#d-yoga'],['Run','1645318800862-0d343ebd4e6a','28','#d-run'],['Outer','assets/v/outer-lilac-life.jpg','16','#d-outer'],['Mats & Props','assets/v/mat-indigo-life.jpg','12','#d-mats']];
+const FRAMES=[['1697060739671-586c21fa5e30','drift'],['1697060598741-7ca9b696febb','sanctum'],['1713201673819-122ab540f947','drift'],['1713201435382-bb915a39be16','still']];
+const priceOf=p=>p.off?p.price*(1-p.off/100):p.price;
+
+const SPEC={Leggings:[94,62,70],Bras:[84,58,82],Bra:[84,70,80],Sets:[82,60,74],Tops:[80,50,84],Flex:[98,58,76],Run:[76,52,95],Mats:[30,92,60],Props:[30,90,60],Outer:[55,40,88],Black:[90,64,72]};
+const SPOTS=[{id:'halo',x:'50%',y:'30%'},{id:'sanctum',x:'44%',y:'66%'},{id:'rooted',x:'68%',y:'52%'}];
+const SOFT=t=>t?t.charAt(0)+t.slice(1).toLowerCase():'';
+class Base extends DCLogic {
+  state={cart:[],open:false,tab:'All',sup:'All',color:{},quick:null,spot:0};
+  add(id,s,disc){const ci=this.state.color[id]||0;this.setState(st=>({cart:[...st.cart,{id,s,ci,disc,uid:Math.random()}],open:true,quick:null}));}
+  addMany(ids,disc){this.setState(st=>({cart:[...st.cart,...ids.map(id=>({id,s:P[id].sizes?P[id].sizes[0]:'M',ci:0,disc,uid:Math.random()}))],open:true}));}
+  card(id,sec,accent){const p=P[id];const key=sec+id;const ci=this.state.color[id]||0;const [cn,img]=p.c[ci];const sp=SPEC[p.cat]||[80,60,70];
+    return {id,name:p.n,now:R(priceOf(p)),was:R(p.price),off:p.off?p.off+'%':'',hasOff:!!p.off,tag:p.tag||'',tagSoft:SOFT(p.tag),hasTag:!!p.tag,badge:p.badge||'',hasBadge:!!p.badge,
+      desc:p.desc||'',showDesc:this.props.showDescriptions??true,src:U(img,700),hoverSrc:(p.c[ci][2]||p.hv)?U(p.c[ci][2]||p.hv,700):'',hasHover:!!(p.c[ci][2]||p.hv),thumb:U(img,300),tint:false,colorName:cn.toUpperCase(),color:cn,
+      colorLabel:cn+(p.sup?' · '+p.sup+' support':''),feel:p.sup?p.sup+' support':(p.badge||p.cat),accent:accent||INK,listPrice:R(p.price),
+      swatches:p.c.map(([nm],i)=>({name:nm,hex:HEX[nm]||'#999',ring:i===ci?'0 0 0 2px '+PAPER+', 0 0 0 3px '+INK:'none',pick:()=>this.setState(st=>({color:{...st.color,[id]:i}}))})),
+      quickOpen:this.state.quick===key,quickClosed:this.state.quick!==key,openQuick:()=>this.setState({quick:key}),closeQuick:()=>this.setState({quick:null}),
+      bars:[['STRETCH',sp[0]],['SUPPORT',sp[1]],['BREATH',sp[2]]].map(([l,v])=>({l,w:v+'%'})),
+      tapH:this.mk&&this.mk!=='d'?'44px':'34px',swS:this.mk&&this.mk!=='d'?'22px':'16px',sizes:(p.sizes||['XS','S','M','L','XL']).map(s=>({s,add:()=>this.add(id,s)}))};}
+  pill(on){return {bg:on?INK:'transparent',fg:on?PAPER:INK,bd:on?INK:LINE};}
+  common(n,acc){acc=acc||{};const st=this.state;const row=(ids,sec)=>ids.slice(0,n).map(id=>this.card(id,sec,acc[sec]));
+    const lp=p=>p.price;const pr=i=>{const p=P[i.id];return i.disc?p.price*0.9:priceOf(p);};
+    const sub=st.cart.reduce((a,i)=>a+pr(i),0);const left=Math.max(0,FREE-sub);
+    const lookFull=SPOTS.reduce((a,s)=>a+lp(P[s.id]),0);const sp=SPOTS[st.spot];
+    return {
+      best:row(BEST_IDS,'b'),yoga:row(YOGA_IDS.filter(id=>st.tab==='All'||P[id].cat===st.tab),'y'),flex:row(FLEX_IDS,'f'),run:row(RUN_IDS,'r'),
+      mats:row(MAT_IDS,'t'),outer:row(OUTER_IDS,'o'),black:row(BLACK_IDS,'k'),bras:row(BRA_IDS.filter(id=>st.sup==='All'||P[id].sup===st.sup),'s'),
+      tabs:TABS.map(t=>({label:t,...this.pill(t===st.tab),pick:()=>this.setState({tab:t})})),
+      supports:SUPPORT.map(t=>({label:t,...this.pill(t===st.sup),pick:()=>this.setState({sup:t})})),
+      practices:PRACTICES.map(([label,img,count,href])=>({label,count,href,src:U(img,500)})),
+      spots:SPOTS.map((s,i)=>({...s,n:i+1,name:P[s.id].n,priceL:R(lp(P[s.id])),size:this.mk&&this.mk!=='d'?(i===st.spot?'44px':'40px'):(i===st.spot?'40px':'32px'),bg:i===st.spot?'#fff':'rgba(34,40,31,.55)',fg:i===st.spot?'#22281F':'#fff',op:i===st.spot?1:.55,pick:()=>this.setState({spot:i})})),
+      spot:{...this.card(sp.id,'l'),n:st.spot+1,now:R(lp(P[sp.id]))},
+      look:{img:U('1713201435382-bb915a39be16',1200),full:R(lookFull),bundle:R(lookFull*0.9),add:()=>this.addMany(SPOTS.map(s=>s.id),true)},
+      bag:{count:st.cart.length,open:st.open,empty:!st.cart.length,subtotal:R(sub),pct:Math.min(100,sub/FREE*100)+'%',
+        ship:left?`Add ${R(left)} more for free shipping`:'You have free shipping',
+        items:st.cart.slice().reverse().map(i=>{const p=P[i.id];const c=p.c[i.ci]||p.c[0];return {name:p.n,src:U(c[1],200),meta:`${c[0]} · ${i.s}${i.disc?' · Look −10%':''}`,price:R(pr(i)),hide:e=>{e.currentTarget.style.display='none';},remove:()=>this.setState(s=>({cart:s.cart.filter(x=>x.uid!==i.uid)}))};}),
+        toggle:()=>this.setState(s=>({open:!s.open})),close:()=>this.setState({open:false})}
+    };}
+}
+
+const INK='#22281F',PAPER='#E8E4DB',LINE='rgba(34,40,31,.3)';
+const HSLIDES=[
+ {id:'1579566538101-636bbaed1b05',pos:'center 45%',eyebrow:'THE LOOP · NEW SEASON',t1:'Made for the',t2:'in-between.',body:'Fabrics that go from a sunrise run to a slow flow and on to brunch. No outfit change needed.',cta:'Shop the look',href:'#c-look'},
+ {id:'1593419528756-3cdfa1615b86',pos:'center 40%',eyebrow:'FLEXIBILITY SERIES',t1:'Stretch further,',t2:'spring back.',body:'Our stretchiest knit, cut for splits, backbends and long holds.',cta:'Shop flexibility',href:'#d-flex'},
+ {id:'1768929096297-ba9fde63f58f',pos:'center 35%',eyebrow:'RUN · PACE CLUB',t1:'Run the city',t2:'before it wakes.',body:'Featherweight, quick-dry kit for humid 5am runs.',cta:'Shop run',href:'#d-run'},
+ {id:'1560233075-4c1e2007908e',pos:'center 50%',eyebrow:'YOGA ESSENTIALS',t1:'Soft as breath,',t2:'steady as stone.',body:'Buttery-soft layers, from sun salutation to savasana.',cta:'Shop yoga',href:'#d-yoga'}
+];
+const DEV={t:[820,1180],m:[390,844]};
+const NAV=[['Yoga','d-yoga','38'],['Flexibility','d-flex','14'],['Run','d-run','28'],['Outer','d-outer','16'],['Mats & props','d-mats','12'],['Sports bras','d-bras','24'],['Essentials','d-black','12'],['Shop the look','c-look','']];
+const HG='linear-gradient(0deg,rgba(20,24,18,.78) 0%,rgba(20,24,18,.42) 30%,rgba(20,24,18,0) 58%),linear-gradient(90deg,rgba(20,24,18,.3) 0%,rgba(20,24,18,0) 50%)';
+const GH='linear-gradient(0deg,rgba(20,24,18,.86) 0%,rgba(20,24,18,.6) 40%,rgba(20,24,18,.12) 70%,rgba(20,24,18,0) 88%)';
+const YG='linear-gradient(90deg,rgba(20,22,18,.72) 0%,rgba(20,22,18,.35) 45%,rgba(20,22,18,0) 70%)';
+const OG='linear-gradient(270deg,rgba(20,22,18,.74) 0%,rgba(20,22,18,.4) 40%,rgba(20,22,18,0) 66%)';
+const GB='linear-gradient(0deg,rgba(20,22,18,.84) 0%,rgba(20,22,18,.55) 42%,rgba(20,22,18,0) 72%)';
+function lay(k,fr,fh,lock){
+ const d=k==='d',t=k==='t',m=k==='m';const s=(a,b,c)=>d?a:t?b:c;const x=n=>n+'px';
+ const px=s(48,32,20),mx=s(24,16,12);
+ const rail=d?{railD:'grid',railOv:'visible',snap:'none',railM:'0',railP:'0',railSP:'0'}:{railD:'flex',railOv:'auto',snap:'x mandatory',railM:'0 -'+px+'px',railP:'0 '+px+'px',railSP:'0 '+px+'px'};
+ return {k,isD:d,notD:!d,isM:m,framed:fr,...rail,
+  stD:fr?'flex':'block',stMinH:fr?'100vh':'0',stPad:fr?'24px':'0',stBg:fr?'#CFCABF':'transparent',
+  fW:fr?x(DEV[k][0]):'100%',fH:fr?x(fh):'auto',fT:fr?'translateZ(0)':'none',fOv:fr?'hidden':'visible',fR:fr?(m?'36px':'24px'):'0',fSh:fr?'0 40px 100px rgba(34,40,31,.28)':'none',
+  sH:fr?'100%':'auto',sbw:fr?'none':'auto',topScrim:d?'none':'linear-gradient(180deg,rgba(20,24,18,.5) 0%,rgba(0,0,0,0) 24%)',sOv:fr?(lock?'hidden':'auto'):'visible',spt:s('84px','76px','68px'),
+  minW:d?'1280px':'0',hdrPad:s('24px 48px','16px 24px','12px 16px'),logo:s('36px','32px','30px'),
+  heroM:'0 '+mx+'px',heroH:d?'calc(100vh - 110px)':fh?x(t?Math.min(fh-92,900):fh-80):(t?'min(calc(100svh - 92px), 900px)':'calc(100svh - 80px)'),heroMinH:s('620px','600px','540px'),r:s('28px','24px','20px'),
+  heroGrad:d?HG:GH,heroL:x(s(64,40,20)),heroTR:s('auto','40px','20px'),heroB:x(s(64,48,24)),heroMaxW:s('720px','600px','none'),heroGap:x(s(22,20,16)),eyebrow:x(s(13,13,12)),h1:x(s(120,88,50)),heroBody:x(s(17,17,16)),ctaDir:m?'column':'row',
+  monoT:x(s(48,32,20)),monoL:x(s(64,40,20)),monoS:x(s(56,48,40)),ctlT:s('auto','32px','28px'),ctlR:x(s(56,40,20)),ctlB:s('64px','auto','auto'),ctlGap:x(s(20,16,12)),arrows:m?'none':'flex',dotH:m?'23px':'3px',dotP:m?'10px 0':'0',
+  secPad:s(88,64,48)+'px '+px+'px 0',hMb:x(s(28,24,20)),h2:x(s(64,52,38)),pracGap:x(s(16,12,10)),pracFlex:s('0 1 auto','0 0 clamp(150px, 22%, 210px)','0 0 44%'),
+  gap:x(s(20,16,12)),cardFlex:s('0 1 auto','0 0 clamp(240px, 38%, 320px)','0 0 72%'),
+  pPad:s(40,32,28)+'px '+px+'px 0',pMb:x(s(24,20,16)),h3:x(s(40,34,30)),
+  banM:s(104,72,48)+'px '+mx+'px 0',banH:x(s(640,600,560)),gYoga:d?YG:GB,gOuter:d?OG:GB,banL:x(s(56,40,20)),banTR:s('auto','40px','20px'),banB:x(s(56,40,24)),banGap:x(s(20,18,16)),ban:x(s(112,80,50)),banBody:x(s(18,17,16)),
+  outL:s('auto','40px','20px'),outAI:d?'flex-end':'flex-start',outTA:d?'right':'left',runCT:x(s(28,24,16)),runDir:d?'row':'column',runAI:d?'flex-end':'flex-start',runGap:x(s(40,24,20)),
+  gFlex:s('1fr 1.2fr','1fr 1fr','1fr'),gMats:s('1.2fr 1fr','1fr 1fr','1fr'),sp:x(s(24,16,12)),splitH:d?'640px':'auto',splitMinH:t?'560px':'0',splitTP:s('40px 32px','32px 20px','20px 8px 12px'),splitGap:x(s(22,20,16)),banFlex:x(s(96,60,46)),banMats:x(s(92,58,46)),banBlack:x(s(100,60,46)),splitBody:x(s(17,16,16)),splitImgH:m?'340px':'auto',imgOrd:m?'-1':'0',imgR:x(s(20,16,14)),
+  lookM:s(88,64,48)+'px '+mx+'px 0',lookCols:d?'1fr 1fr':'1fr',lookImgH:x(s(780,560,420)),lookP:s('56px','40px','24px 20px 28px'),lookGap:x(s(28,24,20)),lookH2:x(s(60,48,40)),spotCols:m?'104px 1fr':'140px 1fr',spotGap:x(m?14:20),spotW:x(m?104:140),spotH:x(m?132:176),spotName:x(m?17:20),rowPad:d?'10px 0':'14px 0',rowFs:x(d?14:15),lookAI:m?'stretch':'center',lookCtaGap:x(m?14:20),
+  promoH:x(s(520,520,580)),promoP:m?'0 20px':'0 40px',brasPad:s(48,40,32)+'px '+px+'px 0',blackPad:s(40,32,28)+'px '+px+'px '+s(104,72,56)+'px',
+  footPad:m?'32px 20px 40px':'40px '+px+'px 36px',footDir:m?'column':'row',footAI:m?'flex-start':'flex-end',footMark:x(s(96,80,64)),footGap:s('28px','20px','12px 20px'),
+  bagT:s('92px','88px','auto'),bagR:s('32px','16px','0'),bagB:m?'0':'auto',bagL:m?'0':'auto',bagW:m?'auto':'360px',bagMaxH:s('calc(100vh - 120px)','calc(100% - 120px)','85%'),bagRad:m?'22px 22px 0 0':'22px',bagP:m?'14px 20px 28px':'22px',closeP:d?'6px 12px':'10px 16px',rmFs:x(d?11:13),rmP:d?'0':'6px 0'};
+}
+class Component extends Base {
+  sc=React.createRef();
+  componentDidMount(){this.onR=()=>this.setState({ww:window.innerWidth,wh:window.innerHeight});window.addEventListener('resize',this.onR);this.onR();
+    if(this.props.heroAt!=null)return;this.ht=setInterval(()=>this.setState(s=>({hs:((s.hs||0)+1)%4})),7000);}
+  componentWillUnmount(){clearInterval(this.ht);this.io&&this.io.disconnect();window.removeEventListener('resize',this.onR);document.body.style.overflow='';document.documentElement.style.scrollPaddingTop='';}
+  componentDidUpdate(){this.syncDoc();this.reveal();}
+  reveal(){if(this.props.scrollReveal===false||this.props.vlayout)return;const root=this.sc.current;if(!root)return;
+    if(!this.io){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      this.io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;(e.target.__rvT||[e.target]).forEach(el=>{el.style.opacity='1';el.style.transform='none';});this.io.unobserve(e.target);}),{threshold:0.12,rootMargin:'0px 0px -6% 0px'});}
+    [...root.querySelectorAll('section')].slice(1).forEach(sec=>[...sec.children].forEach(ch=>{
+      if(ch.__rv)return;const cs=ch.style;
+      if(ch.tagName==='IMG'){this.prep(ch,[ch],'scale(1.08)',1600);return;}
+      if(cs.position==='absolute'&&!ch.children.length)return;
+      const rail=ch.children.length>=3&&(cs.gridTemplateColumns.indexOf('repeat')>-1||!!cs.overflowX);
+      this.prep(ch,rail?[...ch.children]:[ch]);}));}
+  prep(trig,els,from,dur){trig.__rv=1;trig.__rvT=els;const d=dur||900,ez='cubic-bezier(.2,.7,.2,1)';
+    els.forEach((el,i)=>{el.style.opacity=from?'1':'0';el.style.transform=from||'translateY(32px)';el.style.transition=`opacity ${d}ms ${ez} ${i*90}ms, transform ${d}ms ${ez} ${i*90}ms`;});
+    this.io.observe(trig);}
+  syncDoc(){const L=this.L;if(!L||this.props.vlayout)return;const st=this.state;const lock=!L.framed&&!L.isD&&!!(st.menu||(st.open&&L.isM));
+    document.body.style.overflow=lock?'hidden':'';document.documentElement.style.scrollPaddingTop=!L.framed?L.spt:'';}
+  hgo(i){clearInterval(this.ht);if(this.props.heroAt==null)this.ht=setInterval(()=>this.setState(s=>({hs:((s.hs||0)+1)%4})),7000);this.setState({hs:i});}
+  mode(){const vl=this.props.vlayout;if(vl)return [vl,false];const vp=this.props.viewport??'Auto';const ww=this.state.ww||window.innerWidth;
+    if(vp==='Auto')return [ww<700?'m':ww<1280?'t':'d',false];
+    return [vp==='Desktop'?'d':vp==='Tablet'?'t':'m',vp!=='Desktop'];}
+  jump(id){const el=document.getElementById(id);const L=this.L;if(!el||!L)return;const off=parseInt(L.spt,10)+16;const sc=this.sc.current;
+    if(L.framed&&sc)sc.scrollTo({top:el.getBoundingClientRect().top-sc.getBoundingClientRect().top+sc.scrollTop-off,behavior:'smooth'});
+    else window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off,behavior:'smooth'});}
+  renderVals(){const [k,fr]=this.mode();this.mk=k;const st=this.state;const wh=st.wh||window.innerHeight;
+    const fh=this.props.vlayout?Number(this.props.vlayoutH||DEV[k][1]):fr?Math.max(560,Math.min(DEV[k][1],wh-48)):0;
+    const L=lay(k,fr,fh,!!(st.menu||(st.open&&k==='m')));this.L=L;
+    const ha=this.props.heroAt;const hs=ha!=null?Math.round(ha)%4:(st.hs||0);
+    const c=this.common(4);c.bag.sheetOpen=!!st.open&&k==='m';
+    const tog=c.bag.toggle;c.bag.toggle=()=>{this.setState({menu:false});tog();};
+    return {...c,v:L,scRef:this.sc,
+      menu:{isOpen:!!st.menu&&k!=='d',open:()=>this.setState({menu:true,open:false}),close:()=>this.setState({menu:false}),
+        items:NAV.map(([label,id,count])=>({label,count,href:'#'+id,go:e=>{e.preventDefault();this.setState({menu:false});setTimeout(()=>this.jump(id),40);}}))},
+      heroTS:e=>{this.tx=e.touches[0].clientX;},
+      heroTE:e=>{if(this.tx==null)return;const dx=e.changedTouches[0].clientX-this.tx;this.tx=null;if(Math.abs(dx)>40)this.hgo((hs+(dx<0?1:3))%4);},
+      heroNo:'0'+(hs+1),heroPrev:()=>this.hgo((hs+3)%4),heroNext:()=>this.hgo((hs+1)%4),
+      heroSlides:HSLIDES.map((s,i)=>({...s,src:U(s.id,k==='m'?1200:2000),op:ha!=null?Math.max(0,1-Math.abs(ha-i)):(i===hs?1:0),pe:i===hs?'auto':'none',scale:ha!=null?1+0.04*Math.max(0,1-Math.abs(ha-i)):(i===hs?1.04:1),w:i===hs?'32px':'12px',dot:i===hs?'#F4F1EA':'rgba(244,241,234,.45)',go:()=>this.hgo(i)}))};}
+}
+</script>
+
+
+</body></html>

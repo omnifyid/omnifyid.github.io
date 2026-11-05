@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html><head><title>Rumah Senja Reservation</title><script>window.__resources = {"https://unpkg.com/react@18.3.1/umd/react.production.min.js": "assets/a00cd38c.js", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "assets/7fa73a3e.js"};</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="assets/aa7161c6.js"></script>
+
+</head>
+<body>
+<div hidden="" id="img-assets" aria-hidden="true"><img data-k="1552566626-52f8b828add9" src="assets/9cd43165.jpg" alt=""><img data-k="1501179691627-eeaa65ea017c" src="assets/12dd2964.jpg" alt=""><img data-k="1578469550956-0e16b69c6a3d" src="assets/592f693e.jpg" alt=""></div>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://images.unsplash.com">
+<style>/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/c0c95d57.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/828ca42b.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/a072152e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/c0c95d57.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/828ca42b.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/a072152e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/c0c95d57.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/828ca42b.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/a072152e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/c0c95d57.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/828ca42b.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/a072152e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/5cc498ef.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/6c2a9553.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/4045de2b.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>/* fallback */
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: block;
+  src: url("assets/8c6571fa.woff2") format('woff2');
+}
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+</style>
+<style>
+body{margin:0;background:#FAF6EF;color:#1F1A16;font-family:Jost,system-ui,sans-serif;font-weight:500;-webkit-font-smoothing:antialiased}
+a{color:#7A2E17;text-decoration:underline;text-underline-offset:3px}a:hover{color:#1F1A16}
+input,button{font-family:Jost,system-ui,sans-serif}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;background:#FAF6EF">
+
+  <sc-if value="{{ showHeader }}" hint-placeholder-val="{{ false }}">
+    <header style="position:sticky;top:0;z-index:20;background:#FFFFFF;border-bottom:1px solid #DDD3C5">
+      <div style="max-width:{{ L.maxW }};margin:0 auto;padding:12px {{ L.padX }};box-sizing:border-box;display:flex;align-items:center;gap:12px">
+        <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
+          <button sc-camel-on-click="{{ back }}" style="min-height:48px;padding:0 14px 0 8px;border:1.5px solid #8C8173;border-radius:99px;background:#FFFFFF;color:#1F1A16;cursor:pointer;display:flex;align-items:center;gap:4px;font-size:16px;font-weight:600;flex-shrink:0" style-focus="outline:3px solid #7A2E17;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">chevron_left</span>Back</button>
+        </sc-if>
+        <div style="flex:1;min-width:0">
+          <div style="font-family:'Tenor Sans',sans-serif;font-size:21px;line-height:1.15">{{ title }}</div>
+          <div style="font-size:15px;color:#4A4037;margin-top:2px">{{ subtitle }}</div>
+        </div>
+        <span style="display:{{ L.brandDisp }};align-items:center;gap:8px;color:#7A2E17">
+          <svg width="30" height="30" sc-camel-view-box="0 0 40 40" aria-hidden="true"><path d="M4 18 L20 6 L36 18" fill="none" stroke="currentColor" stroke-width="2.2"></path><path d="M11 30 A9 9 0 0 1 29 30 Z" fill="currentColor"></path><line x1="4" y1="34" x2="36" y2="34" stroke="currentColor" stroke-width="2.2"></line></svg>
+          <span style="font-family:'Tenor Sans',sans-serif;font-size:15px;letter-spacing:.24em">RUMAH SENJA</span>
+        </span>
+      </div>
+    </header>
+  </sc-if>
+
+  <main style="flex:1;display:flex;flex-direction:column">
+
+    <sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ true }}">
+      <div style="flex:1;display:grid;grid-template-columns:{{ L.welCols }};min-height:100vh">
+        <div style="position:{{ L.heroPos }};top:0;align-self:start;height:{{ L.heroH }};overflow:hidden;display:flex;flex-direction:column;padding:{{ L.heroPad }};box-sizing:border-box;color:#FFFFFF;background:#2A1F18">
+          <div aria-hidden="true" style="position:absolute;left:0;top:0;width:100%;height:100%;background-image:{{ heroBg }};background-size:cover;background-position:center"></div>
+          <div style="position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(24,16,11,.5) 0%,rgba(24,16,11,.55) 40%,rgba(24,16,11,.9) 100%)"></div>
+          <div style="position:relative;display:flex;align-items:center;gap:10px">
+            <svg width="34" height="34" sc-camel-view-box="0 0 40 40" style="color:#F2D9A8" aria-hidden="true"><path d="M4 18 L20 6 L36 18" fill="none" stroke="currentColor" stroke-width="2.2"></path><path d="M11 30 A9 9 0 0 1 29 30 Z" fill="currentColor"></path><line x1="4" y1="34" x2="36" y2="34" stroke="currentColor" stroke-width="2.2"></line></svg>
+            <span style="font-family:'Tenor Sans',sans-serif;font-size:17px;letter-spacing:.3em">RUMAH SENJA</span>
+          </div>
+          <div style="position:relative;margin-top:auto">
+            <div style="font-size:15px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#F2D9A8">Reserve a table</div>
+            <h1 style="font-family:'Tenor Sans',sans-serif;font-weight:400;font-size:clamp(40px,5.4vw,76px);line-height:1.02;margin:10px 0 0;text-transform:uppercase">Nusantara,<br>served slowly.</h1>
+            <p style="font-size:18px;line-height:1.55;margin:12px 0 0;max-width:380px">Nine courses, about three hours. Choose a house to begin.</p>
+          </div>
+        </div>
+
+        <div style="padding:{{ L.contPad }};box-sizing:border-box;min-width:0;display:flex;flex-direction:column">
+          <div style="width:100%;max-width:540px;margin:0 auto;display:flex;flex-direction:column;gap:26px;flex:1">
+            <section aria-labelledby="h-loc" style="display:flex;flex-direction:column;gap:12px">
+              <h2 id="h-loc" style="margin:0;font-family:'Tenor Sans',sans-serif;font-weight:400;font-size:24px">Which house?</h2>
+              <div role="radiogroup" aria-labelledby="h-loc" style="display:flex;flex-direction:column;gap:10px">
+                <sc-for list="{{ branchCards }}" as="b" hint-placeholder-count="4">
+                  <button role="radio" aria-checked="{{ b.on }}" aria-disabled="{{ b.dis }}" sc-camel-on-click="{{ b.onClick }}" style="min-height:76px;text-align:left;cursor:{{ b.cursor }};border-radius:14px;border:{{ b.bd }};background:{{ b.bg }};color:{{ b.fg }};padding:14px 16px;display:flex;align-items:center;gap:14px" style-focus="outline:3px solid #7A2E17;outline-offset:2px">
+                    <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:28px;line-height:1;color:{{ b.iconFg }};font-feature-settings:'liga'">{{ b.icon }}</span>
+                    <span style="flex:1;min-width:0"><span style="display:block;font-size:19px;font-weight:700">{{ b.district }}, {{ b.city }}</span><span style="display:block;font-size:16px;color:#4A4037;margin-top:3px">{{ b.hours }}</span></span>
+                    <sc-if value="{{ b.hasTag }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;font-weight:700;flex-shrink:0;text-align:right;max-width:110px;padding:4px 10px;border-radius:99px;background:#EFE6D8;color:#1F1A16">{{ b.tag }}</span></sc-if>
+                  </button>
+                </sc-for>
+              </div>
+            </section>
+            <section aria-label="Map and address" style="border-radius:16px;overflow:hidden;background:#FFFFFF;border:1px solid #DDD3C5">
+              <iframe title="Map of Rumah Senja {{ branch.district }}" src="{{ mapEmbed }}" loading="lazy" style="width:100%;height:{{ L.mapH }};border:0;display:block"></iframe>
+              <div style="padding:16px;display:flex;flex-direction:column;gap:10px">
+                <div style="font-size:17px;line-height:1.55">{{ branch.house }}</div>
+                <div style="display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.5;color:#4A4037"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1.1;color:#7A2E17;font-feature-settings:'liga'">location_on</span><span>{{ branch.address }}</span></div>
+                <a href="{{ mapsUrl }}" target="_blank" style="min-height:48px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:17px" style-focus="outline:3px solid #7A2E17;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">directions</span>Get directions</a>
+              </div>
+            </section>
+            <section aria-labelledby="h-fac" style="display:flex;flex-direction:column;gap:12px">
+              <h2 id="h-fac" style="margin:0;font-size:18px;font-weight:700">At this house</h2>
+              <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+                <sc-for list="{{ facilities }}" as="f" hint-placeholder-count="6">
+                  <li style="background:#FFFFFF;border:1px solid #DDD3C5;border-radius:12px;padding:14px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:15px;line-height:1.3">
+                    <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1;color:#7A2E17;font-feature-settings:'liga'">{{ f.icon }}</span>
+                    <span>{{ f.label }}</span>
+                  </li>
+                </sc-for>
+              </ul>
+            </section>
+            <div style="position:sticky;bottom:0;margin-top:auto;padding:14px 0 20px;background:linear-gradient(180deg,rgba(250,246,239,0) 0%,#FAF6EF 30%)">
+              <button sc-camel-on-click="{{ start }}" style="width:100%;min-height:60px;border:none;border-radius:14px;background:#7A2E17;color:#FFFFFF;font-weight:700;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-focus="outline:3px solid #1F1A16;outline-offset:3px">Book a table in {{ branch.district }}<span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">arrow_forward</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMain }}" hint-placeholder-val="{{ false }}">
+      <div style="width:100%;max-width:{{ L.maxW }};margin:0 auto;padding:{{ L.pagePad }};box-sizing:border-box;display:grid;grid-template-columns:{{ L.mainCols }};gap:40px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:28px;min-width:0">
+
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:16px"><span style="font-weight:700">Step {{ stepNo }} of 3</span><span style="color:#4A4037">{{ nextHint }}</span></div>
+            <div aria-hidden="true" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px">
+              <sc-for list="{{ progress }}" as="p" hint-placeholder-count="3">
+                <div style="display:flex;flex-direction:column;gap:6px"><span style="height:6px;border-radius:99px;background:{{ p.bg }}"></span><span style="font-size:15px;font-weight:{{ p.fw }};color:{{ p.fg }}">{{ p.name }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+
+          <sc-if value="{{ isS1 }}" hint-placeholder-val="{{ false }}">
+            <section aria-labelledby="h-g" style="display:flex;flex-direction:column;gap:12px">
+              <h2 id="h-g" style="margin:0;font-family:'Tenor Sans',sans-serif;font-weight:400;font-size:26px">How many guests?</h2>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:#FFFFFF;border:1px solid #DDD3C5;border-radius:16px;padding:12px">
+                <button sc-camel-on-click="{{ decG }}" aria-label="Fewer guests" disabled="{{ gMin }}" style="width:56px;height:56px;border-radius:50%;border:2px solid {{ gDecBd }};background:#FFFFFF;color:{{ gDecBd }};cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:28px;line-height:1;font-feature-settings:'liga'" style-focus="outline:3px solid #7A2E17;outline-offset:2px">remove</button>
+                <div aria-live="polite" style="text-align:center"><div style="font-family:'Tenor Sans',sans-serif;font-size:44px;line-height:1">{{ guests }}</div><div style="font-size:16px;color:#4A4037;margin-top:4px">{{ guestWord }}</div></div>
+                <button sc-camel-on-click="{{ incG }}" aria-label="More guests" disabled="{{ gMax }}" style="width:56px;height:56px;border-radius:50%;border:none;background:{{ gIncBg }};color:#FFFFFF;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:28px;line-height:1;font-feature-settings:'liga'" style-focus="outline:3px solid #7A2E17;outline-offset:2px">add</button>
+              </div>
+              <div style="font-size:16px;color:#4A4037">{{ guestNote }}</div>
+            </section>
+
+            <section aria-labelledby="h-date" style="display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><h2 id="h-date" style="margin:0;font-family:'Tenor Sans',sans-serif;font-weight:400;font-size:26px">Which day?</h2><span style="font-size:16px;color:#4A4037">{{ monthLabel }}</span></div>
+              <div role="radiogroup" aria-labelledby="h-date" style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:{{ L.bleed }};padding:6px {{ L.bleedX }}">
+                <sc-for list="{{ dates }}" as="d" hint-placeholder-count="7">
+                  <button role="radio" aria-checked="{{ d.on }}" aria-label="{{ d.aria }}" disabled="{{ d.dis }}" sc-camel-on-click="{{ d.onClick }}" style="flex-shrink:0;width:72px;min-height:84px;border-radius:14px;cursor:{{ d.cursor }};border:2px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px" style-focus="outline:3px solid #7A2E17;outline-offset:2px">
+                    <span style="font-size:15px;font-weight:600">{{ d.dow }}</span>
+                    <span style="font-family:'Tenor Sans',sans-serif;font-size:26px;line-height:1.1">{{ d.num }}</span>
+                    <span style="font-size:14px;font-weight:600">{{ d.note }}</span>
+                  </button>
+                </sc-for>
+              </div>
+            </section>
+
+            <section aria-labelledby="h-time" style="display:flex;flex-direction:column;gap:12px">
+              <h2 id="h-time" style="margin:0;font-family:'Tenor Sans',sans-serif;font-weight:400;font-size:26px">What time?</h2>
+              <sc-if value="{{ warn.time }}" hint-placeholder-val="{{ false }}"><div role="alert" style="display:flex;gap:10px;align-items:center;background:#FDECEC;border:2px solid #9B1C1C;color:#7F1414;border-radius:12px;padding:12px 14px;font-size:17px;font-weight:600"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">error</span>Please choose a time to continue.</div></sc-if>
+              <sc-if value="{{ noSlots }}" hint-placeholder-val="{{ false }}">
+                <div role="status" style="background:#FFFFFF;border:1px solid #DDD3C5;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;font-size:17px;line-height:1.5">
+                  <span>{{ noSlotsText }}</span>
+                  <button sc-camel-on-click="{{ jumpNext }}" style="align-self:flex-start;min-height:48px;padding:0 18px;border-radius:12px;border:none;background:#7A2E17;color:#FFFFFF;font-weight:700;font-size:17px;cursor:pointer" style-focus="outline:3px solid #1F1A16;outline-offset:2px">{{ jumpLabel }}</button>
+                </div>
+              </sc-if>
+              <div role="radiogroup" aria-labelledby="h-time" style="display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ times }}" as="t" hint-placeholder-count="4">
+                  <button role="radio" aria-checked="{{ t.on }}" sc-camel-on-click="{{ t.onClick }}" style="min-height:66px;cursor:pointer;border-radius:14px;border:2px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};padding:10px 16px;display:flex;align-items:center;gap:14px;text-align:left" style-focus="outline:3px solid #7A2E17;outline-offset:2px">
+                    <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1;font-feature-settings:'liga'">{{ t.icon }}</span>
+                    <span style="font-family:'Tenor Sans',sans-serif;font-size:24px;min-width:70px">{{ t.time }}</span>
+                    <span style="flex:1;min-width:0;font-size:17px">{{ t.label }}</span>
+                    <span style="font-size:15px;font-weight:600;flex-shrink:0">{{ t.left }}</span>
+                  </button>
+                </sc-for>
+              </div>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{ isS2 }}" hint-placeholder-val="{{ false }}">
+            <section aria-labelledby="h-area" style="display:flex;flex-direction:column;gap:12px">
+              <h2 id="h-area" style="margin:0;font-family:'Tenor Sans',sans-serif;font-weight:400;font-size:26px">Where would you like to sit?</h2>
+              <p style="margin:0;font-size:17px;line-height:1.5;color:#4A4037">Not sure? Keep the first option and we will give you the best table.</p>
+              <sc-if value="{{ warn.table }}" hint-placeholder-val="{{ false }}"><div role="alert" style="display:flex;gap:10px;align-items:center;background:#FDECEC;border:2px solid #9B1C1C;color:#7F1414;border-radius:12px;padding:12px 14px;font-size:17px;font-weight:600"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">error</span>No table here fits {{ guests }} {{ guestWord }} at this time. Choose another area.</div></sc-if>
+              <div role="radiogroup" aria-labelledby="h-area" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:10px">
+                <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+                  <button role="radio" aria-checked="{{ a.on }}" aria-disabled="{{ a.dis }}" sc-camel-on-click="{{ a.onClick }}" style="min-height:76px;text-align:left;cursor:{{ a.cursor }};border-radius:14px;border:{{ a.bd }};background:{{ a.bg }};color:#1F1A16;padding:12px 14px;display:flex;align-items:center;gap:12px" style-focus="outline:3px solid #7A2E17;outline-offset:2px">
+                    <span aria-hidden="true" style="width:44px;height:44px;border-radius:12px;background:{{ a.iconBg }};color:{{ a.iconFg }};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">{{ a.icon }}</span>
+                    <span style="flex:1;min-width:0"><span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-weight:700;font-size:17px">{{ a.name }}</span><sc-if value="{{ a.rec }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:700;padding:2px 8px;border-radius:99px;background:#7A2E17;color:#FFFFFF">Easiest</span></sc-if></span><span style="display:block;font-size:15px;color:#4A4037;margin-top:2px">{{ a.sub }}</span></span>
+                    <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1;color:{{ a.radioFg }};font-feature-settings:'liga'">{{ a.radio }}</span>
+                  </button>
+                </sc-for>
+              </div>
+            </section>
+
+            <sc-if value="{{ showPlan }}" hint-placeholder-val="{{ false }}">
+              <section aria-labelledby="h-plan" style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 id="h-plan" style="margin:0;font-family:'Tenor Sans',sans-serif;font-weight:400;font-size:24px">Floor plan · {{ zoneName }}</h2><span style="font-size:16px;color:#4A4037">Optional</span></div>
+                <p style="margin:0;font-size:17px;line-height:1.5;color:#4A4037">Tap a <strong style="color:#1F1A16">white table</strong> to choose it. Or skip this, and we will choose a table in this area.</p>
+                <div style="display:grid;grid-template-columns:{{ L.planCols }};gap:16px;align-items:start">
+                  <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                    <div style="border-radius:14px;overflow:hidden;border:1px solid #DDD3C5">{{ planSvg }}</div>
+                    <div aria-hidden="true" style="display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px">
+                      <span style="display:flex;align-items:center;gap:8px"><span style="width:18px;height:18px;border-radius:4px;background:#FFFFFF;border:2px solid #1F1A16"></span>Available</span>
+                      <span style="display:flex;align-items:center;gap:8px"><span style="width:18px;height:18px;border-radius:4px;background:#7A2E17;border:2px solid #7A2E17"></span>Your table</span>
+                      <span style="display:flex;align-items:center;gap:8px"><span style="width:18px;height:18px;border-radius:4px;background:repeating-linear-gradient(45deg,#BFB3A3 0 2px,#E6DED2 2px 6px);border:2px solid #8C8173"></span>Booked</span>
+                      <span style="display:flex;align-items:center;gap:8px"><span style="width:18px;height:18px;border-radius:4px;background:#F3ECE1;border:2px dashed #8C8173"></span>Wrong size for your group</span>
+                    </div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                    <div role="status" aria-live="polite" style="display:flex;gap:10px;align-items:flex-start;border-radius:12px;padding:12px 14px;font-size:17px;line-height:1.45;font-weight:600;background:{{ plan.msgBg }};border:2px solid {{ plan.msgBd }};color:{{ plan.msgFg }}"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">{{ plan.msgIcon }}</span><span>{{ plan.msg }}</span></div>
+                    <sc-if value="{{ plan.hasList }}" hint-placeholder-val="{{ false }}">
+                      <div role="radiogroup" aria-label="Available tables" style="display:flex;flex-direction:column;gap:8px">
+                        <span style="font-size:16px;font-weight:700">Available tables ({{ plan.count }})</span>
+                        <sc-for list="{{ plan.list }}" as="t" hint-placeholder-count="3">
+                          <button role="radio" aria-checked="{{ t.on }}" sc-camel-on-click="{{ t.onClick }}" style="min-height:60px;text-align:left;cursor:pointer;border-radius:12px;border:2px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};padding:8px 14px;display:flex;align-items:center;gap:12px" style-focus="outline:3px solid #7A2E17;outline-offset:2px">
+                            <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">{{ t.icon }}</span>
+                            <span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:17px">{{ t.name }}</span><span style="display:block;font-size:15px">{{ t.sub }}</span></span>
+                          </button>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </section>
+            </sc-if>
+          </sc-if>
+
+          <sc-if value="{{ isS3 }}" hint-placeholder-val="{{ false }}">
+            <section aria-label="Your booking so far" style="background:#FFFFFF;border:1px solid #DDD3C5;border-radius:16px;overflow:hidden">
+              <sc-for list="{{ review }}" as="r" hint-placeholder-count="3">
+                <div style="display:flex;align-items:center;gap:12px;padding:12px 14px 12px 16px;border-top:{{ r.divider }}">
+                  <span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;color:#7A2E17;font-feature-settings:'liga'">{{ r.icon }}</span>
+                  <span style="flex:1;min-width:0"><span style="display:block;font-size:15px;color:#4A4037">{{ r.label }}</span><span style="display:block;font-size:17px;font-weight:700">{{ r.value }}</span></span>
+                  <button sc-camel-on-click="{{ r.onEdit }}" aria-label="Change {{ r.label }}" style="min-height:44px;padding:0 14px;border-radius:99px;border:1.5px solid #8C8173;background:#FFFFFF;color:#1F1A16;font-weight:600;font-size:16px;cursor:pointer;flex-shrink:0" style-focus="outline:3px solid #7A2E17;outline-offset:2px">Change</button>
+                </div>
+              </sc-for>
+            </section>
+
+            <section aria-labelledby="h-you" style="display:flex;flex-direction:column;gap:18px">
+              <h2 id="h-you" style="margin:0;font-family:'Tenor Sans',sans-serif;font-weight:400;font-size:26px">Your details</h2>
+              <sc-if value="{{ warn.you }}" hint-placeholder-val="{{ false }}"><div role="alert" style="display:flex;gap:10px;align-items:center;background:#FDECEC;border:2px solid #9B1C1C;color:#7F1414;border-radius:12px;padding:12px 14px;font-size:17px;font-weight:600"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-feature-settings:'liga'">error</span>{{ warnYou }}</div></sc-if>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-size:17px;font-weight:700">Your name</span>
+                  <input value="{{ form.name }}" sc-camel-on-change="{{ onName }}" autocomplete="name" placeholder="e.g. Sekar Ayuningtyas" style="font-size:18px;min-height:56px;padding:0 16px;border:2px solid {{ nameBd }};border-radius:12px;background:#FFFFFF;color:#1F1A16;box-sizing:border-box;width:100%" style-focus="outline:3px solid #7A2E17;outline-offset:1px">
+                </label>
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-size:17px;font-weight:700">WhatsApp number</span>
+                  <span style="display:flex;border:2px solid {{ phoneBd }};border-radius:12px;background:#FFFFFF;overflow:hidden">
+                    <span style="padding:0 14px;display:flex;align-items:center;font-weight:700;font-size:18px;border-right:1px solid #DDD3C5;background:#F3ECE1">+62</span>
+                    <input value="{{ form.phone }}" sc-camel-on-change="{{ onPhone }}" sc-camel-on-blur="{{ onPhoneBlur }}" inputmode="numeric" autocomplete="tel-national" aria-describedby="phone-hint" aria-invalid="{{ phoneErr }}" placeholder="812 3456 7890" style="flex:1;min-width:0;font-size:18px;min-height:56px;padding:0 14px;border:none;background:transparent;color:#1F1A16" style-focus="outline:3px solid #7A2E17;outline-offset:-3px">
+                  </span>
+                  <span id="phone-hint" style="font-size:16px;color:{{ phoneHintColor }};display:flex;gap:6px;align-items:center"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;font-feature-settings:'liga'">{{ phoneIcon }}</span>{{ phoneHint }}</span>
+                </label>
+              </div>
+              <label style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:17px;font-weight:700">Allergies or food needs <span style="font-weight:500;color:#4A4037">(optional)</span></span>
+                <input value="{{ form.diet }}" sc-camel-on-change="{{ onDiet }}" placeholder="e.g. no shellfish, one vegetarian" style="font-size:18px;min-height:56px;padding:0 16px;border:2px solid #8C8173;border-radius:12px;background:#FFFFFF;color:#1F1A16;box-sizing:border-box;width:100%" style-focus="outline:3px solid #7A2E17;outline-offset:1px">
+              </label>
+              <fieldset style="border:none;margin:0;padding:0">
+                <legend style="font-size:17px;font-weight:700;margin-bottom:10px;padding:0">Special occasion? <span style="font-weight:500;color:#4A4037">(optional)</span></legend>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ occasions }}" as="o" hint-placeholder-count="4">
+                    <button aria-pressed="{{ o.on }}" sc-camel-on-click="{{ o.onClick }}" style="min-height:48px;padding:0 16px;border-radius:99px;cursor:pointer;border:2px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};font-size:16px;font-weight:600;display:flex;align-items:center;gap:6px" style-focus="outline:3px solid #7A2E17;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;font-feature-settings:'liga'">{{ o.icon }}</span>{{ o.name }}</button>
+                  </sc-for>
+                </div>
+              </fieldset>
+              <button role="switch" aria-checked="{{ pairOn }}" sc-camel-on-click="{{ togglePair }}" style="min-height:68px;cursor:pointer;border:1px solid #DDD3C5;border-radius:14px;background:#FFFFFF;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;color:#1F1A16" style-focus="outline:3px solid #7A2E17;outline-offset:2px">
+                <span><span style="display:block;font-weight:700;font-size:17px">Add wine pairing</span><span style="display:block;font-size:16px;color:#4A4037;margin-top:2px">IDR 850,000 per guest. Can change on the night.</span></span>
+                <span style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span style="font-size:15px;font-weight:700">{{ pair.txt }}</span><span aria-hidden="true" style="width:56px;height:34px;border-radius:99px;background:{{ pair.bg }};position:relative"><span style="position:absolute;top:4px;left:{{ pair.left }};width:26px;height:26px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:left .15s"></span></span></span>
+              </button>
+              <div style="font-size:16px;line-height:1.6;display:flex;gap:10px;background:#F3ECE1;border-radius:12px;padding:12px 14px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1.2;color:#7A2E17;font-feature-settings:'liga'">info</span><span>No deposit needed. Free cancellation up to 24 hours before. Tables are held for 15 minutes. Questions? <a href="https://wa.me/6281100002019" target="_blank">Message the house</a>.</span></div>
+            </section>
+          </sc-if>
+        </div>
+
+        <aside aria-label="Booking summary" style="display:{{ L.asideDisp }};position:sticky;top:100px;background:#FFFFFF;border:1px solid #DDD3C5;border-radius:16px;padding:20px;flex-direction:column;gap:16px">
+          <div style="font-family:'Tenor Sans',sans-serif;font-size:24px">Your booking</div>
+          <dl style="margin:0;display:flex;flex-direction:column;gap:12px;font-size:17px">
+            <sc-for list="{{ summary }}" as="s" hint-placeholder-count="4">
+              <div style="display:flex;gap:10px;align-items:flex-start"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1.1;color:#7A2E17;font-feature-settings:'liga'">{{ s.icon }}</span><div><dt style="font-size:15px;color:#4A4037">{{ s.label }}</dt><dd style="margin:0;font-weight:700">{{ s.value }}</dd></div></div>
+            </sc-for>
+          </dl>
+          <div style="border-top:1px solid #DDD3C5;padding-top:14px;display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:16px;color:#4A4037">Minimum order</span><span style="font-family:'Tenor Sans',sans-serif;font-size:22px">{{ bar.total }}</span></div>
+          <button sc-camel-on-click="{{ next }}" style="min-height:60px;border:none;border-radius:14px;font-weight:700;font-size:18px;cursor:pointer;background:#7A2E17;color:#FFFFFF;display:flex;align-items:center;justify-content:center;gap:8px" style-focus="outline:3px solid #1F1A16;outline-offset:2px">{{ bar.label }}<span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">{{ bar.icon }}</span></button>
+        </aside>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+      <div role="status" style="width:100%;max-width:540px;margin:0 auto;padding:{{ L.donePad }};box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px">
+          <span aria-hidden="true" style="width:76px;height:76px;border-radius:50%;background:#7A2E17;color:#FFFFFF;box-shadow:0 0 0 8px #F6E7E0;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:42px;line-height:1;font-feature-settings:'liga'">check</span>
+          <div style="font-family:'Tenor Sans',sans-serif;font-size:clamp(32px,5vw,42px);line-height:1.1;margin-top:6px">Your table is booked</div>
+          <div style="font-size:18px;max-width:380px;line-height:1.55">Sampai jumpa, {{ firstName }}. We sent the details to your WhatsApp.</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid #DDD3C5;border-radius:16px">
+          <div style="padding:16px 18px;border-bottom:2px dashed #DDD3C5;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <div><div style="font-size:15px;color:#4A4037">Booking code</div><div style="font-family:'Tenor Sans',sans-serif;font-size:32px;line-height:1.1;letter-spacing:.06em">{{ code }}</div></div>
+            <div style="font-size:15px;color:#4A4037;text-align:right;max-width:150px">Show this at the door</div>
+          </div>
+          <dl style="margin:0;padding:16px 18px;display:flex;flex-direction:column;gap:12px;font-size:17px">
+            <sc-for list="{{ summary }}" as="s" hint-placeholder-count="4">
+              <div style="display:flex;gap:10px;align-items:flex-start"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1.1;color:#7A2E17;font-feature-settings:'liga'">{{ s.icon }}</span><div><dt style="font-size:15px;color:#4A4037">{{ s.label }}</dt><dd style="margin:0;font-weight:700">{{ s.value }}</dd></div></div>
+            </sc-for>
+          </dl>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <a href="{{ calUrl }}" target="_blank" style="min-height:56px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:14px;border:2px solid #8C8173;background:#FFFFFF;color:#1F1A16;font-weight:700;font-size:16px;text-decoration:none" style-focus="outline:3px solid #7A2E17;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">calendar_add_on</span>Add to calendar</a>
+          <a href="{{ mapsUrl }}" target="_blank" style="min-height:56px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:14px;border:2px solid #8C8173;background:#FFFFFF;color:#1F1A16;font-weight:700;font-size:16px;text-decoration:none" style-focus="outline:3px solid #7A2E17;outline-offset:2px"><span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">directions</span>Directions</a>
+        </div>
+        <button sc-camel-on-click="{{ restart }}" style="min-height:56px;border:none;border-radius:14px;background:#7A2E17;color:#FFFFFF;font-weight:700;font-size:17px;cursor:pointer" style-focus="outline:3px solid #1F1A16;outline-offset:2px">Make another booking</button>
+      </div>
+    </sc-if>
+  </main>
+
+  <div style="display:{{ L.barDisp }};position:sticky;bottom:0;z-index:20;border-top:1px solid #DDD3C5;background:#FFFFFF">
+    <div style="max-width:{{ L.barW }};margin:0 auto;padding:12px {{ L.padX }} 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px">
+      <div aria-live="polite" style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start">
+        <div style="min-width:0"><div style="font-weight:700;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ bar.line1 }}</div><div style="font-size:15px;color:#4A4037;margin-top:2px">{{ bar.line2 }}</div></div>
+        <div style="text-align:right;flex-shrink:0"><div style="font-family:'Tenor Sans',sans-serif;font-size:19px;line-height:1.1">{{ bar.total }}</div><div style="font-size:14px;color:#4A4037;margin-top:2px">minimum order</div></div>
+      </div>
+      <button sc-camel-on-click="{{ next }}" style="min-height:60px;border:none;border-radius:14px;font-weight:700;font-size:18px;cursor:pointer;background:#7A2E17;color:#FFFFFF;display:flex;align-items:center;justify-content:center;gap:8px" style-focus="outline:3px solid #1F1A16;outline-offset:2px">{{ bar.label }}<span aria-hidden="true" style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;font-feature-settings:'liga'">{{ bar.icon }}</span></button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+const A=(k,u)=>{const el=typeof document!=='undefined'&&document.querySelector('#img-assets img[data-k="'+k+'"]');return el?el.getAttribute('src'):u;};
+const U=(id,w)=>`https://images.unsplash.com/photo-${id}?w=${w}&q=70&auto=format&fit=crop`;
+const BR=[
+ {city:'Jakarta',district:'Senopati',tag:'Flagship',house:'The original dining room, open since 2019. Nine courses and a six-seat chef’s counter.',address:'Jl. Senopati No. 17, Kebayoran Baru',hours:'Tue – Sun, 18:00 – 23:00',img:'1552566626-52f8b828add9',open:true,closed:[0],
+  times:[['18:00','Early seating, sunset'],['18:30','Early seating'],['20:30','Late seating'],['21:00','Late, chef’s counter']],seats:['room','counter','private'],fac:[['local_parking','Valet parking'],['restaurant','Chef’s counter'],['meeting_room','Private room'],['accessible','Step-free access'],['eco','Vegetarian menu'],['wine_bar','Wine pairing']]},
+ {city:'Bali',district:'Ubud',tag:'',house:'An open pavilion above the Ayung valley, since 2022. Lunch rijsttafel and a sunset tasting menu.',address:'Jl. Raya Sayan No. 8, Ubud, Gianyar',hours:'Daily, 12:00 – 15:00 and 18:00 – 22:00',img:'1501179691627-eeaa65ea017c',open:true,closed:[],
+  times:[['12:00','Lunch rijsttafel'],['12:30','Lunch rijsttafel'],['18:00','Sunset seating'],['18:30','Sunset seating'],['20:00','Evening seating']],seats:['room','garden','private'],fac:[['local_parking','Free parking'],['deck','Valley pavilion'],['meeting_room','Private room'],['airport_shuttle','Hotel pickup'],['eco','Vegetarian menu'],['wine_bar','Wine pairing']]},
+ {city:'Yogyakarta',district:'Prawirotaman',tag:'',house:'A restored 1920s joglo, since 2024. Royal Javanese cooking from the kraton kitchens.',address:'Jl. Prawirotaman II No. 5, Mergangsan',hours:'Wed – Sun, 18:00 – 22:30',img:'1578469550956-0e16b69c6a3d',open:true,closed:[0,1],
+  times:[['18:00','Early seating, gamelan'],['18:30','Early seating'],['20:00','Late seating']],seats:['room','garden','private'],fac:[['local_parking','Parking'],['music_note','Live gamelan'],['meeting_room','Private pendopo'],['accessible','Step-free access'],['eco','Vegetarian menu'],['wine_bar','Wine pairing']]},
+ {city:'Surabaya',district:'Darmo',tag:'Opens March 2027',hours:'Waitlist open now',open:false}];
+const AREAS={room:{icon:'table_restaurant',name:'Dining room',sub:'Main room, by the hearth'},counter:{icon:'soup_kitchen',name:'Chef’s counter',sub:'Watch the kitchen, 1–2 guests',max:2},garden:{icon:'park',name:'Garden terrace',sub:'Open air, under the trees'},private:{icon:'meeting_room',name:'Private room',sub:'Your own room, 6 guests or more',min:6}};
+const OCC=[['cake','Birthday'],['favorite','Anniversary'],['work','Business'],['celebration','Celebration']];
+const R=(id,num,x,y,w,h,cap,note,o={})=>({id,num,name:'Table '+num,shape:'rect',x,y,w,h,cap,note,...o});
+const C=(id,num,x,y,r,cap,note)=>({id,num,name:'Table '+num,shape:'circle',x,y,r,cap,note});
+function planOf(zone,br){
+  const win={Senopati:'STREET WINDOWS',Ubud:'VALLEY VIEW',Prawirotaman:'COURTYARD'}[br.district]||'WINDOWS';
+  if(zone==='room')return{marks:[{t:'rect',x:10,y:40,w:7,h:230,fill:'#B9A27F'},{t:'text',x:22,y:28,s:win,a:'start'},{t:'rect',x:328,y:40,w:22,h:230,fill:'url(#rsH)'},{t:'text',x:339,y:155,s:'OPEN HEARTH',rot:90},{t:'gap',x:120,w:80},{t:'text',x:160,y:322,s:'ENTRANCE'}],
+    tables:[R('t1','1',66,70,44,44,2,'By the window'),R('t2','2',66,150,44,44,2,'By the window'),R('t3','3',66,230,44,44,2,'By the window'),R('t4','4',176,96,56,56,4,'Centre of the room'),R('t5','5',176,216,56,56,4,'Centre of the room'),
+      R('s','S',284,155,40,216,12,'Long shared table by the hearth',{shared:true,name:'Shared table',label:'SHARED TABLE'})]};
+  if(zone==='counter')return{marks:[{t:'rect',x:20,y:24,w:320,h:96,fill:'url(#rsH)'},{t:'text',x:180,y:76,s:'OPEN KITCHEN',bg:true},{t:'gap',x:250,w:70},{t:'text',x:285,y:322,s:'ENTRANCE'}],
+    tables:[R('c','C',180,160,320,36,8,'Facing the kitchen',{shared:true,name:'Chef’s counter',label:'COUNTER'})]};
+  if(zone==='garden')return{dash:true,marks:[{t:'circle',x:300,y:56,r:30,fill:'#DCE5D0'},{t:'text',x:300,y:60,s:'TREE'},{t:'ellipse',x:292,y:264,rx:52,ry:26,fill:'#D3E3E8'},{t:'text',x:292,y:268,s:'POND'},{t:'gap',x:30,w:80},{t:'text',x:70,y:322,s:'FROM DINING ROOM'}],
+    tables:[C('g1','1',72,74,24,4,'Garden corner'),C('g2','2',182,80,24,4,'Centre lawn'),C('g3','3',72,196,18,2,'Quiet corner'),C('g4','4',184,200,30,6,'By the pond'),C('g5','5',292,160,24,4,'Under the tree')]};
+  return{marks:[{t:'text',x:180,y:30,s:'PRIVATE ROOM'},{t:'rect',x:120,y:262,w:120,h:22,fill:'url(#rsH)'},{t:'text',x:180,y:252,s:'SIDEBOARD'},{t:'gapL',y:130,h:60},{t:'text',x:24,y:160,s:'DOOR',rot:90}],
+    tables:[{id:'p',num:'P',name:'Private table',label:'PRIVATE TABLE',shape:'ellipse',x:180,y:160,rx:116,ry:40,cap:12,note:'Own room and server',private:true}]};
+}
+function chairsOf(t){const o=[];
+  if(t.shape==='rect'){
+    if(t.cap===2)return[[t.x-t.w/2-11,t.y],[t.x+t.w/2+11,t.y]];
+    if(t.cap===4)return[[t.x,t.y-t.h/2-11],[t.x+t.w/2+11,t.y],[t.x,t.y+t.h/2+11],[t.x-t.w/2-11,t.y]];
+    if(t.h>t.w){const n=t.cap/2;for(let i=0;i<n;i++){const y=t.y-t.h/2+(i+.5)*t.h/n;o.push([t.x-t.w/2-11,y],[t.x+t.w/2+11,y]);}return o;}
+    for(let i=0;i<t.cap;i++)o.push([t.x-t.w/2+(i+.5)*t.w/t.cap,t.y+t.h/2+12]);return o;}
+  const rx=t.shape==='circle'?t.r:t.rx,ry=t.shape==='circle'?t.r:t.ry;
+  for(let i=0;i<t.cap;i++){const a=-Math.PI/2+i*2*Math.PI/t.cap;o.push([t.x+(rx+12)*Math.cos(a),t.y+(ry+12)*Math.sin(a)]);}return o;}
+const PRICE=1500000,PAIR=850000;
+const WD=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],WDF=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const dayAt=di=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+di);return d;};
+const wIdx=d=>(d.getDay()+6)%7;
+const nowMin=()=>{const n=new Date();return n.getHours()*60+n.getMinutes();};
+const tMin=t=>+t.slice(0,2)*60+ +t.slice(3);
+const fmt=n=>'IDR '+n.toLocaleString('en-US');
+const tablesLeft=(bi,di,ti,g)=>{const base=((bi+2)*29+di*11+ti*7)%5;return Math.max(0,base-(g>4?2:g>2?1:0));};
+const timeOk=(bi,di,ti,g)=>{const b=BR[bi];if(b.closed.includes(wIdx(dayAt(di))))return false;if(di===0&&tMin(b.times[ti][0])<nowMin()+60)return false;return tablesLeft(bi,di,ti,g)>0;};
+const freeCount=(bi,di,g)=>BR[bi].times.filter((_,ti)=>timeOk(bi,di,ti,g)).length;
+const firstDay=(bi,g,from=0)=>{for(let i=from;i<21;i++)if(freeCount(bi,i,g))return i;return 0;};
+const areaOk=(k,g)=>{const a=AREAS[k];return!((a.max&&g>a.max)||(a.min&&g<a.min));};
+const INK='#1F1A16',MUT='#4A4037',LINE='#8C8173',TERRA='#7A2E17',TINT='#F6E7E0',SOFT='#DDD3C5';
+const vw=()=>typeof window!=='undefined'?window.innerWidth:390;
+function layout(w){
+  const bp=w>=1080?'d':w>=720?'t':'m',split=bp!=='m',padX=bp==='d'?'40px':bp==='t'?'32px':'18px';
+  return{bp,padX,brandDisp:split?'flex':'none',maxW:bp==='d'?'1160px':bp==='t'?'760px':'100%',barW:bp==='t'?'760px':'100%',
+    welCols:split?'minmax(0,1fr) minmax(0,1fr)':'minmax(0,1fr)',heroPos:split?'sticky':'relative',heroH:split?'100vh':'360px',heroPad:split?'clamp(28px,4vw,56px)':'20px 20px 24px',
+    contPad:split?'clamp(32px,5vw,64px) clamp(24px,4vw,56px) 0':'24px 18px 0',mapH:split?'220px':'180px',
+    pagePad:`${bp==='m'?18:28}px ${padX} ${bp==='m'?28:56}px`,bleed:bp==='d'?'0':`0 -${padX}`,bleedX:bp==='d'?'2px':padX,
+    mainCols:bp==='d'?'minmax(0,1fr) 340px':'minmax(0,1fr)',asideDisp:bp==='d'?'flex':'none',
+    planCols:bp==='t'?'minmax(0,1.3fr) minmax(0,1fr)':'minmax(0,1fr)',donePad:bp==='m'?'28px 18px 40px':'56px 32px'};
+}
+
+class Component extends DCLogic {
+  state={vw:vw(),step:0,branch:0,guests:2,di:firstDay(0,2),ti:null,zone:null,table:null,msg:null,occ:null,name:'',phone:'',phoneTouched:false,nameTouched:false,diet:'',pair:false,warn:null,code:''};
+  onResize=()=>this.setState({vw:vw()});
+  componentDidMount(){window.addEventListener('resize',this.onResize);}
+  componentWillUnmount(){window.removeEventListener('resize',this.onResize);}
+  go(o){this.setState({warn:null,...o},()=>window.scrollTo(0,0));}
+  flag(key,id){this.setState({warn:key,...(key==='you'?{phoneTouched:true,nameTouched:true}:{})},()=>{const el=document.getElementById(id);if(!el)return;window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-110,behavior:'smooth'});});}
+  patch(o){const s={...this.state,...o};
+    if(s.ti!=null&&(s.ti>=BR[s.branch].times.length||!timeOk(s.branch,s.di,s.ti,s.guests)))o.ti=null;
+    if(s.zone&&(!areaOk(s.zone,s.guests)||!BR[s.branch].seats.includes(s.zone)))o.zone=null;
+    if(['guests','di','ti','branch','zone'].some(k=>k in o)){o.table=null;o.msg=null;}
+    this.setState(o);}
+  renderVals(){
+    const st=this.state,br=BR[st.branch],g=st.guests,L=layout(st.vw),d=dayAt(st.di),E=React.createElement;
+    const dLabel=(dd,di)=>`${di===0?'Today':di===1?'Tomorrow':WDF[wIdx(dd)]}, ${dd.getDate()} ${MO[dd.getMonth()]}`;
+    const phoneDigits=st.phone.replace(/\D/g,'').length,phoneOk=phoneDigits>=9&&phoneDigits<=13,phoneErr=st.phoneTouched&&!phoneOk;
+    const nameOk=st.name.trim().length>1,valid=nameOk&&phoneOk;
+    const total=g*(PRICE+(st.pair?PAIR:0));
+    const guestWord=g>1?'guests':'guest';
+
+    const dates=Array.from({length:21},(_,di)=>{const dd=dayAt(di),on=di===st.di,closed=br.closed.includes(wIdx(dd)),n=closed?0:freeCount(st.branch,di,g);
+      return{on,dis:!n&&!on,cursor:n?'pointer':'not-allowed',dow:di===0?'Today':di===1?'Tmrw':WD[wIdx(dd)],num:dd.getDate(),note:closed?'Closed':n?'Open':'Full',
+        aria:`${WDF[wIdx(dd)]} ${dd.getDate()} ${MO[dd.getMonth()]}, ${closed?'closed':n?n+' times free':'fully booked'}`,
+        bd:on?TERRA:n?LINE:SOFT,bg:on?TERRA:n?'#FFFFFF':'#F3ECE1',fg:on?'#FFFFFF':n?INK:MUT,onClick:()=>n&&this.patch({di,ti:null})};});
+    const times=br.times.map(([time,label],ti)=>({ti,time,label,ok:timeOk(st.branch,st.di,ti,g)})).filter(x=>x.ok).map(x=>{const on=st.ti===x.ti,l=tablesLeft(st.branch,st.di,x.ti,g);
+      return{time:x.time,label:x.label,on,icon:on?'radio_button_checked':'radio_button_unchecked',left:l<=1?'Last table':`${l} tables left`,bd:on?TERRA:LINE,bg:on?TERRA:'#FFFFFF',fg:on?'#FFFFFF':INK,onClick:()=>this.patch({ti:x.ti,warn:null})};});
+    const closedSel=br.closed.includes(wIdx(d)),nextDi=firstDay(st.branch,g,st.di+1);
+
+    const areaList=[{key:null,icon:'auto_awesome',name:'Best available',sub:'We choose a good table for you',rec:true},...br.seats.map(k=>({key:k,...AREAS[k],rec:false}))];
+    const areas=areaList.map(a=>{const dis=a.key&&!areaOk(a.key,g),on=st.zone===a.key;
+      return{...a,on,dis:!!dis,cursor:dis?'not-allowed':'pointer',sub:dis?(AREAS[a.key].max?'Only for 1–2 guests':'Only for 6 guests or more'):a.sub,
+        bd:on?`2px solid ${TERRA}`:`1.5px solid ${dis?SOFT:LINE}`,bg:on?TINT:dis?'#F3ECE1':'#FFFFFF',iconBg:on?TERRA:'#F3ECE1',iconFg:on?'#FFFFFF':TERRA,
+        radio:dis?'block':on?'radio_button_checked':'radio_button_unchecked',radioFg:on?TERRA:MUT,
+        onClick:()=>!dis&&this.patch({zone:a.key,warn:null})};});
+
+    const zone=st.zone,hasTime=st.ti!=null;
+    let planSvg=null,plan={msg:'',msgBg:'',msgBd:'',msgFg:'',msgIcon:'',list:[],hasList:false,count:0},T=[],selT=null;
+    if(zone&&hasTime){
+      const P=planOf(zone,br),zi=['room','counter','garden','private'].indexOf(zone);
+      T=P.tables.map((t,i)=>{const h=((st.branch+3)*41+st.di*19+st.ti*23+i*13+zi*5)%12;
+        let free=t.cap,taken=false,fit,why='';
+        if(t.shared){free=t.cap-h%(t.cap/2+1);taken=free===0;fit=free>=g;why=`Only ${free} seats free`;}
+        else if(t.private){taken=h%4===0;fit=!taken&&t.cap>=g;why='Too small';}
+        else{taken=h%3===0;fit=!taken&&t.cap>=g&&t.cap<=g+2;why=t.cap<g?`Seats ${t.cap}, too small`:`Seats ${t.cap}, for bigger groups`;}
+        const status=st.table===t.id?'sel':taken?'taken':fit?'free':'unfit';
+        return{...t,free,taken,fit,why,status,chairs:chairsOf(t)};});
+      selT=T.find(t=>t.id===st.table)||null;
+      const tm=br.times[st.ti][0];
+      const pick=t=>{
+        if(t.status==='taken')return this.setState({msg:{err:true,text:`${t.name} is booked at ${tm}. Choose a white table.`}});
+        if(t.status==='unfit')return this.setState({msg:{err:true,text:`${t.name}: ${t.why.toLowerCase()}. Choose a white table.`}});
+        this.setState({table:st.table===t.id?null:t.id,msg:null});};
+      const ST={free:['#FFFFFF',INK,2,null,INK],sel:[TERRA,TERRA,2,null,'#FFFFFF'],taken:['url(#rsH)',LINE,1.5,null,MUT],unfit:['#F3ECE1',LINE,1.5,'5 4',MUT]};
+      const kids=[E('defs',{key:'d'},E('pattern',{id:'rsH',width:7,height:7,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},E('rect',{width:7,height:7,fill:'#E6DED2'}),E('line',{x1:0,y1:0,x2:0,y2:7,stroke:'#BFB3A3',strokeWidth:3}))),
+        E('rect',{key:'bg',x:0,y:0,width:360,height:330,fill:'#F7F2EA'}),
+        E('rect',{key:'w',x:6,y:6,width:348,height:296,fill:'none',stroke:MUT,strokeWidth:2.5,strokeDasharray:P.dash?'8 6':null})];
+      P.marks.forEach((m,k)=>{const key='m'+k;
+        if(m.t==='rect')kids.push(E('rect',{key,x:m.x,y:m.y,width:m.w,height:m.h,fill:m.fill}));
+        else if(m.t==='circle')kids.push(E('circle',{key,cx:m.x,cy:m.y,r:m.r,fill:m.fill}));
+        else if(m.t==='ellipse')kids.push(E('ellipse',{key,cx:m.x,cy:m.y,rx:m.rx,ry:m.ry,fill:m.fill}));
+        else if(m.t==='gap')kids.push(E('rect',{key,x:m.x,y:297,width:m.w,height:10,fill:'#F7F2EA'}));
+        else if(m.t==='gapL')kids.push(E('rect',{key,x:1,y:m.y,width:10,height:m.h,fill:'#F7F2EA'}));
+        else{if(m.bg)kids.push(E('rect',{key:key+'b',x:m.x-62,y:m.y-15,width:124,height:22,rx:4,fill:'#F7F2EA'}));
+          kids.push(E('text',{key,x:m.x,y:m.y,textAnchor:m.a||'middle',fill:MUT,fontSize:11.5,fontWeight:600,letterSpacing:1.4,fontFamily:'Jost',transform:m.rot?`rotate(90 ${m.x} ${m.y})`:null},m.s));}});
+      T.forEach(t=>{const [f,sk,sw,da,tf]=ST[t.status],click=()=>pick(t),cur={cursor:t.status==='free'||t.status==='sel'?'pointer':'not-allowed'};
+        t.chairs.forEach(([x,y],ci)=>kids.push(E('circle',{key:t.id+'c'+ci,cx:x,cy:y,r:7,fill:t.status==='sel'?TERRA:'#D9CFC2',stroke:t.status==='sel'?TERRA:'#B5A897',strokeWidth:1})));
+        const sp={key:'t'+t.id,fill:f,stroke:sk,strokeWidth:sw,strokeDasharray:da,onClick:click,style:cur};
+        kids.push(t.shape==='circle'?E('circle',{...sp,cx:t.x,cy:t.y,r:t.r}):t.shape==='ellipse'?E('ellipse',{...sp,cx:t.x,cy:t.y,rx:t.rx,ry:t.ry}):E('rect',{...sp,x:t.x-t.w/2,y:t.y-t.h/2,width:t.w,height:t.h,rx:6}));
+        const rot=t.shape==='rect'&&t.h>t.w;
+        kids.push(E('text',{key:'l'+t.id,x:t.x,y:t.y+(t.label?4:6),textAnchor:'middle',fill:tf,fontSize:t.label?12:17,fontWeight:700,letterSpacing:t.label?1.4:0,fontFamily:'Jost',pointerEvents:'none',transform:rot?`rotate(90 ${t.x} ${t.y})`:null},t.status==='sel'&&!t.label?'✓':(t.label||t.num)));
+        kids.push(E('title',{key:'tt'+t.id},`${t.name}: ${({free:'available',sel:'your table',taken:'booked',unfit:t.why.toLowerCase()})[t.status]}`));});
+      planSvg=E('svg',{viewBox:'0 0 360 330',width:'100%',role:'img','aria-label':`Floor plan of the ${AREAS[zone].name}. The list of available tables offers the same choices.`,style:{display:'block',userSelect:'none'}},...kids);
+      const fits=T.filter(t=>t.fit);
+      const list=fits.map(t=>{const on=st.table===t.id;return{name:t.name,sub:t.shared?`${g} of ${t.free} free seats · ${t.note}`:`${t.cap} seats · ${t.note}`,on,icon:on?'check_circle':'radio_button_unchecked',
+        bd:on?TERRA:LINE,bg:on?TERRA:'#FFFFFF',fg:on?'#FFFFFF':INK,onClick:()=>pick(t)};});
+      const m=st.msg?st.msg:selT?{ok:true,text:`${selT.name} is yours. ${selT.shared?g+' seats side by side':selT.cap+' seats'}, ${selT.note.toLowerCase()}.`}:fits.length?{text:`${fits.length} table${fits.length>1?'s':''} free for ${g} at ${tm}.`}:{err:true,text:`No table here fits ${g} ${guestWord} at ${tm}. Choose another area above.`};
+      plan={msg:m.text,msgIcon:m.err?'error':m.ok?'check_circle':'info',msgBg:m.err?'#FDECEC':m.ok?'#EAF3EC':'#FFFFFF',msgBd:m.err?'#9B1C1C':m.ok?'#1E5631':SOFT,msgFg:m.err?'#7F1414':m.ok?'#163F24':INK,list,hasList:list.length>0,count:list.length};
+    }
+    const zoneFitCount=T.filter(t=>t.fit).length;
+    const zoneName=zone?AREAS[zone].name:'';
+    const tableTxt=!zone?'Best available table':selT?`${selT.name}, ${zoneName}`:`Any table, ${zoneName}`;
+    const whenTxt=st.ti!=null?`${dLabel(d,st.di)} at ${br.times[st.ti][0]}`:'Not chosen yet';
+
+    const summary=[{icon:'location_on',label:'House',value:`Rumah Senja ${br.district}`},{icon:'group',label:'Guests',value:`${g} ${guestWord}`},{icon:'event',label:'Date & time',value:whenTxt},{icon:'table_restaurant',label:'Table',value:st.step>=2?tableTxt:'Next step'},
+      ...(st.occ?[{icon:'celebration',label:'Occasion',value:st.occ}]:[]),...(st.pair?[{icon:'wine_bar',label:'Wine pairing',value:'Added'}]:[])];
+    const review=[{icon:'group',label:'Guests',value:`${g} ${guestWord}`,onEdit:()=>this.go({step:1})},{icon:'event',label:'Date & time',value:whenTxt,onEdit:()=>this.go({step:1})},{icon:'table_restaurant',label:'Table',value:tableTxt,onEdit:()=>this.go({step:2})}]
+      .map((r,i)=>({...r,divider:i?`1px solid ${SOFT}`:'none'}));
+
+    const s=st.step,steps=['Date & time','Table','Your details'];
+    const progress=steps.map((name,i)=>({name,bg:i<s?TERRA:SOFT,fg:i+1===s?INK:MUT,fw:i+1===s?700:500}));
+    const bar={line1:`${g} ${guestWord} · ${s>=2?tableTxt:'Rumah Senja '+br.district}`,line2:whenTxt,total:fmt(total),
+      label:s===3?'Confirm booking':'Continue',icon:s===3?'check':'arrow_forward'};
+
+    const ymd=m=>{const x=new Date(d);x.setHours(0,m,0,0);return x.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');};
+    const start=st.ti!=null?tMin(br.times[st.ti][0]):0;
+    return{
+      L:{...L,barDisp:s>=1&&s<=3&&L.bp!=='d'?'block':'none'},
+      isWelcome:s===0,isMain:s>=1&&s<=3,isS1:s===1,isS2:s===2,isS3:s===3,isDone:s===4,showHeader:s>0,canBack:s>=1&&s<=3,
+      title:['','Book a table','Book a table','Book a table','Booked'][s],subtitle:`Rumah Senja ${br.district}, ${br.city}`,
+      stepNo:Math.min(s,3),nextHint:s<3?`Next: ${steps[s]}`:'Last step',progress,
+      branch:br,heroBg:`url("${A(br.img,U(br.img,1200))}")`,heroImg:U(br.img,900),heroSet:`${U(br.img,640)} 640w, ${U(br.img,900)} 900w, ${U(br.img,1400)} 1400w`,
+      mapEmbed:`https://maps.google.com/maps?q=${encodeURIComponent(br.address+', '+br.city)}&z=15&output=embed`,
+      mapsUrl:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(br.address+', '+br.city)}`,
+      branchCards:BR.map((b,i)=>{const on=i===st.branch,dis=!b.open;return{district:b.district,city:b.city,hours:b.hours,tag:b.tag||'',hasTag:!!b.tag,on,dis,cursor:dis?'not-allowed':'pointer',
+        icon:dis?'schedule':on?'radio_button_checked':'radio_button_unchecked',iconFg:on?TERRA:MUT,bd:on?`2px solid ${TERRA}`:`1.5px solid ${dis?SOFT:LINE}`,bg:on?TINT:dis?'#F3ECE1':'#FFFFFF',fg:INK,
+        onClick:()=>!dis&&this.patch({branch:i,di:firstDay(i,st.guests),ti:null,zone:null})};}),
+      facilities:(br.fac||[]).map(([icon,label])=>({icon,label})),start:()=>this.go({step:1}),
+      guests:g,guestWord,gMin:g<=1,gMax:g>=12,gDecBd:g<=1?'#B5A897':INK,gIncBg:g>=12?'#B5A897':TERRA,
+      decG:()=>g>1&&this.patch({guests:g-1}),incG:()=>g<12&&this.patch({guests:g+1}),
+      guestNote:g>=6?'Groups of 6 or more can have the private room.':'The tasting menu is served to the whole table.',
+      monthLabel:`${MO[d.getMonth()]} ${d.getFullYear()}`,dates,times,noSlots:times.length===0,
+      noSlotsText:closedSel?`${br.district} is closed on ${WDF[wIdx(d)]}s.`:`No tables left for ${g} on this day.`,
+      jumpLabel:`See ${dLabel(dayAt(nextDi),nextDi)}`,jumpNext:()=>this.patch({di:nextDi,ti:null}),
+      areas,showPlan:!!zone&&hasTime,zoneName,planSvg,plan,
+      review,summary,occasions:OCC.map(([icon,name])=>{const on=st.occ===name;return{icon:on?'check':icon,name,on,bd:on?TERRA:LINE,bg:on?TERRA:'#FFFFFF',fg:on?'#FFFFFF':INK,onClick:()=>this.setState({occ:on?null:name})};}),
+      form:{name:st.name,phone:st.phone,diet:st.diet},
+      onName:e=>this.setState({name:e.target.value}),onPhone:e=>this.setState({phone:e.target.value.replace(/[^\d ]/g,'')}),onPhoneBlur:()=>this.setState({phoneTouched:true}),onDiet:e=>this.setState({diet:e.target.value}),
+      phoneErr,phoneBd:phoneErr?'#9B1C1C':LINE,phoneHintColor:phoneErr?'#7F1414':MUT,phoneIcon:phoneErr?'error':'chat',
+      phoneHint:phoneErr?'Enter 9 to 13 digits, e.g. 812 3456 7890':'We send your confirmation here.',
+      nameBd:st.nameTouched&&!nameOk?'#9B1C1C':LINE,
+      warn:{time:st.warn==='time'&&st.ti==null,table:st.warn==='table'&&!!zone&&zoneFitCount===0,you:st.warn==='you'&&!valid},
+      warnYou:!nameOk?'Please type your name and WhatsApp number.':'Please check your WhatsApp number (9 to 13 digits).',
+      pairOn:st.pair,pair:{bg:st.pair?TERRA:'#8C8173',left:st.pair?'26px':'4px',txt:st.pair?'On':'Off'},togglePair:()=>this.setState({pair:!st.pair}),
+      bar,firstName:st.name.trim().split(' ')[0]||'kawan',code:st.code,
+      calUrl:st.ti!=null?`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Rumah Senja '+br.district)}&dates=${ymd(start)}/${ymd(start+180)}&location=${encodeURIComponent(br.address)}`:'#',
+      back:()=>this.go({step:s-1}),
+      next:()=>{
+        if(s===1){if(st.ti==null)return this.flag('time','h-time');return this.go({step:2});}
+        if(s===2){if(zone&&zoneFitCount===0)return this.flag('table','h-area');return this.go({step:3});}
+        if(s===3){if(!valid)return this.flag('you','h-you');return this.go({step:4,code:'RS-'+Math.random().toString(36).slice(2,6).toUpperCase()});}
+      },
+      restart:()=>this.go({step:1,ti:null,zone:null,table:null,occ:null,code:''})
+    };
+  }
+}
+</script>
+
+
+</body></html>
