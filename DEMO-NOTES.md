@@ -37,13 +37,13 @@ Keputusan yang sudah disepakati (jangan dibahas ulang):
 | Marketplace | 01 | Landing + Katalog | pualam |
 | Marketplace | 02 | Fashion E-commerce | dynare |
 | Marketplace | 03 | POS & Inventori | pos-inventory (video) |
-| Lainnya | 01 | Landing Page Bisnis | jangkar |
+| Lainnya | 01 | Landing Page Bisnis | Olahraga & kebugaran: padel-me, nucleo-pilates-web (*segera hadir*) · Barbershop: jangkar |
 | Lainnya | 02 | Website Company Profile | sanurhasta |
-| Lainnya | 03 | Sistem Booking Order | Barbershop: jangkar-booking · Laundry: bilas-laundry · Olahraga & kebugaran: vetro-padel, nucleo-pilates |
+| Lainnya | 03 | Sistem Booking Order | Olahraga & kebugaran: vetro-padel, nucleo-pilates · Barbershop: jangkar-booking · Laundry: bilas-laundry |
 | Lainnya | 04 | Pesanan & Inventori | pos-inventory (video) |
 
 **Link langsung ke kategori (untuk sales):** `FnB/#fnb-01-resto`, `FnB/#fnb-01-cloud`, `FnB/#fnb-01-cafe`,
-`Lainnya/#p-03-barber`, `Lainnya/#p-03-laundry`, `Lainnya/#p-03-sport`. Klik tombol kategori juga mengubah URL, jadi link di address bar bisa langsung dikirim.
+`Lainnya/#p-01-sport`, `Lainnya/#p-03-barber`, `Lainnya/#p-03-laundry`, `Lainnya/#p-03-sport`. Klik tombol kategori juga mengubah URL, jadi link di address bar bisa langsung dikirim.
 
 ## Cara kerjanya
 
@@ -84,6 +84,7 @@ Perbaikan mobile ada di `<style id="om-mobile">` di `site.html`. Jangkar punya `
 | elevate | web | folder `.dc.html` | baru; poster dari screenshot; `overflow-x: clip` agar tidak geser ke samping |
 | first-floor | web | folder `.dc.html` | baru; poster dari screenshot |
 | dapur-awan | web | export | mobile: ticker, nav, galeri swipe |
+| padel-me | web | export | 2026-11-05, belum di-commit. Overlay drawer rusak diperbaiki; hero reveal (`.pm-h`, `.pm-hbg`, kelas `pm-in` lewat IntersectionObserver) + konten hero memudar saat di-scroll; performa: tanpa `backdrop-filter`, marquee pakai CSS animation (dulu rAF baca `scrollWidth` tiap frame), scroll handler baca-lalu-tulis, gambar dikompres 8,6 → 3,9 MB + lazy. Poster dari screenshot |
 | jangkar | web | export | scroll reveal; 5 tombol booking → `../jangkar-booking/?view=mobile` (`target=_top`) |
 | sanurhasta | web | folder `.dc.html` | file penting saja; card baru Company Profile |
 | pualam | web | export | mobile: header, katalog 2 kolom |
@@ -116,7 +117,8 @@ Perbaikan mobile ada di `<style id="om-mobile">` di `site.html`. Jangkar punya `
 - [ ] Opsional: font ikon Material Symbols 3 MB terduplikasi di 5 booking app (`assets/*.woff2`); bisa dibagi satu file atau di-subset.
 
 ### Rencana pemilik
-- [ ] Landing page untuk bisnis olahraga (sports) akan ditambahkan. Kemungkinan di Lainnya 01 dengan `cat: 'sport'` (kategori sudah ada), jadi Landing Page Lainnya otomatis dapat tombol kategori Barbershop / Olahraga & kebugaran.
+- [x] Landing page olahraga: **Padel Me** di Lainnya 01 (`cat: 'sport'`). Urutan kategori di Lainnya: **Olahraga → Barbershop → Laundry** (01 dan 03).
+- [ ] **Web Nucleo Pilates** = `nucleo-pilates-web` dengan `soon: true` (tombol "Segera hadir", tanpa link, tidak dihitung di "N contoh"; poster `uploads/posters/nucleo-pilates-web.jpg` dari foto app Nucleo). Saat webnya jadi: hapus `soon`, tambah `href`, ganti poster. `soon` baru ditangani di `Lainnya/index.html`.
 
 ### Menambah contoh baru
 1. Export "Bundled Page": `python3 -I tools/unbundle.py "<file>.html" showcase/<slug>` lalu `python3 tools/wrap-demo.py showcase/<slug> "Nama" web|mobile "<Halaman>/#<id>"`.

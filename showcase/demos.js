@@ -13,6 +13,8 @@
 //   href    demo page from the site root. Leave out to open the full video in a popup instead.
 //   live    set to false to hide a demo link without deleting it (falls back to the video).
 //   detail  true = the link is a detail page, not a live demo: the button says "Lihat detail".
+//   soon    true = not built yet: shown in the picker with its poster, button says "Segera hadir",
+//           no link and not counted in "N contoh". (Only handled on Lainnya/ for now.)
 //
 // The order inside a page's `demos: [...]` is the order on the site.
 // See DEMO-NOTES.md for the checklist.
@@ -32,6 +34,8 @@ window.OMNIFY_DEMOS = {
   'elevate':      { name: 'Elevate Coffee',   kind: 'web', cat: 'cafe',  type: { id: 'Kafe & klub komunitas', en: 'Café & community club' }, poster: 'elevate', href: 'showcase/elevate/' },
   'first-floor':  { name: 'First Floor',      kind: 'web', cat: 'cafe',  type: { id: 'Coffee shop & roastery', en: 'Coffee shop & roastery' }, poster: 'first-floor', href: 'showcase/first-floor/' },
   'kopi-kala':    { name: 'Kopi Kala',        kind: 'web', cat: 'cafe',  type: { id: 'Coffee shop & bar', en: 'Coffee shop & bar' }, video: 'Film - Kopi Kala', href: 'showcase/kopi-kala/' },
+  'padel-me':     { name: 'Padel Me',         kind: 'web', cat: 'sport', type: { id: 'Klub padel indoor', en: 'Indoor padel club' }, poster: 'padel-me', href: 'showcase/padel-me/' },
+  'nucleo-pilates-web': { name: 'Nucleo Pilates', kind: 'web', cat: 'sport', type: { id: 'Studio pilates', en: 'Pilates studio' }, poster: 'nucleo-pilates-web', soon: true },
   'jangkar':      { name: 'Jangkar Barber',   kind: 'web', cat: 'barber', type: { id: 'Barbershop', en: 'Barbershop' }, video: 'Film - Jangkar', href: 'showcase/jangkar/' },
   'sanurhasta':   { name: 'Sanurhasta Mitra', kind: 'web', type: { id: 'Perusahaan grup', en: 'Group company' }, poster: 'sanurhasta', href: 'showcase/sanurhasta/' },
   'pualam':       { name: 'Pualam',           kind: 'web', type: { id: 'Batu alam & permukaan', en: 'Stone & surfaces' }, video: 'Film - Pualam', href: 'showcase/pualam/' },
