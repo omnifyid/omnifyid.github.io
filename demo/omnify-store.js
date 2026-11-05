@@ -186,15 +186,45 @@ const receivable = o => isOnline(o) && o.status !== 'pcancel' && (o.expectedPayo
 
 // ── persistensi ─────────────────────────────────────────────────────────────
 const DBK = ['v', 'seededAt', 'outlets', 'users', 'settings', 'prodCfg', 'stockBy', 'tablesBy', 'unavailableBy', 'orders', 'moves', 'pos', 'opnames', 'shifts', 'cashMoves', 'expenses', 'payables', 'payPayments', 'settlements', 'refunds', 'wastes', 'transfers', 'logs', 'nextNoBy', 'seq', 'discounts', 'payEnabled', 'selfOrderOn', 'soPrefix', 'menuCats', 'customMenu', 'deletedMenu', 'bom', 'customSup', 'customIng', 'reservations', 'demoMode', 'demoAuto'];
-function load() { try { const raw = localStorage.getItem(KEY); if (!raw) return null; const db = JSON.parse(raw); return db && db.v === VER ? db : null; } catch (e) { return null; } }
-function save(st) { try { const o = {}; DBK.forEach(k => { o[k] = st[k]; }); localStorage.setItem(KEY, JSON.stringify(o)); return true; } catch (e) { return false; } }
+// Data disimpan terkompresi gzip (base64, berawalan GZ) supaya muat di kuota localStorage
+// Safari/iPad (±2,5 jt karakter). Browser tanpa CompressionStream memakai JSON biasa.
+const GZ = 'gz1:', CAN_GZ = typeof CompressionStream === 'function' && typeof DecompressionStream === 'function';
+const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, v); return true; } catch (e) { return false; } };
+const pickDbk = st => { const o = {}; DBK.forEach(k => { o[k] = st[k]; }); return o; };
+const okDb = db => db && db.v === VER ? db : null;
+async function gzip(str) {
+  const buf = new Uint8Array(await new Response(new Blob([str]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer());
+  let bin = ''; for (let i = 0; i < buf.length; i += 0x8000) bin += String.fromCharCode.apply(null, buf.subarray(i, i + 0x8000));
+  return btoa(bin);
+}
+async function gunzip(b64) {
+  const bin = atob(b64), buf = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+  return new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+}
+function load() { try { const raw = lsGet(KEY); if (!raw || raw.startsWith(GZ)) return null; return okDb(JSON.parse(raw)); } catch (e) { return null; } }
+async function loadAsync() {
+  try { const raw = lsGet(KEY); if (!raw) return null; return okDb(JSON.parse(raw.startsWith(GZ) ? await gunzip(raw.slice(GZ.length)) : raw)); } catch (e) { return null; }
+}
+let saveSeq = 0;
+// async; resolve true jika tersimpan. Penyimpanan yang lebih baru selalu menang atas yang lebih lama.
+async function save(st) {
+  const my = ++saveSeq, json = JSON.stringify(pickDbk(st));
+  if (!CAN_GZ) return lsSet(KEY, json);
+  let v; try { v = GZ + await gzip(json); } catch (e) { v = json; }
+  if (my !== saveSeq) return true;
+  return lsSet(KEY, v);
+}
+// sinkron, untuk saat halaman ditutup: gzip tidak bisa sinkron, jadi coba JSON biasa
+function saveNow(st) { saveSeq++; return lsSet(KEY, JSON.stringify(pickDbk(st))); }
+function storageInfo() { const raw = lsGet(KEY) || ''; return { chars: raw.length, gz: raw.startsWith(GZ) }; }
 function loadSess() { try { return JSON.parse(localStorage.getItem(SKEY) || 'null'); } catch (e) { return null; } }
 function saveSess(s) { try { localStorage.setItem(SKEY, JSON.stringify(s)); } catch (e) { } }
 
 // ── seed ────────────────────────────────────────────────────────────────────
 function seed(OM, now, mode) {
   mode = mode === 'new' ? 'new' : 'running'; const NEW = mode === 'new', DAYS = NEW ? 1 : 60;
-  let s0 = 20261028; const R = () => { s0 = (Math.imul(s0, 1664525) + 1013904223) >>> 0; return s0 / 4294967296; };
+  let s0 = (20261028 + Math.round(sod(now) / D) * 7919) >>> 0; const R = () => { s0 = (Math.imul(s0, 1664525) + 1013904223) >>> 0; return s0 / 4294967296; };
   const ri = (a, b) => a + Math.floor(R() * (b - a + 1)), pk = a => a[Math.floor(R() * a.length)];
   const wp = pairs => { let t = 0; pairs.forEach(p => { t += p[1]; }); let x = R() * t; for (const p of pairs) { x -= p[1]; if (x <= 0) return p[0]; } return pairs[pairs.length - 1][0]; };
   const today = sod(now);
@@ -212,10 +242,15 @@ function seed(OM, now, mode) {
   db.stockBy.snp = Object.fromEntries(OM.INGS.map(i => [i.id, rq(i, i.on * 1.35)])); db.stockBy.snp.milk = 22; db.stockBy.snp.croissant = 18; db.stockBy.snp.espresso = 2.6;
   db.stockBy.bsd = Object.fromEntries(OM.INGS.map(i => [i.id, rq(i, i.on * 0.85)])); db.stockBy.bsd.espresso = 0.9; db.stockBy.bsd.cup = 90;
   OIDS.forEach(oid => { db.tablesBy[oid] = Object.fromEntries(OM.TABLES.map(x => [x.id, { status: 'free', since: null, orders: [], note: '' }])); });
+  // toko baru buka: stok awal penuh (baru dihitung saat buka), semua menu tersedia
+  if (NEW) { db.demoAvail = true; OIDS.forEach(oid => { db.stockBy[oid] = Object.fromEntries(OM.INGS.map(i => [i.id, rq(i, Math.max(i.on, i.par * 1.8))])); }); }
 
   const W = { k1: 22, k4: 12, k3: 11, p1: 10, f1: 8, n1: 7, f2: 6, k2: 7, k5: 3, n2: 4, n3: 5, p2: 6, p3: 4, f3: 3, f4: 3 };
   const WP = Object.entries(W);
-  const NAMES = ['Andi', 'Sari', 'Maya', 'Kevin', 'Nadia', 'Rafi', 'Tom', 'Laras', 'Bima', 'Citra', 'Dimas', 'Eka', 'Fikri', 'Gita', 'Hana', 'Indra', 'Joko', 'Kirana', 'Lukas', 'Mira'];
+  const NAMES = ['Andi', 'Sari', 'Maya', 'Kevin', 'Nadia', 'Rafi', 'Tom', 'Laras', 'Bima', 'Citra', 'Dimas', 'Eka', 'Fikri', 'Gita', 'Hana', 'Indra', 'Joko', 'Kirana', 'Lukas', 'Mira', 'Aditya', 'Bella', 'Cahya', 'Dina', 'Evan', 'Farah', 'Galih', 'Hendra', 'Intan', 'Jessica', 'Kurnia', 'Lina', 'Michael', 'Novi', 'Oscar', 'Putra', 'Qori', 'Reza', 'Siska', 'Teguh', 'Vina', 'Wulan', 'Yosua', 'Zahra', 'Ayu', 'Bagus', 'Clara', 'Daniel', 'Fani', 'Gilang'];
+  // pelanggan tetap per outlet: sebagian kecil orang datang berulang kali (pola pareto)
+  const REG = { kmg: [['Andi', 9], ['Sari', 7], ['Kevin', 6], ['Laras', 5], ['Bima', 4], ['Hana', 3], ['Reza', 3], ['Intan', 2]], snp: [['Maya', 9], ['Michael', 7], ['Nadia', 6], ['Jessica', 5], ['Daniel', 4], ['Clara', 3], ['Putra', 3]], bsd: [['Rafi', 8], ['Citra', 7], ['Dimas', 5], ['Wulan', 4], ['Galih', 3], ['Fani', 3]] };
+  const custOf = (oid, on) => { const r = R(); if (!on && r < .45) return 'Umum'; return r < (on ? .3 : .75) ? wp(REG[oid]) : pk(NAMES); };
   const DRIVERS = ['Pak Sutrisno', 'Mas Andre', 'Pak Wawan', 'Mas Rizky', 'Pak Darto', 'Mas Ilham', 'Pak Yanto', 'Mas Bagas'];
   const METH = [['cash', 30], ['edc', 50], ['gopay', 8], ['ovo', 5], ['dana', 4], ['shopeepay', 3]];
   const HW = { 7: .5, 8: 1, 9: .9, 10: .6, 11: .6, 12: 1, 13: .9, 14: .6, 15: .7, 16: .8, 17: .7, 18: .6, 19: .6, 20: .5, 21: .3 };
@@ -233,46 +268,52 @@ function seed(OM, now, mode) {
   };
   const CASHIER = { kmg: ['u1', 'u2'], snp: ['u5', 'u5'], bsd: ['u6', 'u6'] };
   const APPR = { kmg: 'u3', snp: 'u3', bsd: 'u4' };
-  const BASEN = { kmg: 19, snp: 23, bsd: 15 };
+  const BASEN = { kmg: 24, snp: 28, bsd: 19 };
   const wasteOf = (oid, o, t, src, items) => { db.wastes.push({ id: nid('WS'), outletId: oid, t, source: src, orderId: o.id, items: items.map(x => ({ id: x.id, qty: x.qty })), value: Math.round(items.reduce((a, x) => a + costOf(OM, x.id) * x.qty, 0)) }); };
   const apply = (o, tot) => { o.sub = tot.sub; o.disc = tot.disc; o.svc = tot.svc; o.tax = tot.tax; o.total = tot.total; if (tot.commissionAmount != null) { o.commissionAmount = tot.commissionAmount; o.expectedPayout = tot.expectedPayout; } };
   const mkOrder = (oid, no, t, w, opt) => {
     opt = opt || {};
-    const ch = opt.ch || (R() < .24 ? wp([['gofood', 45], ['grabfood', 35], ['shopeefood', 20]]) : 'direct'), on = ch !== 'direct';
+    const ch = opt.ch || (R() < (opt.onP || .24) ? wp([['gofood', 45], ['grabfood', 35], ['shopeefood', 20]]) : 'direct'), on = ch !== 'direct';
     const items = opt.items ? opt.items.map(([id, qty, mods]) => { const mm = isDrink(OM.MB[id].cat) ? { size: 'R', temp: 'ice', milk: 'fresh', sugar: 'normal', ...(mods || {}) } : null; return { key: id + JSON.stringify(mm || {}), id, qty, mods: mm, note: modsStr(OM, id, mm), price: chPrice(db, id, oid, ch, modAdd(OM, id, mm)), done: false }; }) : mkItems(oid, ch);
     const type = opt.type || (on ? 'online' : R() < .6 ? 'dine' : 'take');
     let discPct = 0, discLabel = '';
     if (!on && !opt.items) { if (R() < .08) { const p = pk([['SENJA10', 10], ['HAPPY15', 15]]); discPct = p[1] / 100; discLabel = p[0]; } }
     const tot = calcTot(db, oid, items, type, ch, discPct);
     const method = on ? ch : (opt.method || wp(METH));
-    const o = { id: 'O-' + oid + '-' + no, no, outletId: oid, channel: ch, source: on ? 'manual' : (opt.source || (type === 'dine' && R() < .15 ? 'qr' : 'kasir')), type, table: type === 'dine' ? (opt.table || 'T' + String(ri(1, 12)).padStart(2, '0')) : null, customer: opt.cust || (on || R() < .4 ? pk(NAMES) : 'Umum'), items, ...tot, discPct, discLabel, paid: on || opt.status === 'pending' ? 0 : tot.total, refunded: 0, method: opt.status === 'pending' ? 'none' : method, status: opt.status || 'served', createdAt: t, paidAt: on || opt.status === 'pending' ? null : t, userId: w ? w.user : null, shiftId: w && opt.status !== 'pending' ? w.id : null };
+    const o = { id: 'O-' + oid + '-' + no, no, outletId: oid, channel: ch, source: on ? 'manual' : (opt.source || (type === 'dine' && R() < .15 ? 'qr' : 'kasir')), type, table: type === 'dine' ? (opt.table || 'T' + String(ri(1, 12)).padStart(2, '0')) : null, customer: opt.cust || custOf(oid, on), items, ...tot, discPct, discLabel, paid: on || opt.status === 'pending' ? 0 : tot.total, refunded: 0, method: opt.status === 'pending' ? 'none' : method, status: opt.status || 'served', createdAt: t, paidAt: on || opt.status === 'pending' ? null : t, userId: w ? w.user : null, shiftId: w && opt.status !== 'pending' ? w.id : null };
+    if (o.source === 'qr' && o.customer === 'Umum') o.customer = pk(NAMES); // self order selalu isi nama
     if (opt.custNote) o.custNote = opt.custNote;
     if (type === 'dine' && !on && o.source === 'kasir' && no % 9 === 0) o.resv = { ref: 'RSV-' + oid.toUpperCase().slice(0, 3) + '-' + String(no).padStart(4, '0'), source: 'Booking app', fee: RESV_FEE, name: o.customer === 'Umum' ? pk(NAMES) : o.customer, at: t - 2 * H };
     if (on) Object.assign(o, { channelOrderId: pid6(ch), driver: opt.driver || pk(DRIVERS), appNote: R() < .3 ? pk(['Sendok garpu ya', 'Es dipisah', 'Jangan pedas', 'Tolong dibungkus rapi']) : '', appTotal: tot.total, expectedPayoutDate: sod(t) + db.settings.channels[ch].lag * D, settlementId: null });
     return o;
   };
 
+  const RAIN = Array.from({ length: DAYS }, () => R() < .3), PAYDAY = d => { const x = new Date(today - d * D).getDate(); return x >= 25 || x <= 2; };
   OIDS.forEach((oid, k) => {
+    if (NEW) { db.nextNoBy[oid] = 1001; return; } // belum ada shift, pesanan, maupun kas
     const wins = [];
     for (let d = DAYS - 1; d >= 0; d--) {
       const day0 = today - d * D, dow = new Date(day0).getDay();
       let blocks = [[day0 + 7 * H, day0 + 15 * H], [day0 + 15 * H, day0 + 22 * H]];
       if (d === 0) { blocks = blocks.map(([a, b]) => [a, Math.min(b, now)]).filter(([a, b]) => b - a >= 10 * MIN); }
       blocks.forEach(([a, b], bi) => {
-        const f = (dow === 0 || dow === 6 ? 1.3 : dow === 5 ? 1.1 : 1) * (0.85 + R() * .3) * (1 + (59 - d) * 0.0017);
+        const f = (dow === 0 || dow === 6 ? 1.3 : dow === 5 ? 1.1 : 1) * (PAYDAY(d) ? 1.12 : 1) * (RAIN[d] ? .9 : 1) * (0.85 + R() * .3) * (1 + (59 - d) * 0.0017);
         const full = bi === 0 ? 8 * H : 7 * H;
         const n = Math.max(1, Math.round((NEW ? .7 : 1) * BASEN[oid] * (bi === 0 ? .55 : .45) * f * Math.min(1, (b - a) / full)));
         const sh = { id: nid('SH'), outletId: oid, userId: CASHIER[oid][bi], openedAt: a, openCash: 500000, closedAt: d === 0 && b >= now ? now : b, denoms: null, counted: null, expected: null, variance: null, note: '', approverId: null, status: 'closed', reviewNote: '', reviewedBy: null };
         db.shifts.push(sh); wins.push({ id: sh.id, a, b, user: sh.userId, d, n, sh, last: d === 0 && b >= now });
       });
     }
+    // tiket aktif dapur dihitung sebagai bagian dari volume shift berjalan, bukan tambahan
+    const busy = HW[new Date(now).getHours()] || .25, nHC = { kmg: 9, snp: 3, bsd: 2 }[oid];
+    const nAct = Math.min(nHC, Math.max(oid === 'kmg' ? 3 : 1, Math.round((oid === 'kmg' ? 6 : nHC) * busy)));
     const slots = [];
-    wins.forEach(w => { const lim = w.last ? (oid === 'kmg' ? now - 70 * MIN : now - 18 * MIN) : w.b - 2 * MIN; if (lim <= w.a + 2 * MIN) return; for (let i = 0; i < w.n; i++) slots.push({ t: sampleT(w.a + 2 * MIN, lim), w }); });
+    wins.forEach(w => { if (w.last) w.n = Math.max(0, w.n - nAct); const lim = w.last ? now - 20 * MIN : w.b - 2 * MIN; if (lim <= w.a + 2 * MIN) return; for (let i = 0; i < w.n; i++) slots.push({ t: sampleT(w.a + 2 * MIN, lim), w }); });
     slots.sort((a, b) => a.t - b.t);
     let no = 1001;
     const recent = Date.now() - 7 * D;
     slots.forEach(({ t, w }) => {
-      const o = mkOrder(oid, no++, t, w); db.orders.push(o);
+      const o = mkOrder(oid, no++, t, w, { onP: RAIN[w.d] ? .4 : .24 }); db.orders.push(o);
       const fraud = !NEW && oid === 'snp' && t > today - 6 * D;
       const appr = APPR[oid] === w.user ? 'u4' : APPR[oid];
       if (o.channel === 'direct') {
@@ -307,10 +348,8 @@ function seed(OM, now, mode) {
     // pesanan terbaru (KDS) per outlet
     const liveW = wins.find(w => w.last);
     const findW = () => liveW;
-    const HC = oid === 'kmg' ? [
-      [62, { type: 'dine', table: 'T01', items: [['k3', 1, { temp: 'hot' }], ['p1', 1]], status: 'served', method: 'shopeepay' }],
-      [48, { type: 'take', items: [['n3', 2], ['k1', 1]], status: 'served', method: 'dana', cust: 'Tom' }],
-      [34, { type: 'dine', table: 'T04', items: [['f3', 1], ['k2', 1, { temp: 'hot' }]], status: 'served', method: 'edc', cust: 'Umum' }],
+    // tiket aktif di dapur; urutan = prioritas tampil (fitur yang paling sering didemokan dulu)
+    const HC0 = oid === 'kmg' ? [
       [16.4, { type: 'take', items: [['k5', 1, { temp: 'hot' }], ['p2', 2]], status: 'ready', method: 'ovo', cust: 'Maya' }],
       [12.6, { type: 'dine', table: 'T09', items: [['f2', 1], ['n1', 1], ['f4', 1]], status: 'cooking', method: 'edc', cust: 'Kevin', done: [1] }],
       [11, { ch: 'grabfood', items: [['k1', 2], ['p3', 1]], status: 'ready', cust: 'Laras', driver: 'Mas Andre' }],
@@ -329,6 +368,15 @@ function seed(OM, now, mode) {
       [3, { ch: 'grabfood', items: [['k1', 1], ['p2', 2]], status: 'new', cust: 'Kirana', driver: 'Pak Yanto' }],
     ];
     const tb = db.tablesBy[oid];
+    // jumlah tiket mengikuti tingkat keramaian jam ini, supaya tidak ada lonjakan di jam sepi
+    const PRIO = oid === 'kmg' ? [8, 1, 2, 4, 7, 0, 6, 3, 5] : HC0.map((_, i) => i);
+    const keep = new Set(PRIO.filter(i => i < HC0.length).slice(0, nAct));
+    const freeT = OM.TABLES.map(x => x.id).filter(x => !(oid === 'kmg' && (x === 'T04' || x === 'T11'))).sort(() => R() - .5);
+    const HC = HC0.filter((_, i) => keep.has(i)).map(([ago, opt]) => {
+      const o2 = { ch: 'direct', ...opt }; if (o2.type === 'dine') o2.table = freeT.shift();
+      if (!o2.custNote) o2.cust = o2.status === 'pending' || o2.ch !== 'direct' ? pk(NAMES) : custOf(oid, false); if (o2.ch !== 'direct') o2.driver = pk(DRIVERS);
+      return [ago, o2];
+    });
     HC.forEach(([ago, opt]) => {
       const t = Math.round(now - ago * MIN), w = findW(t);
       if (!w || t < w.a + MIN) return;
@@ -355,9 +403,8 @@ function seed(OM, now, mode) {
       if (R() < (fraud ? .4 : .03)) { const t = at(), rs = pk(REASONS.nosale); db.cashMoves.push({ id: nid('CM'), shiftId: sh.id, outletId: oid, t, type: 'nosale', amount: 0, category: '', reason: rs, userId: w.user, approverId: appr }); L({ t, outletId: oid, userId: w.user, type: 'no_sale', objType: 'shift', objId: sh.id, objLabel: 'Shift ' + sh.id, approverId: appr, reason: rs }); }
       if (w.d <= 6) L({ t: w.a, outletId: oid, userId: w.user, type: 'login', objType: 'user', objId: w.user, objLabel: U[w.user].name });
       L({ t: w.a + MIN, outletId: oid, userId: w.user, type: 'shift_open', objType: 'shift', objId: sh.id, objLabel: 'Shift ' + sh.id, after: fmtR(sh.openCash) });
-      if (w.last && oid !== 'kmg') { sh.closedAt = null; sh.status = 'open'; return; }
-      if (w.last) sh.closedAt = now - MIN;
-      if (!w.last) sh.closedAt = w.b;
+      if (w.last) { sh.closedAt = null; sh.status = 'open'; return; }
+      sh.closedAt = w.b;
       const x = shiftCalc(db, sh); IX = {};
       const r = R(); let v = 0;
       if (r < .2) v = (R() < .5 ? -1 : 1) * ri(1, 10) * 500; else if (r < .28) v = -ri(2, 8) * 5000; else if (r < .3) v = R() < .5 ? -ri(5, 12) * 10000 : ri(2, 4) * 10000;
@@ -394,25 +441,50 @@ function seed(OM, now, mode) {
   OIDS.forEach((oid, k) => Object.entries(PLAN).forEach(([sup, [ev, term]]) => {
     for (let d = 56 - k * 2 - (sup.charCodeAt(1) % 3); d >= 2; d -= ev) recs.push({ oid, sup, term, d });
   }));
-  if (NEW) { recs.length = 0; OIDS.forEach(oid => Object.entries(PLAN).forEach(([sup, [ev, term]]) => recs.push({ oid, sup, term, d: 0 }))); }
+  if (NEW) recs.length = 0;
   recs.sort((a, b) => b.d - a.d);
-  recs.forEach(rc => {
-    const lines = OM.INGS.filter(i => i.sup === rc.sup).map(i => ({ ing: i.id, qty: i.unit === 'pcs' ? Math.round(i.par * (1.5 + R())) : Math.round(i.par * (1.5 + R()) * 2) / 2, cost: i.cost }));
-    const total = Math.round(lines.reduce((a, l) => a + l.qty * l.cost, 0)), rcv = NEW ? Math.min(today + 6 * H, now - 30 * MIN) : today - rc.d * D + 10 * H, no = nid('PO');
+  // stok mengikuti penjualan: tiap hari berkurang sesuai resep pesanan, PO datang mengisi ulang sesuai kebutuhan
+  const EV = Object.fromEntries(Object.entries(PLAN).map(([k, v]) => [k, v[0]]));
+  const USE = {}, DAILY = {};
+  OIDS.forEach(oid => { USE[oid] = {}; DAILY[oid] = {}; });
+  db.orders.forEach(o => {
+    if (o.status === 'pending' || (o.status === 'pcancel' && !o.wasted)) return;
+    const d = Math.round((today - sod(o.createdAt)) / D), u = usage(OM, o.items), m = USE[o.outletId][d] || (USE[o.outletId][d] = {});
+    Object.keys(u).forEach(k => { m[k] = (m[k] || 0) + u[k]; DAILY[o.outletId][k] = (DAILY[o.outletId][k] || 0) + u[k] / DAYS; });
+  });
+  const TGT = (oid, i) => i.par * 1.2 + (DAILY[oid][i.id] || 0) * EV[i.sup];
+  const PACK = i => i.unit === 'pcs' ? (i.par >= 100 ? 50 : i.par >= 30 ? 10 : 4) : i.unit === 'kg' ? .5 : 1;
+  const needOf = (oid, i, st) => { const need = TGT(oid, i) - st, pk1 = PACK(i); return need > pk1 * .5 ? Math.round(Math.ceil(need / pk1 - 1e-9) * pk1 * 100) / 100 : 0; };
+  const STK = {}; OIDS.forEach(oid => { STK[oid] = Object.fromEntries(OM.INGS.map(i => [i.id, TGT(oid, i)])); });
+  const RCV = {}; recs.forEach(rc => (RCV[rc.d] = RCV[rc.d] || []).push(rc));
+  const mkPO = (rc, lines) => {
+    const total = Math.round(lines.reduce((a, l) => a + l.qty * l.cost, 0)), rcv = today - rc.d * D + 10 * H, no = nid('PO');
     const pay = { id: nid('AP'), poId: no, poNo: no, outletId: rc.oid, sup: rc.sup, invoiceNo: 'INV/' + rc.sup.toUpperCase() + '/' + ri(1000, 9999), invoiceDate: sod(rcv), term: rc.term, termDays: TD[rc.term], dueDate: sod(rcv) + TD[rc.term] * D, total, paid: 0 };
-    db.pos.push({ id: no, no, outletId: rc.oid, sup: rc.sup, lines, status: 'received', createdAt: rcv - D, eta: 'Diterima', term: rc.term, termDays: TD[rc.term], receivedAt: rcv, invoiceNo: pay.invoiceNo, payableId: pay.id });
-    db.payables.push(pay);
+    const po = { id: no, no, outletId: rc.oid, sup: rc.sup, lines, status: 'received', createdAt: rcv - D, eta: 'Diterima', term: rc.term, termDays: TD[rc.term], receivedAt: rcv, invoiceNo: pay.invoiceNo, payableId: pay.id };
+    db.pos.push(po); db.payables.push(pay);
     const P = (t, amt, src) => { db.payPayments.push({ id: nid('PP'), payableId: pay.id, outletId: rc.oid, t, amount: amt, source: src, shiftId: null, userId: 'u4' }); pay.paid += amt; };
     if (rc.term === 'tunai') P(rcv, total, 'petty');
     else if (pay.dueDate < today) { const r = R(); if (r < .78) P(Math.min(pay.dueDate - ri(0, 2) * D + 11 * H, now), total, 'bank'); else if (r < .9) P(pay.dueDate - D + 11 * H, Math.round(total / 2), 'bank'); }
     else if (R() < .15) P(rcv + D, Math.round(total / 2), 'bank');
-  });
+    return po;
+  };
+  if (!NEW) for (let d = DAYS - 1; d >= 0; d--) {
+    (RCV[d] || []).forEach(rc => {
+      const lines = OM.INGS.filter(i => i.sup === rc.sup).map(i => ({ ing: i.id, qty: needOf(rc.oid, i, STK[rc.oid][i.id]), cost: i.cost })).filter(l => l.qty > 0);
+      if (!lines.length) return;
+      lines.forEach(l => { STK[rc.oid][l.ing] += l.qty; });
+      const po = mkPO(rc, lines);
+      if (rc.d <= 10) lines.forEach(l => db.moves.push({ t: po.receivedAt, outletId: rc.oid, ing: l.ing, d: l.qty, reason: 'Penerimaan ' + po.no }));
+    });
+    OIDS.forEach(oid => { const u = USE[oid][d] || {}; Object.keys(u).forEach(k => { STK[oid][k] = Math.max(0, STK[oid][k] - u[k]); }); });
+  }
   [['kmg', 's5', 100, 30, 3250000, 0], ['snp', 's1', 70, 30, 4860000, 2000000], ['bsd', 's2', 40, 14, 1720000, 0]].filter(() => !NEW).forEach(([oid, sup, ago, days, total, paid]) => {
     const p = { id: nid('AP'), poId: null, poNo: 'Saldo awal', outletId: oid, sup, invoiceNo: 'INV/' + sup.toUpperCase() + '/' + ri(1000, 9999), invoiceDate: today - ago * D, term: days === 30 ? 'h30' : 'h14', termDays: days, dueDate: today - ago * D + days * D, total, paid: 0 };
     db.payables.push(p); if (paid) { db.payPayments.push({ id: nid('PP'), payableId: p.id, outletId: oid, t: p.dueDate + 3 * D, amount: paid, source: 'bank', shiftId: null, userId: 'u4' }); p.paid = paid; }
   });
-  const kPo = (sup, st, ago, eta, oid, term) => { const no = nid('PO'); db.pos.push({ id: no, no, outletId: oid, sup, lines: OM.INGS.filter(i => i.sup === sup).slice(0, 3).map(i => ({ ing: i.id, qty: i.unit === 'pcs' ? Math.round(i.par * 1.5) : Math.round(i.par * 3) / 2, cost: i.cost })), status: st, createdAt: now - ago, eta, term, termDays: TD[term], receivedAt: null, invoiceNo: '', payableId: null }); };
-  kPo('s1', 'sent', 20 * H, 'Besok', 'kmg', 'h30'); kPo('s2', 'draft', 30 * MIN, '—', 'kmg', 'h14'); kPo('s4', 'sent', 3 * H, 'Hari ini', 'snp', 'h7');
+  // PO terbuka berisi bahan yang memang sedang menipis di outlet itu
+  const kPo = (sup, st, ago, eta, oid, term) => { const no = nid('PO'), ings = OM.INGS.filter(i => i.sup === sup); let lines = ings.map(i => ({ ing: i.id, qty: needOf(oid, i, STK[oid][i.id]), cost: i.cost })).filter(l => l.qty > 0).sort((a, b) => STK[oid][a.ing] / OM.IB[a.ing].par - STK[oid][b.ing] / OM.IB[b.ing].par).slice(0, 4); if (!lines.length) lines = ings.slice(0, 2).map(i => ({ ing: i.id, qty: PACK(i) * 2, cost: i.cost })); db.pos.push({ id: no, no, outletId: oid, sup, lines, status: st, createdAt: now - ago, eta, term, termDays: TD[term], receivedAt: null, invoiceNo: '', payableId: null }); };
+  if (!NEW) { kPo('s1', 'sent', 20 * H, 'Besok', 'kmg', 'h30'); kPo('s2', 'draft', 30 * MIN, '—', 'kmg', 'h14'); kPo('s4', 'sent', 3 * H, 'Hari ini', 'snp', 'h7'); }
 
   // pengeluaran rutin
   const REC = [
@@ -423,7 +495,7 @@ function seed(OM, now, mode) {
     ['Gaji & upah', 'Gaji karyawan', 25, { kmg: 26000000, snp: 31000000, bsd: 19000000 }, 'bank', false],
   ];
   const nd = new Date(now);
-  OIDS.forEach(oid => REC.forEach(([cat, desc, day, amt, src, varAmt]) => {
+  if (!NEW) OIDS.forEach(oid => REC.forEach(([cat, desc, day, amt, src, varAmt]) => {
     const series = 'RS-' + oid + '-' + cat.replace(/\W/g, '');
     let drafted = false;
     for (let mo = -3; mo <= 1; mo++) {
@@ -437,14 +509,19 @@ function seed(OM, now, mode) {
   [['snp', 'Marketing', 'Endorse influencer kuliner', 2500000, 'ewallet', 18], ['kmg', 'Marketing', 'Cetak menu & poster promo', 850000, 'petty', 26], ['kmg', 'Perbaikan & perawatan', 'Servis mesin espresso', 1200000, 'bank', 9], ['bsd', 'Perbaikan & perawatan', 'Ganti selang AC', 450000, 'petty', 33]].filter(() => !NEW).forEach(([oid, cat, desc, a, src, ago]) => { const id = nid('EX'); db.expenses.push({ id, no: id, outletId: oid, date: today - ago * D + 11 * H, category: cat, desc, amount: a, source: src, shiftId: null, cashMoveId: null, receipt: 'bukti-' + id.toLowerCase() + '.jpg', recurring: false, seriesId: null, status: 'posted', userId: 'u3' }); });
 
   // transfer, mutasi, opname, log lain
-  if (NEW) { db.transfers.push({ id: 'TR-0001', no: 'TR-0001', from: 'kmg', to: 'bsd', lines: [{ ing: 'cup', qty: 100, recv: null }], status: 'requested', requestedAt: now - 2 * H, requestedBy: 'u6', sentAt: null, sentBy: null, receivedAt: null, receivedBy: null, note: 'Stok cup awal kurang' }); db.seq.TR = 1; db.moves.push({ t: now - 150 * MIN, outletId: 'kmg', ing: 'milk', d: -1, reason: 'Terbuang · tumpah saat persiapan' }); }
+  if (NEW) { const t0 = Math.max(today, now - 20 * MIN); OIDS.forEach(oid => OM.INGS.forEach(i => db.moves.push({ t: t0, outletId: oid, ing: i.id, d: db.stockBy[oid][i.id], reason: 'Stok awal saat toko buka' }))); }
   else {
   db.transfers.push({ id: 'TR-0001', no: 'TR-0001', from: 'kmg', to: 'snp', lines: [{ ing: 'milk', qty: 10, recv: 9.5 }, { ing: 'croissant', qty: 12, recv: 12 }], status: 'received', requestedAt: today - 6 * D + 9 * H, requestedBy: 'u3', sentAt: today - 5 * D + 8 * H, sentBy: 'u1', receivedAt: today - 5 * D + 11 * H, receivedBy: 'u5', note: '' });
   db.transfers.push({ id: 'TR-0002', no: 'TR-0002', from: 'snp', to: 'bsd', lines: [{ ing: 'espresso', qty: 1, recv: null }, { ing: 'oat', qty: 3, recv: null }], status: 'sent', requestedAt: today - D + 15 * H, requestedBy: 'u6', sentAt: now - 3 * H, sentBy: 'u5', receivedAt: null, receivedBy: null, note: '' });
   db.transfers.push({ id: 'TR-0003', no: 'TR-0003', from: 'kmg', to: 'bsd', lines: [{ ing: 'cup', qty: 100, recv: null }], status: 'requested', requestedAt: now - 2 * H, requestedBy: 'u6', sentAt: null, sentBy: null, receivedAt: null, receivedBy: null, note: 'Cup habis sebelum PO datang' });
   db.seq.TR = 3;
   L({ t: today - 5 * D + 11 * H, outletId: 'snp', userId: 'u5', type: 'transfer', objType: 'transfer', objId: 'TR-0001', objLabel: 'TR-0001 Kemang → Senopati', before: 'Dikirim 10 L susu segar', after: 'Diterima 9,5 L (selisih −0,5 L)', reason: 'Selisih saat penerimaan' });
-  db.moves.push({ t: now - 190 * MIN, outletId: 'kmg', ing: 'bread', d: 30, reason: 'Penerimaan PO pagi' }, { t: now - 190 * MIN, outletId: 'kmg', ing: 'donut', d: 12, reason: 'Penerimaan PO pagi' }, { t: now - 150 * MIN, outletId: 'kmg', ing: 'milk', d: -1, reason: 'Terbuang · kedaluwarsa' }, { t: now - 120 * MIN, outletId: 'kmg', ing: 'croissant', d: -2, reason: 'Terbuang · rusak' }, { t: now - 3 * H, outletId: 'snp', ing: 'espresso', d: -1, reason: 'Transfer keluar TR-0002 → BSD' }, { t: now - 3 * H, outletId: 'snp', ing: 'oat', d: -3, reason: 'Transfer keluar TR-0002 → BSD' });
+  const tOpen = x => Math.min(now - MIN, Math.max(today + 7 * H + 5 * MIN, x));
+  [{ t: tOpen(now - 150 * MIN), outletId: 'kmg', ing: 'milk', d: -1, reason: 'Terbuang · kedaluwarsa' }, { t: tOpen(now - 120 * MIN), outletId: 'kmg', ing: 'croissant', d: -2, reason: 'Terbuang · rusak' }, { t: now - 3 * H, outletId: 'snp', ing: 'espresso', d: -1, reason: 'Transfer keluar TR-0002 → BSD' }, { t: now - 3 * H, outletId: 'snp', ing: 'oat', d: -3, reason: 'Transfer keluar TR-0002 → BSD' }]
+    .forEach(m => { db.moves.push(m); STK[m.outletId][m.ing] = Math.max(0, STK[m.outletId][m.ing] + m.d); });
+  // mutasi penjualan hari ini, sama seperti yang dicatat kasir
+  db.orders.forEach(o => { if (o.createdAt < today || o.status === 'pending' || (o.status === 'pcancel' && !o.wasted)) return; const u = usage(OM, o.items), lb = isOnline(o) ? CHB[o.channel].label + ' #' + o.no : 'pesanan #' + o.no; Object.keys(u).forEach(k => db.moves.push({ t: o.createdAt, outletId: o.outletId, ing: k, d: -Math.round(u[k] * 1000) / 1000, reason: 'Terjual · ' + lb })); });
+  OIDS.forEach(oid => { db.stockBy[oid] = Object.fromEntries(OM.INGS.map(i => [i.id, rq(i, STK[oid][i.id])])); });
   [[7, -184000, 'kmg', 'u3'], [14, -96500, 'kmg', 'u3'], [8, -142000, 'snp', 'u3'], [10, -61000, 'bsd', 'u4']].forEach(([ago, v, oid, by]) => { const no = nid('SO'); db.opnames.push({ no, t: today - ago * D + 21 * H, items: 20, varianceVal: v, by: U[by].name, outletId: oid }); L({ t: today - ago * D + 21 * H, outletId: oid, userId: by, type: 'stock_adjust', objType: 'opname', objId: no, objLabel: 'Stock opname ' + no, before: '20 bahan', after: 'Selisih ' + fmtR(v), approverId: by === 'u3' ? 'u3' : 'u4', reason: 'Hasil stock opname' }); });
   db.opnames.sort((a, b) => b.t - a.t);
   L({ t: today - 20 * D + 10 * H, outletId: null, userId: 'u4', type: 'price_change', objType: 'product', objId: 'k3', objLabel: 'Cappuccino · harga dasar', before: fmtR(30000), after: fmtR(32000), device: 'iPhone Arif' });
@@ -472,5 +549,5 @@ function fmtR(n) { return (n < 0 ? '−' : '') + 'Rp ' + Math.round(Math.abs(n))
 
 window.OS = { VER, D, H, MIN, sod, clone, r500, OUTLETS, USERS, ROLES, RESV_FEE, PAGE_ROLES, HOME, PERM_ROWS, CHANNELS, CHB, isOnline, EXP_CATS, FUNDS, FB, TERMS, DENOMS, CASH_IN_CATS, CASH_OUT_NONEXP, REASONS, LOG_TYPES,
   outletOf, carried, outletPrice, autoChPrice, chPrice, modAdd, modsStr, lineQty, calcTot, validSale, revenueOf, netOf, usage, costOf, index, shiftCalc, payStatus, overdueDays, aging, receivable,
-  DBK, load, save, loadSess, saveSess, seed, fmtR };
+  DBK, load, loadAsync, save, saveNow, storageInfo, loadSess, saveSess, seed, fmtR };
 })();
