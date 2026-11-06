@@ -199,3 +199,12 @@ Seperti `demo/`, **jangan ditautkan dari kartu portofolio** (pakai PIN) kecuali 
 - [ ] Nama bisnis "Garis Goods", nama produk, harga jual & harga beli (HPP) saya tentukan sendiri.
 - [ ] Foto produk milik merek aslinya — aman untuk demo internal/sales, sebaiknya diganti foto sendiri sebelum dipajang publik.
 - [ ] Produk baru yang dibuat di demo belum otomatis punya SKU stok per ukuran (hanya produk bawaan). Varian warna belum dipisah stoknya (warna = produk terpisah).
+
+## Kontak sales (2026-11-06)
+
+- Nomor WhatsApp **utama** (tombol WA, bundle, `showcase/demo-bar.js`, `showcase/sistem/`) = **6282119688218** (+62 821-1968-8218).
+  Nomor `628977887994` di dalam demo `showcase/elevate` & `showcase/first-floor` sengaja tidak diubah (bagian isi demo).
+- Section `#sales` (label **"Our team"**, tanpa jabatan) ada **tepat di atas** "Apa yang ingin Anda benahi lebih dulu?" (`#estimate`) di FnB / Marketplace / Lainnya: Imam, Rizky, Hamdan (foto bulat, WA + Instagram).
+  Panel Instagram @creativelogy (`#instagram`) sudah **dihapus** (2026-11-06).
+  Data ada di `team:` dalam `renderVals()` tiap halaman. Foto `uploads/team/*.jpg` (480×480): crop di-center ke siluet kepala, level mata di 40% tinggi, jarak antar-mata 14,5% lebar.
+  Grid 3 kolom, 1 kolom di ≤ 600px (`.team-grid`).

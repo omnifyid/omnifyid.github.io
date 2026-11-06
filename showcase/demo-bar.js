@@ -17,7 +17,7 @@
   'use strict';
   var me = document.currentScript;
   var attr = function (n, d) { return (me && me.getAttribute(n)) || d; };
-  var WA = '628977887994';
+  var WA = '6282119688218';
   var name = attr('data-name', 'Demo');
   var src = attr('data-src', 'site.html');
   var q = new URLSearchParams(location.search);
