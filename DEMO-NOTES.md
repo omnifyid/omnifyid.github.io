@@ -166,3 +166,36 @@ Semua layanan sistem manajemen (FnB 03 Self Order, FnB 04 POS, FnB 05 IKM, Marke
 - [ ] Copy marketing & checklist fitur per modul (saya susun dari fitur yang ada di demo). Add-on: deskripsi saya tulis sendiri; harga tidak ditampilkan.
 - [ ] Estimasi "2–6 minggu, tergantung modul" diambil dari ETA POS (14–30 hari) & IKM (4–6 minggu).
 - [ ] Kode popup video (`openPop`, `closePop`, `popOpen`) & video penuh sistem di `uploads/` sekarang tidak dipakai card mana pun; boleh dihapus kalau setuju.
+
+## Demo POS Retail — `demo-retail/` (2026-11-06, belum di-commit)
+
+Versi **toko fashion** dari demo POS `demo/` (logika, tema, modul sama). Bisnis contoh: **Garis Goods** (3 outlet: Kemang, Senopati, BSD; jam 10:00–22:00).
+Login sama seperti FnB tapi email `@garisgoods.id` (mis. `arif@garisgoods.id` / `0000`, PIN Arif 6666). PIN gate sama dengan `demo/`.
+Seperti `demo/`, **jangan ditautkan dari kartu portofolio** (pakai PIN) kecuali owner minta.
+
+- **Dibangun otomatis**: `python3 tools/make-retail.py` menyalin `demo/` → `demo-retail/` lalu menambal teks secara persis
+  (setiap pola harus cocok; kalau `demo/` berubah dan pola tidak cocok, skrip berhenti dan menyebut polanya). Jadi perbaikan di FnB
+  dibawa ke retail cukup dengan menjalankan ulang skrip. **Jangan edit `demo-retail/` langsung** — edit `tools/retail/`.
+  - `tools/retail/omnify-data.js` — katalog 24 produk (8 pakaian, 9 sepatu, 7 tas), 84 SKU stok per ukuran, 3 pemasok.
+  - `tools/retail/products/*.webp` — foto produk 480×480 (dummy katalog; diambil dari preppstudio.com, nappamilano.id, jansport.com). Nama produk dibuat generik.
+  - `tools/retail/index_patches.py` — tambalan `index.html`; tambalan `omnify-store.js` ada di `tools/make-retail.py` (`STORE`).
+- **Beda dari FnB**: modul Self order, Meja/Reservasi, Dapur (KDS), dan BOM/resep **mati & disembunyikan** dari Pengaturan.
+  **Kanal penjualan**: Di toko + Online (**Website, Shopee, Tokopedia**; harga per kanal +0/+8/+8%, komisi 2/10/9%, cair H+1/H+3/H+3).
+  Ikon kanal = tanda kotak buatan sendiri (`tools/retail/pay/ch-*.svg`), bukan logo resmi. ±30% transaksi dari online.
+  **Status pesanan online**: Pesanan baru → Dikemas → Siap kirim → Dikirim → Selesai (tombol: Mulai kemas / Selesai dikemas / Serahkan ke kurir / Tandai terkirim);
+  bisa "Dibatalkan di kanal" (barang kembali ke stok). Filter Pesanan: Perlu dikemas / Siap kirim / Dikirim; badge menu Pesanan = online yang belum dikirim.
+  **Pengiriman (dummy)**: kurir per kanal (SPX/J&T, JNE/SiCepat/GoSend, Kurir toko), no. resi & kota tujuan dibuat dari id pesanan, timeline lacak dihitung
+  dari waktu serah ke kurir (`pickedAt`) — fungsi `shipInfo()` di `tools/retail/index_patches.py`. Kasir: pilih kurir di form pesanan online.
+  Stok = **per ukuran** (id SKU `a5-M`, tas tanpa ukuran `b1`); kasir memilih ukuran dan melihat sisa stok per ukuran, ukuran habis tidak bisa ditambah.
+  `OS.usage` memotong stok SKU ukuran yang dipilih (1 terjual = 1 pcs). **PPN 11% sudah termasuk harga** (`calcTot`), margin dihitung dari harga sebelum PPN
+  (warna margin: hijau > 45%, kuning > 30%). Editor produk: panel "Harga beli & margin" + "Stok per ukuran" menggantikan panel BOM.
+  Ringkasan: KPI "Barang terjual" (pcs per transaksi), kartu "Kategori terlaris" (7 hari) dan "Perlu restock" menggantikan tipe pesanan & reservasi.
+  Struk: "BELI DI TOKO", "PPN 11% (termasuk)", catatan tukar ukuran 7 hari. Kata "bahan" → "barang".
+- **Data contoh** (skenario "toko sudah berjalan"): ±17–21 transaksi/hari/outlet, rata-rata ±Rp 720rb; di Kemang sengaja ada ukuran habis
+  (Polo Marun M & L, semua ukuran Ballet Flats Polkadot) untuk demo "habis per ukuran". `localStorage` terpisah: `omnify-retail-db-v7`.
+- Diuji di Chrome headless (desktop 1366, HP 390, owner/kasir/semua outlet): semua halaman tanpa error JS; penjualan memotong stok ukuran yang benar.
+
+### Perlu tinjauan pemilik
+- [ ] Nama bisnis "Garis Goods", nama produk, harga jual & harga beli (HPP) saya tentukan sendiri.
+- [ ] Foto produk milik merek aslinya — aman untuk demo internal/sales, sebaiknya diganti foto sendiri sebelum dipajang publik.
+- [ ] Produk baru yang dibuat di demo belum otomatis punya SKU stok per ukuran (hanya produk bawaan). Varian warna belum dipisah stoknya (warna = produk terpisah).
