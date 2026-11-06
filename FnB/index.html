@@ -75,6 +75,7 @@ article[id]{scroll-margin-top:24px}.pf-cats{display:flex;flex-wrap:wrap;gap:8px}
 .pf .pf-pause:focus-visible{outline:3px solid #eef4ea;outline-offset:-6px}
 @media (max-width:640px){.pf-stage{aspect-ratio:4/3}.pf-name{font-size:17px}.pf-foot{padding:44px 12px 12px}.pf-tabs{display:flex;overflow-x:auto;scroll-snap-type:x proximity;margin:0 -20px;padding:3px 20px 6px;scroll-padding:0 20px}.pf-tab{flex:0 0 auto;scroll-snap-align:start}}
 @media (max-width:640px){.pf-cats{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:3px 20px 4px}.pf-cat{flex:none}}
+.team-grid{grid-template-columns:repeat(3,minmax(0,1fr))}@media (max-width:600px){.team-grid{grid-template-columns:minmax(0,1fr)}}
 </style>
 <link rel="prefetch" href="../FnB/">
 <link rel="prefetch" href="../Marketplace/">
@@ -343,6 +344,29 @@ article[id]{scroll-margin-top:24px}.pf-cats{display:flex;flex-wrap:wrap;gap:8px}
     </sc-if>
   </section>
 
+  <section id="sales" style="background:#f5f6f3;border-top:1px solid #e1e4dc">
+    <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:clamp(28px,4vw,44px);box-sizing:border-box">
+      <div data-reveal="1" style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;max-width:640px">
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:6px 12px;border-radius:999px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2a6.5 6.5 0 0 1 3.5 5.8"></path></svg>{{ team.tag }}</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.05;text-wrap:balance">{{ team.title }}</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#4b5247;text-wrap:pretty">{{ team.body }}</p>
+      </div>
+      <ul class="team-grid" data-reveal-stagger="1" style="list-style:none;margin:0;padding:0;display:grid;gap:clamp(14px,2vw,20px)">
+        <sc-for list="{{ team.people }}" as="m" hint-placeholder-count="3"><li style="background:#fff;border:1px solid #e1e4dc;border-radius:16px;padding:clamp(24px,3vw,32px) clamp(18px,2.4vw,28px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;box-sizing:border-box;min-width:0">
+          <img src="{{ m.photo }}" alt="{{ m.alt }}" width="136" height="136" loading="lazy" style="display:block;width:clamp(112px,14vw,136px);height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;background:#cfdcf0;box-shadow:0 0 0 4px #fff,0 0 0 5px #e1e4dc">
+          <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+            <span style="font-size:20px;font-weight:600;letter-spacing:-.01em;color:#0f1410">{{ m.name }}</span>
+          </div>
+          <a href="{{ m.tel }}" style="font-size:16px;font-weight:600;color:#0f1410;font-variant-numeric:tabular-nums;min-height:44px;display:inline-flex;align-items:center" style-hover="color:oklch(0.42 0.12 140)">{{ m.phone }}</a>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%">
+            <a href="{{ m.wa }}" target="_blank" rel="noopener" aria-label="{{ m.waLabel }}" style="flex:1 1 auto;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:oklch(0.42 0.12 140);color:#fff;padding:10px 16px;border-radius:8px;font-size:15px;font-weight:600;box-sizing:border-box" style-hover="background:oklch(0.36 0.11 140);color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
+            <a href="{{ m.ig }}" target="_blank" rel="noopener" aria-label="{{ m.igLabel }}" style="flex:1 1 auto;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#eef1ea;color:#0f1410;padding:10px 16px;border-radius:8px;font-size:15px;font-weight:600;box-sizing:border-box;white-space:nowrap" style-hover="background:#e1e4dc;color:#0f1410"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>{{ m.handle }}</a>
+          </div>
+        </li></sc-for>
+      </ul>
+    </div>
+  </section>
+
   <section id="estimate" style="background:#fff;border-top:1px solid #e1e4dc">
     <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:clamp(24px,3.5vw,36px);box-sizing:border-box">
       <div style="display:flex;flex-direction:column;gap:10px;max-width:720px" data-reveal="1">
@@ -375,49 +399,6 @@ article[id]{scroll-margin-top:24px}.pf-cats{display:flex;flex-wrap:wrap;gap:8px}
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
         <a href="{{ waHref }}" target="_blank" rel="noopener" style="background:#0f1410;color:#eef4ea;padding:16px 26px;border-radius:8px;font-size:16px;font-weight:600" style-hover="background:#24302a;color:#eef4ea">{{ t.k46 }}</a>
         <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#4b5247">{{ selLabel }}</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="instagram" style="background:#fff;border-top:1px solid #e1e4dc">
-    <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:clamp(36px,5vw,72px);box-sizing:border-box">
-      <div data-reveal="1" style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:16px;max-width:480px">
-        <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.42 0.13 140);background:oklch(0.62 0.17 140 / .14);padding:6px 12px;border-radius:999px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>{{ ig.tag }}</span>
-        <h2 style="margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.035em;line-height:1.05;text-wrap:balance">{{ ig.title }}</h2>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#4b5247;text-wrap:pretty">{{ ig.body }}</p>
-        <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="margin-top:8px;display:inline-flex;align-items:center;gap:10px;background:#0f1410;color:#eef4ea;padding:16px 26px;border-radius:8px;font-size:16px;font-weight:600" style-hover="background:#24302a;color:#eef4ea"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>{{ ig.cta }}</a>
-      </div>
-      <div data-reveal="1" style="flex:1 1 560px;min-width:0;max-width:680px;background:#fff;border:1px solid #e1e4dc;border-radius:16px;box-shadow:0 1px 0 #eef1ea,0 24px 60px rgba(15,20,16,.08);overflow:hidden;color:#0f1410">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(18px,3vw,28px);border-bottom:1px solid #eef1ea;font-size:14px;font-weight:600">
-          <span style="display:inline-flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg> Instagram</span>
-          <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="color:#4b5247;font-weight:500" style-hover="color:#0f1410">{{ ig.view }} ↗</a>
-        </div>
-        <div style="padding:clamp(22px,3.4vw,36px) clamp(18px,3vw,28px);display:flex;flex-wrap:wrap;align-items:flex-start;gap:20px clamp(24px,4vw,44px)">
-          <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" aria-label="@creativelogy" style="flex:0 0 auto;width:clamp(96px,12vw,136px);aspect-ratio:1;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75);box-sizing:border-box">
-            <span style="display:block;width:100%;height:100%;border-radius:50%;border:3px solid #fff;background:#b9b1a6 url('../uploads/creativelogy.jpg') center/cover no-repeat;box-sizing:border-box"></span>
-          </a>
-          <div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px">
-              <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="font-size:clamp(20px,2vw,24px);font-weight:500;letter-spacing:-.01em;color:#0f1410">creativelogy</a>
-              <div style="display:flex;gap:8px;font-size:14px;font-weight:600">
-                <a href="https://www.instagram.com/creativelogy/" target="_blank" rel="noopener" style="background:oklch(0.42 0.12 140);color:#fff;padding:8px 18px;border-radius:8px" style-hover="background:oklch(0.36 0.11 140);color:#fff">{{ ig.follow }}</a>
-                <a href="https://ig.me/m/creativelogy" target="_blank" rel="noopener" style="background:#eef1ea;color:#0f1410;padding:8px 18px;border-radius:8px" style-hover="background:#e1e4dc;color:#0f1410">{{ ig.message }}</a>
-              </div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:8px 36px;font-size:16px;color:#4b5247">
-              <span><b style="color:#0f1410;font-weight:600">1,387</b> {{ ig.followers }}</span>
-              <span><b style="color:#0f1410;font-weight:600">1,413</b> {{ ig.following }}</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:2px;font-size:15px;line-height:1.5">
-              <span style="font-weight:600">Khalifah Imam Ali</span>
-              <span>Product Designer | UX Designer</span>
-              <span>Building websites for SMEs &amp; Startup (DM)</span>
-              <span>-</span>
-              <span>Find me at <a href="https://www.instagram.com/seesightseen/" target="_blank" rel="noopener" style="color:#00376b" style-hover="color:#0f1410">@seesightseen</a> and listen to my… <span style="color:#4b5247">{{ ig.more }}</span></span>
-              <a href="https://www.linkedin.com/in/khalifah-imam-ali-2211701ba" target="_blank" rel="noopener" style="margin-top:4px;display:inline-flex;align-items:center;gap:6px;color:#00376b;font-weight:600;min-width:0;overflow-wrap:anywhere" style-hover="color:#0f1410"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg><span>www.linkedin.com/in/khalifah-imam-ali-2211701ba</span></a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -606,13 +587,21 @@ class Component extends DCLogic {
         toggle: () => this.setState(s => ({ goals: s.goals.includes(i) ? s.goals.filter(x => x !== i) : [...s.goals, i].sort() }))
       })),
       b15: isID ? { tag: 'Penawaran paket', title: 'Diskon 15% untuk landing page Anda', body: 'Pesan Landing Page FnB bersama Sistem Manajemen Pesanan (POS), dan landing page jadi 15% lebih murah.', a: 'Landing Page FnB', b: 'Sistem Manajemen Pesanan (POS)', cta: 'Ambil paket ini' } : { tag: 'Bundle offer', title: 'Get 15% off your landing page', body: 'Order a FnB Landing Page together with an Order Management System (POS), and the landing page is 15% cheaper.', a: 'FnB Landing Page', b: 'Order Management System (POS)', cta: 'Claim the bundle' },
-      ig: isID ? { tag: 'Instagram', title: 'Masih ada pertanyaan?', body: 'Hubungi saya juga lewat Instagram. Kirim DM untuk tanya apa saja, dari ide awal, harga, sampai sistem yang cocok untuk bisnis Anda.', cta: 'Kunjungi @creativelogy', follow: 'Ikuti', message: 'Kirim pesan', followers: 'pengikut', following: 'mengikuti', more: 'selengkapnya', view: 'Lihat profil' } : { tag: 'Instagram', title: 'Still have questions?', body: 'Reach out to me on Instagram too. Send a DM about anything, from a first idea and pricing to the right system for your business.', cta: 'Visit @creativelogy', follow: 'Follow', message: 'Message', followers: 'followers', following: 'following', more: 'more', view: 'View profile' },
+      team: (() => {
+        const ppl = [['Imam', '628977887994', '+62 897-7887-994', 'creativelogy', 'imam'], ['Rizky', '6282119688218', '+62 821-1968-8218', 'mrfadhlu', 'rizky'], ['Hamdan', '6281395203739', '+62 813-9520-3739', 'hmmdaen', 'hamdan']];
+        const hi = n => isID ? `Halo ${n}, saya mau tanya tentang layanan Omnify Lab` : `Hi ${n}, I'd like to ask about Omnify Lab's services`;
+        return {
+          tag: 'Our team', title: isID ? 'Ngobrol langsung dengan tim kami' : 'Talk directly with our team',
+          body: isID ? 'Pilih siapa saja dari kami. Tanya harga, minta demo, atau konsultasi kebutuhan bisnis Anda lewat WhatsApp maupun Instagram.' : 'Pick any one of us. Ask about pricing, request a demo, or talk through your business needs on WhatsApp or Instagram.',
+          people: ppl.map(([name, num, phone, ig, img]) => ({ name, phone, handle: '@' + ig, photo: `../uploads/team/${img}.jpg`, alt: isID ? `Foto ${name}` : `Photo of ${name}`, tel: `tel:+${num}`, wa: `https://wa.me/${num}?text=${encodeURIComponent(hi(name))}`, ig: `https://www.instagram.com/${ig}/`, waLabel: `WhatsApp ${name} (${phone})`, igLabel: `Instagram ${name} @${ig}` }))
+        };
+      })(),
       promo: isID ? { tag: 'Diskon multi-bisnis', title: 'Punya lebih dari satu bisnis?', body: 'Langganan sistem manajemen kami untuk 2 bisnis atau lebih dan dapatkan potongan harga hingga Rp 50rb / bulan per bisnis. Seluruh sistem manajemen kami juga sudah mendukung multi cabang.' } : { tag: 'Multi-business discount', title: 'Running more than one business?', body: 'Subscribe to our management system for 2 or more of your businesses and get a discount of up to Rp 50rb / month per business. All of our management systems also support multiple branches.' },
       selLabel: isID ? (sel.length ? `${sel.length} tujuan dipilih` : 'Pilih tujuan Anda agar kami bisa lebih memahami bisnis Anda') : (sel.length ? `${sel.length} goal${sel.length > 1 ? 's' : ''} selected` : 'Pick your goals so we can better understand your business'),
       skipLabel: isID ? 'Langsung ke portofolio' : 'Skip to portfolio', isPaused: !!this.state.paused, isPlaying: !this.state.paused, togglePause: () => this.togglePause(), pauseLabel: this.state.paused ? (isID ? 'Putar pratinjau video' : 'Play video previews') : (isID ? 'Jeda pratinjau video' : 'Pause video previews'), popOpen: !!this.state.pop, popSrc: this.state.pop || '', popPoster: this.posterOf(this.state.pop || ''), popLoadLabel: isID ? 'Memuat video…' : 'Loading video…', closePop: () => this.closePop(), stopProp: e => e.stopPropagation(), t, isID, isEN: !isID, setID: () => this.setLang('id'), setEN: () => this.setLang('en'),
       setIDBg: isID ? '#0f1410' : 'transparent', setIDFg: isID ? '#eef4ea' : '#454b42', setENBg: isID ? 'transparent' : '#0f1410', setENFg: isID ? '#454b42' : '#eef4ea',
-      bundleWa: 'https://wa.me/628977887994?text=' + encodeURIComponent(isID ? 'Halo Omnify Lab, saya tertarik dengan paket POS + IKM' : "Hi Omnify Lab, I'm interested in the POS + IKM bundle"),
-      waHref: `https://wa.me/628977887994?text=${encodeURIComponent(msg)}`
+      bundleWa: 'https://wa.me/6282119688218?text=' + encodeURIComponent(isID ? 'Halo Omnify Lab, saya tertarik dengan paket POS + IKM' : "Hi Omnify Lab, I'm interested in the POS + IKM bundle"),
+      waHref: `https://wa.me/6282119688218?text=${encodeURIComponent(msg)}`
     };
   }
 }
