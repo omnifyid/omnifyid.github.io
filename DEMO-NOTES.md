@@ -10,7 +10,7 @@ bukan hanya video. Karena contohnya makin banyak, tiap layanan sekarang punya **
 
 Keputusan yang sudah disepakati (jangan dibahas ulang):
 
-1. Preview video di card = klip 8 detik tanpa suara dari `uploads/previews/`. Video penuh hanya untuk popup.
+1. Card memakai **gambar thumbnail** (`uploads/posters/`). Sejak 2026-11-07 **hanya video POS/sistem** (`Omnify Film - …`) yang masih punya preview video 8 detik di card; video contoh website/booking app dihapus.
 2. Demo dibuka di **tab yang sama**; bar demo punya ← Kembali, tab **Web / Mobile**, dan WhatsApp.
 3. Landing page default tampilan **Web**, booking app default **Mobile**. Di HP (< 700px) tab disembunyikan.
 4. Video sistem/POS (Self Order, Kasir, Dapur & Inventaris, Kasir & Inventaris) **tidak boleh diarahkan ke demo POS** (repo `omnify-demo-fnb`); tetap popup video sampai tahap berikutnya.
