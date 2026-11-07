@@ -173,10 +173,12 @@ Demo POS **tidak lagi ada di repo ini**. Masing-masing repo GitHub Pages sendiri
 
 | Repo | URL | Isi |
 |---|---|---|
-| [omnifyid/omnify-demo-fnb](https://github.com/omnifyid/omnify-demo-fnb) | https://omnifyid.github.io/omnify-demo-fnb/ | demo POS FnB (dulu `demo/`) |
-| [omnifyid/omnify-demo-retail](https://github.com/omnifyid/omnify-demo-retail) | https://omnifyid.github.io/omnify-demo-retail/ | demo POS toko fashion "Garis Goods" (dulu `demo-retail/`) |
+| [Omnify-Lab/omnify-demo-fnb](https://github.com/Omnify-Lab/omnify-demo-fnb) | https://omnify-lab.github.io/omnify-demo-fnb/ | demo POS FnB (dulu `demo/`) |
+| [Omnify-Lab/omnify-demo-retail](https://github.com/Omnify-Lab/omnify-demo-retail) | https://omnify-lab.github.io/omnify-demo-retail/ | demo POS toko fashion "Garis Goods" (dulu `demo-retail/`) |
 
-- URL lama `/demo/` dan `/demo-retail/` **tidak berlaku lagi** (404).
+- URL lama `/demo/` dan `/demo-retail/` **tidak berlaku lagi** (404). Ketiga repo ada di organisasi GitHub **Omnify-Lab**.
+- Rencana domain: landing di domain utama (mis. `omnifylab.com`), demo di **subdomain** (mis. `demo-fnb.` / `demo-retail.`), tiap repo punya file `CNAME` sendiri.
+  Saat domain aktif: ganti URL canonical/OG di `omnify-demo-fnb/index.html` dan pola URL di `omnify-demo-retail/tools/retail/index_patches.py`, lalu bangun ulang retail.
 - Logo (`brand/logo-*.svg`) dan `og/demo.png` disalin ke tiap repo demo; kalau logo di sini berubah, salin ulang ke `omnify-demo-fnb` lalu bangun ulang retail.
 - Retail **dibangun dari** repo FnB: `tools/make-retail.py` + `tools/retail/` ada di repo `omnify-demo-retail` (membaca `../omnify-demo-fnb`).
   Jangan edit file situs retail langsung. Detail fitur retail ada di README repo retail & riwayat commit `aed9d4b`.
