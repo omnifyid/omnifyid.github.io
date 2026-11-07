@@ -50,7 +50,8 @@ window.OMNIFY_DEMOS = {
 
   // Systems: the card keeps its video preview, the button opens the shared detail page
   // (showcase/sistem/, screenshots + feature checklist per module). `detail: true` turns the
-  // button label into "Lihat detail". They must NOT link to demo/ (PIN-protected, owner's decision).
+  // button label into "Lihat detail". They must NOT link to the POS demos (repos omnify-demo-fnb /
+  // omnify-demo-retail; PIN-protected, owner's decision).
   'self-order':    { name: 'Self Order',          kind: 'system', video: 'Omnify Film - Self Order', href: 'showcase/sistem/#kasir', detail: true },
   'pos':           { name: 'Kasir (POS)',         kind: 'system', video: 'Omnify Film - Kasir (1)', href: 'showcase/sistem/#kasir', detail: true },
   'ikm':           { name: 'Dapur & Inventaris',  kind: 'system', video: 'Omnify Film - Dapur - Inventaris (1)', href: 'showcase/sistem/#dapur', detail: true },
