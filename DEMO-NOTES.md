@@ -10,10 +10,10 @@ bukan hanya video. Karena contohnya makin banyak, tiap layanan sekarang punya **
 
 Keputusan yang sudah disepakati (jangan dibahas ulang):
 
-1. Preview video di card = klip 8 detik tanpa suara dari `uploads/previews/`. Video penuh hanya untuk popup.
+1. Card memakai **gambar thumbnail** (`uploads/posters/`). Sejak 2026-11-07 **hanya video POS/sistem** (`Omnify Film - …`) yang masih punya preview video 8 detik di card; video contoh website/booking app dihapus.
 2. Demo dibuka di **tab yang sama**; bar demo punya ← Kembali, tab **Web / Mobile**, dan WhatsApp.
 3. Landing page default tampilan **Web**, booking app default **Mobile**. Di HP (< 700px) tab disembunyikan.
-4. Video sistem/POS (Self Order, Kasir, Dapur & Inventaris, Kasir & Inventaris) **tidak boleh diarahkan ke `demo/`**; tetap popup video sampai tahap berikutnya.
+4. Video sistem/POS (Self Order, Kasir, Dapur & Inventaris, Kasir & Inventaris) **tidak boleh diarahkan ke demo POS** (repo `omnify-demo-fnb`); tetap popup video sampai tahap berikutnya.
 5. Kafe ada di **FnB**. Sanurhasta = **Website Company Profile** di **Lainnya**. Dapur Awan Checkout **dihapus** (web Dapur Awan sudah cukup).
 6. FnB 02 bernama **Self Order Menu / Menu Self Order** (dulu Food Catalogue Menu).
 7. **Urutan konten di tiap halaman: Landing page → Booking app → Sistem manajemen.**
@@ -37,7 +37,7 @@ URL `omnifyid.github.io` (canonical/og) tetap sampai domain baru aktif.
 | `brand/logo-white.svg` | logo teks di latar gelap (login & PIN gate POS, kartu login mobile, gambar `og/*.png`) |
 | `favicon.svg` (= `brand/icon-main.svg`, logo 1) | favicon halaman utama (FnB, Marketplace, Lainnya, root, 404) |
 | `showcase/favicon.svg` (= `brand/icon-second.svg`, logo 2) | favicon semua demo drill-down + `showcase/sistem/` (`href="../favicon.svg"`) |
-| `demo/favicon.svg` (= `brand/icon-third.svg`, logo 3) | favicon POS `demo/` + ikon kotak kecil di dalam aplikasi POS |
+| `brand/icon-third.svg` (logo 3) | favicon demo POS (salinannya `favicon.svg` di repo `omnify-demo-fnb` / `omnify-demo-retail`) |
 
 Logo dipasang sebagai `<img>` SVG dengan `height` tetap/`clamp()` dan `width:auto` (rasio 461:126). `og/*.png` dibuat ulang dengan logo baru.
 
@@ -157,7 +157,7 @@ Semua layanan sistem manajemen (FnB 03 Self Order, FnB 04 POS, FnB 05 IKM, Marke
 - **Add-on (5):** Integrasi WhatsApp, Absensi Foto + GPS, Denah Meja, Purchase Order, Aplikasi Booking (link ke demo `rumah-senja-booking`).
 - Teks ID/EN ada di objek `T` di dalam `index.html` (ikut `omnify-lang`). Tombol kembali memakai `?from=` (divalidasi), default `FnB/#fnb-04`.
 - Gambar di `showcase/sistem/img/`: `<nama>-md.jpg` (1100px, dipakai di halaman), `<nama>.jpg` (1800px, hanya lightbox/layar besar lewat srcset),
-  `<nama>-sm.jpg` (thumbnail). Diambil dari `demo/` (owner Arif / kasir Bayu, outlet Kemang, skenario "Toko sudah berjalan") lewat Chrome headless;
+  `<nama>-sm.jpg` (thumbnail). Diambil dari demo POS FnB (repo `omnify-demo-fnb`; owner Arif / kasir Bayu, outlet Kemang, skenario "Toko sudah berjalan") lewat Chrome headless;
   kasir, KDS, meja, dan form produk diisi dulu lewat klik otomatis supaya tidak kosong. Laba rugi sengaja tidak dipakai (data contoh bulan ini rugi).
 - Performa: tanpa `backdrop-filter` dan `filter: blur` (glow = radial-gradient), gambar lazy + `decoding=async`, animasi hanya opacity/transform.
   Scroll reveal: `[data-rv]` (fade/slide/zoom) dan `[data-rv-kids]` (anak muncul bergantian); satu IntersectionObserver, mati otomatis saat *reduce motion*.
@@ -167,38 +167,22 @@ Semua layanan sistem manajemen (FnB 03 Self Order, FnB 04 POS, FnB 05 IKM, Marke
 - [ ] Estimasi "2–6 minggu, tergantung modul" diambil dari ETA POS (14–30 hari) & IKM (4–6 minggu).
 - [ ] Kode popup video (`openPop`, `closePop`, `popOpen`) & video penuh sistem di `uploads/` sekarang tidak dipakai card mana pun; boleh dihapus kalau setuju.
 
-## Demo POS Retail — `demo-retail/` (2026-11-06, belum di-commit)
+## Demo POS — dipisah ke repo sendiri (2026-11-07)
 
-Versi **toko fashion** dari demo POS `demo/` (logika, tema, modul sama). Bisnis contoh: **Garis Goods** (3 outlet: Kemang, Senopati, BSD; jam 10:00–22:00).
-Login sama seperti FnB tapi email `@garisgoods.id` (mis. `arif@garisgoods.id` / `0000`, PIN Arif 6666). PIN gate sama dengan `demo/`.
-Seperti `demo/`, **jangan ditautkan dari kartu portofolio** (pakai PIN) kecuali owner minta.
+Demo POS **tidak lagi ada di repo ini**. Masing-masing repo GitHub Pages sendiri (riwayat commit ikut dibawa):
 
-- **Dibangun otomatis**: `python3 tools/make-retail.py` menyalin `demo/` → `demo-retail/` lalu menambal teks secara persis
-  (setiap pola harus cocok; kalau `demo/` berubah dan pola tidak cocok, skrip berhenti dan menyebut polanya). Jadi perbaikan di FnB
-  dibawa ke retail cukup dengan menjalankan ulang skrip. **Jangan edit `demo-retail/` langsung** — edit `tools/retail/`.
-  - `tools/retail/omnify-data.js` — katalog 24 produk (8 pakaian, 9 sepatu, 7 tas), 84 SKU stok per ukuran, 3 pemasok.
-  - `tools/retail/products/*.webp` — foto produk 480×480 (dummy katalog; diambil dari preppstudio.com, nappamilano.id, jansport.com). Nama produk dibuat generik.
-  - `tools/retail/index_patches.py` — tambalan `index.html`; tambalan `omnify-store.js` ada di `tools/make-retail.py` (`STORE`).
-- **Beda dari FnB**: modul Self order, Meja/Reservasi, Dapur (KDS), dan BOM/resep **mati & disembunyikan** dari Pengaturan.
-  **Kanal penjualan**: Di toko + Online (**Website, Shopee, Tokopedia**; harga per kanal +0/+8/+8%, komisi 2/10/9%, cair H+1/H+3/H+3).
-  Ikon kanal = tanda kotak buatan sendiri (`tools/retail/pay/ch-*.svg`), bukan logo resmi. ±30% transaksi dari online.
-  **Status pesanan online**: Pesanan baru → Dikemas → Siap kirim → Dikirim → Selesai (tombol: Mulai kemas / Selesai dikemas / Serahkan ke kurir / Tandai terkirim);
-  bisa "Dibatalkan di kanal" (barang kembali ke stok). Filter Pesanan: Perlu dikemas / Siap kirim / Dikirim; badge menu Pesanan = online yang belum dikirim.
-  **Pengiriman (dummy)**: kurir per kanal (SPX/J&T, JNE/SiCepat/GoSend, Kurir toko), no. resi & kota tujuan dibuat dari id pesanan, timeline lacak dihitung
-  dari waktu serah ke kurir (`pickedAt`) — fungsi `shipInfo()` di `tools/retail/index_patches.py`. Kasir: pilih kurir di form pesanan online.
-  Stok = **per ukuran** (id SKU `a5-M`, tas tanpa ukuran `b1`); kasir memilih ukuran dan melihat sisa stok per ukuran, ukuran habis tidak bisa ditambah.
-  `OS.usage` memotong stok SKU ukuran yang dipilih (1 terjual = 1 pcs). **PPN 11% sudah termasuk harga** (`calcTot`), margin dihitung dari harga sebelum PPN
-  (warna margin: hijau > 45%, kuning > 30%). Editor produk: panel "Harga beli & margin" + "Stok per ukuran" menggantikan panel BOM.
-  Ringkasan: KPI "Barang terjual" (pcs per transaksi), kartu "Kategori terlaris" (7 hari) dan "Perlu restock" menggantikan tipe pesanan & reservasi.
-  Struk: "BELI DI TOKO", "PPN 11% (termasuk)", catatan tukar ukuran 7 hari. Kata "bahan" → "barang".
-- **Data contoh** (skenario "toko sudah berjalan"): ±17–21 transaksi/hari/outlet, rata-rata ±Rp 720rb; di Kemang sengaja ada ukuran habis
-  (Polo Marun M & L, semua ukuran Ballet Flats Polkadot) untuk demo "habis per ukuran". `localStorage` terpisah: `omnify-retail-db-v7`.
-- Diuji di Chrome headless (desktop 1366, HP 390, owner/kasir/semua outlet): semua halaman tanpa error JS; penjualan memotong stok ukuran yang benar.
+| Repo | URL | Isi |
+|---|---|---|
+| [Omnify-Lab/omnify-demo-fnb](https://github.com/Omnify-Lab/omnify-demo-fnb) | https://omnify-lab.github.io/omnify-demo-fnb/ | demo POS FnB (dulu `demo/`) |
+| [Omnify-Lab/omnify-demo-retail](https://github.com/Omnify-Lab/omnify-demo-retail) | https://omnify-lab.github.io/omnify-demo-retail/ | demo POS toko fashion "Garis Goods" (dulu `demo-retail/`) |
 
-### Perlu tinjauan pemilik
-- [ ] Nama bisnis "Garis Goods", nama produk, harga jual & harga beli (HPP) saya tentukan sendiri.
-- [ ] Foto produk milik merek aslinya — aman untuk demo internal/sales, sebaiknya diganti foto sendiri sebelum dipajang publik.
-- [ ] Produk baru yang dibuat di demo belum otomatis punya SKU stok per ukuran (hanya produk bawaan). Varian warna belum dipisah stoknya (warna = produk terpisah).
+- URL lama `/demo/` dan `/demo-retail/` **tidak berlaku lagi** (404). Ketiga repo ada di organisasi GitHub **Omnify-Lab**.
+- Rencana domain: landing di domain utama (mis. `omnifylab.com`), demo di **subdomain** (mis. `demo-fnb.` / `demo-retail.`), tiap repo punya file `CNAME` sendiri.
+  Saat domain aktif: ganti URL canonical/OG di `omnify-demo-fnb/index.html` dan pola URL di `omnify-demo-retail/tools/retail/index_patches.py`, lalu bangun ulang retail.
+- Logo (`brand/logo-*.svg`) dan `og/demo.png` disalin ke tiap repo demo; kalau logo di sini berubah, salin ulang ke `omnify-demo-fnb` lalu bangun ulang retail.
+- Retail **dibangun dari** repo FnB: `tools/make-retail.py` + `tools/retail/` ada di repo `omnify-demo-retail` (membaca `../omnify-demo-fnb`).
+  Jangan edit file situs retail langsung. Detail fitur retail ada di README repo retail & riwayat commit `aed9d4b`.
+- Keduanya dilindungi PIN; **jangan ditautkan dari kartu portofolio** kecuali owner minta.
 
 ## Kontak sales (2026-11-06)
 

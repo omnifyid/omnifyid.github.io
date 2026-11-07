@@ -29,28 +29,29 @@ window.OMNIFY_CATS = {
 
 window.OMNIFY_DEMOS = {
   // Websites
-  'rumah-senja':  { name: 'Rumah Senja',      kind: 'web', cat: 'resto', type: { id: 'Restoran fine dining', en: 'Fine-dining restaurant' }, video: 'Film - Rumah Senja', href: 'showcase/rumah-senja/' },
-  'dapur-awan':   { name: 'Dapur Awan',       kind: 'web', cat: 'cloud', type: { id: 'Cloud kitchen, 4 brand', en: 'Cloud kitchen, 4 brands' }, video: 'Film - Dapur Awan', href: 'showcase/dapur-awan/' },
+  'rumah-senja':  { name: 'Rumah Senja',      kind: 'web', cat: 'resto', type: { id: 'Restoran fine dining', en: 'Fine-dining restaurant' }, poster: 'Film - Rumah Senja', href: 'showcase/rumah-senja/' },
+  'dapur-awan':   { name: 'Dapur Awan',       kind: 'web', cat: 'cloud', type: { id: 'Cloud kitchen, 4 brand', en: 'Cloud kitchen, 4 brands' }, poster: 'Film - Dapur Awan', href: 'showcase/dapur-awan/' },
   'elevate':      { name: 'Elevate Coffee',   kind: 'web', cat: 'cafe',  type: { id: 'Kafe & klub komunitas', en: 'Café & community club' }, poster: 'elevate', href: 'showcase/elevate/' },
   'first-floor':  { name: 'First Floor',      kind: 'web', cat: 'cafe',  type: { id: 'Coffee shop & roastery', en: 'Coffee shop & roastery' }, poster: 'first-floor', href: 'showcase/first-floor/' },
-  'kopi-kala':    { name: 'Kopi Kala',        kind: 'web', cat: 'cafe',  type: { id: 'Coffee shop & bar', en: 'Coffee shop & bar' }, video: 'Film - Kopi Kala', href: 'showcase/kopi-kala/' },
+  'kopi-kala':    { name: 'Kopi Kala',        kind: 'web', cat: 'cafe',  type: { id: 'Coffee shop & bar', en: 'Coffee shop & bar' }, poster: 'Film - Kopi Kala', href: 'showcase/kopi-kala/' },
   'padel-me':     { name: 'Padel Me',         kind: 'web', cat: 'sport', type: { id: 'Klub padel indoor', en: 'Indoor padel club' }, poster: 'padel-me', href: 'showcase/padel-me/' },
   'nucleo-pilates-web': { name: 'Nucleo Pilates', kind: 'web', cat: 'sport', type: { id: 'Studio pilates', en: 'Pilates studio' }, poster: 'nucleo-pilates-web', soon: true },
-  'jangkar':      { name: 'Jangkar Barber',   kind: 'web', cat: 'barber', type: { id: 'Barbershop', en: 'Barbershop' }, video: 'Film - Jangkar', href: 'showcase/jangkar/' },
+  'jangkar':      { name: 'Jangkar Barber',   kind: 'web', cat: 'barber', type: { id: 'Barbershop', en: 'Barbershop' }, poster: 'Film - Jangkar', href: 'showcase/jangkar/' },
   'sanurhasta':   { name: 'Sanurhasta Mitra', kind: 'web', type: { id: 'Perusahaan grup', en: 'Group company' }, poster: 'sanurhasta', href: 'showcase/sanurhasta/' },
-  'pualam':       { name: 'Pualam',           kind: 'web', type: { id: 'Batu alam & permukaan', en: 'Stone & surfaces' }, video: 'Film - Pualam', href: 'showcase/pualam/' },
-  'dynare':       { name: 'Dynaré',           kind: 'web', type: { id: 'Brand pakaian olahraga', en: 'Activewear brand' }, video: 'Dynare 1c Showcase (1)', href: 'showcase/dynare/' },
+  'pualam':       { name: 'Pualam',           kind: 'web', type: { id: 'Batu alam & permukaan', en: 'Stone & surfaces' }, poster: 'Film - Pualam', href: 'showcase/pualam/' },
+  'dynare':       { name: 'Dynaré',           kind: 'web', type: { id: 'Brand pakaian olahraga', en: 'Activewear brand' }, poster: 'Dynare 1c Showcase (1)', href: 'showcase/dynare/' },
 
   // Booking apps (their demo pages open in the Mobile view)
   'rumah-senja-booking': { name: 'Rumah Senja',    kind: 'app', cat: 'resto',   type: { id: 'Reservasi restoran', en: 'Restaurant reservations' }, poster: 'rumah-senja-booking', href: 'showcase/rumah-senja-booking/' },
-  'jangkar-booking':     { name: 'Jangkar Barber', kind: 'app', cat: 'barber',  type: { id: 'Booking barbershop', en: 'Barbershop booking' }, video: 'Reel - Jangkar Booking', href: 'showcase/jangkar-booking/' },
-  'bilas-laundry':       { name: 'Bilas Laundry',  kind: 'app', cat: 'laundry', type: { id: 'Antar-jemput laundry', en: 'Laundry pickup' }, video: 'Reel - Bilas Laundry Booking', href: 'showcase/bilas-laundry/' },
+  'jangkar-booking':     { name: 'Jangkar Barber', kind: 'app', cat: 'barber',  type: { id: 'Booking barbershop', en: 'Barbershop booking' }, poster: 'Reel - Jangkar Booking', href: 'showcase/jangkar-booking/' },
+  'bilas-laundry':       { name: 'Bilas Laundry',  kind: 'app', cat: 'laundry', type: { id: 'Antar-jemput laundry', en: 'Laundry pickup' }, poster: 'Reel - Bilas Laundry Booking', href: 'showcase/bilas-laundry/' },
   'vetro-padel':         { name: 'Vetro Padel',    kind: 'app', cat: 'sport',   type: { id: 'Sewa lapangan padel', en: 'Padel court booking' }, poster: 'vetro-padel', href: 'showcase/vetro-padel/' },
   'nucleo-pilates':      { name: 'Nucleo Pilates', kind: 'app', cat: 'sport',   type: { id: 'Kelas pilates', en: 'Pilates classes' }, poster: 'nucleo-pilates', href: 'showcase/nucleo-pilates/' },
 
   // Systems: the card keeps its video preview, the button opens the shared detail page
   // (showcase/sistem/, screenshots + feature checklist per module). `detail: true` turns the
-  // button label into "Lihat detail". They must NOT link to demo/ (PIN-protected, owner's decision).
+  // button label into "Lihat detail". They must NOT link to the POS demos (repos omnify-demo-fnb /
+  // omnify-demo-retail; PIN-protected, owner's decision).
   'self-order':    { name: 'Self Order',          kind: 'system', video: 'Omnify Film - Self Order', href: 'showcase/sistem/#kasir', detail: true },
   'pos':           { name: 'Kasir (POS)',         kind: 'system', video: 'Omnify Film - Kasir (1)', href: 'showcase/sistem/#kasir', detail: true },
   'ikm':           { name: 'Dapur & Inventaris',  kind: 'system', video: 'Omnify Film - Dapur - Inventaris (1)', href: 'showcase/sistem/#dapur', detail: true },
